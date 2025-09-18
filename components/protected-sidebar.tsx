@@ -9,15 +9,7 @@ import {
   Home,
   Sparkles,
   GraduationCap,
-  Settings,
-  BarChart3,
-  Users,
-  FileText,
   HelpCircle,
-  ChevronLeft,
-  ChevronRight,
-  Shield,
-  Calendar,
   Award,
   MessagesSquare
 } from 'lucide-react';
@@ -69,13 +61,7 @@ const menuItems = [
   },
 ];
 
-const adminItems = [
-  {
-    title: 'Configurações',
-    icon: Settings,
-    href: '/configuracoes',
-  },
-];
+const adminItems = [];
 
 const bottomMenuItems = [
   {
@@ -183,60 +169,6 @@ export function ProtectedSidebar({ user }: { user: User | undefined }) {
           </SidebarMenu>
         </div>
 
-        <div className="py-4 border-t">
-          {!isCollapsed && (
-            <p className="px-6 pb-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-              Administração
-            </p>
-          )}
-          <SidebarMenu className="px-3">
-            {adminItems.map((item) => {
-              const isActive = pathname === item.href || 
-                             (item.href !== '/inicio' && pathname.startsWith(item.href));
-              const Icon = item.icon;
-              
-              if (isCollapsed) {
-                return (
-                  <TooltipProvider key={item.href}>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <SidebarMenuItem className="flex justify-center">
-                          <SidebarMenuButton
-                            asChild
-                            isActive={isActive}
-                            className="h-9 w-9 justify-center"
-                          >
-                            <Link href={item.href}>
-                              <Icon className="h-6 w-6" />
-                            </Link>
-                          </SidebarMenuButton>
-                        </SidebarMenuItem>
-                      </TooltipTrigger>
-                      <TooltipContent side="right">
-                        {item.title}
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                );
-              }
-
-              return (
-                <SidebarMenuItem key={item.href}>
-                  <SidebarMenuButton
-                    asChild
-                    isActive={isActive}
-                    className="h-9"
-                  >
-                    <Link href={item.href}>
-                      <Icon className="h-5 w-5" />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              );
-            })}
-          </SidebarMenu>
-        </div>
 
         <div className="mt-auto border-t py-4">
           {!isCollapsed && (
