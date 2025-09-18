@@ -28,8 +28,8 @@ import {
   Heart,
   MapPin
 } from 'lucide-react'
-import { SaoESalvoLogo } from '@/components/sao-e-salvo-logo'
 import FeaturesSection from '@/components/features-section'
+import { SaoESalvoLogo } from '@/components/sao-e-salvo-logo'
 
 export default function LandingPage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
@@ -101,47 +101,8 @@ export default function LandingPage() {
     return () => clearInterval(testimonialInterval)
   }, [])
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Navigation */}
-      <header className="sticky top-0 z-50 w-full bg-[#0063F3]">
-        <div className="container px-4 mx-auto flex h-16 items-center justify-between">
-          <button 
-            onClick={scrollToTop}
-            className="cursor-pointer"
-          >
-            <SaoESalvoLogo size="md" className="text-white" />
-          </button>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/treinamentos" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
-              Treinamentos
-            </Link>
-            <a href="#features" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
-              Funcionalidades
-            </a>
-            <a href="#benefits" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
-              Benefícios
-            </a>
-            <a href="#pricing" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
-              Planos
-            </a>
-            <a href="#testimonials" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
-              Depoimentos
-            </a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="/assistente">
-              <Button variant="ghost" className="text-white hover:text-white hover:bg-white/20">Entrar</Button>
-            </Link>
-            <Button className="bg-white text-[#0063F3] hover:bg-white/90 font-bold">Contato Comercial</Button>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32">
         <div className="container px-4 mx-auto">
@@ -260,138 +221,354 @@ export default function LandingPage() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {/* NR-35 - Trabalho em Altura */}
-            <Card className="hover:shadow-md transition-shadow overflow-hidden flex flex-col group">
-              <div className="relative h-48 bg-gradient-to-r from-gray-400 to-gray-600">
-                <img 
-                  src="/training-covers/nr-35-trabalho-em-altura.png" 
-                  alt="NR-35 Trabalho em Altura"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
-                />
-                <div className="absolute inset-0 bg-brand-grey-main bg-opacity-20"></div>
-                <div className="absolute bottom-2 left-2">
-                  <Badge className="bg-white/90 text-brand-grey-main border-0">NR-35</Badge>
+            <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
+              <Link href="/treinamentos/nr-35-trabalho-em-altura">
+                <div className="relative h-48 cursor-pointer overflow-hidden">
+                  <img 
+                    src="/training-covers/nr-35-trabalho-em-altura.png" 
+                    alt="NR-35 Trabalho em Altura"
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Category and Duration - minimal style */}
+                  <div className="absolute bottom-3 left-3 flex gap-2">
+                    <div className="flex items-center gap-1 bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
+                      <Shield className="h-3 w-3" />
+                      Segurança
+                    </div>
+                    <div className="bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
+                      40 horas
+                    </div>
+                  </div>
                 </div>
+              </Link>
+
+              <div className="flex flex-col flex-1">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg leading-tight line-clamp-2">NR-35 Trabalho em Altura</CardTitle>
+                </CardHeader>
+                
+                <CardContent className="flex-1 pb-3">
+                  <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3 mb-4">
+                    Capacitação completa para trabalhos em altura com foco em segurança, EPIs e prevenção de acidentes.
+                  </p>
+                  
+                  {/* Simplified Badges - minimal style */}
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      NR-35
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      Intermediário
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      Iniciação
+                    </Badge>
+                  </div>
+                </CardContent>
+
+                {/* Footer with button - now always at bottom */}
+                <CardFooter className="pt-0 mt-auto">
+                  <Link href="/treinamentos/nr-35-trabalho-em-altura" className="w-full">
+                    <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
+                      Ver detalhes
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardFooter>
               </div>
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg">NR-35 Trabalho em Altura</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <p className="text-gray-600 leading-relaxed text-sm mb-4">
-                  Curso completo sobre segurança em trabalho em altura, incluindo uso de EPIs e análise de riscos.
-                </p>
-              </CardContent>
             </Card>
 
             {/* NR-33 - Espaço Confinado */}
-            <Card className="hover:shadow-md transition-shadow overflow-hidden flex flex-col group">
-              <div className="relative h-48 bg-gradient-to-r from-gray-400 to-gray-600">
-                <img 
-                  src="/training-covers/nr-33-espaco-confinado.png" 
-                  alt="NR-33 Espaço Confinado"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
-                />
-                <div className="absolute inset-0 bg-brand-grey-main bg-opacity-20"></div>
-                <div className="absolute bottom-2 left-2">
-                  <Badge className="bg-white/90 text-brand-grey-main border-0">NR-33</Badge>
+            <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
+              <Link href="/treinamentos/nr-33-espaco-confinado">
+                <div className="relative h-48 cursor-pointer overflow-hidden">
+                  <img 
+                    src="/training-covers/nr-33-espaco-confinado.png" 
+                    alt="NR-33 Espaço Confinado"
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Category and Duration - minimal style */}
+                  <div className="absolute bottom-3 left-3 flex gap-2">
+                    <div className="flex items-center gap-1 bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
+                      <Shield className="h-3 w-3" />
+                      Segurança
+                    </div>
+                    <div className="bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
+                      16 horas
+                    </div>
+                  </div>
                 </div>
+              </Link>
+
+              <div className="flex flex-col flex-1">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg leading-tight line-clamp-2">NR-33 Espaço Confinado</CardTitle>
+                </CardHeader>
+                
+                <CardContent className="flex-1 pb-3">
+                  <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3 mb-4">
+                    Trabalho seguro em espaços confinados com identificação de riscos e medidas de emergência.
+                  </p>
+                  
+                  {/* Simplified Badges - minimal style */}
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      NR-33
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      Intermediário
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      Iniciação
+                    </Badge>
+                  </div>
+                </CardContent>
+
+                {/* Footer with button - now always at bottom */}
+                <CardFooter className="pt-0 mt-auto">
+                  <Link href="/treinamentos/nr-33-espaco-confinado" className="w-full">
+                    <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
+                      Ver detalhes
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardFooter>
               </div>
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg">NR-33 Espaço Confinado</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <p className="text-gray-600 leading-relaxed text-sm mb-4">
-                  Capacita profissionais para atuar com segurança em espaços confinados, abordando identificação de riscos.
-                </p>
-              </CardContent>
             </Card>
 
             {/* NR-10 - Segurança em Eletricidade */}
-            <Card className="hover:shadow-md transition-shadow overflow-hidden flex flex-col group">
-              <div className="relative h-48 bg-gradient-to-r from-gray-400 to-gray-600">
-                <img 
-                  src="/training-covers/nr-10-basico.png" 
-                  alt="NR-10 Segurança em Eletricidade"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
-                />
-                <div className="absolute inset-0 bg-brand-grey-main bg-opacity-20"></div>
-                <div className="absolute bottom-2 left-2">
-                  <Badge className="bg-white/90 text-brand-grey-main border-0">NR-10</Badge>
+            <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
+              <Link href="/treinamentos/nr-10-basico">
+                <div className="relative h-48 cursor-pointer overflow-hidden">
+                  <img 
+                    src="/training-covers/nr-10-basico.png" 
+                    alt="NR-10 Segurança em Eletricidade"
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Category and Duration - minimal style */}
+                  <div className="absolute bottom-3 left-3 flex gap-2">
+                    <div className="flex items-center gap-1 bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
+                      <Shield className="h-3 w-3" />
+                      Segurança
+                    </div>
+                    <div className="bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
+                      40 horas
+                    </div>
+                  </div>
                 </div>
+              </Link>
+
+              <div className="flex flex-col flex-1">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg leading-tight line-clamp-2">NR-10 Segurança em Eletricidade</CardTitle>
+                </CardHeader>
+                
+                <CardContent className="flex-1 pb-3">
+                  <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3 mb-4">
+                    Segurança fundamental em instalações elétricas e medidas de controle de riscos elétricos.
+                  </p>
+                  
+                  {/* Simplified Badges - minimal style */}
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      NR-10
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      Intermediário
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      Iniciação
+                    </Badge>
+                  </div>
+                </CardContent>
+
+                {/* Footer with button - now always at bottom */}
+                <CardFooter className="pt-0 mt-auto">
+                  <Link href="/treinamentos/nr-10-basico" className="w-full">
+                    <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
+                      Ver detalhes
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardFooter>
               </div>
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg">NR-10 Segurança em Eletricidade</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <p className="text-gray-600 leading-relaxed text-sm mb-4">
-                  Capacita profissionais para atuar com segurança em instalações e serviços elétricos.
-                </p>
-              </CardContent>
             </Card>
 
             {/* Combate a Incêndios */}
-            <Card className="hover:shadow-md transition-shadow overflow-hidden flex flex-col group">
-              <div className="relative h-48 bg-gradient-to-r from-gray-400 to-gray-600">
-                <img 
-                  src="/training-covers/nocoes-combate-incendios.png" 
-                  alt="Combate a Incêndios"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
-                />
-                <div className="absolute inset-0 bg-brand-grey-main bg-opacity-20"></div>
-                <div className="absolute bottom-2 left-2">
-                  <Badge className="bg-white/90 text-brand-grey-main border-0">NR-23</Badge>
+            <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
+              <Link href="/treinamentos/nocoes-combate-incendios">
+                <div className="relative h-48 cursor-pointer overflow-hidden">
+                  <img 
+                    src="/training-covers/nocoes-combate-incendios.png" 
+                    alt="Combate a Incêndios"
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Category and Duration - minimal style */}
+                  <div className="absolute bottom-3 left-3 flex gap-2">
+                    <div className="flex items-center gap-1 bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
+                      <Shield className="h-3 w-3" />
+                      Segurança
+                    </div>
+                    <div className="bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
+                      16 horas
+                    </div>
+                  </div>
                 </div>
+              </Link>
+
+              <div className="flex flex-col flex-1">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg leading-tight line-clamp-2">Combate a Incêndios</CardTitle>
+                </CardHeader>
+                
+                <CardContent className="flex-1 pb-3">
+                  <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3 mb-4">
+                    Aprenda a identificar classes de incêndio e operar extintores com segurança e eficiência.
+                  </p>
+                  
+                  {/* Simplified Badges - minimal style */}
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      NR-23
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      Básico
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      Iniciação
+                    </Badge>
+                  </div>
+                </CardContent>
+
+                {/* Footer with button - now always at bottom */}
+                <CardFooter className="pt-0 mt-auto">
+                  <Link href="/treinamentos/nocoes-combate-incendios" className="w-full">
+                    <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
+                      Ver detalhes
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardFooter>
               </div>
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg">Combate a Incêndios</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <p className="text-gray-600 leading-relaxed text-sm mb-4">
-                  Capacita profissionais para compreender o fogo, identificar classes de incêndio e operar extintores.
-                </p>
-              </CardContent>
             </Card>
 
             {/* NR-05 - CIPA */}
-            <Card className="hover:shadow-md transition-shadow overflow-hidden flex flex-col group">
-              <div className="relative h-48 bg-gradient-to-r from-gray-400 to-gray-600">
-                <img 
-                  src="/training-covers/cipa.png" 
-                  alt="NR-05 CIPA Grau de Risco 2"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
-                />
-                <div className="absolute inset-0 bg-brand-grey-main bg-opacity-20"></div>
-                <div className="absolute bottom-2 left-2">
-                  <Badge className="bg-white/90 text-brand-grey-main border-0">NR-05</Badge>
+            <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
+              <Link href="/treinamentos/nr-05-cipa-grau-risco-2">
+                <div className="relative h-48 cursor-pointer overflow-hidden">
+                  <img 
+                    src="/training-covers/cipa.png" 
+                    alt="NR-05 CIPA Grau de Risco 2"
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Category and Duration - minimal style */}
+                  <div className="absolute bottom-3 left-3 flex gap-2">
+                    <div className="flex items-center gap-1 bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
+                      <Shield className="h-3 w-3" />
+                      Segurança
+                    </div>
+                    <div className="bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
+                      12 horas
+                    </div>
+                  </div>
                 </div>
+              </Link>
+
+              <div className="flex flex-col flex-1">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg leading-tight line-clamp-2">NR-05 CIPA Grau de Risco 2</CardTitle>
+                </CardHeader>
+                
+                <CardContent className="flex-1 pb-3">
+                  <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3 mb-4">
+                    Capacitação completa para integrantes da CIPA em empresas grau de risco 2.
+                  </p>
+                  
+                  {/* Simplified Badges - minimal style */}
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      NR-05
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      Básico
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      Iniciação
+                    </Badge>
+                  </div>
+                </CardContent>
+
+                {/* Footer with button - now always at bottom */}
+                <CardFooter className="pt-0 mt-auto">
+                  <Link href="/treinamentos/nr-05-cipa-grau-risco-2" className="w-full">
+                    <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
+                      Ver detalhes
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardFooter>
               </div>
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg">NR-05 CIPA Grau de Risco 2</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <p className="text-gray-600 leading-relaxed text-sm mb-4">
-                  Capacita integrantes da CIPA grau de risco 2 para identificar riscos e promover segurança.
-                </p>
-              </CardContent>
             </Card>
 
             {/* Primeiros Socorros */}
-            <Card className="hover:shadow-md transition-shadow overflow-hidden flex flex-col group">
-              <div className="relative h-48 bg-gradient-to-r from-gray-400 to-gray-600">
-                <img 
-                  src="/training-covers/nocoes-primeiros-socorros.png" 
-                  alt="Primeiros Socorros"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
-                />
-                <div className="absolute inset-0 bg-brand-grey-main bg-opacity-20"></div>
+            <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
+              <Link href="/treinamentos/nocoes-primeiros-socorros">
+                <div className="relative h-48 cursor-pointer overflow-hidden">
+                  <img 
+                    src="/training-covers/nocoes-primeiros-socorros.png" 
+                    alt="Primeiros Socorros"
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Category and Duration - minimal style */}
+                  <div className="absolute bottom-3 left-3 flex gap-2">
+                    <div className="flex items-center gap-1 bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
+                      <Heart className="h-3 w-3" />
+                      Saúde
+                    </div>
+                    <div className="bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
+                      20 horas
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              <div className="flex flex-col flex-1">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg leading-tight line-clamp-2">Primeiros Socorros</CardTitle>
+                </CardHeader>
+                
+                <CardContent className="flex-1 pb-3">
+                  <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3 mb-4">
+                    Técnicas fundamentais de atendimento emergencial para salvar vidas em situações críticas.
+                  </p>
+                  
+                  {/* Simplified Badges - minimal style */}
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      Básico
+                    </Badge>
+                    <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
+                      Iniciação
+                    </Badge>
+                  </div>
+                </CardContent>
+
+                {/* Footer with button - now always at bottom */}
+                <CardFooter className="pt-0 mt-auto">
+                  <Link href="/treinamentos/nocoes-primeiros-socorros" className="w-full">
+                    <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
+                      Ver detalhes
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardFooter>
               </div>
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg">Primeiros Socorros</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <p className="text-gray-600 leading-relaxed text-sm mb-4">
-                  Noções básicas para agir corretamente em emergências com técnicas de atendimento imediato.
-                </p>
-              </CardContent>
             </Card>
           </div>
 
@@ -653,8 +830,8 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-        <div className="border-t mt-8">
-          <div className="container px-4 mx-auto py-4 text-center text-sm text-muted-foreground">
+        <div className="border-t mt-8 pt-4">
+          <div className="container px-4 mx-auto text-center text-sm text-muted-foreground">
             © 2025 São e Salvo. Todos os direitos reservados.
           </div>
         </div>

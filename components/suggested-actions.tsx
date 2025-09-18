@@ -19,10 +19,10 @@ function PureSuggestedActions({
   selectedVisibilityType,
 }: SuggestedActionsProps) {
   const suggestedActions = [
-    'What are the advantages of using Next.js?',
-    "Write code to demonstrate Dijkstra's algorithm",
-    'Help me write an essay about Silicon Valley',
-    'What is the weather in San Francisco?',
+    'Quais são as vantagens de usar Next.js?',
+    'Escreva código para demonstrar o algoritmo de Dijkstra',
+    'Me ajude a escrever um ensaio sobre o Vale do Silício',
+    'Qual é o clima em São Paulo?',
   ];
 
   return (
@@ -41,7 +41,7 @@ function PureSuggestedActions({
           <Suggestion
             suggestion={suggestedAction}
             onClick={(suggestion) => {
-              window.history.replaceState({}, '', `/chat/${chatId}`);
+              window.history.replaceState({}, '', `/assistente/${chatId}`);
               sendMessage({
                 role: 'user',
                 parts: [{ type: 'text', text: suggestion }],

@@ -42,7 +42,7 @@ import type { VisibilityType } from './visibility-selector';
 import type { Attachment, ChatMessage } from '@/lib/types';
 import type { AppUsage } from '@/lib/usage';
 import { chatModels } from '@/lib/ai/models';
-import { saveChatModelAsCookie } from '@/app/(chat)/actions';
+import { saveChatModelAsCookie } from '@/app/(assistente)/actions';
 import { startTransition } from 'react';
 import { Context } from './elements/context';
 import { myProvider } from '@/lib/ai/providers';
@@ -130,7 +130,7 @@ function PureMultimodalInput({
   const [uploadQueue, setUploadQueue] = useState<Array<string>>([]);
 
   const submitForm = useCallback(() => {
-    window.history.replaceState({}, '', `/chat/${chatId}`);
+    window.history.replaceState({}, '', `/assistente/${chatId}`);
 
     sendMessage({
       role: 'user',
@@ -223,7 +223,7 @@ function PureMultimodalInput({
           ...successfullyUploadedAttachments,
         ]);
       } catch (error) {
-        console.error('Error uploading files!', error);
+        console.error('Erro ao fazer upload de arquivos!', error);
       } finally {
         setUploadQueue([]);
       }
@@ -258,7 +258,7 @@ function PureMultimodalInput({
         onSubmit={(event) => {
           event.preventDefault();
           if (status !== 'ready') {
-            toast.error('Please wait for the model to finish its response!');
+            toast.error('Por favor, aguarde o modelo terminar sua resposta!');
           } else {
             submitForm();
           }
@@ -301,7 +301,7 @@ function PureMultimodalInput({
           <PromptInputTextarea
             data-testid="multimodal-input"
             ref={textareaRef}
-            placeholder="Send a message..."
+            placeholder="Enviar mensagem..."
             value={input}
             onChange={handleInput}
             minHeight={44}

@@ -36,7 +36,7 @@ export default function TreinamentosPage() {
     {
       id: 1,
       title: 'NR-35 Trabalho em Altura',
-      description: 'Curso completo sobre segurança em trabalho em altura, incluindo uso de EPIs e análise de riscos.',
+      description: 'Capacitação completa para trabalhos em altura com foco em segurança, EPIs e prevenção de acidentes.',
       duration: '40 horas',
       category: 'Segurança',
       slug: 'nr-35-trabalho-em-altura',
@@ -48,7 +48,7 @@ export default function TreinamentosPage() {
     {
       id: 2,
       title: 'Direção Defensiva',
-      description: 'Aprenda os princípios da direção defensiva e como prevenir acidentes com atitudes seguras ao volante.',
+      description: 'Técnicas essenciais de direção preventiva para reduzir riscos e garantir segurança no trânsito.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'direcao-defensiva',
@@ -60,7 +60,7 @@ export default function TreinamentosPage() {
     {
       id: 3,
       title: 'NR-35 Trabalho em Altura',
-      description: 'Curso de reciclagem para profissionais certificados em NR-35, focado na atualização de conhecimentos.',
+      description: 'Atualização obrigatória para profissionais certificados em trabalho em altura conforme NR-35.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'reciclagem-nr-35-teorico',
@@ -72,7 +72,7 @@ export default function TreinamentosPage() {
     {
       id: 4,
       title: 'NR-33 Espaços Confinados',
-      description: 'Renovação ou atualização de certificação de trabalhadores em espaços confinados.',
+      description: 'Reciclagem periódica para trabalhadores autorizados em espaços confinados segundo a NR-33.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'reciclagem-nr-33-espacos-confinados',
@@ -84,7 +84,7 @@ export default function TreinamentosPage() {
     {
       id: 5,
       title: 'Gestão da Cultura de Segurança',
-      description: 'Implante uma gestão da cultura de segurança no trabalho atrativa e eficaz para empresas.',
+      description: 'Desenvolva uma cultura organizacional sólida em segurança com métodos práticos e eficazes.',
       duration: '30 horas',
       category: 'Liderança',
       slug: 'gestao-cultura-seguranca',
@@ -96,7 +96,7 @@ export default function TreinamentosPage() {
     {
       id: 6,
       title: 'Lei Lucas - Primeiros Socorros',
-      description: 'Capacitação obrigatória em primeiros socorros para profissionais da educação conforme Lei Lucas.',
+      description: 'Primeiros socorros obrigatórios para educadores conforme exigências da Lei Lucas.',
       duration: '4 horas',
       category: 'Saúde',
       slug: 'lei-lucas',
@@ -108,7 +108,7 @@ export default function TreinamentosPage() {
     {
       id: 7,
       title: 'Combate a Incêndios',
-      description: 'Capacita profissionais para compreender o fogo, identificar classes de incêndio e operar extintores.',
+      description: 'Aprenda a identificar classes de incêndio e operar extintores com segurança e eficiência.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'nocoes-combate-incendios',
@@ -120,7 +120,7 @@ export default function TreinamentosPage() {
     {
       id: 8,
       title: 'Primeiros Socorros',
-      description: 'Noções básicas para agir corretamente em emergências com técnicas de atendimento imediato.',
+      description: 'Técnicas fundamentais de atendimento emergencial para salvar vidas em situações críticas.',
       duration: '20 horas',
       category: 'Saúde',
       slug: 'nocoes-primeiros-socorros',
@@ -132,7 +132,7 @@ export default function TreinamentosPage() {
     {
       id: 9,
       title: 'NR-05 CIPA Grau de Risco 1',
-      description: 'Capacita integrantes da CIPA grau de risco 1 para identificar riscos e promover segurança.',
+      description: 'Formação essencial para membros da CIPA em empresas de grau de risco 1.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-05-cipa-grau-risco-1',
@@ -144,7 +144,7 @@ export default function TreinamentosPage() {
     {
       id: 10,
       title: 'NR-05 CIPA Grau de Risco 2',
-      description: 'Capacita integrantes da CIPA grau de risco 2 para identificar riscos e promover segurança.',
+      description: 'Capacitação completa para integrantes da CIPA em empresas grau de risco 2.',
       duration: '12 horas',
       category: 'Segurança',
       slug: 'nr-05-cipa-grau-risco-2',
@@ -156,7 +156,7 @@ export default function TreinamentosPage() {
     {
       id: 11,
       title: 'NR-05 CIPA Grau de Risco 3',
-      description: 'Capacita integrantes da CIPA grau de risco 3 para identificar riscos e promover segurança.',
+      description: 'Treinamento avançado para membros da CIPA em ambientes de grau de risco 3.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'nr-05-cipa-grau-risco-3',
@@ -168,7 +168,7 @@ export default function TreinamentosPage() {
     {
       id: 12,
       title: 'NR-05 CIPA Grau de Risco 4',
-      description: 'Capacita integrantes da CIPA grau de risco 4 para identificar riscos e promover segurança.',
+      description: 'Formação especializada para CIPA em operações de alto risco grau 4.',
       duration: '20 horas',
       category: 'Segurança',
       slug: 'nr-05-cipa-grau-risco-4',
@@ -180,7 +180,7 @@ export default function TreinamentosPage() {
     {
       id: 13,
       title: 'NR-06 Equipamento de Proteção Individual',
-      description: 'Aprenda sobre EPIs com base na NR-6 para identificar, utilizar e conservar corretamente.',
+      description: 'Uso correto, seleção e conservação de equipamentos de proteção individual conforme NR-6.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-06-epi',
@@ -192,7 +192,7 @@ export default function TreinamentosPage() {
     {
       id: 14,
       title: 'NR-10 Segurança em Eletricidade',
-      description: 'Capacita profissionais para atuar com segurança em instalações e serviços elétricos.',
+      description: 'Segurança fundamental em instalações elétricas e medidas de controle de riscos elétricos.',
       duration: '40 horas',
       category: 'Segurança',
       slug: 'nr-10-basico',
@@ -204,7 +204,7 @@ export default function TreinamentosPage() {
     {
       id: 15,
       title: 'NR-10 Complementar (SEP)',
-      description: 'Para profissionais em sistemas elétricos de potência, abordando riscos típicos e prevenção.',
+      description: 'Especialização em sistemas elétricos de potência com foco em alta tensão e SEP.',
       duration: '40 horas',
       category: 'Segurança',
       slug: 'nr-10-complementar-sep',
@@ -216,7 +216,7 @@ export default function TreinamentosPage() {
     {
       id: 16,
       title: 'NR-11 Segurança em Transpaleteira',
-      description: 'O curso aborda os princípios fundamentais da operação segura de transpaleteiras, seguindo as exigências das NRs 11 e 12.',
+      description: 'Operação segura de transpaleteiras manuais e elétricas conforme normas regulamentadoras.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-11-seguranca-transpaleteira',
@@ -228,7 +228,7 @@ export default function TreinamentosPage() {
     {
       id: 17,
       title: 'NR-11 Operador de Empilhadeira',
-      description: 'Capacita profissionais para a operação segura e eficiente de empilhadeiras conforme as normas regulamentadoras.',
+      description: 'Certificação completa para operadores de empilhadeira com práticas de segurança e eficiência.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'nr-11-operador-empilhadeira',
@@ -240,7 +240,7 @@ export default function TreinamentosPage() {
     {
       id: 18,
       title: 'NR-11 Operação de Rebocadores',
-      description: 'Prepara profissionais para o uso seguro de rebocadores industriais em ambientes logísticos e fabris.',
+      description: 'Operação segura de rebocadores industriais para movimentação de cargas em fábricas e armazéns.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'nr-11-seguranca-operacao-rebocadores',
@@ -252,7 +252,7 @@ export default function TreinamentosPage() {
     {
       id: 19,
       title: 'NR-11 Transporte e Movimentação de Materiais',
-      description: 'Capacitação completa sobre o manuseio seguro de materiais com pontes rolantes, talhas, transpaleteiras e outros equipamentos.',
+      description: 'Movimentação segura de materiais com diversos equipamentos de transporte e elevação de cargas.',
       duration: '20 horas',
       category: 'Segurança',
       slug: 'nr-11-transporte-movimentacao-materiais',
@@ -264,7 +264,7 @@ export default function TreinamentosPage() {
     {
       id: 20,
       title: 'NR-11 Pontes Rolantes',
-      description: 'O curso aborda os princípios fundamentais da operação segura de pontes rolantes, seguindo as exigências da normativa.',
+      description: 'Operação certificada de pontes rolantes com foco em segurança e produtividade industrial.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'nr-11-pontes-rolantes',
@@ -276,7 +276,7 @@ export default function TreinamentosPage() {
     {
       id: 21,
       title: 'NR-11 Operação de Talhas',
-      description: 'Capacita profissionais para o manuseio correto e seguro de talhas e equipamentos de elevação de cargas.',
+      description: 'Técnicas seguras para operação de talhas elétricas e manuais em ambientes industriais.',
       duration: '12 horas',
       category: 'Segurança',
       slug: 'nr-11-seguranca-talhas',
@@ -288,7 +288,7 @@ export default function TreinamentosPage() {
     {
       id: 22,
       title: 'NR-12 Máquinas e Equipamentos',
-      description: 'Capacita profissionais para operar, ajustar e manter máquinas conforme a NR-12, abordando medidas de proteção.',
+      description: 'Segurança na operação de máquinas e equipamentos com dispositivos de proteção conforme NR-12.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-12-maquinas-equipamentos',
@@ -300,7 +300,7 @@ export default function TreinamentosPage() {
     {
       id: 23,
       title: 'NR-13 Operador de Caldeiras',
-      description: 'Capacita profissionais para operar caldeiras de forma segura e conforme a legislação da NR-13.',
+      description: 'Operação segura de caldeiras industriais com inspeção e manutenção preventiva.',
       duration: '40 horas',
       category: 'Segurança',
       slug: 'nr-13-operador-caldeiras',
@@ -312,7 +312,7 @@ export default function TreinamentosPage() {
     {
       id: 24,
       title: 'NR-13 Vasos de Pressão',
-      description: 'Capacita profissionais para operar, inspecionar e manter vasos de pressão e unidades de processo conforme a NR-13.',
+      description: 'Operação e inspeção de vasos de pressão com foco em segurança e conformidade normativa.',
       duration: '40 horas',
       category: 'Segurança',
       slug: 'nr-13-vasos-pressao',
@@ -324,7 +324,7 @@ export default function TreinamentosPage() {
     {
       id: 25,
       title: 'NR-17 Ergonomia',
-      description: 'Capacita profissionais para adaptar as condições de trabalho às características dos trabalhadores.',
+      description: 'Princípios ergonômicos para prevenir lesões e melhorar a produtividade no ambiente de trabalho.',
       duration: '16 horas',
       category: 'Saúde',
       slug: 'nr-17-ergonomia',
@@ -336,7 +336,7 @@ export default function TreinamentosPage() {
     {
       id: 26,
       title: 'NR-17 Ergonomia Teleatendimento',
-      description: 'Capacita profissionais para aplicar práticas ergonômicas no ambiente de teleatendimento conforme a NR-17.',
+      description: 'Ergonomia específica para operadores de call center e teleatendimento.',
       duration: '4 horas',
       category: 'Saúde',
       slug: 'nr-17-ergonomia-teleatendimento',
@@ -348,7 +348,7 @@ export default function TreinamentosPage() {
     {
       id: 27,
       title: 'NR-18 Sinaleiro e Amarrador de Cargas',
-      description: 'Capacita profissionais para atuar com segurança na sinalização e amarração de cargas em operações de içamento.',
+      description: 'Técnicas de sinalização e amarração segura de cargas para operações com guindastes e gruas.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-18-sinaleiro-amarrador-cargas',
@@ -360,7 +360,7 @@ export default function TreinamentosPage() {
     {
       id: 28,
       title: 'NR-18 Plataforma Móvel de Trabalho',
-      description: 'Capacita profissionais para identificar e minimizar riscos durante a operação de plataformas elevatórias.',
+      description: 'Operação segura de plataformas elevatórias móveis com análise de riscos e boas práticas.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'nr-18-pemt',
@@ -372,7 +372,7 @@ export default function TreinamentosPage() {
     {
       id: 29,
       title: 'NR-20 Integração',
-      description: 'Capacita trabalhadores para reconhecer riscos e adotar medidas preventivas em ambientes com inflamáveis.',
+      description: 'Integração básica sobre riscos e prevenção em áreas com líquidos inflamáveis e combustíveis.',
       duration: '4 horas',
       category: 'Segurança',
       slug: 'nr-20-iniciacao',
@@ -384,7 +384,7 @@ export default function TreinamentosPage() {
     {
       id: 30,
       title: 'NR-20 Segurança com Inflamáveis',
-      description: 'Capacita profissionais para atuar com segurança em ambientes com inflamáveis e combustíveis.',
+      description: 'Segurança básica em operações com líquidos inflamáveis e gases combustíveis.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-20-basico',
@@ -396,7 +396,7 @@ export default function TreinamentosPage() {
     {
       id: 31,
       title: 'NR-20 Instalações Classe III',
-      description: 'Capacita profissionais para manutenção, inspeção e operação em instalações até classes III.',
+      description: 'Operação segura em instalações com inflamáveis de classe III conforme NR-20.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'nr-20-intermediario',
@@ -408,7 +408,7 @@ export default function TreinamentosPage() {
     {
       id: 32,
       title: 'NR-20 Exposição ao Benzeno',
-      description: 'Capacitação obrigatória para trabalhadores expostos ao risco do benzeno, como frentistas de postos de combustível.',
+      description: 'Prevenção de riscos à saúde por exposição ao benzeno em postos de combustíveis.',
       duration: '4 horas',
       category: 'Saúde',
       slug: 'nr-20-exposicao-benzeno',
@@ -420,7 +420,7 @@ export default function TreinamentosPage() {
     {
       id: 33,
       title: 'NR-26 Sinalização de Segurança',
-      description: 'Capacita profissionais para identificar, aplicar e interpretar corretamente as cores e sinais de segurança.',
+      description: 'Identificação e aplicação correta de cores e sinais de segurança no ambiente de trabalho.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-26-sinalizacao-seguranca',
@@ -432,7 +432,7 @@ export default function TreinamentosPage() {
     {
       id: 34,
       title: 'NR-33 Espaço Confinado',
-      description: 'Capacita profissionais para atuar com segurança em espaços confinados, abordando identificação de riscos.',
+      description: 'Trabalho seguro em espaços confinados com identificação de riscos e medidas de emergência.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'nr-33-espaco-confinado',
@@ -444,7 +444,7 @@ export default function TreinamentosPage() {
     {
       id: 35,
       title: 'NR-33 Supervisor Espaço Confinado',
-      description: 'Capacita profissionais para supervisionar atividades em espaços confinados conforme a NR-33.',
+      description: 'Supervisão especializada de trabalhos em espaços confinados com gestão de permissões.',
       duration: '40 horas',
       category: 'Segurança',
       slug: 'nr-33-supervisor-espaco-confinado',
@@ -456,7 +456,7 @@ export default function TreinamentosPage() {
     {
       id: 36,
       title: 'NR-35 Supervisor Trabalho em Altura',
-      description: 'Capacita profissionais para supervisionar, planejar e autorizar atividades em altura acima de 2 metros.',
+      description: 'Supervisão e planejamento de trabalhos em altura com análise de riscos e medidas preventivas.',
       duration: '40 horas',
       category: 'Segurança',
       slug: 'nr-35-supervisor-trabalho-altura',
@@ -468,7 +468,7 @@ export default function TreinamentosPage() {
     {
       id: 37,
       title: 'LOTO - Lockout e Tagout',
-      description: 'Conheça os princípios do bloqueio e etiquetagem de fontes de energia com o curso de LOTO.',
+      description: 'Bloqueio e etiquetagem de energias perigosas para manutenção segura de equipamentos.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'loto-lockout-tagout',
@@ -480,7 +480,7 @@ export default function TreinamentosPage() {
     {
       id: 38,
       title: 'PPR - Proteção Respiratória',
-      description: 'Estabelece práticas para selecionar, usar e manter corretamente os Equipamentos de Proteção Respiratória.',
+      description: 'Seleção e uso correto de respiradores para proteção contra agentes químicos e particulados.',
       duration: '16 horas',
       category: 'Saúde',
       slug: 'ppr-protecao-respiratoria',
@@ -492,7 +492,7 @@ export default function TreinamentosPage() {
     {
       id: 39,
       title: 'PCA - Conservação Auditiva',
-      description: 'Inclui avaliação dos riscos, exames audiométricos periódicos e monitoramento do ambiente.',
+      description: 'Programa de conservação auditiva para prevenir perdas auditivas ocupacionais.',
       duration: '8 horas',
       category: 'Saúde',
       slug: 'pca-conservacao-auditiva',
@@ -504,7 +504,7 @@ export default function TreinamentosPage() {
     {
       id: 40,
       title: 'Prevenção ao Assédio e Violência',
-      description: 'Capacita profissionais para identificar, prevenir e enfrentar o assédio e violência no ambiente laboral.',
+      description: 'Prevenção e combate ao assédio moral e sexual no ambiente de trabalho conforme Lei 14.540.',
       duration: '4 horas',
       category: 'Saúde',
       slug: 'prevencao-combate-assedio-violencia-trabalho',
@@ -516,7 +516,7 @@ export default function TreinamentosPage() {
     {
       id: 41,
       title: 'NR-01 - Disposições Gerais e GRO',
-      description: 'Curso sobre disposições gerais, gerenciamento de riscos ocupacionais e diretrizes fundamentais de segurança e saúde no trabalho.',
+      description: 'Fundamentos de segurança do trabalho com gerenciamento de riscos ocupacionais (GRO).',
       duration: '4 horas',
       category: 'Segurança',
       slug: 'nr-01-disposicoes-gerais',
@@ -528,7 +528,7 @@ export default function TreinamentosPage() {
     {
       id: 42,
       title: 'NR-05 - Representante Nomeado',
-      description: 'Capacitação para representantes nomeados da NR-05, abordando prevenção de acidentes e análise de riscos.',
+      description: 'Formação de representantes nomeados para prevenção de acidentes conforme NR-05.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-05-representante',
@@ -540,7 +540,7 @@ export default function TreinamentosPage() {
     {
       id: 43,
       title: 'NR-10 Complementar - SEP',
-      description: 'Curso complementar obrigatório para profissionais que trabalham com Sistema Elétrico de Potência (Alta Tensão).',
+      description: 'Complemento obrigatório para trabalhos em sistemas elétricos de potência e alta tensão.',
       duration: '40 horas',
       category: 'Segurança',
       slug: 'nr-10-complementar-sep',
@@ -552,7 +552,7 @@ export default function TreinamentosPage() {
     {
       id: 44,
       title: 'NR-05 Representante - Grau de Risco 1',
-      description: 'Capacitação específica para representantes nomeados em empresas de grau de risco 1.',
+      description: 'Formação de representantes para prevenção em empresas grau de risco 1.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-05-representante-grau-1',
@@ -564,7 +564,7 @@ export default function TreinamentosPage() {
     {
       id: 45,
       title: 'NR-05 Representante - Grau de Risco 2',
-      description: 'Capacitação para representantes nomeados em empresas de grau de risco 2.',
+      description: 'Capacitação de representantes para segurança em empresas grau de risco 2.',
       duration: '12 horas',
       category: 'Segurança',
       slug: 'nr-05-representante-grau-2',
@@ -576,7 +576,7 @@ export default function TreinamentosPage() {
     {
       id: 46,
       title: 'NR-05 Representante - Grau de Risco 3',
-      description: 'Capacitação avançada para representantes em empresas de grau de risco 3.',
+      description: 'Formação avançada de representantes para ambientes grau de risco 3.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'nr-05-representante-grau-3',
@@ -588,7 +588,7 @@ export default function TreinamentosPage() {
     {
       id: 47,
       title: 'NR-05 Representante - Grau de Risco 4',
-      description: 'Capacitação especializada para representantes em empresas de grau de risco 4.',
+      description: 'Especialização de representantes para operações de alto risco grau 4.',
       duration: '20 horas',
       category: 'Segurança',
       slug: 'nr-05-representante-grau-4',
@@ -600,7 +600,7 @@ export default function TreinamentosPage() {
     {
       id: 48,
       title: 'NR-10 Básico - Reciclagem',
-      description: 'Curso de reciclagem bienal obrigatório para profissionais que trabalham com eletricidade.',
+      description: 'Reciclagem bienal obrigatória para profissionais de instalações elétricas.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-10-basico-periodico',
@@ -612,7 +612,7 @@ export default function TreinamentosPage() {
     {
       id: 49,
       title: 'NR-22 - Segurança na Mineração',
-      description: 'Curso sobre segurança e saúde ocupacional na indústria da mineração.',
+      description: 'Segurança especializada para trabalhos em mineração e atividades extrativistas.',
       duration: '40 horas',
       category: 'Segurança',
       slug: 'nr-22-mineracao',
@@ -624,7 +624,7 @@ export default function TreinamentosPage() {
     {
       id: 50,
       title: 'NR-23 - PPCI',
-      description: 'Curso sobre Prevenção e Proteção Contra Incêndios, medidas preventivas e sistemas de combate.',
+      description: 'Prevenção e proteção contra incêndios com planos de emergência e evacuação.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'nr-23-ppci',
@@ -636,7 +636,7 @@ export default function TreinamentosPage() {
     {
       id: 51,
       title: 'NR-10 - Áreas Classificadas',
-      description: 'Curso sobre segurança em áreas classificadas com atmosferas explosivas.',
+      description: 'Segurança em áreas classificadas com risco de atmosferas explosivas.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-10-areas-classificadas',
@@ -648,7 +648,7 @@ export default function TreinamentosPage() {
     {
       id: 52,
       title: 'NR-10 - SEP Reciclagem',
-      description: 'Reciclagem para profissionais certificados em NR-10 SEP.',
+      description: 'Atualização periódica para profissionais de sistemas elétricos de potência.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-10-sep-periodico',
@@ -660,7 +660,7 @@ export default function TreinamentosPage() {
     {
       id: 53,
       title: 'NR-11 - Transporte e Movimentação Geral',
-      description: 'Curso geral sobre transporte e movimentação de materiais.',
+      description: 'Movimentação segura de cargas com equipamentos de transporte industrial.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'nr-11-transporte-geral',
@@ -672,7 +672,7 @@ export default function TreinamentosPage() {
     {
       id: 54,
       title: 'NR-11 - Empilhadeira Reciclagem',
-      description: 'Reciclagem para operadores de empilhadeira.',
+      description: 'Atualização obrigatória para operadores certificados de empilhadeiras.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-11-empilhadeira-periodico',
@@ -684,7 +684,7 @@ export default function TreinamentosPage() {
     {
       id: 55,
       title: 'NR-13 - Vasos Pressão Categoria 1',
-      description: 'Curso específico para vasos de pressão categoria 1.',
+      description: 'Operação especializada de vasos de pressão categoria 1 conforme NR-13.',
       duration: '40 horas',
       category: 'Segurança',
       slug: 'nr-13-vasos-pressao-categoria-1',
@@ -696,7 +696,7 @@ export default function TreinamentosPage() {
     {
       id: 56,
       title: 'NR-13 - Caldeiras Reciclagem',
-      description: 'Reciclagem para operadores de caldeiras.',
+      description: 'Atualização periódica obrigatória para operadores de caldeiras industriais.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-13-caldeiras-periodico',
@@ -708,7 +708,7 @@ export default function TreinamentosPage() {
     {
       id: 57,
       title: 'NR-17 - Operador de Checkout',
-      description: 'Ergonomia específica para operadores de checkout.',
+      description: 'Ergonomia aplicada para operadores de caixa e checkout em comércio.',
       duration: '4 horas',
       category: 'Saúde',
       slug: 'nr-17-checkout',
@@ -720,7 +720,7 @@ export default function TreinamentosPage() {
     {
       id: 58,
       title: 'NR-17 - Levantamento Manual',
-      description: 'Curso sobre levantamento e transporte manual de cargas.',
+      description: 'Técnicas ergonômicas para levantamento e transporte manual de cargas.',
       duration: '4 horas',
       category: 'Saúde',
       slug: 'nr-17-levantamento-manual',
@@ -732,7 +732,7 @@ export default function TreinamentosPage() {
     {
       id: 59,
       title: 'NR-18 - Construção Civil',
-      description: 'Segurança e saúde na indústria da construção civil.',
+      description: 'Segurança fundamental para trabalhadores da construção civil conforme NR-18.',
       duration: '6 horas',
       category: 'Segurança',
       slug: 'seguranca-construcao-civil',
@@ -744,7 +744,7 @@ export default function TreinamentosPage() {
     {
       id: 60,
       title: 'NR-20 - Classe I Básico',
-      description: 'Curso básico para instalações classe I de inflamáveis.',
+      description: 'Operação segura em instalações classe I com líquidos inflamáveis.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-20-classe1-basico',
@@ -756,7 +756,7 @@ export default function TreinamentosPage() {
     {
       id: 61,
       title: 'NR-20 - Classe II Intermediário',
-      description: 'Curso intermediário para instalações classe II.',
+      description: 'Segurança intermediária para instalações classe II com combustíveis.',
       duration: '12 horas',
       category: 'Segurança',
       slug: 'nr-20-classe2-intermediario',
@@ -768,7 +768,7 @@ export default function TreinamentosPage() {
     {
       id: 62,
       title: 'NR-20 - Classe III Avançado',
-      description: 'Curso avançado para instalações classe III.',
+      description: 'Especialização avançada para operações em instalações classe III.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'nr-20-classe3-avancado',
@@ -780,7 +780,7 @@ export default function TreinamentosPage() {
     {
       id: 63,
       title: 'CIPAMIN - NR-22',
-      description: 'Comissão Interna de Prevenção de Acidentes na Mineração.',
+      description: 'Formação de comissão interna para prevenção de acidentes em mineração.',
       duration: '20 horas',
       category: 'Segurança',
       slug: 'cipamin-nr22',
@@ -792,7 +792,7 @@ export default function TreinamentosPage() {
     {
       id: 64,
       title: 'Brigada de Incêndio - Básico',
-      description: 'Formação básica de brigada de incêndio NBR 14276.',
+      description: 'Formação de brigadistas para prevenção e combate a incêndios.',
       duration: '16 horas',
       category: 'Segurança',
       slug: 'brigada-incendio',
@@ -804,7 +804,7 @@ export default function TreinamentosPage() {
     {
       id: 65,
       title: 'Brigada de Incêndio - Intermediário',
-      description: 'Formação intermediária de brigada de incêndio NBR 14276.',
+      description: 'Capacitação intermediária de brigada com técnicas avançadas de combate.',
       duration: '20 horas',
       category: 'Segurança',
       slug: 'brigada-incendio',
@@ -816,7 +816,7 @@ export default function TreinamentosPage() {
     {
       id: 66,
       title: 'NR-31 - CIPATR',
-      description: 'Comissão Interna de Prevenção de Acidentes do Trabalho Rural.',
+      description: 'Formação de CIPATR para prevenção de acidentes em atividades rurais.',
       duration: '20 horas',
       category: 'Segurança',
       slug: 'nr-31-agricultura',
@@ -828,7 +828,7 @@ export default function TreinamentosPage() {
     {
       id: 67,
       title: 'NR-32 - Serviços de Saúde',
-      description: 'Segurança e saúde no trabalho em serviços de saúde.',
+      description: 'Segurança especializada para profissionais de saúde e hospitais.',
       duration: '4 horas',
       category: 'Saúde',
       slug: 'nr-32-servicos-saude',
@@ -840,7 +840,7 @@ export default function TreinamentosPage() {
     {
       id: 68,
       title: 'NR-34 - Trabalho a Quente',
-      description: 'Condições e meio ambiente de trabalho na indústria naval.',
+      description: 'Trabalho a quente seguro em estaleiros e indústria naval.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-34-trabalho-quente',
@@ -852,7 +852,7 @@ export default function TreinamentosPage() {
     {
       id: 69,
       title: 'NR-35 - Trabalho Altura Reciclagem',
-      description: 'Reciclagem para trabalho em altura.',
+      description: 'Atualização bienal obrigatória para trabalhos em altura conforme NR-35.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'nr-35-trabalho-altura-periodico',
@@ -864,7 +864,7 @@ export default function TreinamentosPage() {
     {
       id: 70,
       title: 'NR-37 - Plataformas Petróleo',
-      description: 'Segurança em plataformas de petróleo.',
+      description: 'Segurança especializada para trabalhos em plataformas petrolíferas offshore.',
       duration: '40 horas',
       category: 'Segurança',
       slug: 'nr-37-plataformas-petroleo',
@@ -876,7 +876,7 @@ export default function TreinamentosPage() {
     {
       id: 71,
       title: 'RCP - Ressuscitação Cardiopulmonar',
-      description: 'Técnicas de ressuscitação cardiopulmonar.',
+      description: 'Técnicas de RCP e uso de DEA para atendimento de emergências cardíacas.',
       duration: '8 horas',
       category: 'Saúde',
       slug: 'rcp-primeiros-socorros',
@@ -888,7 +888,7 @@ export default function TreinamentosPage() {
     {
       id: 72,
       title: '5S - Ferramentas da Qualidade',
-      description: 'Metodologia 5S para organização e melhoria contínua.',
+      description: 'Implantação do programa 5S para organização e qualidade no trabalho.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'programa-5s',
@@ -900,7 +900,7 @@ export default function TreinamentosPage() {
     {
       id: 73,
       title: 'APR - Análise Preliminar de Riscos',
-      description: 'Metodologia para análise preliminar de riscos.',
+      description: 'Análise preliminar de riscos para identificação e controle de perigos.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'apr-analise-risco',
@@ -912,7 +912,7 @@ export default function TreinamentosPage() {
     {
       id: 74,
       title: 'Prevenção COVID-19',
-      description: 'Medidas preventivas contra COVID-19 no ambiente de trabalho.',
+      description: 'Protocolos de prevenção contra COVID-19 e doenças infectocontagiosas.',
       duration: '2 horas',
       category: 'Saúde',
       slug: 'covid-19-prevencao',
@@ -924,7 +924,7 @@ export default function TreinamentosPage() {
     {
       id: 75,
       title: 'Valas e Escavações',
-      description: 'Segurança em trabalhos com valas e escavações.',
+      description: 'Procedimentos seguros para escavações, valas e trabalhos em subsolo.',
       duration: '8 horas',
       category: 'Segurança',
       slug: 'valas-escavacoes',
@@ -936,7 +936,7 @@ export default function TreinamentosPage() {
     {
       id: 76,
       title: 'LGPD - Lei Geral Proteção Dados',
-      description: 'Lei Geral de Proteção de Dados Pessoais.',
+      description: 'Conformidade com a LGPD e proteção de dados pessoais na empresa.',
       duration: '4 horas',
       category: 'Liderança',
       slug: 'lgpd-protecao-dados',
@@ -948,7 +948,7 @@ export default function TreinamentosPage() {
     {
       id: 77,
       title: 'SIPAT - Semana Prevenção',
-      description: 'Organização e condução da SIPAT.',
+      description: 'Planejamento e execução da Semana Interna de Prevenção de Acidentes.',
       duration: '4 horas',
       category: 'Liderança',
       slug: 'sipat-seguranca',
@@ -960,7 +960,7 @@ export default function TreinamentosPage() {
     {
       id: 78,
       title: 'Líder SST',
-      description: 'Formação de líderes em segurança e saúde no trabalho.',
+      description: 'Desenvolvimento de lideranças para gestão eficaz de segurança do trabalho.',
       duration: '20 horas',
       category: 'Liderança',
       slug: 'lider-sst',
@@ -972,7 +972,7 @@ export default function TreinamentosPage() {
     {
       id: 79,
       title: 'Bombeiro Civil - Classe I',
-      description: 'Formação de bombeiro civil classe I.',
+      description: 'Formação completa de bombeiro civil para atuação em emergências.',
       duration: '210 horas',
       category: 'Segurança',
       slug: 'bombeiro-civil-classe1',
@@ -984,7 +984,7 @@ export default function TreinamentosPage() {
     {
       id: 80,
       title: 'Coleta Seletiva',
-      description: 'Práticas de coleta seletiva e sustentabilidade.',
+      description: 'Gestão de resíduos e coleta seletiva para sustentabilidade empresarial.',
       duration: '4 horas',
       category: 'Saúde',
       slug: 'coleta-seletiva',
@@ -1041,37 +1041,6 @@ export default function TreinamentosPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Navigation */}
-      <header className="sticky top-0 z-50 w-full bg-[#0063F3]">
-        <div className="container px-4 mx-auto flex h-16 items-center justify-between">
-          <Link href="/" className="cursor-pointer">
-            <SaoESalvoLogo size="md" className="text-white" />
-          </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/treinamentos" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
-              Treinamentos
-            </Link>
-            <Link href="/#features" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
-              Funcionalidades
-            </Link>
-            <Link href="/#benefits" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
-              Benefícios
-            </Link>
-            <Link href="/#pricing" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
-              Planos
-            </Link>
-            <Link href="/#testimonials" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
-              Depoimentos
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="/login">
-              <Button variant="ghost" className="text-white hover:text-white hover:bg-white/20">Entrar</Button>
-            </Link>
-            <Button className="bg-white text-[#0063F3] hover:bg-white/90 font-bold">Contato Comercial</Button>
-          </div>
-        </div>
-      </header>
 
       {/* Hero */}
       <section className="py-20">
@@ -1146,34 +1115,13 @@ export default function TreinamentosPage() {
                             className="w-full h-full object-cover"
                           />
                           
-                          {/* Category Badge */}
-                          <div className="absolute top-3 left-3">
-                            <div className="flex items-center gap-1 bg-white/90 backdrop-blur-sm text-brand-grey-main px-2 py-1 rounded-full text-xs font-medium">
+                          {/* Category and Duration - minimal style */}
+                          <div className="absolute bottom-3 left-3 flex gap-2">
+                            <div className="flex items-center gap-1 bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
                               <CategoryIcon className="h-3 w-3" />
                               {treinamento.category}
                             </div>
-                          </div>
-
-                          {/* NR Tag */}
-                          {treinamento.nr && (
-                            <div className="absolute bottom-3 left-3">
-                              <Badge 
-                                className="bg-brand-blue-main/90 text-white border-0 cursor-pointer hover:bg-brand-blue-main text-xs"
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  e.stopPropagation();
-                                  handleTagClick(treinamento.nr!);
-                                }}
-                              >
-                                {treinamento.nr}
-                              </Badge>
-                            </div>
-                          )}
-
-                          {/* Duration */}
-                          <div className="absolute bottom-3 right-3">
-                            <div className="flex items-center gap-1 bg-brand-grey-main/70 text-white px-2 py-1 rounded-full text-xs">
-                              <Clock className="h-3 w-3" />
+                            <div className="bg-black/50 backdrop-blur-sm text-white px-2.5 py-1.5 rounded text-xs">
                               {treinamento.duration}
                             </div>
                           </div>
@@ -1190,12 +1138,25 @@ export default function TreinamentosPage() {
                             {treinamento.description}
                           </p>
                           
-                          {/* Badges */}
+                          {/* Simplified Badges - minimal style */}
                           <div className="flex flex-wrap gap-2">
-                            <Badge className={`text-xs ${getLevelColor(treinamento.level)}`}>
+                            {treinamento.nr && (
+                              <Badge 
+                                variant="outline" 
+                                className="text-xs border-gray-200 text-gray-600 bg-transparent cursor-pointer hover:border-gray-400"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  handleTagClick(treinamento.nr!);
+                                }}
+                              >
+                                {treinamento.nr}
+                              </Badge>
+                            )}
+                            <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
                               {treinamento.level}
                             </Badge>
-                            <Badge className={`text-xs ${getTypeColor(treinamento.type)}`}>
+                            <Badge variant="outline" className="text-xs border-gray-200 text-gray-600 bg-transparent">
                               {treinamento.type}
                             </Badge>
                           </div>

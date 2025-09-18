@@ -4,9 +4,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useWindowSize } from 'usehooks-ts';
 
-import { SidebarToggle } from '@/components/sidebar-toggle';
 import { Button } from '@/components/ui/button';
-import { PlusIcon, VercelIcon } from './icons';
+import { PlusIcon, MenuIcon } from './icons';
 import { useSidebar } from './ui/sidebar';
 import { memo } from 'react';
 import { type VisibilityType, VisibilitySelector } from './visibility-selector';
@@ -24,13 +23,12 @@ function PureChatHeader({
   session: Session;
 }) {
   const router = useRouter();
-  const { open } = useSidebar();
+  const { open, toggleSidebar } = useSidebar();
 
   const { width: windowWidth } = useWindowSize();
 
   return (
     <header className="sticky top-0 flex items-center gap-2 bg-background px-2 py-1.5 md:px-2">
-      <SidebarToggle />
 
       {(!open || windowWidth < 768) && (
         <Button
@@ -42,7 +40,7 @@ function PureChatHeader({
           }}
         >
           <PlusIcon />
-          <span className="md:sr-only">New Chat</span>
+          <span className="md:sr-only">Nova Conversa</span>
         </Button>
       )}
 
@@ -54,19 +52,15 @@ function PureChatHeader({
           className="order-1 md:order-2"
         />
       )} */}
-
+      
+      {/* Toggle button for right chat sidebar */}
       <Button
-        className="order-3 hidden bg-zinc-900 px-2 text-zinc-50 hover:bg-zinc-800 md:ml-auto md:flex md:h-fit dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
-        asChild
+        variant="outline"
+        className="ml-auto h-8 px-2"
+        onClick={toggleSidebar}
       >
-        <Link
-          href={`https://vercel.com/templates/next.js/nextjs-ai-chatbot`}
-          target="_noblank"
-          rel="noreferrer"
-        >
-          <VercelIcon size={16} />
-          Deploy with Vercel
-        </Link>
+        <MenuIcon size={16} />
+        <span className="sr-only">Alternar histórico de conversas</span>
       </Button>
     </header>
   );

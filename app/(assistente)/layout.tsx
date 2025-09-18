@@ -1,10 +1,13 @@
 import { cookies } from 'next/headers';
+
 import { ApplicationSidebar } from '@/components/application-sidebar';
 import { ChatSidebar } from '@/components/chat-sidebar';
-import { SidebarProvider } from '@/components/ui/sidebar';
-import { DataStreamProvider } from '@/components/data-stream-provider';
+import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import { auth } from '../(auth)/auth';
 import Script from 'next/script';
+import { DataStreamProvider } from '@/components/data-stream-provider';
+
+export const experimental_ppr = true;
 
 export default async function Layout({
   children,

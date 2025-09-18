@@ -36,12 +36,12 @@ export function PureMessageActions({
 
   const handleCopy = async () => {
     if (!textFromParts) {
-      toast.error("There's no text to copy!");
+      toast.error("Não há texto para copiar!");
       return;
     }
 
     await copyToClipboard(textFromParts);
-    toast.success('Copied to clipboard!');
+    toast.success('Copiado para a área de transferência!');
   };
 
   // User messages get edit (on hover) and copy actions
@@ -51,14 +51,14 @@ export function PureMessageActions({
         <div className="relative">
           {setMode && (
             <Action
-              tooltip="Edit"
+              tooltip="Editar"
               onClick={() => setMode('edit')}
               className="-left-10 absolute top-0 opacity-0 transition-opacity group-hover/message:opacity-100"
             >
               <PencilEditIcon />
             </Action>
           )}
-          <Action tooltip="Copy" onClick={handleCopy}>
+          <Action tooltip="Copiar" onClick={handleCopy}>
             <CopyIcon />
           </Action>
         </div>
@@ -73,7 +73,7 @@ export function PureMessageActions({
       </Action>
 
       <Action
-        tooltip="Upvote Response"
+        tooltip="Avaliar Positivamente"
         data-testid="message-upvote"
         disabled={vote?.isUpvoted}
         onClick={async () => {
@@ -87,7 +87,7 @@ export function PureMessageActions({
           });
 
           toast.promise(upvote, {
-            loading: 'Upvoting Response...',
+            loading: 'Avaliando positivamente...',
             success: () => {
               mutate<Array<Vote>>(
                 `/api/vote?chatId=${chatId}`,
@@ -110,9 +110,9 @@ export function PureMessageActions({
                 { revalidate: false },
               );
 
-              return 'Upvoted Response!';
+              return 'Avaliado positivamente!';
             },
-            error: 'Failed to upvote response.',
+            error: 'Falha ao avaliar positivamente.',
           });
         }}
       >
@@ -120,7 +120,7 @@ export function PureMessageActions({
       </Action>
 
       <Action
-        tooltip="Downvote Response"
+        tooltip="Avaliar Negativamente"
         data-testid="message-downvote"
         disabled={vote && !vote.isUpvoted}
         onClick={async () => {
@@ -134,7 +134,7 @@ export function PureMessageActions({
           });
 
           toast.promise(downvote, {
-            loading: 'Downvoting Response...',
+            loading: 'Avaliando negativamente...',
             success: () => {
               mutate<Array<Vote>>(
                 `/api/vote?chatId=${chatId}`,
@@ -157,9 +157,9 @@ export function PureMessageActions({
                 { revalidate: false },
               );
 
-              return 'Downvoted Response!';
+              return 'Avaliado negativamente!';
             },
-            error: 'Failed to downvote response.',
+            error: 'Falha ao avaliar negativamente.',
           });
         }}
       >
