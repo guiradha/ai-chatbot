@@ -1,7 +1,7 @@
 import { compare } from 'bcrypt-ts';
 import NextAuth, { type DefaultSession } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-import { createGuestUser, getUser } from '@/lib/db/queries';
+import { createGuestUser, getUser, createUser } from '@/lib/db/queries';
 import { authConfig } from './auth.config';
 import { DUMMY_PASSWORD } from '@/lib/constants';
 import type { DefaultJWT } from 'next-auth/jwt';
@@ -68,6 +68,33 @@ export const {
       async authorize() {
         const [guestUser] = await createGuestUser();
         return { ...guestUser, type: 'guest' };
+      },
+    }),
+    Credentials({
+      id: 'workos',
+      credentials: {
+        email: { type: 'email' },
+        id: { type: 'text' },
+        name: { type: 'text' },
+      },
+      async authorize({ email, id, name }: any) {
+        if (!email || !id) return null;
+
+        // Check if user exists
+        let users = await getUser(email);
+        
+        if (users.length === 0) {
+          // Create new user from WorkOS
+          users = await createUser(email, ''); // No password for WorkOS users
+        }
+
+        const [user] = users;
+        return { 
+          ...user, 
+          type: 'regular',
+          name: name || user.email,
+          workosId: id
+        };
       },
     }),
   ],

@@ -1,0 +1,9996 @@
+import { notFound } from 'next/navigation'
+import { TrainingPageTemplate, TrainingData } from '@/components/training-page-template'
+import { Activity, AlertOctagon, AlertTriangle, Anchor, Award, BookOpen, Building, Calendar, Car, ChartBar, CheckCircle, ClipboardCheck, Cog, Construction, Cpu, Droplets, Dumbbell, Ear, Eye, Factory, FileSearch, FileText, Flame, FlaskConical, Forklift, Gauge, GraduationCap, Hand, HardHat, Headphones, Heart, Home, Leaf, Link2, Lock, MessageSquare, Monitor, Mountain, Move3D, Package, Presentation, Recycle, RefreshCw, Search, Settings, Shield, ShoppingCart, Shovel, Siren, Skull, Sparkles, Syringe, Target, Tractor, Trash2, TreePine, TrendingUp, Trophy, Truck, UserCheck, Users, Wheat, Wind, Wrench, Zap } from "lucide-react"
+
+// Training data for each course
+const trainingData: Record<string, TrainingData> = {
+  'apr-analise-risco': {
+title: 'APR - Análise Preliminar de Riscos',
+    description: 'Curso sobre Análise Preliminar de Riscos, ferramenta fundamental para identificação, avaliação e controle de riscos no ambiente de trabalho.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Dominar a metodologia da APR',
+      'Identificar e avaliar riscos sistematicamente',
+      'Propor medidas de controle adequadas',
+      'Elaborar documentos de APR'
+    ],
+    modules: [
+      {
+        title: "Introdução à Análise de Riscos",
+        description: "Conceitos básicos de risco, importância da análise preliminar, quando aplicar a APR e benefícios para a organização na gestão proativa de segurança."
+      },
+      {
+        title: "Metodologia da APR",
+        description: "Etapas da análise preliminar, técnicas de identificação de perigos, métodos de avaliação de probabilidade e análise estruturada de consequências."
+      },
+      {
+        title: "Ferramentas e Técnicas",
+        description: "Brainstorming estruturado, checklist de verificação, matriz de probabilidade x consequência e introdução à árvore de falhas básica."
+      },
+      {
+        title: "Classificação de Riscos",
+        description: "Critérios de classificação, níveis de risco (baixo, médio, alto), conceitos de tolerabilidade de riscos e priorização de ações corretivas."
+      },
+      {
+        title: "Medidas de Controle",
+        description: "Hierarquia de controles, técnicas de eliminação e substituição, controles de engenharia e implementação de controles administrativos e EPIs."
+      },
+      {
+        title: "Documentação e Acompanhamento",
+        description: "Estrutura do documento APR, processos de revisões periódicas, integração com outros sistemas de gestão e monitoramento da eficácia."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação e Avaliação',
+        icon: <Search className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Conceitos básicos de risco',
+          'Identificação sistemática de perigos',
+          'Avaliação de probabilidade de ocorrência',
+          'Análise estruturada de consequências'
+        ]
+      },
+      {
+        title: 'Metodologia e Ferramentas',
+        icon: <Target className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Domínio da metodologia APR',
+          'Brainstorming estruturado',
+          'Uso de checklist de verificação',
+          'Aplicação de matriz probabilidade x consequência'
+        ]
+      },
+      {
+        title: 'Controle e Prevenção',
+        icon: <Shield className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Hierarquia de controles',
+          'Técnicas de eliminação e substituição',
+          'Implementação de controles de engenharia',
+          'Controles administrativos e EPIs'
+        ]
+      },
+      {
+        title: 'Documentação e Gestão',
+        icon: <BookOpen className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Elaboração de documentos APR',
+          'Revisões periódicas estruturadas',
+          'Integração com sistemas de gestão',
+          'Monitoramento da eficácia das medidas'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado em Análise Preliminar de Riscos',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 80%)',
+        'Elaboração de APR prática',
+        'Demonstração de competência técnica'
+      ]
+    },
+    theme: {
+      primaryColor: 'amber',
+      gradientFrom: 'from-amber-50',
+      gradientTo: 'to-yellow-50',
+      bgColor: 'bg-amber-100',
+      textColor: 'text-amber-600',
+      iconBg: 'bg-amber-100',
+      iconColor: 'text-amber-600',
+      ctaColor: 'bg-amber-600'
+    },
+    heroIcon: <Search className="h-6 w-6 text-amber-600" />,
+    heroImage: "/training-covers/analise-risco.png",
+    ctaTitle: "Domine a Análise de Riscos",
+    ctaSubtitle: "Capacitação especializada em APR para gestão proativa de segurança - 8 horas de treinamento"
+  },
+
+  'bombeiro-civil-classe1': {
+title: 'Bombeiro Civil - Classe I',
+    description: 'Formação completa de Bombeiro Civil Classe I conforme normas do Corpo de Bombeiros. Capacitação profissional para atuar na prevenção e combate a incêndios, primeiros socorros e salvamento em edificações residenciais e comerciais.',
+    duration: '210 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Avançado',
+    objetivos: [
+      'Formar profissionais bombeiros civis qualificados',
+      'Capacitar em técnicas de prevenção e combate a incêndios',
+      'Desenvolver habilidades em primeiros socorros avançados',
+      'Treinar técnicas de salvamento e resgate',
+      'Preparar para atuação em situações de emergência'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da Profissão",
+        description: "História e evolução do bombeiro civil, legislação e normas aplicáveis, ética profissional e responsabilidades, mercado de trabalho e oportunidades."
+      },
+      {
+        title: "Prevenção de Incêndios",
+        description: "Teoria do fogo e classes de incêndio, métodos de prevenção, inspeção de equipamentos, elaboração de relatórios técnicos, análise de riscos em edificações."
+      },
+      {
+        title: "Combate a Incêndios",
+        description: "Técnicas de combate direto e indireto, uso de extintores e hidrantes, operação de mangueiras e esguichos, ventilação tática, proteção de salvados."
+      },
+      {
+        title: "Equipamentos de Proteção",
+        description: "EPIs específicos do bombeiro civil, equipamentos de proteção respiratória (EPR), manutenção e conservação de equipamentos, técnicas de colocação rápida."
+      },
+      {
+        title: "Primeiros Socorros Avançados",
+        description: "Suporte básico de vida (BLS), reanimação cardiopulmonar (RCP), desobstrução de vias aéreas, atendimento a traumas e queimaduras, imobilização e transporte de vítimas."
+      },
+      {
+        title: "Salvamento Terrestre",
+        description: "Técnicas de salvamento em altura, espaços confinados, uso de cordas e equipamentos, salvamento em elevadores, técnicas de arrombamento."
+      },
+      {
+        title: "Produtos Perigosos",
+        description: "Identificação de produtos perigosos, procedimentos em vazamentos, descontaminação básica, isolamento de áreas, comunicação com equipes especializadas."
+      },
+      {
+        title: "Psicologia das Emergências",
+        description: "Comportamento humano em emergências, técnicas de evacuação ordenada, comunicação em situações de crise, gerenciamento do estresse, apoio psicológico básico."
+      },
+      {
+        title: "Planos de Emergência",
+        description: "Elaboração de planos de emergência, rotas de fuga e pontos de encontro, brigadas de incêndio, coordenação com órgãos externos, simulados e treinamentos."
+      },
+      {
+        title: "Estágio Supervisionado",
+        description: "Prática supervisionada em campo, acompanhamento de profissionais experientes, participação em ocorrências reais, avaliação de desempenho prático."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Prevenção e Combate',
+        icon: <Flame className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Inspeção preventiva de segurança',
+          'Combate a incêndios estruturais',
+          'Operação de equipamentos de combate',
+          'Ventilação e proteção de salvados'
+        ]
+      },
+      {
+        title: 'Atendimento Médico',
+        icon: <Heart className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Suporte básico de vida',
+          'RCP e desobstrução de vias',
+          'Atendimento a politraumatizados',
+          'Transporte seguro de vítimas'
+        ]
+      },
+      {
+        title: 'Salvamento e Resgate',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Salvamento em altura',
+          'Resgate em espaços confinados',
+          'Técnicas com cordas',
+          'Operações de busca'
+        ]
+      },
+      {
+        title: 'Gestão de Emergências',
+        icon: <Siren className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Coordenação de evacuações',
+          'Comunicação de emergência',
+          'Interface com autoridades',
+          'Elaboração de relatórios'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado reconhecido pelo Corpo de Bombeiros',
+      requisitos: [
+        'Frequência mínima de 90%',
+        'Aprovação em todas as avaliações teóricas',
+        'Aprovação nas avaliações práticas',
+        'Conclusão do estágio supervisionado',
+        'Aptidão no exame médico'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <Flame className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/bombeiro-civil.png",
+    ctaTitle: "Torne-se um Bombeiro Civil Profissional",
+    ctaSubtitle: "Formação completa de 210 horas com certificação oficial"
+  },
+
+  'brigada-incendio': {
+title: 'Brigada de Incêndio',
+    description: 'Curso para formação de brigadistas, capacitando profissionais para prevenção, combate a princípios de incêndio e atendimento a emergências.',
+    duration: '16 horas',
+    category: 'Emergência',
+    format: 'Presencial',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Formar brigadistas competentes',
+      'Prevenir e combater incêndios',
+      'Coordenar evacuações de emergência',
+      'Prestar primeiros socorros'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da Brigada",
+        description: "Conceito e importância da brigada, responsabilidades do brigadista, organização da brigada e legislação aplicável para formação de equipes de emergência."
+      },
+      {
+        title: "Teoria do Fogo",
+        description: "Triângulo e tetraedro do fogo, classificação das classes de incêndio, métodos de extinção disponíveis e compreensão dos processos de propagação do fogo."
+      },
+      {
+        title: "Equipamentos de Combate",
+        description: "Conhecimento sobre extintores portáteis, mangueiras e hidrantes, equipamentos de proteção individual e coletiva, inspeção e manutenção preventiva."
+      },
+      {
+        title: "Técnicas de Combate",
+        description: "Técnicas de aproximação e ataque ao fogo, métodos de aplicação de agentes extintores, trabalho em equipe coordenado e segurança do brigadista."
+      },
+      {
+        title: "Abandono e Evacuação",
+        description: "Elaboração e execução de planos de evacuação, definição de rotas de fuga seguras, estabelecimento de pontos de encontro e controle de pânico."
+      },
+      {
+        title: "Primeiros Socorros",
+        description: "Avaliação inicial da vítima, tratamento de queimaduras, atendimento a intoxicação por fumaça e técnicas adequadas de transporte de feridos."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Fundamentos e Teoria',
+        icon: <Flame className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Conceito e importância da brigada',
+          'Responsabilidades do brigadista',
+          'Triângulo e tetraedro do fogo',
+          'Classes de incêndio e métodos de extinção'
+        ]
+      },
+      {
+        title: 'Equipamentos e Combate',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Uso de extintores portáteis',
+          'Operação de mangueiras e hidrantes',
+          'Técnicas de aproximação e ataque',
+          'Inspeção e manutenção de equipamentos'
+        ]
+      },
+      {
+        title: 'Evacuação e Coordenação',
+        icon: <Users className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Elaboração de planos de evacuação',
+          'Definição de rotas de fuga',
+          'Controle de pânico em emergências',
+          'Coordenação de equipes'
+        ]
+      },
+      {
+        title: 'Primeiros Socorros',
+        icon: <Activity className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Avaliação inicial da vítima',
+          'Tratamento de queimaduras',
+          'Atendimento a intoxicação por fumaça',
+          'Transporte seguro de feridos'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado de Brigadista',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática',
+        'Aptidão física e mental'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <Flame className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/nocoes-combate-incendios.png",
+    ctaTitle: "Torne-se um Brigadista",
+    ctaSubtitle: "Formação completa para prevenção e combate a incêndios - 16 horas de treinamento intensivo"
+  },
+
+  'coleta-seletiva': {
+title: 'Coleta Seletiva e Gestão de Resíduos',
+    description: 'Capacitação em práticas de coleta seletiva, gestão sustentável de resíduos e economia circular. Aprenda a implementar programas eficazes de reciclagem e redução de impacto ambiental no ambiente corporativo.',
+    duration: '4 horas',
+    category: 'Saúde',
+    format: 'Online',
+    location: 'EAD - Ensino à Distância',
+    nivel: 'Básico',
+    objetivos: [
+      'Compreender a importância da coleta seletiva para o meio ambiente',
+      'Identificar e classificar diferentes tipos de resíduos',
+      'Implementar programas de coleta seletiva na empresa',
+      'Promover a consciência ambiental entre colaboradores'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da Coleta Seletiva",
+        description: "Conceitos básicos de coleta seletiva, tipos de resíduos (orgânicos, recicláveis, rejeitos), cores padronizadas para lixeiras, legislação ambiental aplicável."
+      },
+      {
+        title: "Classificação e Separação de Resíduos",
+        description: "Identificação de materiais recicláveis, resíduos perigosos e especiais, técnicas de separação adequada, cuidados no manuseio de diferentes materiais."
+      },
+      {
+        title: "Implementação de Programas",
+        description: "Planejamento de programa de coleta seletiva, definição de pontos de coleta, treinamento de equipes, monitoramento e indicadores de sucesso."
+      },
+      {
+        title: "Economia Circular e Sustentabilidade",
+        description: "Conceitos de economia circular, redução, reutilização e reciclagem (3Rs), benefícios econômicos e ambientais, casos de sucesso empresariais."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Gestão Ambiental',
+        icon: <Leaf className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Classificação correta de resíduos',
+          'Implementação de coleta seletiva',
+          'Monitoramento de indicadores ambientais',
+          'Redução de impacto ambiental'
+        ]
+      },
+      {
+        title: 'Sustentabilidade Corporativa',
+        icon: <TreePine className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Desenvolvimento de programas sustentáveis',
+          'Engajamento de colaboradores',
+          'Comunicação de práticas verdes',
+          'Compliance ambiental'
+        ]
+      },
+      {
+        title: 'Economia Circular',
+        icon: <Recycle className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Aplicação dos conceitos 3Rs',
+          'Identificação de oportunidades de reciclagem',
+          'Parcerias com cooperativas',
+          'Redução de desperdícios'
+        ]
+      },
+      {
+        title: 'Educação Ambiental',
+        icon: <Trash2 className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Conscientização ambiental',
+          'Multiplicação de conhecimentos',
+          'Mudança de comportamento',
+          'Responsabilidade socioambiental'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado em Gestão de Resíduos e Coleta Seletiva',
+      requisitos: [
+        'Frequência mínima de 75%',
+        'Aprovação na avaliação final',
+        'Participação nas atividades práticas'
+      ]
+    },
+    theme: {
+      primaryColor: 'green',
+      gradientFrom: 'from-green-50',
+      gradientTo: 'to-emerald-50',
+      bgColor: 'bg-green-100',
+      textColor: 'text-green-600',
+      iconBg: 'bg-green-100',
+      iconColor: 'text-green-600',
+      ctaColor: 'bg-green-600'
+    },
+    heroIcon: <Recycle className="h-6 w-6 text-green-600" />,
+    heroImage: "/training-covers/coleta-seletiva.png",
+    ctaTitle: "Transforme sua Empresa em um Modelo Sustentável",
+    ctaSubtitle: "Implementação eficaz de coleta seletiva e gestão de resíduos"
+  },
+
+  'covid-19-prevencao': {
+title: 'COVID-19 - Prevenção no Trabalho',
+    description: 'Curso sobre medidas de prevenção e controle da COVID-19 no ambiente de trabalho, incluindo protocolos de segurança, uso correto de EPIs, organização do trabalho e adaptação ao trabalho remoto e híbrido.',
+    duration: '4 horas',
+    category: 'Saúde',
+    format: 'Online/Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Conhecer o vírus SARS-CoV-2',
+      'Aplicar protocolos de prevenção',
+      'Usar EPIs adequadamente',
+      'Organizar ambiente de trabalho seguro'
+    ],
+    modules: [
+      {
+        title: "Conhecendo a COVID-19",
+        description: "Características do vírus SARS-CoV-2, formas de transmissão, sintomas e evolução da doença, identificação de grupos de risco e compreensão dos impactos na saúde ocupacional."
+      },
+      {
+        title: "Medidas de Prevenção Individual",
+        description: "Higienização das mãos, uso correto de máscaras, etiqueta respiratória, distanciamento social e práticas individuais de proteção no ambiente de trabalho."
+      },
+      {
+        title: "Organização do Ambiente de Trabalho",
+        description: "Layout e distanciamento, ventilação adequada, limpeza e desinfecção, controle de acesso e adaptações necessárias para ambientes seguros."
+      },
+      {
+        title: "Protocolo para Casos Suspeitos",
+        description: "Identificação de sintomas, afastamento e isolamento, comunicação às autoridades competentes e procedimentos para retorno seguro ao trabalho."
+      },
+      {
+        title: "Trabalho Remoto e Híbrido",
+        description: "Organização do home office, ferramentas de comunicação, saúde mental no trabalho remoto, ergonomia em casa e adaptação a novos modelos de trabalho."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Conhecimento sobre COVID-19',
+        icon: <Heart className="h-5 w-5 text-teal-600" />,
+        skills: [
+          'Características do vírus SARS-CoV-2',
+          'Formas de transmissão e prevenção',
+          'Identificação de sintomas',
+          'Reconhecimento de grupos de risco'
+        ]
+      },
+      {
+        title: 'Medidas Preventivas',
+        icon: <Shield className="h-5 w-5 text-teal-600" />,
+        skills: [
+          'Higienização correta das mãos',
+          'Uso adequado de máscaras e EPIs',
+          'Etiqueta respiratória',
+          'Distanciamento social efetivo'
+        ]
+      },
+      {
+        title: 'Organização do Ambiente',
+        icon: <Users className="h-5 w-5 text-teal-600" />,
+        skills: [
+          'Layout com distanciamento adequado',
+          'Ventilação e qualidade do ar',
+          'Protocolos de limpeza e desinfecção',
+          'Controle de acesso e fluxo'
+        ]
+      },
+      {
+        title: 'Trabalho Remoto e Protocolos',
+        icon: <Home className="h-5 w-5 text-teal-600" />,
+        skills: [
+          'Organização do home office',
+          'Ferramentas de comunicação digital',
+          'Protocolos para casos suspeitos',
+          'Saúde mental e ergonomia'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado de Prevenção COVID-19',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Comprometimento com aplicação das medidas',
+        'Atualização conforme protocolos sanitários'
+      ]
+    },
+    theme: {
+      primaryColor: 'teal',
+      gradientFrom: 'from-teal-50',
+      gradientTo: 'to-cyan-50',
+      bgColor: 'bg-teal-100',
+      textColor: 'text-teal-600',
+      iconBg: 'bg-teal-100',
+      iconColor: 'text-teal-600',
+      ctaColor: 'bg-teal-600'
+    },
+    heroIcon: <Shield className="h-6 w-6 text-teal-600" />,
+    heroImage: "https://images.unsplash.com/photo-1584744982491-665216d95f8b?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Proteja sua Equipe",
+    ctaSubtitle: "Treinamento essencial em prevenção COVID-19 - 4 horas de capacitação em saúde ocupacional"
+  },
+
+  'cultura-seguranca-organizacional': {
+title: 'Cultura de Segurança Organizacional',
+    description: 'Curso estratégico para líderes e gestores sobre como desenvolver e implementar uma cultura de segurança sólida, engajando todos os níveis organizacionais na prevenção de acidentes.',
+    duration: '16 horas',
+    category: 'Liderança',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Avançado',
+    objetivos: [
+      'Desenvolver cultura de segurança organizacional',
+      'Engajar liderança em segurança',
+      'Implementar programas comportamentais',
+      'Medir e monitorar indicadores culturais'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da Cultura de Segurança",
+        description: "Conceitos e definições, níveis de maturidade cultural, fatores organizacionais, impacto nos resultados de segurança. Base teórica para transformação cultural em segurança."
+      },
+      {
+        title: "Liderança em Segurança",
+        description: "Papel da liderança na segurança, comportamentos de líderes seguros, comunicação eficaz, influência e engajamento. Desenvolvimento de liderança transformacional em SST."
+      },
+      {
+        title: "Diagnóstico Cultural",
+        description: "Avaliação do clima de segurança, pesquisas e questionários, indicadores comportamentais, análise de gaps culturais. Ferramentas para mapear o estado atual da cultura."
+      },
+      {
+        title: "Estratégias de Transformação",
+        description: "Planejamento da mudança cultural, programas de engajamento, sistemas de reconhecimento, gestão da resistência. Roadmap para evolução cultural sustentável."
+      },
+      {
+        title: "Segurança Comportamental",
+        description: "Observação comportamental, feedback construtivo, programas de incentivo, modificação de comportamentos. Técnicas práticas para mudança comportamental efetiva."
+      },
+      {
+        title: "Sustentabilidade Cultural",
+        description: "Indicadores de desempenho, monitoramento contínuo, melhoria contínua, perpetuação da cultura. Garantia de resultados duradouros e evolução constante."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Liderança Transformacional',
+        icon: <Target className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Visão estratégica de segurança',
+          'Influência e engajamento',
+          'Comunicação inspiradora',
+          'Coaching em segurança'
+        ]
+      },
+      {
+        title: 'Gestão de Mudanças',
+        icon: <Users className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Diagnóstico organizacional',
+          'Planejamento de transformação',
+          'Gestão de resistências',
+          'Engajamento de stakeholders'
+        ]
+      },
+      {
+        title: 'Programas Comportamentais',
+        icon: <TrendingUp className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Observação comportamental',
+          'Análise de comportamentos',
+          'Sistemas de incentivo',
+          'Feedback eficaz'
+        ]
+      },
+      {
+        title: 'Métricas e Indicadores',
+        icon: <Award className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'KPIs de cultura de segurança',
+          'Pesquisas de clima',
+          'Análise de tendências',
+          'Reporting executivo'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '3 anos',
+      orgao: 'Certificado de Especialista em Cultura de Segurança',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 85%)',
+        'Projeto prático de implementação',
+        'Experiência em liderança'
+      ]
+    },
+    theme: {
+      primaryColor: 'indigo',
+      gradientFrom: 'from-indigo-50',
+      gradientTo: 'to-purple-50',
+      bgColor: 'bg-indigo-100',
+      textColor: 'text-indigo-600',
+      iconBg: 'bg-indigo-100',
+      iconColor: 'text-indigo-600',
+      ctaColor: 'bg-indigo-600'
+    },
+    heroIcon: <Target className="h-6 w-6 text-indigo-600" />,
+    heroImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Transforme a Cultura de Segurança",
+    ctaSubtitle: "Lidere a mudança para um ambiente de trabalho mais seguro"
+  },
+
+  'dds-dialogo-seguranca': {
+title: 'DDS - Diálogo Diário de Segurança',
+    description: 'Curso para líderes e supervisores sobre como conduzir Diálogos Diários de Segurança, ferramenta fundamental para manter a conscientização e prevenir acidentes.',
+    duration: '4 horas',
+    category: 'Liderança',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Conduzir DDS eficazes',
+      'Engajar equipes em segurança',
+      'Identificar temas relevantes',
+      'Avaliar efetividade dos diálogos'
+    ],
+    modules: [
+      {
+        title: "Fundamentos do DDS",
+        description: "Conceito e importância do DDS, benefícios para a segurança, frequência e duração ideal, responsabilidades do condutor."
+      },
+      {
+        title: "Planejamento do DDS",
+        description: "Seleção de temas apropriados, preparação do material, definição de objetivos, cronograma de temas."
+      },
+      {
+        title: "Condução Eficaz",
+        description: "Técnicas de comunicação, envolvimento da equipe, uso de casos práticos, gestão do tempo."
+      },
+      {
+        title: "Temas Essenciais",
+        description: "Prevenção de acidentes típicos, uso correto de EPIs, ergonomia no trabalho, comportamento seguro."
+      },
+      {
+        title: "Avaliação e Melhoria",
+        description: "Feedback da equipe, registro e documentação, indicadores de eficácia, melhoria contínua do processo."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Comunicação e Liderança',
+        icon: <MessageSquare className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Técnicas de comunicação eficaz',
+          'Envolvimento e engajamento de equipes',
+          'Liderança em segurança',
+          'Gestão de tempo em reuniões'
+        ]
+      },
+      {
+        title: 'Planejamento e Estruturação',
+        icon: <BookOpen className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Seleção de temas relevantes',
+          'Preparação de material didático',
+          'Definição de objetivos claros',
+          'Cronograma estruturado de temas'
+        ]
+      },
+      {
+        title: 'Condução de Reuniões',
+        icon: <Users className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Facilitação de discussões',
+          'Uso de casos práticos',
+          'Manutenção do foco no tema',
+          'Estímulo à participação'
+        ]
+      },
+      {
+        title: 'Avaliação e Melhoria',
+        icon: <Award className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Coleta de feedback da equipe',
+          'Registro e documentação',
+          'Análise de indicadores',
+          'Implementação de melhorias'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado de Condutor de DDS',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Participação em simulações práticas',
+        'Elaboração de plano de DDS',
+        'Demonstração de habilidades de comunicação'
+      ]
+    },
+    theme: {
+      primaryColor: 'indigo',
+      gradientFrom: 'from-indigo-50',
+      gradientTo: 'to-blue-50',
+      bgColor: 'bg-indigo-100',
+      textColor: 'text-indigo-600',
+      iconBg: 'bg-indigo-100',
+      iconColor: 'text-indigo-600',
+      ctaColor: 'bg-indigo-600'
+    },
+    heroIcon: <MessageSquare className="h-6 w-6 text-indigo-600" />,
+    heroImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Desenvolva Lideranças em Segurança",
+    ctaSubtitle: "Capacitação para condução eficaz de Diálogos Diários de Segurança"
+  },
+
+  'direcao-defensiva': {
+title: 'Direção Defensiva',
+    description: 'Aprenda os princípios da direção defensiva e como prevenir acidentes com atitudes seguras ao volante. Este curso capacita condutores para reconhecer e agir diante de situações de risco, reduzindo infrações e promovendo a segurança no trânsito.',
+    duration: '20 horas',
+    category: 'Segurança',
+    format: 'Online',
+    location: 'EAD - Ensino à Distância',
+    nivel: 'Básico',
+    objetivos: [
+      'Capacitar condutores para reconhecer situações de risco no trânsito',
+      'Desenvolver atitudes seguras e defensivas ao volante',
+      'Reduzir infrações de trânsito e prevenir acidentes',
+      'Promover a segurança no trânsito através de práticas responsáveis'
+    ],
+    modules: [
+      {
+        title: "Importância da direção defensiva",
+        description: "Compreensão da relevância da direção defensiva na prevenção de acidentes, responsabilidade do condutor pela segurança no trânsito, estatísticas de acidentes no Brasil e conceitos fundamentais."
+      },
+      {
+        title: "Condições adversas",
+        description: "Condução em condições de chuva e pista molhada, direção em situações de neblina e baixa visibilidade, condições precárias da via e adaptação da condução conforme as condições climáticas."
+      },
+      {
+        title: "Fatores que contribuem para acidentes",
+        description: "Fatores humanos (distração, fadiga e imprudência), fatores mecânicos (manutenção preventiva), fatores ambientais (condições da via e clima) e hábitos preventivos."
+      },
+      {
+        title: "Comportamento seguro",
+        description: "Postura e atitudes responsáveis do condutor, atenção constante e foco na condução, empatia com os demais usuários da via e técnicas de comunicação no trânsito."
+      },
+      {
+        title: "Equipamentos de segurança",
+        description: "Dispositivos obrigatórios e recomendados, identificação e uso correto dos equipamentos de segurança, uso correto do cinto de segurança e inspeção e manutenção."
+      },
+      {
+        title: "Técnicas de direção preventiva",
+        description: "Posicionamento adequado no veículo, ajuste de espelhos e banco, técnicas de frenagem e aceleração seguras, manutenção de distância de segurança."
+      },
+      {
+        title: "Situações de emergência",
+        description: "Procedimentos em caso de pane no veículo, técnicas de direção em situações de emergência, primeiros socorros básicos no trânsito e acionamento de serviços de emergência."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Reconhecimento de Riscos',
+        icon: <Eye className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Identificação de situações de risco no trânsito',
+          'Reconhecimento de condições adversas',
+          'Análise de fatores que contribuem para acidentes',
+          'Avaliação de comportamentos perigosos'
+        ]
+      },
+      {
+        title: 'Condução Defensiva',
+        icon: <Car className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Técnicas de direção preventiva',
+          'Condução em condições adversas',
+          'Posicionamento adequado no veículo',
+          'Manutenção de distância de segurança'
+        ]
+      },
+      {
+        title: 'Comportamento Seguro',
+        icon: <Shield className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Postura responsável ao volante',
+          'Atenção constante durante a condução',
+          'Empatia com outros usuários da via',
+          'Comunicação eficaz no trânsito'
+        ]
+      },
+      {
+        title: 'Situações de Emergência',
+        icon: <AlertTriangle className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Procedimentos em situações de emergência',
+          'Uso correto de equipamentos de segurança',
+          'Primeiros socorros básicos',
+          'Acionamento de serviços de emergência'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: 'Indefinida',
+      orgao: 'Certificado de conclusão do curso',
+      requisitos: [
+        'Frequência mínima de 75%',
+        'Aprovação na avaliação final',
+        'Conclusão de todos os módulos'
+      ]
+    },
+    theme: {
+      primaryColor: 'green',
+      gradientFrom: 'from-green-50',
+      gradientTo: 'to-emerald-50',
+      bgColor: 'bg-green-100',
+      textColor: 'text-green-600',
+      iconBg: 'bg-green-100',
+      iconColor: 'text-green-600',
+      ctaColor: 'bg-green-600'
+    },
+    heroIcon: <Car className="h-6 w-6 text-green-600" />,
+    heroImage: "/training-covers/direcao-defensiva.png",
+    ctaTitle: "Dirija com Segurança",
+    ctaSubtitle: "Curso completo de direção defensiva - 20 horas de capacitação online"
+  },
+
+  'ergonomia-postural': {
+title: 'Ergonomia e Postura no Trabalho',
+    description: 'Curso sobre princípios ergonômicos e postura correta no trabalho, visando prevenir lesões musculoesqueléticas e promover bem-estar dos trabalhadores. Abordagem prática para melhorar qualidade de vida no ambiente laboral.',
+    duration: '6 horas',
+    category: 'Ergonomia',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Compreender princípios ergonômicos',
+      'Adotar posturas corretas no trabalho',
+      'Prevenir LER/DORT',
+      'Organizar ambiente de trabalho ergonômico'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da Ergonomia",
+        description: "Conceitos básicos de ergonomia, biomecânica do corpo humano, fatores de risco ergonômicos, impactos na saúde e produtividade, e introdução à ciência da adaptação do trabalho ao ser humano."
+      },
+      {
+        title: "Postura e Coluna Vertebral",
+        description: "Anatomia da coluna vertebral, posturas corretas sentado e em pé, curvaturas naturais da coluna, exercícios de fortalecimento, e prevenção de problemas posturais comuns."
+      },
+      {
+        title: "Ambiente de Trabalho Ergonômico",
+        description: "Ajuste de cadeira e mesa, posicionamento de monitor, apoio para pés e braços, iluminação adequada, e configuração ideal do posto de trabalho para máximo conforto."
+      },
+      {
+        title: "Movimentos e Gestos",
+        description: "Movimentos repetitivos, levantamento de cargas, alcance e pegada, variação de posturas, e técnicas para executar atividades laborais com menor risco de lesão."
+      },
+      {
+        title: "Prevenção de LER/DORT",
+        description: "Lesões mais comuns, sinais de alerta, pausas e alongamentos, ginástica laboral, e estratégias eficazes para prevenir lesões por esforços repetitivos."
+      },
+      {
+        title: "Aplicação Prática",
+        description: "Avaliação do posto de trabalho, exercícios práticos, plano de melhoria ergonômica, manutenção de bons hábitos, e implementação de mudanças sustentáveis no dia a dia."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Princípios Ergonômicos',
+        icon: <UserCheck className="h-5 w-5 text-lime-600" />,
+        skills: [
+          'Conceitos básicos de ergonomia',
+          'Biomecânica do corpo humano',
+          'Fatores de risco ergonômicos',
+          'Relação ergonomia-produtividade'
+        ]
+      },
+      {
+        title: 'Postura e Biomecânica',
+        icon: <Activity className="h-5 w-5 text-lime-600" />,
+        skills: [
+          'Anatomia da coluna vertebral',
+          'Posturas corretas sentado e em pé',
+          'Curvaturas naturais da coluna',
+          'Exercícios de fortalecimento'
+        ]
+      },
+      {
+        title: 'Configuração do Ambiente',
+        icon: <Monitor className="h-5 w-5 text-lime-600" />,
+        skills: [
+          'Ajuste de cadeira e mesa',
+          'Posicionamento correto de monitor',
+          'Apoios para pés e braços',
+          'Iluminação e organização do espaço'
+        ]
+      },
+      {
+        title: 'Prevenção e Exercícios',
+        icon: <Dumbbell className="h-5 w-5 text-lime-600" />,
+        skills: [
+          'Prevenção de LER/DORT',
+          'Pausas e alongamentos',
+          'Ginástica laboral',
+          'Manutenção de bons hábitos'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado em Ergonomia e Postura',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Demonstração prática de posturas',
+        'Elaboração de plano ergonômico'
+      ]
+    },
+    theme: {
+      primaryColor: 'lime',
+      gradientFrom: 'from-lime-50',
+      gradientTo: 'to-green-50',
+      bgColor: 'bg-lime-100',
+      textColor: 'text-lime-600',
+      iconBg: 'bg-lime-100',
+      iconColor: 'text-lime-600',
+      ctaColor: 'bg-lime-600'
+    },
+    heroIcon: <UserCheck className="h-6 w-6 text-lime-600" />,
+    heroImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Trabalhe com Conforto",
+    ctaSubtitle: "Treinamento completo em ergonomia - 6 horas de capacitação em bem-estar no trabalho"
+  },
+
+  'gestao-cultura-seguranca': {
+title: 'Gestão da Cultura de Segurança',
+    description: 'Curso avançado com 37 vídeo aulas sobre implementação de cultura de segurança organizacional. Aborda conceitos, processos e liderança na segurança do trabalho, com casos reais de implementação bem-sucedida para capacitar gestores e profissionais da área.',
+    duration: '30 horas',
+    category: 'Liderança',
+    format: 'Online',
+    location: 'EAD - Ensino à Distância',
+    nivel: 'Avançado',
+    objetivos: [
+      'Desenvolver competências para implementar uma cultura de segurança eficaz',
+      'Compreender os estágios de maturidade da cultura de segurança',
+      'Capacitar líderes para promover ambientes de trabalho seguros',
+      'Aplicar métodos de avaliação e desenvolvimento cultural',
+      'Analisar casos reais de implementação bem-sucedida'
+    ],
+    modules: [
+      {
+        title: "Conceitos e Fundamentos",
+        description: "Introdução à cultura de segurança e seus conceitos fundamentais, estágios de maturidade organizacional em segurança, benefícios práticos para prevenção de acidentes, promoção de ambientes de trabalho mais seguros, e indicadores de uma cultura de segurança madura."
+      },
+      {
+        title: "Elementos e Avaliação",
+        description: "Principais elementos que compõem a cultura de segurança, métodos para avaliação cultural nas organizações, estratégias para desenvolvimento de cultura sólida e eficaz, ferramentas de diagnóstico organizacional, e planejamento de intervenções culturais."
+      },
+      {
+        title: "Liderança em Segurança",
+        description: "Influência da liderança na consolidação da cultura de segurança, atitudes e comportamentos que inspiram ambientes seguros, comunicação eficaz em segurança do trabalho, técnicas de engajamento e motivação de equipes, e casos reais de liderança transformadora."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Fundamentos Culturais',
+        icon: <Shield className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Conceitos fundamentais de cultura de segurança',
+          'Estágios de maturidade organizacional',
+          'Indicadores de cultura madura',
+          'Benefícios práticos para prevenção'
+        ]
+      },
+      {
+        title: 'Avaliação e Diagnóstico',
+        icon: <Target className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Métodos de avaliação cultural',
+          'Ferramentas de diagnóstico organizacional',
+          'Planejamento de intervenções culturais',
+          'Estratégias de desenvolvimento'
+        ]
+      },
+      {
+        title: 'Liderança Transformadora',
+        icon: <Users className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Influência da liderança na segurança',
+          'Comunicação eficaz em segurança',
+          'Técnicas de engajamento de equipes',
+          'Motivação para ambientes seguros'
+        ]
+      },
+      {
+        title: 'Implementação Prática',
+        icon: <TrendingUp className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Casos reais de implementação',
+          'Estratégias de consolidação cultural',
+          'Desenvolvimento de cultura sólida',
+          'Liderança transformadora em segurança'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: 'Permanente',
+      orgao: 'Certificado de participação',
+      requisitos: [
+        'Assistir todas as 37 vídeo aulas',
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação final (nota mínima 7,0)',
+        'Participação em atividades práticas'
+      ]
+    },
+    theme: {
+      primaryColor: 'purple',
+      gradientFrom: 'from-purple-50',
+      gradientTo: 'to-indigo-50',
+      bgColor: 'bg-purple-100',
+      textColor: 'text-purple-600',
+      iconBg: 'bg-purple-100',
+      iconColor: 'text-purple-600',
+      ctaColor: 'bg-purple-600'
+    },
+    heroIcon: <TrendingUp className="h-6 w-6 text-purple-600" />,
+    heroImage: "/training-covers/gestao-cultura-seguranca.png",
+    ctaTitle: "Lidere com Cultura de Segurança",
+    ctaSubtitle: "Curso avançado com 37 vídeo aulas - 30 horas de capacitação em gestão cultural"
+  },
+
+  'ginastica-laboral': {
+title: 'Ginástica Laboral e Exercícios no Trabalho',
+    description: 'Curso prático sobre ginástica laboral, exercícios de alongamento e fortalecimento para prevenção de lesões e melhoria da qualidade de vida no trabalho. Capacitação completa para implementar programas de bem-estar corporativo.',
+    duration: '4 horas',
+    category: 'Bem-estar',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Implementar programa de ginástica laboral',
+      'Orientar exercícios preventivos',
+      'Promover bem-estar dos trabalhadores',
+      'Reduzir absenteísmo por lesões'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da Ginástica Laboral",
+        description: "Conceito e benefícios, tipos de ginástica laboral, momento ideal para aplicação, planejamento de programa e introdução aos princípios do bem-estar no ambiente de trabalho."
+      },
+      {
+        title: "Exercícios Preparatórios",
+        description: "Aquecimento muscular, mobilização articular, exercícios respiratórios, preparação para o trabalho e técnicas para começar o dia com energia e disposição."
+      },
+      {
+        title: "Exercícios Compensatórios",
+        description: "Alongamento muscular, exercícios de fortalecimento, correção postural, relaxamento e práticas para compensar as tensões acumuladas durante o trabalho."
+      },
+      {
+        title: "Exercícios por Atividade",
+        description: "Trabalho de escritório, atividades repetitivas, trabalho em pé, levantamento de cargas e exercícios específicos para diferentes tipos de ocupações profissionais."
+      },
+      {
+        title: "Implementação do Programa",
+        description: "Engajamento da equipe, cronograma de atividades, monitoramento de resultados, ajustes e melhorias para garantir o sucesso e sustentabilidade do programa."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Fundamentos e Planejamento',
+        icon: <Heart className="h-5 w-5 text-emerald-600" />,
+        skills: [
+          'Conceitos básicos da ginástica laboral',
+          'Benefícios para saúde ocupacional',
+          'Tipos e momentos de aplicação',
+          'Planejamento de programa estruturado'
+        ]
+      },
+      {
+        title: 'Exercícios Preparatórios',
+        icon: <Activity className="h-5 w-5 text-emerald-600" />,
+        skills: [
+          'Técnicas de aquecimento muscular',
+          'Mobilização articular eficaz',
+          'Exercícios respiratórios',
+          'Preparação corporal para o trabalho'
+        ]
+      },
+      {
+        title: 'Exercícios Compensatórios',
+        icon: <Dumbbell className="h-5 w-5 text-emerald-600" />,
+        skills: [
+          'Alongamento muscular direcionado',
+          'Exercícios de fortalecimento',
+          'Correção postural',
+          'Técnicas de relaxamento'
+        ]
+      },
+      {
+        title: 'Implementação e Gestão',
+        icon: <Users className="h-5 w-5 text-emerald-600" />,
+        skills: [
+          'Engajamento de equipes',
+          'Cronograma de atividades',
+          'Monitoramento de resultados',
+          'Adaptação para diferentes atividades'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado de Instrutor de Ginástica Laboral',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Demonstração prática de exercícios',
+        'Elaboração de programa personalizado',
+        'Comprometimento com bem-estar'
+      ]
+    },
+    theme: {
+      primaryColor: 'emerald',
+      gradientFrom: 'from-emerald-50',
+      gradientTo: 'to-teal-50',
+      bgColor: 'bg-emerald-100',
+      textColor: 'text-emerald-600',
+      iconBg: 'bg-emerald-100',
+      iconColor: 'text-emerald-600',
+      ctaColor: 'bg-emerald-600'
+    },
+    heroIcon: <Activity className="h-6 w-6 text-emerald-600" />,
+    heroImage: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Promova Bem-estar",
+    ctaSubtitle: "Capacitação prática em ginástica laboral - 4 horas de treinamento em qualidade de vida no trabalho"
+  },
+
+  'investigacao-acidentes': {
+title: 'Investigação e Análise de Acidentes',
+    description: 'Curso técnico para profissionais de segurança sobre metodologias de investigação de acidentes, análise de causas raiz e elaboração de planos de ação preventivos. Capacitação avançada com técnicas científicas de investigação.',
+    duration: '12 horas',
+    category: 'Técnico',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Avançado',
+    objetivos: [
+      'Dominar técnicas de investigação',
+      'Identificar causas raiz de acidentes',
+      'Elaborar relatórios técnicos',
+      'Desenvolver planos de ação preventivos'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da Investigação",
+        description: "Objetivos da investigação de acidentes, princípios básicos de investigação, tipos de acidentes e incidentes, aspectos legais e normativos, e introdução às metodologias investigativas."
+      },
+      {
+        title: "Coleta de Evidências",
+        description: "Preservação do local, técnicas de coleta de dados, entrevistas com envolvidos, documentação fotográfica, e métodos sistemáticos para garantir a integridade das evidências."
+      },
+      {
+        title: "Metodologias de Análise",
+        description: "Árvore de Causas, Diagrama de Ishikawa, Análise de Barreiras, Método TRIPOD, e outras ferramentas científicas para investigação sistemática de acidentes."
+      },
+      {
+        title: "Análise de Causas Raiz",
+        description: "Identificação de causas imediatas, causas básicas ou fundamentais, fatores organizacionais, análise sistêmica, e compreensão profunda dos fatores contribuintes."
+      },
+      {
+        title: "Relatório de Investigação",
+        description: "Estrutura do relatório, cronologia dos fatos, conclusões e recomendações, comunicação dos resultados, e técnicas para elaboração de documentos técnicos eficazes."
+      },
+      {
+        title: "Planos de Ação",
+        description: "Hierarquia de controles, elaboração de medidas preventivas, cronograma de implementação, monitoramento da eficácia, e garantia de melhorias contínuas na segurança."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Técnicas de Investigação',
+        icon: <Search className="h-5 w-5 text-slate-600" />,
+        skills: [
+          'Fundamentos da investigação científica',
+          'Preservação e coleta de evidências',
+          'Técnicas de entrevista investigativa',
+          'Documentação fotográfica forense'
+        ]
+      },
+      {
+        title: 'Metodologias de Análise',
+        icon: <ChartBar className="h-5 w-5 text-slate-600" />,
+        skills: [
+          'Árvore de Causas e Ishikawa',
+          'Análise de Barreiras e TRIPOD',
+          'Identificação de causas raiz',
+          'Análise sistêmica de fatores'
+        ]
+      },
+      {
+        title: 'Documentação Técnica',
+        icon: <FileSearch className="h-5 w-5 text-slate-600" />,
+        skills: [
+          'Elaboração de relatórios técnicos',
+          'Cronologia e sequenciamento de fatos',
+          'Conclusões e recomendações',
+          'Comunicação eficaz de resultados'
+        ]
+      },
+      {
+        title: 'Ações Preventivas',
+        icon: <ClipboardCheck className="h-5 w-5 text-slate-600" />,
+        skills: [
+          'Hierarquia de controles de risco',
+          'Elaboração de medidas preventivas',
+          'Cronograma de implementação',
+          'Monitoramento de eficácia'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '3 anos',
+      orgao: 'Certificado de Especialista em Investigação de Acidentes',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 85%)',
+        'Estudo de caso prático',
+        'Formação técnica em segurança'
+      ]
+    },
+    theme: {
+      primaryColor: 'slate',
+      gradientFrom: 'from-slate-50',
+      gradientTo: 'to-gray-50',
+      bgColor: 'bg-slate-100',
+      textColor: 'text-slate-600',
+      iconBg: 'bg-slate-100',
+      iconColor: 'text-slate-600',
+      ctaColor: 'bg-slate-600'
+    },
+    heroIcon: <Search className="h-6 w-6 text-slate-600" />,
+    heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Domine a Investigação Técnica",
+    ctaSubtitle: "Capacitação avançada em análise de acidentes - 12 horas de treinamento especializado"
+  },
+
+  'lei-lucas': {
+title: 'Lei Lucas',
+    description: 'Capacitação obrigatória em primeiros socorros para profissionais da educação, conforme a Lei 13.722/2018, abordando técnicas essenciais como RCP, controle de hemorragias e desobstrução das vias aéreas.',
+    duration: '4 horas',
+    category: 'Saúde',
+    format: 'Online',
+    location: 'EAD - Ensino à Distância',
+    nivel: 'Obrigatório',
+    objetivos: [
+      'Capacitar profissionais da educação conforme a Lei Lucas',
+      'Desenvolver habilidades essenciais de primeiros socorros',
+      'Treinar técnicas de RCP e reanimação cardiopulmonar',
+      'Ensinar controle de hemorragias e estabilização de vítimas',
+      'Preparar para situações de emergência no ambiente escolar'
+    ],
+    modules: [
+      {
+        title: "Introdução à Lei Lucas",
+        description: "Contexto histórico da criação da lei, objetivos da legislação, exigências para instituições de ensino, responsabilidades legais dos profissionais e impacto na segurança escolar."
+      },
+      {
+        title: "Aspectos gerais dos primeiros socorros",
+        description: "Definição e importância dos primeiros socorros, conceitos de urgência e emergência, objetivos dos primeiros socorros, princípios éticos e legais, equipamentos básicos."
+      },
+      {
+        title: "Sinais vitais e avaliação primária",
+        description: "Verificação de pulso, respiração e temperatura, avaliação de cenários e segurança, identificação de problemas vitais, protocolo de avaliação inicial e priorização de atendimento."
+      },
+      {
+        title: "Parada cardiorrespiratória (PCR)",
+        description: "Causas da PCR em crianças e adultos, procedimentos de reanimação cardiopulmonar (RCP), técnicas específicas para crianças e adultos, uso do DEA e cuidados pós-reanimação."
+      },
+      {
+        title: "Hemorragias e controle",
+        description: "Tipos de hemorragias (arterial, venosa, capilar), procedimentos para controle de hemorragias externas e internas, uso correto de torniquetes e prevenção do choque hipovolêmico."
+      },
+      {
+        title: "Queimaduras",
+        description: "Classificação das queimaduras (1º, 2º, 3º grau), tratamento para queimaduras térmicas, químicas e elétricas, prevenção de infecções e cuidados especializados."
+      },
+      {
+        title: "Engasgo e Manobra de Heimlich",
+        description: "Técnicas de desobstrução das vias aéreas, Manobra de Heimlich para adultos, técnicas específicas para crianças e bebês, reconhecimento de sinais de engasgo e prevenção de aspiração."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Aspectos Legais e Educacionais',
+        icon: <GraduationCap className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Conhecimento da Lei 13.722/2018 (Lei Lucas)',
+          'Responsabilidades legais dos profissionais da educação',
+          'Objetivos e exigências da legislação',
+          'Impacto na segurança escolar'
+        ]
+      },
+      {
+        title: 'Avaliação e Sinais Vitais',
+        icon: <Activity className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Verificação de pulso, respiração e temperatura',
+          'Avaliação de cenários e segurança',
+          'Protocolo de avaliação inicial',
+          'Priorização de atendimento'
+        ]
+      },
+      {
+        title: 'Técnicas de Emergência',
+        icon: <Heart className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Reanimação cardiopulmonar (RCP)',
+          'Controle de hemorragias',
+          'Desobstrução das vias aéreas',
+          'Manobra de Heimlich para diferentes idades'
+        ]
+      },
+      {
+        title: 'Tratamento de Lesões',
+        icon: <Shield className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Tratamento de queimaduras (1º, 2º, 3º grau)',
+          'Uso correto de torniquetes',
+          'Prevenção do choque hipovolêmico',
+          'Cuidados pós-reanimação'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado reconhecido conforme Lei 13.722/2018',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (nota mínima 7,0)',
+        'Aprovação na avaliação prática',
+        'Profissional da educação em exercício'
+      ]
+    },
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-red-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    heroIcon: <Heart className="h-6 w-6 text-orange-600" />,
+    heroImage: "/training-covers/lei-lucas.png",
+    warningMessage: (
+      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-amber-800 mb-1">Capacitação Obrigatória</p>
+            <p className="text-sm text-amber-700">
+              Conforme a Lei 13.722/2018 (Lei Lucas), profissionais da educação devem ser capacitados em primeiros socorros.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    ctaTitle: "Cumpra a Lei Lucas",
+    ctaSubtitle: "Capacitação obrigatória para profissionais da educação - 4 horas de treinamento especializado"
+  },
+
+  'lgpd-protecao-dados': {
+title: 'LGPD - Lei Geral de Proteção de Dados',
+    description: 'Curso sobre a Lei Geral de Proteção de Dados Pessoais, abordando direitos dos titulares, obrigações das empresas e boas práticas de proteção de dados. Capacitação essencial para compliance organizacional.',
+    duration: '6 horas',
+    category: 'Compliance',
+    format: 'Online/Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Compreender os fundamentos da LGPD',
+      'Identificar dados pessoais e sensíveis',
+      'Aplicar princípios de proteção de dados',
+      'Implementar medidas de compliance'
+    ],
+    modules: [
+      {
+        title: "Introdução à LGPD",
+        description: "Contexto e objetivo da lei, âmbito de aplicação, conceitos fundamentais, e comparação com GDPR para compreensão global da proteção de dados."
+      },
+      {
+        title: "Dados Pessoais e Sensíveis",
+        description: "Definição de dados pessoais, dados pessoais sensíveis, dados anonimizados e pseudonimizados, titulares e controladores, e suas implicações legais."
+      },
+      {
+        title: "Princípios e Bases Legais",
+        description: "Princípios da proteção de dados, bases legais para tratamento, consentimento e suas características, e interesse legítimo como fundamento."
+      },
+      {
+        title: "Direitos dos Titulares",
+        description: "Direito de acesso e confirmação, correção e atualização, eliminação e portabilidade, e revogação do consentimento pelos titulares."
+      },
+      {
+        title: "Obrigações das Organizações",
+        description: "Medidas de segurança técnicas, governança e políticas, registro de atividades, e comunicação de incidentes às autoridades competentes."
+      },
+      {
+        title: "Implementação e Compliance",
+        description: "Programa de compliance, avaliação de impacto, encarregado de dados (DPO), sanções e multas, e estratégias de implementação prática."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Fundamentos da LGPD',
+        icon: <Shield className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Compreensão dos fundamentos da LGPD',
+          'Âmbito de aplicação da lei',
+          'Conceitos e definições fundamentais',
+          'Comparação com regulamentações internacionais'
+        ]
+      },
+      {
+        title: 'Classificação de Dados',
+        icon: <FileText className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Identificação de dados pessoais',
+          'Reconhecimento de dados sensíveis',
+          'Técnicas de anonimização',
+          'Papeis de titulares e controladores'
+        ]
+      },
+      {
+        title: 'Direitos e Princípios',
+        icon: <Lock className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Princípios da proteção de dados',
+          'Bases legais para tratamento',
+          'Gestão de consentimento',
+          'Garantia dos direitos dos titulares'
+        ]
+      },
+      {
+        title: 'Compliance e Implementação',
+        icon: <AlertTriangle className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Programa de compliance organizacional',
+          'Medidas de segurança técnicas',
+          'Gestão de incidentes',
+          'Papel do encarregado de dados (DPO)'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado em LGPD e Proteção de Dados',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 80%)',
+        'Elaboração de plano de compliance',
+        'Demonstração de conhecimento prático'
+      ]
+    },
+    theme: {
+      primaryColor: 'indigo',
+      gradientFrom: 'from-indigo-50',
+      gradientTo: 'to-purple-50',
+      bgColor: 'bg-indigo-100',
+      textColor: 'text-indigo-600',
+      iconBg: 'bg-indigo-100',
+      iconColor: 'text-indigo-600',
+      ctaColor: 'bg-indigo-600'
+    },
+    heroIcon: <Shield className="h-6 w-6 text-indigo-600" />,
+    heroImage: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&h=400&fit=crop&crop=center",
+    warningMessage: (
+      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-amber-800 mb-1">Compliance Obrigatório</p>
+            <p className="text-sm text-amber-700">
+              LGPD é obrigatória para todas as organizações que tratam dados pessoais.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    ctaTitle: "Garanta Conformidade com a LGPD",
+    ctaSubtitle: "Capacitação essencial em proteção de dados - 6 horas de treinamento em compliance"
+  },
+
+  'lider-sst': {
+title: 'Líder em SST - Segurança e Saúde no Trabalho',
+    description: 'Formação de líderes em Segurança e Saúde no Trabalho. Desenvolva competências para liderar equipes, implementar cultura de segurança e gerenciar programas de SST com excelência.',
+    duration: '20 horas',
+    category: 'Liderança',
+    format: 'Presencial/Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Avançado',
+    objetivos: [
+      'Formar líderes multiplicadores em SST',
+      'Desenvolver competências de gestão de segurança',
+      'Implementar cultura de segurança organizacional',
+      'Liderar programas de prevenção de acidentes',
+      'Engajar equipes em práticas seguras'
+    ],
+    modules: [
+      {
+        title: "Liderança em Segurança",
+        description: "Papel do líder na segurança do trabalho, estilos de liderança e sua influência, comunicação assertiva em SST, motivação e engajamento de equipes."
+      },
+      {
+        title: "Gestão de Programas de SST",
+        description: "Planejamento estratégico em SST, definição de metas e indicadores, gestão de recursos e orçamento, avaliação de desempenho em segurança."
+      },
+      {
+        title: "Cultura de Segurança",
+        description: "Desenvolvimento de cultura preventiva, comportamento seguro e observação comportamental, programas de reconhecimento, gestão de mudança cultural."
+      },
+      {
+        title: "Análise e Gestão de Riscos",
+        description: "Metodologias de análise de riscos, hierarquia de controles, gestão de mudanças (MOC), priorização de ações preventivas."
+      },
+      {
+        title: "Investigação e Aprendizado",
+        description: "Liderança em investigação de incidentes, análise de causa raiz, disseminação de lições aprendidas, cultura justa (Just Culture)."
+      },
+      {
+        title: "Comunicação e Treinamento",
+        description: "Técnicas de comunicação em SST, desenvolvimento de treinamentos eficazes, diálogos de segurança (DDS), campanhas de conscientização."
+      },
+      {
+        title: "Legislação e Compliance",
+        description: "Responsabilidades legais do líder, interface com órgãos reguladores, auditorias e fiscalizações, gestão de documentação legal."
+      },
+      {
+        title: "Indicadores e Melhoria Contínua",
+        description: "KPIs de segurança, análise de tendências, benchmarking em SST, ciclo PDCA aplicado à segurança."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Liderança Transformadora',
+        icon: <Users className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Influência positiva em segurança',
+          'Desenvolvimento de equipes',
+          'Comunicação inspiradora',
+          'Tomada de decisão assertiva'
+        ]
+      },
+      {
+        title: 'Gestão Estratégica',
+        icon: <Target className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Planejamento de programas SST',
+          'Gestão de recursos e orçamento',
+          'Análise de indicadores',
+          'Implementação de melhorias'
+        ]
+      },
+      {
+        title: 'Cultura de Prevenção',
+        icon: <Shield className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Desenvolvimento cultural',
+          'Engajamento comportamental',
+          'Gestão de mudanças',
+          'Multiplicação de conhecimento'
+        ]
+      },
+      {
+        title: 'Excelência Operacional',
+        icon: <Award className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Gestão de riscos avançada',
+          'Investigação de incidentes',
+          'Compliance regulatório',
+          'Melhoria contínua'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '3 anos',
+      orgao: 'Certificado de Líder em SST',
+      requisitos: [
+        'Frequência mínima de 85%',
+        'Aprovação nas avaliações (mínimo 80%)',
+        'Desenvolvimento de projeto prático',
+        'Apresentação de case de sucesso'
+      ]
+    },
+    theme: {
+      primaryColor: 'blue',
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-indigo-50',
+      bgColor: 'bg-blue-100',
+      textColor: 'text-blue-600',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      ctaColor: 'bg-blue-600'
+    },
+    heroIcon: <Users className="h-6 w-6 text-blue-600" />,
+    heroImage: "/training-covers/lider-sst.png",
+    ctaTitle: "Seja um Líder de Excelência em SST",
+    ctaSubtitle: "Transforme a cultura de segurança da sua organização"
+  },
+
+  'loto-lockout-tagout': {
+title: 'LOTO - Lockout e Tagout',
+    description: 'Conheça os princípios do bloqueio e etiquetagem de fontes de energia com o curso de LOTO. Aprenda como aplicar procedimentos seguros durante manutenções e intervenções em máquinas e equipamentos, reduzindo riscos de acidentes graves no ambiente de trabalho.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Compreender os fundamentos do sistema LOTO e sua importância',
+      'Aplicar procedimentos seguros de bloqueio e etiquetagem',
+      'Identificar diferentes tipos de energia e seus riscos',
+      'Reduzir acidentes graves durante manutenções e intervenções'
+    ],
+    modules: [
+      {
+        title: "Introdução ao Bloqueio e Etiquetagem – LOTO",
+        description: "Compreensão dos fundamentos do sistema LOTO, importância na prevenção de acidentes, impactos do bloqueio inadequado de fontes de energia e estatísticas de acidentes em ambientes industriais."
+      },
+      {
+        title: "Fundamentos legais e normativos",
+        description: "Legislações nacionais aplicáveis ao LOTO, diretrizes técnicas para implementação, NR-10 (segurança em instalações elétricas) e NR-12 (segurança em máquinas e equipamentos)."
+      },
+      {
+        title: "Tipos de energia e riscos envolvidos",
+        description: "Energia elétrica e seus riscos, energia pneumática (pressão e vazamentos), energia hidráulica (alta pressão e fluidos), energia térmica (temperatura e vapor) e outras fontes de energia perigosas."
+      },
+      {
+        title: "Procedimentos de bloqueio e etiquetagem",
+        description: "Passo a passo para aplicação correta do LOTO, bloqueio de equipamentos e sistemas, etiquetagem adequada e identificação, garantia de segurança durante intervenções e verificação dos procedimentos."
+      },
+      {
+        title: "Equipamentos e dispositivos utilizados no LOTO",
+        description: "Dispositivos de bloqueio, cadeados e travas específicas, etiquetas e sistemas de identificação, ferramentas auxiliares para LOTO e critérios de seleção de equipamentos."
+      },
+      {
+        title: "Implementação e Gestão do Programa LOTO",
+        description: "Desenvolvimento de programa LOTO organizacional, treinamento de equipes, auditoria e melhoria contínua, documentação e registros obrigatórios."
+      },
+      {
+        title: "Casos Práticos e Simulações",
+        description: "Exercícios práticos de bloqueio, simulações de situações reais, análise de casos de acidentes, identificação de não conformidades e correções."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Fundamentos e Legislação',
+        icon: <Lock className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Compreensão dos fundamentos do LOTO',
+          'Conhecimento das legislações aplicáveis',
+          'Diretrizes técnicas de implementação',
+          'NR-10 e NR-12 relacionadas ao LOTO'
+        ]
+      },
+      {
+        title: 'Identificação de Energias',
+        icon: <Zap className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Reconhecimento de energia elétrica',
+          'Identificação de energia pneumática e hidráulica',
+          'Avaliação de energia térmica',
+          'Outras fontes de energia perigosas'
+        ]
+      },
+      {
+        title: 'Procedimentos de Bloqueio',
+        icon: <Shield className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Aplicação correta de procedimentos LOTO',
+          'Bloqueio adequado de equipamentos',
+          'Etiquetagem e identificação',
+          'Verificação e teste de segurança'
+        ]
+      },
+      {
+        title: 'Equipamentos e Implementação',
+        icon: <Wrench className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Seleção de dispositivos de bloqueio',
+          'Uso de cadeados e travas específicas',
+          'Sistemas de etiquetas e identificação',
+          'Implementação de programa LOTO'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido conforme NR-10 e NR-12',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Aprovação na avaliação prática',
+        'Demonstração de competência em procedimentos LOTO'
+      ]
+    },
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-red-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    heroIcon: <Lock className="h-6 w-6 text-orange-600" />,
+    heroImage: "/training-covers/loto-lockout-tagout.png",
+    warningMessage: (
+      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-amber-800 mb-1">Segurança Crítica</p>
+            <p className="text-sm text-amber-700">
+              O LOTO é fundamental para prevenir acidentes graves durante manutenção de equipamentos energizados.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    ctaTitle: "Domine o LOTO",
+    ctaSubtitle: "Capacitação especializada em bloqueio e etiquetagem - 16 horas de treinamento crítico"
+  },
+
+  'meio-ambiente-sustentabilidade': {
+title: 'Meio Ambiente e Sustentabilidade',
+    description: 'Curso sobre consciência ambiental e práticas sustentáveis no ambiente de trabalho, abordando gestão de resíduos, eficiência energética e responsabilidade socioambiental. Capacitação completa para implementar ações sustentáveis na organização.',
+    duration: '8 horas',
+    category: 'Sustentabilidade',
+    format: 'Online/Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Desenvolver consciência ambiental',
+      'Implementar práticas sustentáveis',
+      'Gerenciar resíduos adequadamente',
+      'Promover eficiência energética'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da Sustentabilidade",
+        description: "Conceitos de sustentabilidade, desenvolvimento sustentável, impactos ambientais das atividades, responsabilidade socioambiental e introdução aos princípios do desenvolvimento sustentável empresarial."
+      },
+      {
+        title: "Gestão de Resíduos",
+        description: "Classificação de resíduos, política dos 5Rs (Recusar, Reduzir, Reutilizar, Reciclar, Repensar), coleta seletiva, destinação adequada e estratégias para minimização de resíduos organizacionais."
+      },
+      {
+        title: "Eficiência Energética",
+        description: "Consumo consciente de energia, fontes renováveis de energia, tecnologias eficientes, monitoramento do consumo e implementação de práticas de economia energética no ambiente corporativo."
+      },
+      {
+        title: "Recursos Hídricos",
+        description: "Uso racional da água, tratamento de efluentes, captação de água da chuva, prevenção da poluição hídrica e gestão sustentável dos recursos hídricos organizacionais."
+      },
+      {
+        title: "Práticas Sustentáveis no Trabalho",
+        description: "Redução do uso de papel, transporte sustentável, compras responsáveis, educação ambiental e implementação de iniciativas verdes no dia a dia corporativo."
+      },
+      {
+        title: "Certificações Ambientais",
+        description: "ISO 14001, selo verde, carbono neutro, relatórios de sustentabilidade e processos para obtenção de certificações ambientais empresariais reconhecidas."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Fundamentos Ambientais',
+        icon: <Leaf className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Conceitos de sustentabilidade empresarial',
+          'Desenvolvimento sustentável',
+          'Impactos ambientais das atividades',
+          'Responsabilidade socioambiental'
+        ]
+      },
+      {
+        title: 'Gestão de Resíduos',
+        icon: <Recycle className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Classificação e destinação de resíduos',
+          'Política dos 5Rs na prática',
+          'Implementação de coleta seletiva',
+          'Minimização de resíduos organizacionais'
+        ]
+      },
+      {
+        title: 'Eficiência de Recursos',
+        icon: <Zap className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Consumo consciente de energia',
+          'Tecnologias eficientes e renováveis',
+          'Monitoramento e controle energético',
+          'Otimização do uso de recursos'
+        ]
+      },
+      {
+        title: 'Gestão Hídrica e Certificações',
+        icon: <Droplets className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Uso racional de recursos hídricos',
+          'Tratamento e reuso de efluentes',
+          'Obtenção de certificações ambientais',
+          'Relatórios de sustentabilidade'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado em Sustentabilidade Empresarial',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Elaboração de plano de ação ambiental',
+        'Comprometimento com práticas sustentáveis'
+      ]
+    },
+    theme: {
+      primaryColor: 'green',
+      gradientFrom: 'from-green-50',
+      gradientTo: 'to-emerald-50',
+      bgColor: 'bg-green-100',
+      textColor: 'text-green-600',
+      iconBg: 'bg-green-100',
+      iconColor: 'text-green-600',
+      ctaColor: 'bg-green-600'
+    },
+    heroIcon: <Leaf className="h-6 w-6 text-green-600" />,
+    heroImage: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Construa um Futuro Sustentável",
+    ctaSubtitle: "Capacitação completa em sustentabilidade - 8 horas de treinamento em responsabilidade ambiental"
+  },
+
+  'nocoes-combate-incendios': {
+title: 'Noções de Combate a Incêndios',
+    description: 'Capacita os profissionais para compreender o comportamento do fogo, identificar as classes de incêndio, operar extintores adequados, utilizar ferramentas e equipamentos de combate, e aplicar técnicas de proteção individual.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Compreender o comportamento do fogo e seus elementos fundamentais',
+      'Identificar as classes de incêndio e selecionar extintores adequados',
+      'Operar ferramentas e equipamentos de combate a incêndios',
+      'Aplicar técnicas de proteção individual durante operações de combate ao fogo'
+    ],
+    modules: [
+      {
+        title: "Vamos falar sobre o Fogo",
+        description: "Introdução ao conceito de fogo, elementos fundamentais do fogo, o triângulo do fogo, como o fogo se inicia, se propaga e como pode ser controlado. Compreensão completa da natureza do fogo e seus comportamentos em diferentes situações."
+      },
+      {
+        title: "Classes de Incêndio e Extintores",
+        description: "Classes de incêndio: A, B, C, D e K, identificação dos tipos corretos de extintores, agentes extintores para cada situação, seleção adequada de equipamentos conforme o tipo de incêndio. Conhecimento prático para escolha assertiva dos métodos de combate."
+      },
+      {
+        title: "Ferramentas e equipamentos para o combate ao fogo",
+        description: "Principais ferramentas de combate a incêndios, equipamentos empregados nas operações, conhecimento prático dos equipamentos, atuação segura e eficiente no combate ao fogo. Manuseio correto e manutenção preventiva dos equipamentos."
+      },
+      {
+        title: "Técnicas, ferramentas e equipamentos de proteção individual (EPIs)",
+        description: "Técnicas de combate a incêndios, importância do uso adequado de EPIs específicos, EPIs para situações de fogo, segurança dos trabalhadores durante as operações. Protocolos de segurança e procedimentos de emergência."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Conhecimento do Fogo',
+        icon: <Flame className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Compreensão dos elementos do fogo',
+          'Identificação do triângulo do fogo',
+          'Análise de propagação de incêndios',
+          'Conhecimento de comportamento térmico'
+        ]
+      },
+      {
+        title: 'Classificação e Agentes',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Identificação de classes de incêndio',
+          'Seleção de extintores adequados',
+          'Conhecimento de agentes extintores',
+          'Aplicação correta de equipamentos'
+        ]
+      },
+      {
+        title: 'Equipamentos e Ferramentas',
+        icon: <Wrench className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Operação de equipamentos de combate',
+          'Manutenção preventiva',
+          'Inspeção de ferramentas',
+          'Técnicas de manuseio seguro'
+        ]
+      },
+      {
+        title: 'Proteção e Segurança',
+        icon: <Users className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Uso correto de EPIs específicos',
+          'Técnicas de proteção individual',
+          'Procedimentos de emergência',
+          'Protocolos de segurança'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido pelo Corpo de Bombeiros',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Aprovação na avaliação prática'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <Flame className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/nocoes-combate-incendios.png",
+    ctaTitle: "Proteja Vidas com Conhecimento",
+    ctaSubtitle: "Torne-se um especialista em prevenção e combate a incêndios"
+  },
+
+  'nocoes-primeiros-socorros': {
+title: 'Noções em Primeiros Socorros',
+    description: 'Noções básicas para agir corretamente em situações de emergência, ensinando técnicas básicas para atendimento imediato, prevenção de complicações e salvamento de vidas.',
+    duration: '20 horas',
+    category: 'Saúde',
+    format: 'Presencial/Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Básico',
+    objetivos: [
+      'Conhecer os fundamentos dos primeiros socorros',
+      'Realizar avaliação adequada de vítimas',
+      'Aplicar técnicas de salvamento em emergências',
+      'Atuar conforme aspectos legais e éticos'
+    ],
+    modules: [
+      {
+        title: "Fundamentos dos Primeiros Socorros",
+        description: "O que são os primeiros socorros, finalidade, como o socorrista deve proceder, avaliação da urgência e emergência, omissão de socorro, equipamentos e materiais básicos."
+      },
+      {
+        title: "Anatomia e Avaliação da Vítima",
+        description: "Noções de anatomia humana, divisões do corpo, quadrantes abdominais, sistemas corporais, avaliação geral, inicial (primária) e dirigida (secundária) da vítima."
+      },
+      {
+        title: "Obstrução das Vias Aéreas",
+        description: "OVACE (Obstrução das Vias Aéreas por Corpo Estranho), classificação da obstrução, técnicas e procedimentos da Manobra de Heimlich para desobstrução."
+      },
+      {
+        title: "Controle de Hemorragias",
+        description: "Técnicas de contenção de sangramento, tipos de hemorragias, métodos de compressão direta, elevação de membros e pontos de pressão arterial."
+      },
+      {
+        title: "Ferimentos e Lesões Traumáticas",
+        description: "Tratamento de ferimentos diversos, fraturas, entorses, luxações, contusões, imobilização adequada e cuidados com lesões musculares."
+      },
+      {
+        title: "Queimaduras e Convulsões",
+        description: "Classificação e tratamento de queimaduras térmicas, químicas e elétricas, cuidados com pacientes em crise convulsiva e proteção adequada."
+      },
+      {
+        title: "Parada Cardiorrespiratória (PCR)",
+        description: "Reconhecimento da PCR, técnicas de ressuscitação cardiopulmonar (RCP), compressões torácicas, ventilação artificial e uso de DEA quando disponível."
+      },
+      {
+        title: "Transporte e Situações Especiais",
+        description: "Métodos seguros de transporte de vítimas, choque elétrico, envenenamento, intoxicação, insolação, acidentes com animais peçonhentos e precauções de segurança."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Fundamentos e Avaliação',
+        icon: <Heart className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Definição e importância dos primeiros socorros',
+          'Avaliação inicial e dirigida da vítima',
+          'Noções básicas de anatomia humana',
+          'Equipamentos e materiais básicos'
+        ]
+      },
+      {
+        title: 'Emergências Médicas',
+        icon: <Activity className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Obstrução das vias aéreas e Manobra de Heimlich',
+          'Parada cardiorrespiratória (RCP)',
+          'Controle de hemorragias',
+          'Queimaduras, convulsões e intoxicações'
+        ]
+      },
+      {
+        title: 'Lesões e Traumas',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Ferimentos diversos',
+          'Fraturas, entorses e luxações',
+          'Contusões e lesões musculares',
+          'Métodos de transporte de vítimas'
+        ]
+      },
+      {
+        title: 'Situações Especiais',
+        icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Choque elétrico',
+          'Insolação e hipertermia',
+          'Acidentes com animais peçonhentos',
+          'Aspectos legais e omissão de socorro'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado de Socorrista',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação nas avaliações teóricas',
+        'Demonstração prática das técnicas'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-pink-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <Heart className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/nocoes-primeiros-socorros.png",
+    ctaTitle: "Pronto para Salvar Vidas?",
+    ctaSubtitle: "Capacite-se com conhecimentos essenciais de primeiros socorros - 20 horas de treinamento"
+  },
+
+  'nr-01-disposicoes-gerais': {
+title: 'NR-01 - Disposições Gerais e GRO',
+    description: 'Curso sobre disposições gerais, gerenciamento de riscos ocupacionais e diretrizes fundamentais de segurança e saúde no trabalho conforme a nova NR-01.',
+    duration: '4 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Básico',
+    objetivos: [
+      'Compreender os princípios fundamentais da SST',
+      'Conhecer as responsabilidades de empregador e trabalhador',
+      'Entender o Gerenciamento de Riscos Ocupacionais (GRO)',
+      'Aplicar os requisitos de capacitação e treinamento'
+    ],
+    modules: [
+      {
+        title: "Disposições Gerais e Princípios Fundamentais",
+        description: "Objetivos e campo de aplicação da NR-01, termos e definições comuns às NRs, princípios fundamentais de SST e aplicabilidade das Normas Regulamentadoras."
+      },
+      {
+        title: "Responsabilidades e Obrigações",
+        description: "Obrigações do empregador, responsabilidades do trabalhador, papel dos órgãos governamentais e direitos e deveres em Segurança e Saúde no Trabalho."
+      },
+      {
+        title: "Gerenciamento de Riscos Ocupacionais (GRO)",
+        description: "Identificação de perigos e avaliação de riscos, inventário de riscos ocupacionais, plano de ação e medidas de prevenção, monitoramento e melhoria contínua."
+      },
+      {
+        title: "Capacitação e Treinamento em SST",
+        description: "Requisitos de treinamento inicial, treinamento periódico e eventual, documentação e certificação, matriz de capacitação em segurança e saúde no trabalho."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Disposições e Princípios',
+        icon: <FileText className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Objetivos e campo de aplicação da NR-01',
+          'Termos e definições comuns às NRs',
+          'Princípios fundamentais de SST',
+          'Aplicabilidade das Normas Regulamentadoras'
+        ]
+      },
+      {
+        title: 'Responsabilidades Legais',
+        icon: <Users className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Obrigações do empregador',
+          'Responsabilidades do trabalhador',
+          'Papel dos órgãos governamentais',
+          'Direitos e deveres em SST'
+        ]
+      },
+      {
+        title: 'Gerenciamento de Riscos (GRO)',
+        icon: <Shield className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Identificação de perigos e avaliação de riscos',
+          'Inventário de riscos ocupacionais',
+          'Plano de ação e medidas de prevenção',
+          'Monitoramento e melhoria contínua'
+        ]
+      },
+      {
+        title: 'Capacitação e Treinamento',
+        icon: <BookOpen className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Requisitos de treinamento inicial',
+          'Treinamento periódico e eventual',
+          'Documentação e certificação',
+          'Matriz de capacitação'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: 'Conforme periodicidade definida pelo empregador',
+      orgao: 'Certificado conforme NR-01 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Compreensão dos requisitos da norma'
+      ]
+    },
+    theme: {
+      primaryColor: 'purple',
+      gradientFrom: 'from-purple-50',
+      gradientTo: 'to-violet-50',
+      bgColor: 'bg-purple-100',
+      textColor: 'text-purple-600',
+      iconBg: 'bg-purple-100',
+      iconColor: 'text-purple-600',
+      ctaColor: 'bg-purple-600'
+    },
+    heroIcon: <FileText className="h-6 w-6 text-purple-600" />,
+    heroImage: "/training-covers/nr-01-disposicoes-gerais.png",
+    ctaTitle: "Domine os Fundamentos da SST",
+    ctaSubtitle: "Capacitação essencial em NR-01 e Gerenciamento de Riscos Ocupacionais"
+  },
+
+  'nr-05-cipa-grau-risco-1': {
+title: 'NR-05 CIPA Grau de Risco 1',
+    description: 'Capacita os integrantes da CIPA no grau de risco 1 para identificar riscos, propor medidas preventivas, promover a saúde e a segurança no ambiente de trabalho, e agir de forma eficiente em situações de emergência, conforme a NR-05.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Básico',
+    objetivos: [
+      'Identificar riscos no ambiente de trabalho e processos produtivos',
+      'Propor medidas preventivas eficazes para segurança ocupacional',
+      'Promover a saúde e segurança no ambiente de trabalho',
+      'Agir de forma eficiente em situações de emergência'
+    ],
+    modules: [
+      {
+        title: "Estudo do ambiente, das condições de trabalho, bem como dos riscos originados do processo produtivo",
+        description: "Análise aprofundada do ambiente de trabalho, identificação de riscos no processo produtivo, compreensão das condições que influenciam a segurança e fatores que afetam a saúde dos trabalhadores."
+      },
+      {
+        title: "Noções sobre acidentes e doenças relacionadas ao trabalho",
+        description: "Principais acidentes e doenças ocupacionais, causas e fatores de risco, estratégias de prevenção e condições específicas de cada ambiente laboral."
+      },
+      {
+        title: "Metodologia de investigação e análise de acidentes e doenças relacionadas ao trabalho",
+        description: "Métodos de investigação de acidentes de trabalho, análise de doenças ocupacionais, identificação de causas raiz e implementação de ações corretivas e preventivas."
+      },
+      {
+        title: "Princípios gerais de higiene do trabalho e de medidas de prevenção dos riscos",
+        description: "Conceitos fundamentais de higiene ocupacional, práticas essenciais para controle de riscos, medidas de prevenção de riscos à saúde e controle ambiental no trabalho."
+      },
+      {
+        title: "Noções sobre as legislações trabalhista e previdenciária",
+        description: "Principais normas de segurança do trabalho, leis que regulamentam a saúde ocupacional, direitos trabalhistas no Brasil e aspectos previdenciários relacionados."
+      },
+      {
+        title: "Noções sobre a inclusão de pessoas com deficiência e reabilitados",
+        description: "Práticas de inclusão no ambiente de trabalho, integração de pessoas com deficiência, adaptação de postos de trabalho e promoção de ambientes acessíveis e igualitários."
+      },
+      {
+        title: "Violência, assédio, igualdade e diversidade no âmbito do trabalho",
+        description: "Estratégias de prevenção ao assédio, promoção da igualdade no ambiente corporativo, valorização da diversidade no trabalho e criação de ambientes respeitosos e inclusivos."
+      },
+      {
+        title: "Organização da CIPA e outros assuntos necessários",
+        description: "Estruturação e funcionamento da CIPA, atribuições dos membros da comissão, processos eleitorais e mandatos, aspectos complementares para prevenção de acidentes."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação e Análise de Riscos',
+        icon: <Shield className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Análise aprofundada do ambiente de trabalho',
+          'Identificação de riscos no processo produtivo',
+          'Avaliação de condições de segurança',
+          'Reconhecimento de fatores de risco ocupacional'
+        ]
+      },
+      {
+        title: 'Prevenção e Controle',
+        icon: <HardHat className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Proposição de medidas preventivas eficazes',
+          'Aplicação de princípios de higiene ocupacional',
+          'Controle ambiental no trabalho',
+          'Implementação de ações corretivas'
+        ]
+      },
+      {
+        title: 'Gestão CIPA e Legislação',
+        icon: <BookOpen className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Estruturação e funcionamento da CIPA',
+          'Conhecimento da legislação trabalhista',
+          'Processos eleitorais e mandatos',
+          'Aspectos previdenciários relacionados'
+        ]
+      },
+      {
+        title: 'Inclusão e Diversidade',
+        icon: <Users className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Práticas de inclusão no trabalho',
+          'Prevenção ao assédio e violência',
+          'Promoção da igualdade e diversidade',
+          'Criação de ambientes respeitosos'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado conforme NR-05 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Participação ativa nas discussões',
+        'Conclusão de todos os módulos'
+      ]
+    },
+    theme: {
+      primaryColor: 'blue',
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-sky-50',
+      bgColor: 'bg-blue-100',
+      textColor: 'text-blue-600',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      ctaColor: 'bg-blue-600'
+    },
+    heroIcon: <HardHat className="h-6 w-6 text-blue-600" />,
+    heroImage: "/training-covers/cipa.png",
+    ctaTitle: "Forme uma CIPA Eficiente",
+    ctaSubtitle: "Capacitação essencial para integrantes da CIPA - 8 horas de treinamento especializado"
+  },
+
+  'nr-05-cipa-grau-risco-2': {
+title: 'NR-05 CIPA Grau de Risco 2',
+    description: 'Capacita os integrantes da CIPA no grau de risco 2 para identificar riscos, propor medidas preventivas, promover a saúde e a segurança no ambiente de trabalho, e agir de forma eficiente em situações de emergência, conforme a NR-05.',
+    duration: '12 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'São Paulo, SP',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Capacitar membros da CIPA conforme exigências da NR-05',
+      'Desenvolver competências para identificação e controle de riscos',
+      'Promover cultura de prevenção de acidentes e doenças ocupacionais',
+      'Implementar ações de segurança e saúde no trabalho'
+    ],
+    modules: [
+      {
+        title: "Ambiente e Condições de Trabalho",
+        description: "Análise aprofundada do ambiente de trabalho, identificação de riscos físicos, químicos e biológicos, compreensão das condições que influenciam a segurança, avaliação de riscos ergonômicos e de acidentes, e mapeamento de processos produtivos e seus perigos."
+      },
+      {
+        title: "Acidentes e Doenças Ocupacionais",
+        description: "Principais acidentes e doenças ocupacionais, causas e consequências dos acidentes de trabalho, estratégias de prevenção específicas para cada risco, análise de condições inseguras e atos inseguros, e medidas de controle e eliminação de riscos."
+      },
+      {
+        title: "Investigação e Análise de Acidentes",
+        description: "Métodos de investigação de acidentes de trabalho, análise de causas raiz e fatores contribuintes, técnicas de entrevista e coleta de evidências, elaboração de relatórios de investigação, e implementação de ações corretivas e preventivas."
+      },
+      {
+        title: "Higiene do Trabalho",
+        description: "Conceitos fundamentais de higiene ocupacional, agentes ambientais e limites de tolerância, medidas de controle coletivo e individual, Programa de Prevenção de Riscos Ambientais (PPRA), e monitoramento e avaliação de exposições."
+      },
+      {
+        title: "Legislação Trabalhista e Previdenciária",
+        description: "Principais normas regulamentadoras (NRs), direitos e deveres trabalhistas em SST, Comunicação de Acidentes de Trabalho (CAT), benefícios previdenciários relacionados a acidentes, e responsabilidades legais de empregadores e trabalhadores."
+      },
+      {
+        title: "Inclusão e Diversidade",
+        description: "Legislação sobre inclusão no trabalho, adaptação de postos de trabalho, acessibilidade e tecnologias assistivas, integração de reabilitados profissionais, prevenção ao assédio moral e sexual, políticas de igualdade de gênero e raça, e construção de ambientes respeitosos e inclusivos."
+      },
+      {
+        title: "Organização da CIPA",
+        description: "Estruturação e funcionamento da CIPA, atribuições de membros e coordenação, elaboração de atas e documentação, planejamento de ações e cronogramas, e integração com outros programas de SST."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação de Riscos',
+        icon: <Shield className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Análise de ambiente de trabalho',
+          'Identificação de riscos físicos e químicos',
+          'Avaliação de riscos ergonômicos',
+          'Mapeamento de processos produtivos'
+        ]
+      },
+      {
+        title: 'Investigação e Prevenção',
+        icon: <HardHat className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Investigação de acidentes de trabalho',
+          'Análise de causas raiz',
+          'Implementação de ações preventivas',
+          'Elaboração de relatórios técnicos'
+        ]
+      },
+      {
+        title: 'Gestão da CIPA',
+        icon: <Users className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Estruturação e funcionamento da CIPA',
+          'Planejamento de ações e cronogramas',
+          'Elaboração de atas e documentação',
+          'Integração com programas de SST'
+        ]
+      },
+      {
+        title: 'Conformidade Legal',
+        icon: <Award className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Conhecimento das NRs aplicáveis',
+          'Comunicação de Acidentes (CAT)',
+          'Inclusão e acessibilidade',
+          'Políticas de diversidade e igualdade'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado reconhecido pelo MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (nota mínima 7,0)',
+        'Participação nas atividades práticas',
+        'Ser membro eleito ou designado da CIPA'
+      ]
+    },
+    theme: {
+      primaryColor: 'blue',
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-cyan-50',
+      bgColor: 'bg-blue-100',
+      textColor: 'text-blue-600',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      ctaColor: 'bg-blue-600'
+    },
+    heroIcon: <HardHat className="h-6 w-6 text-blue-600" />,
+    heroImage: "/training-covers/cipa.png",
+    ctaTitle: "Capacite sua CIPA",
+    ctaSubtitle: "Formação completa para Grau de Risco 2 - 12 horas de treinamento especializado"
+  },
+
+  'nr-05-cipa-grau-risco-3': {
+title: 'NR-05 CIPA Grau de Risco 3',
+    description: 'Capacita os integrantes da CIPA no grau de risco 3 para identificar riscos, propor medidas preventivas, promover a saúde e a segurança no ambiente de trabalho, e agir de forma eficiente em situações de emergência, conforme a NR-05.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Identificar riscos e propor medidas preventivas no ambiente de trabalho',
+      'Promover a saúde e segurança dos trabalhadores',
+      'Conduzir investigações de acidentes e incidentes',
+      'Desenvolver programas de prevenção e educação em segurança'
+    ],
+    modules: [
+      {
+        title: "Ambiente e Condições de Trabalho",
+        description: "Análise aprofundada do ambiente de trabalho, identificação de riscos e compreensão das condições que influenciam a segurança e a saúde dos trabalhadores, com estudo detalhado dos riscos originados do processo produtivo."
+      },
+      {
+        title: "Acidentes e Doenças Ocupacionais",
+        description: "Entendimento dos principais acidentes e doenças ocupacionais, suas causas e estratégias de prevenção, considerando as condições específicas de cada ambiente laboral e as medidas de controle adequadas."
+      },
+      {
+        title: "Investigação e Análise",
+        description: "Estudo dos métodos de investigação de acidentes de trabalho e doenças ocupacionais, visando a identificação de causas raiz e a implementação de ações corretivas e preventivas eficazes."
+      },
+      {
+        title: "Higiene do Trabalho",
+        description: "Conceitos fundamentais de higiene ocupacional e práticas essenciais para o controle e a prevenção de riscos à saúde no ambiente de trabalho, incluindo medidas de prevenção dos riscos."
+      },
+      {
+        title: "Legislação Trabalhista",
+        description: "Apresentação das principais normas e leis que regulamentam a segurança, a saúde ocupacional e os direitos trabalhistas no Brasil, incluindo legislação previdenciária relacionada."
+      },
+      {
+        title: "Inclusão e Acessibilidade",
+        description: "Discussão sobre práticas de inclusão e integração de pessoas com deficiência e reabilitados, promovendo ambientes de trabalho mais acessíveis e igualitários nos processos de trabalho."
+      },
+      {
+        title: "Diversidade e Respeito no Trabalho",
+        description: "Reflexão sobre prevenção ao assédio e violência, promoção da igualdade e valorização da diversidade no trabalho, criando ambientes corporativos respeitosos e inclusivos."
+      },
+      {
+        title: "Organização da CIPA",
+        description: "Estruturação, funcionamento e atribuições da CIPA, além de aspectos complementares para o pleno exercício das atividades de prevenção de acidentes e promoção da saúde ocupacional."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação e Prevenção',
+        icon: <Shield className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Identificação de riscos no ambiente de trabalho',
+          'Análise de condições inseguras e atos inseguros',
+          'Proposição de medidas preventivas eficazes',
+          'Controle de riscos ocupacionais'
+        ]
+      },
+      {
+        title: 'Investigação e Análise',
+        icon: <HardHat className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Metodologia de investigação de acidentes',
+          'Análise de causas raiz',
+          'Elaboração de relatórios técnicos',
+          'Implementação de ações corretivas'
+        ]
+      },
+      {
+        title: 'Gestão e Organização',
+        icon: <Users className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Estruturação e funcionamento da CIPA',
+          'Planejamento de ações preventivas',
+          'Condução de reuniões e treinamentos',
+          'Comunicação eficaz sobre segurança'
+        ]
+      },
+      {
+        title: 'Aspectos Humanos e Legais',
+        icon: <Award className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Conhecimento da legislação trabalhista',
+          'Promoção da inclusão e diversidade',
+          'Prevenção ao assédio e violência',
+          'Criação de ambiente de trabalho saudável'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado reconhecido conforme NR-05',
+      requisitos: [
+        'Frequência mínima de 75%',
+        'Aprovação na avaliação teórica (nota mínima 7,0)',
+        'Participação ativa nas atividades práticas',
+        'Ser membro eleito ou designado da CIPA'
+      ]
+    },
+    theme: {
+      primaryColor: 'yellow',
+      gradientFrom: 'from-yellow-50',
+      gradientTo: 'to-amber-50',
+      bgColor: 'bg-yellow-100',
+      textColor: 'text-yellow-600',
+      iconBg: 'bg-yellow-100',
+      iconColor: 'text-yellow-600',
+      ctaColor: 'bg-yellow-600'
+    },
+    heroIcon: <Shield className="h-6 w-6 text-yellow-600" />,
+    heroImage: "/training-covers/cipa.png",
+    ctaTitle: "Capacite sua CIPA",
+    ctaSubtitle: "Treinamento completo para Grau de Risco 3 conforme NR-05 - 16 horas de capacitação"
+  },
+
+  'nr-05-cipa-grau-risco-4': {
+title: 'NR-05 CIPA Grau de Risco 4',
+    description: 'Capacita os integrantes da CIPA no grau de risco 4 para identificar riscos, propor medidas preventivas, promover a saúde e a segurança no ambiente de trabalho, e agir de forma eficiente em situações de emergência, conforme a NR-05.',
+    duration: '20 horas',
+    category: 'Segurança',
+    format: 'Curso presencial',
+    location: 'Presencial/Online',
+    nivel: 'Avançado',
+    objetivos: [
+      'Identificar riscos complexos em ambientes de alto risco',
+      'Propor medidas preventivas avançadas para segurança ocupacional',
+      'Promover cultura de segurança em ambientes de risco elevado',
+      'Coordenar ações emergenciais em situações críticas'
+    ],
+    modules: [
+      {
+        title: "Ambiente e Condições de Trabalho",
+        description: "Análise aprofundada do ambiente de trabalho, identificação de riscos no processo produtivo, compreensão das condições que influenciam a segurança, e fatores que afetam a saúde dos trabalhadores em ambientes de alto risco."
+      },
+      {
+        title: "Acidentes e Doenças Ocupacionais",
+        description: "Principais acidentes e doenças ocupacionais, causas e fatores de risco em ambientes de alto risco, estratégias de prevenção específicas, e condições específicas de cada ambiente laboral."
+      },
+      {
+        title: "Investigação e Análise Avançada",
+        description: "Métodos avançados de investigação de acidentes, análise detalhada de doenças ocupacionais, identificação de causas raiz em ambientes complexos, e implementação de ações corretivas e preventivas."
+      },
+      {
+        title: "Higiene do Trabalho em Alto Risco",
+        description: "Conceitos fundamentais de higiene ocupacional, práticas essenciais para controle de riscos elevados, medidas de prevenção de riscos à saúde, e controle ambiental em situações de alto risco."
+      },
+      {
+        title: "Legislação Trabalhista e Previdenciária",
+        description: "Principais normas de segurança do trabalho, leis que regulamentam a saúde ocupacional, direitos trabalhistas no Brasil, e aspectos previdenciários relacionados."
+      },
+      {
+        title: "Inclusão e Acessibilidade",
+        description: "Práticas de inclusão no ambiente de trabalho, integração de pessoas com deficiência, adaptação de postos de trabalho, e promoção de ambientes acessíveis e igualitários."
+      },
+      {
+        title: "Diversidade e Respeito",
+        description: "Estratégias de prevenção ao assédio, promoção da igualdade no ambiente corporativo, valorização da diversidade no trabalho, e criação de ambientes respeitosos e inclusivos."
+      },
+      {
+        title: "Organização da CIPA",
+        description: "Estruturação e funcionamento da CIPA, atribuições dos membros da comissão, processos eleitorais e mandatos, e aspectos complementares para prevenção de acidentes."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Gestão de Riscos Complexos',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Identificação de riscos em alto grau',
+          'Análise de processos produtivos complexos',
+          'Controle de múltiplos fatores de risco',
+          'Gestão integrada de segurança'
+        ]
+      },
+      {
+        title: 'Investigação Avançada',
+        icon: <HardHat className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Métodos avançados de investigação',
+          'Análise de causas em ambientes complexos',
+          'Implementação de ações corretivas',
+          'Prevenção de acidentes graves'
+        ]
+      },
+      {
+        title: 'Liderança em Segurança',
+        icon: <Users className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Coordenação de ações emergenciais',
+          'Gestão da CIPA em alto risco',
+          'Promoção de cultura de segurança',
+          'Comunicação em situações críticas'
+        ]
+      },
+      {
+        title: 'Conformidade e Inclusão',
+        icon: <Award className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Domínio da legislação de SST',
+          'Implementação de inclusão',
+          'Prevenção ao assédio e violência',
+          'Valorização da diversidade'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado conforme NR-05 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Aprovação na avaliação prática',
+        'Participação ativa nas discussões'
+      ]
+    },
+    warningMessage: (
+      <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-red-800 mb-1">Alto Grau de Risco</p>
+            <p className="text-sm text-red-700">
+              Este treinamento é obrigatório para membros da CIPA em ambientes com grau de risco 4, 
+              que apresentam elevado potencial de acidentes graves.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <HardHat className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/cipa.png",
+    ctaTitle: "Capacitação para Alto Risco",
+    ctaSubtitle: "Formação avançada CIPA Grau de Risco 4 - 20 horas de treinamento intensivo"
+  },
+
+  'nr-05-representante-grau-1': {
+title: 'NR-05 Representante - Grau de Risco 1',
+    description: 'Capacitação específica para representantes nomeados em empresas de grau de risco 1, com foco em ambientes de baixo risco ocupacional.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Online',
+    location: 'EAD - Ensino à Distância',
+    nivel: 'Básico',
+    objetivos: [
+      'Capacitar para atuação em empresas grau de risco 1',
+      'Identificar perigos em ambientes de baixo risco',
+      'Implementar medidas preventivas básicas',
+      'Promover cultura de segurança no escritório'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da NR-05 para Grau de Risco 1",
+        description: "Características de empresas grau de risco 1, papel do representante em ambientes administrativos, responsabilidades específicas, documentação simplificada."
+      },
+      {
+        title: "Riscos em Ambientes de Escritório",
+        description: "Ergonomia no trabalho administrativo, riscos elétricos básicos, prevenção de quedas e acidentes típicos, qualidade do ar e iluminação."
+      },
+      {
+        title: "Medidas Preventivas Simplificadas",
+        description: "Inspeções de segurança básicas, check-lists para escritórios, organização e limpeza (5S), primeiros socorros básicos."
+      },
+      {
+        title: "Comunicação e Registro",
+        description: "Comunicação de riscos em ambientes administrativos, registro simplificado de ocorrências, reuniões de segurança, relatórios básicos."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Ergonomia no Escritório',
+        icon: <Monitor className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Postura adequada',
+          'Ajuste de equipamentos',
+          'Pausas programadas',
+          'Iluminação apropriada'
+        ]
+      },
+      {
+        title: 'Prevenção Básica',
+        icon: <Shield className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Inspeções visuais',
+          'Check-lists simples',
+          'Organização 5S',
+          'Comunicação de riscos'
+        ]
+      },
+      {
+        title: 'Segurança Elétrica',
+        icon: <AlertTriangle className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Identificação de riscos',
+          'Uso seguro de equipamentos',
+          'Manutenção preventiva',
+          'Primeiros socorros'
+        ]
+      },
+      {
+        title: 'Liderança Administrativa',
+        icon: <UserCheck className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Comunicação efetiva',
+          'Relatórios básicos',
+          'Reuniões de segurança',
+          'Conscientização da equipe'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-05 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Participação nas atividades',
+        'Execução de exercícios práticos'
+      ]
+    },
+    theme: {
+      primaryColor: 'green',
+      gradientFrom: 'from-green-50',
+      gradientTo: 'to-emerald-50',
+      bgColor: 'bg-green-100',
+      textColor: 'text-green-600',
+      iconBg: 'bg-green-100',
+      iconColor: 'text-green-600',
+      ctaColor: 'bg-green-600'
+    },
+    heroIcon: <UserCheck className="h-6 w-6 text-green-600" />,
+    heroImage: "/training-covers/nr-05-representante.png",
+    ctaTitle: "Segurança para Ambientes Administrativos",
+    ctaSubtitle: "Representante especializado em grau de risco 1"
+  },
+
+  'nr-05-representante-grau-2': {
+title: 'NR-05 Representante - Grau de Risco 2',
+    description: 'Capacitação para representantes nomeados em empresas de grau de risco 2, abordando riscos moderados e medidas preventivas específicas.',
+    duration: '12 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Capacitar para atuação em empresas grau de risco 2',
+      'Identificar e avaliar riscos moderados',
+      'Implementar programas de prevenção',
+      'Conduzir inspeções de segurança regulares'
+    ],
+    modules: [
+      {
+        title: "NR-05 para Grau de Risco 2",
+        description: "Características de empresas grau de risco 2, indústrias e setores típicos, responsabilidades ampliadas do representante, documentação e registros obrigatórios."
+      },
+      {
+        title: "Identificação de Riscos Moderados",
+        description: "Riscos químicos básicos, riscos físicos industriais, ergonomia em linhas de produção, riscos de acidentes típicos do setor."
+      },
+      {
+        title: "Programas de Prevenção",
+        description: "Desenvolvimento de programas preventivos, planejamento de ações de segurança, implementação de controles, monitoramento e avaliação."
+      },
+      {
+        title: "Inspeções e Auditorias",
+        description: "Técnicas de inspeção, elaboração de relatórios, identificação de não conformidades, ações corretivas e preventivas."
+      },
+      {
+        title: "Gestão de Segurança",
+        description: "Coordenação de equipes, comunicação de riscos, treinamentos básicos, integração com outros programas de SST."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Avaliação de Riscos Moderados',
+        icon: <AlertTriangle className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Identificação de riscos químicos',
+          'Análise de riscos físicos',
+          'Avaliação ergonômica',
+          'Mapeamento de perigos'
+        ]
+      },
+      {
+        title: 'Programas Preventivos',
+        icon: <Shield className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Desenvolvimento de programas',
+          'Planejamento de ações',
+          'Implementação de controles',
+          'Monitoramento contínuo'
+        ]
+      },
+      {
+        title: 'Inspeções Técnicas',
+        icon: <Factory className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Técnicas de inspeção',
+          'Elaboração de relatórios',
+          'Identificação de não conformidades',
+          'Ações corretivas'
+        ]
+      },
+      {
+        title: 'Liderança em SST',
+        icon: <UserCheck className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Coordenação de equipes',
+          'Comunicação efetiva',
+          'Treinamentos básicos',
+          'Integração de programas'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-05 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Participação em atividades práticas',
+        'Demonstração de competências específicas'
+      ]
+    },
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-amber-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    heroIcon: <UserCheck className="h-6 w-6 text-orange-600" />,
+    heroImage: "/training-covers/nr-05-representante.png",
+    ctaTitle: "Gestão Intermediária de Segurança",
+    ctaSubtitle: "Representante especializado em grau de risco 2"
+  },
+
+  'nr-05-representante-grau-3': {
+title: 'NR-05 Representante - Grau de Risco 3',
+    description: 'Capacitação avançada para representantes nomeados em empresas de grau de risco 3, focando em riscos elevados e gestão complexa de segurança.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Avançado',
+    objetivos: [
+      'Capacitar para atuação em empresas grau de risco 3',
+      'Gerenciar riscos elevados e complexos',
+      'Desenvolver programas abrangentes de SST',
+      'Liderar equipes de segurança multidisciplinares'
+    ],
+    modules: [
+      {
+        title: "NR-05 para Grau de Risco 3",
+        description: "Características de indústrias de alto risco, responsabilidades críticas do representante, gestão de múltiplos riscos simultâneos, documentação técnica avançada."
+      },
+      {
+        title: "Gestão de Riscos Elevados",
+        description: "Riscos químicos perigosos, processos de alta temperatura/pressão, máquinas e equipamentos perigosos, análise quantitativa de riscos."
+      },
+      {
+        title: "Programas Avançados de SST",
+        description: "Desenvolvimento de sistemas integrados, gestão de mudanças operacionais, programas de treinamento específicos, auditoria interna de SST."
+      },
+      {
+        title: "Investigação de Acidentes",
+        description: "Metodologias de investigação, análise de causas raiz, desenvolvimento de ações preventivas, comunicação de resultados."
+      },
+      {
+        title: "Liderança em Segurança",
+        description: "Coordenação de equipes especializadas, comunicação de crise, interface com órgãos fiscalizadores, gestão de fornecedores."
+      },
+      {
+        title: "Emergências e Contingências",
+        description: "Planos de emergência específicos, coordenação com bombeiros e defesa civil, evacuação e abandono, recuperação pós-acidente."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Gestão de Riscos Complexos',
+        icon: <Flame className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Análise quantitativa de riscos',
+          'Processos de alta periculosidade',
+          'Gestão de múltiplos riscos',
+          'Avaliação de consequências'
+        ]
+      },
+      {
+        title: 'Programas Integrados',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Sistemas de gestão SST',
+          'Gestão de mudanças',
+          'Programas especializados',
+          'Auditoria interna'
+        ]
+      },
+      {
+        title: 'Investigação Técnica',
+        icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Metodologias de investigação',
+          'Análise de causas raiz',
+          'Ações preventivas',
+          'Relatórios técnicos'
+        ]
+      },
+      {
+        title: 'Liderança Estratégica',
+        icon: <UserCheck className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Coordenação especializada',
+          'Comunicação de crise',
+          'Interface institucional',
+          'Gestão de stakeholders'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-05 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 80%)',
+        'Participação em exercícios práticos',
+        'Apresentação de projeto de SST',
+        'Experiência comprovada em SST'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-rose-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <UserCheck className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/nr-05-representante.png",
+    ctaTitle: "Liderança em Alta Periculosidade",
+    ctaSubtitle: "Representante especializado em grau de risco 3"
+  },
+
+  'nr-05-representante-grau-4': {
+title: 'NR-05 Representante - Grau de Risco 4',
+    description: 'Capacitação especializada para representantes nomeados em empresas de grau de risco 4, abordando os maiores riscos ocupacionais e gestão crítica de segurança.',
+    duration: '20 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Especialista',
+    objetivos: [
+      'Capacitar para atuação em empresas grau de risco 4',
+      'Gerenciar riscos críticos e extremos',
+      'Desenvolver sistemas complexos de gestão SST',
+      'Liderar programas corporativos de segurança'
+    ],
+    modules: [
+      {
+        title: "NR-05 para Grau de Risco 4",
+        description: "Características de indústrias de risco extremo, responsabilidades máximas do representante, gestão de riscos críticos múltiplos, conformidade regulatória complexa."
+      },
+      {
+        title: "Gestão de Riscos Críticos",
+        description: "Substâncias altamente perigosas, processos de alta periculosidade, máquinas de risco extremo, análise probabilística de riscos, estudos de consequências."
+      },
+      {
+        title: "Sistemas Avançados de Gestão",
+        description: "Implementação de SGI (Sistema de Gestão Integrada), gestão de processos críticos, sistemas de barreira, análise de confiabilidade humana."
+      },
+      {
+        title: "Investigação Avançada de Acidentes",
+        description: "Metodologias complexas de investigação, análise de acidentes graves, desenvolvimento de barreiras preventivas, interface com autoridades."
+      },
+      {
+        title: "Liderança Corporativa",
+        description: "Gestão de equipes especializadas, comunicação estratégica, relacionamento institucional, gestão de crises corporativas."
+      },
+      {
+        title: "Resposta a Emergências Críticas",
+        description: "Planos de contingência complexos, coordenação multi-institucional, gestão de evacuação em massa, recuperação de desastres."
+      },
+      {
+        title: "Compliance e Auditoria",
+        description: "Conformidade regulatória avançada, auditoria de terceira parte, gestão de não conformidades, melhoria contínua."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Gestão de Riscos Extremos',
+        icon: <Skull className="h-5 w-5 text-red-700" />,
+        skills: [
+          'Análise probabilística de riscos',
+          'Processos críticos extremos',
+          'Gestão de múltiplas ameaças',
+          'Estudos de consequências'
+        ]
+      },
+      {
+        title: 'Sistemas Integrados',
+        icon: <Shield className="h-5 w-5 text-red-700" />,
+        skills: [
+          'SGI - Sistema Gestão Integrada',
+          'Gestão de processos críticos',
+          'Sistemas de barreira',
+          'Análise de confiabilidade'
+        ]
+      },
+      {
+        title: 'Investigação Especializada',
+        icon: <AlertTriangle className="h-5 w-5 text-red-700" />,
+        skills: [
+          'Metodologias complexas',
+          'Acidentes graves',
+          'Barreiras preventivas',
+          'Interface autoridades'
+        ]
+      },
+      {
+        title: 'Liderança Estratégica',
+        icon: <UserCheck className="h-5 w-5 text-red-700" />,
+        skills: [
+          'Gestão corporativa',
+          'Comunicação estratégica',
+          'Relacionamento institucional',
+          'Gestão de crises'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-05 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 85%)',
+        'Participação em simulações práticas',
+        'Apresentação de case corporativo',
+        'Experiência mínima de 3 anos em SST',
+        'Formação técnica ou superior'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-100',
+      gradientTo: 'to-red-50',
+      bgColor: 'bg-red-200',
+      textColor: 'text-red-700',
+      iconBg: 'bg-red-200',
+      iconColor: 'text-red-700',
+      ctaColor: 'bg-red-700'
+    },
+    heroIcon: <UserCheck className="h-6 w-6 text-red-700" />,
+    heroImage: "/training-covers/nr-05-representante.png",
+    ctaTitle: "Especialização em Risco Extremo",
+    ctaSubtitle: "Representante especializado em grau de risco 4"
+  },
+
+  'nr-05-representante': {
+title: 'NR-05 - Representante Nomeado',
+    description: 'Capacitação para representantes nomeados da NR-05, abordando prevenção de acidentes, análise de riscos e medidas de segurança no ambiente de trabalho.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Capacitar para atuação como representante nomeado da NR-05',
+      'Identificar perigos e avaliar riscos no ambiente de trabalho',
+      'Implementar medidas de prevenção de acidentes',
+      'Promover cultura de segurança na organização'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da NR-05 e Papel do Representante",
+        description: "Objetivos e importância da NR-05, atribuições do representante nomeado, responsabilidades legais e organizacionais, estrutura organizacional de SST."
+      },
+      {
+        title: "Estudo do Ambiente e Condições de Trabalho",
+        description: "Identificação de perigos no ambiente laboral, avaliação de riscos ocupacionais, riscos originados no processo produtivo, análise das condições de trabalho."
+      },
+      {
+        title: "Medidas de Prevenção e Controle",
+        description: "Hierarquia de controles de riscos, equipamentos de proteção coletiva e individual, procedimentos seguros de trabalho, boas práticas de prevenção."
+      },
+      {
+        title: "Comunicação e Cultura de Segurança",
+        description: "Comunicação efetiva em SST, prevenção ao assédio e violência no trabalho, promoção de comportamentos seguros, elaboração de relatórios e documentação."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação de Riscos',
+        icon: <Eye className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Análise de ambiente de trabalho',
+          'Reconhecimento de perigos',
+          'Avaliação de condições inseguras',
+          'Mapeamento de riscos'
+        ]
+      },
+      {
+        title: 'Prevenção de Acidentes',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Implementação de medidas preventivas',
+          'Uso correto de EPIs',
+          'Procedimentos seguros',
+          'Controle de riscos'
+        ]
+      },
+      {
+        title: 'Liderança em Segurança',
+        icon: <Users className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Comunicação efetiva',
+          'Orientação de equipes',
+          'Promoção da cultura de segurança',
+          'Resolução de conflitos'
+        ]
+      },
+      {
+        title: 'Gestão de Emergências',
+        icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Identificação de situações críticas',
+          'Acionamento de protocolos',
+          'Primeiros socorros básicos',
+          'Evacuação de área'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-05 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Participação nas atividades práticas',
+        'Demonstração de competências'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-rose-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <UserCheck className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/nr-05-representante.png",
+    ctaTitle: "Torne-se um Representante Qualificado",
+    ctaSubtitle: "Lidere a segurança em sua organização"
+  },
+
+  'nr-06-epi': {
+title: 'NR-06 - Equipamento de Proteção Individual - EPI',
+    description: 'Aprenda tudo sobre Equipamentos de Proteção Individual (EPI) com base na NR-6. Este curso capacita o trabalhador para identificar, utilizar e conservar corretamente os EPIs, promovendo a segurança e prevenindo acidentes no ambiente de trabalho.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Básico',
+    objetivos: [
+      'Identificar e selecionar corretamente os EPIs adequados para cada atividade',
+      'Utilizar adequadamente os equipamentos de proteção individual',
+      'Conservar e manter os EPIs em boas condições de uso',
+      'Compreender as responsabilidades legais no uso de EPIs'
+    ],
+    modules: [
+      {
+        title: "Objetivos, conceitos, tipos e função dos EPIs",
+        description: "Introdução aos conceitos fundamentais dos EPIs, seu papel na prevenção de acidentes e a importância no contexto da segurança do trabalho. Classificação e tipos de equipamentos de proteção individual."
+      },
+      {
+        title: "Estudo da Norma NR-6",
+        description: "Análise detalhada da NR-6, obrigatoriedade do uso dos EPIs, Certificado de Aprovação (CA) e requisitos legais e normativos que regulamentam os equipamentos de proteção."
+      },
+      {
+        title: "Responsabilidades do empregado e empregador",
+        description: "Deveres e obrigações do empregador e responsabilidades do empregado. Fornecimento e substituição de EPIs, treinamento e conscientização dos trabalhadores."
+      },
+      {
+        title: "Vantagens e benefícios do uso correto dos EPIs",
+        description: "Proteção para cabeça, olhos, face, audição, respiração, membros superiores e inferiores, tronco e corpo inteiro. Aplicação prática nas diversas atividades laborais."
+      },
+      {
+        title: "Limpeza e manutenção de EPIs de uso pessoal",
+        description: "Boas práticas para limpeza de EPIs, procedimentos de higienização, armazenamento adequado dos equipamentos e manutenção preventiva com inspeção periódica."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Seleção e Identificação',
+        icon: <Shield className="h-5 w-5 text-emerald-600" />,
+        skills: [
+          'Identificação dos EPIs adequados para cada atividade',
+          'Seleção baseada na análise de riscos',
+          'Verificação do Certificado de Aprovação (CA)',
+          'Classificação de equipamentos por tipo de proteção'
+        ]
+      },
+      {
+        title: 'Uso e Aplicação',
+        icon: <HardHat className="h-5 w-5 text-emerald-600" />,
+        skills: [
+          'Utilização adequada dos equipamentos',
+          'Técnicas corretas de colocação e ajuste',
+          'Inspeção visual antes do uso',
+          'Aplicação prática nas atividades laborais'
+        ]
+      },
+      {
+        title: 'Manutenção e Conservação',
+        icon: <Shield className="h-5 w-5 text-emerald-600" />,
+        skills: [
+          'Procedimentos de limpeza e higienização',
+          'Armazenamento adequado dos equipamentos',
+          'Manutenção preventiva e inspeção periódica',
+          'Identificação de sinais de desgaste'
+        ]
+      },
+      {
+        title: 'Responsabilidades Legais',
+        icon: <BookOpen className="h-5 w-5 text-emerald-600" />,
+        skills: [
+          'Conhecimento da legislação NR-6',
+          'Obrigações do empregador e empregado',
+          'Procedimentos em caso de não conformidade',
+          'Importância do treinamento e conscientização'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-06 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Demonstração prática do uso correto dos EPIs'
+      ]
+    },
+    theme: {
+      primaryColor: 'emerald',
+      gradientFrom: 'from-emerald-50',
+      gradientTo: 'to-green-50',
+      bgColor: 'bg-emerald-100',
+      textColor: 'text-emerald-600',
+      iconBg: 'bg-emerald-100',
+      iconColor: 'text-emerald-600',
+      ctaColor: 'bg-emerald-600'
+    },
+    heroIcon: <Shield className="h-6 w-6 text-emerald-600" />,
+    heroImage: "/training-covers/uso-epi.png",
+    ctaTitle: "Proteja-se com Conhecimento",
+    ctaSubtitle: "Treinamento completo em EPIs conforme NR-06 - 8 horas de curso básico"
+  },
+
+  'nr-10-areas-classificadas': {
+title: 'NR-10 - Áreas Classificadas',
+    description: 'Curso especializado para profissionais que trabalham em áreas com atmosferas explosivas, abordando instalações elétricas em ambientes com risco de explosão.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Avançado',
+    objetivos: [
+      'Trabalhar com segurança em áreas classificadas',
+      'Identificar e avaliar atmosferas explosivas',
+      'Instalar equipamentos à prova de explosão',
+      'Aplicar procedimentos específicos para ambientes perigosos'
+    ],
+    modules: [
+      {
+        title: "Fundamentos de Áreas Classificadas",
+        description: "Conceitos básicos de atmosferas explosivas, classificação de áreas perigosas, tipos de proteção Ex, normas técnicas aplicáveis (NBR IEC 60079)."
+      },
+      {
+        title: "Equipamentos Ex",
+        description: "Equipamentos à prova de explosão, tipos de proteção (Ex d, Ex e, Ex i, etc.), seleção e instalação, inspeção e manutenção de equipamentos Ex."
+      },
+      {
+        title: "Instalações Elétricas em Áreas Classificadas",
+        description: "Projeto de instalações elétricas Ex, eletrodutos e sistemas de vedação, aterramento e equipotencialização, proteção contra descargas atmosféricas."
+      },
+      {
+        title: "Procedimentos Operacionais",
+        description: "Permissão de trabalho em áreas classificadas, trabalho a quente e a frio, descontaminação e inertização, sistemas de detecção de gases."
+      },
+      {
+        title: "Manutenção e Inspeção",
+        description: "Inspeção visual, detalhada e abrangente, manutenção preventiva e corretiva, registros e documentação, certificação de equipamentos."
+      },
+      {
+        title: "Emergências e Segurança",
+        description: "Procedimentos de emergência específicos, planos de abandono de área, primeiros socorros em atmosferas perigosas, comunicação de emergência."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação de Atmosferas Explosivas',
+        icon: <Flame className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Classificação de áreas',
+          'Avaliação de riscos',
+          'Detecção de gases',
+          'Monitoramento contínuo'
+        ]
+      },
+      {
+        title: 'Equipamentos Ex',
+        icon: <Zap className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Seleção adequada',
+          'Instalação correta',
+          'Inspeção técnica',
+          'Manutenção especializada'
+        ]
+      },
+      {
+        title: 'Instalações Seguras',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Projeto Ex',
+          'Sistemas de proteção',
+          'Aterramento específico',
+          'Proteção atmosférica'
+        ]
+      },
+      {
+        title: 'Procedimentos Críticos',
+        icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Permissão de trabalho',
+          'Trabalho a quente/frio',
+          'Descontaminação',
+          'Procedimentos emergência'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-10 do MTE',
+      requisitos: [
+        'Ter curso NR-10 básico válido',
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática',
+        'Experiência comprovada em eletricidade'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <Zap className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/nr-10-complementar-sep.png",
+    ctaTitle: "Segurança em Atmosferas Explosivas",
+    ctaSubtitle: "Especialização em áreas classificadas e equipamentos Ex"
+  },
+
+  'nr-10-basico-periodico': {
+title: 'NR-10 Básico - Reciclagem',
+    description: 'Curso de reciclagem bienal obrigatório para profissionais que trabalham com eletricidade, atualizando conhecimentos sobre segurança em instalações elétricas.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Atualizar conhecimentos sobre segurança elétrica',
+      'Revisar procedimentos de trabalho seguro',
+      'Reforçar uso correto de EPIs e EPCs',
+      'Atualizar sobre mudanças na NR-10'
+    ],
+    modules: [
+      {
+        title: "Revisão da NR-10",
+        description: "Mudanças recentes na norma, atualizações de procedimentos, novos requisitos de segurança, análise de acidentes recentes. Conhecimento atualizado da legislação vigente."
+      },
+      {
+        title: "Revisão de Riscos Elétricos",
+        description: "Choque elétrico - efeitos no corpo humano, arco elétrico e queimaduras, campos eletromagnéticos, riscos adicionais. Atualização sobre perigos da eletricidade."
+      },
+      {
+        title: "Medidas de Proteção Atualizadas",
+        description: "Novos EPIs e EPCs disponíveis, desenergização e sinalização, aterramento funcional e de proteção, equipotencialização. Evolução dos sistemas de proteção."
+      },
+      {
+        title: "Procedimentos Operacionais Revisados",
+        description: "Análise de risco elétrico atualizada, procedimentos de trabalho seguros, primeiros socorros em acidentes elétricos, combate a incêndios em instalações elétricas."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Conhecimento Atualizado',
+        icon: <RefreshCw className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Mudanças na NR-10',
+          'Novos procedimentos',
+          'Atualizações técnicas',
+          'Casos recentes'
+        ]
+      },
+      {
+        title: 'Proteção Elétrica',
+        icon: <Shield className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Novos EPIs e EPCs',
+          'Sistemas de proteção',
+          'Aterramento atualizado',
+          'Equipotencialização'
+        ]
+      },
+      {
+        title: 'Procedimentos Seguros',
+        icon: <Zap className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Análise de risco elétrico',
+          'Trabalho seguro',
+          'Desenergização',
+          'Sinalização adequada'
+        ]
+      },
+      {
+        title: 'Resposta a Emergências',
+        icon: <AlertTriangle className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Primeiros socorros elétricos',
+          'Combate a incêndios',
+          'Procedimentos emergência',
+          'Comunicação de acidentes'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-10 do MTE',
+      requisitos: [
+        'Ter certificado NR-10 básico vencendo ou vencido',
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Participação ativa no curso'
+      ]
+    },
+    warningMessage: (
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <RefreshCw className="h-5 w-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-yellow-800 mb-1">Reciclagem Obrigatória</p>
+            <p className="text-sm text-yellow-700">
+              Curso de reciclagem bienal obrigatório conforme NR-10. 
+              Necessário para renovação da certificação em segurança elétrica.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    theme: {
+      primaryColor: 'yellow',
+      gradientFrom: 'from-yellow-50',
+      gradientTo: 'to-amber-50',
+      bgColor: 'bg-yellow-100',
+      textColor: 'text-yellow-600',
+      iconBg: 'bg-yellow-100',
+      iconColor: 'text-yellow-600',
+      ctaColor: 'bg-yellow-600'
+    },
+    heroIcon: <RefreshCw className="h-6 w-6 text-yellow-600" />,
+    heroImage: "/training-covers/nr-10-basico.png",
+    ctaTitle: "Renove sua Certificação",
+    ctaSubtitle: "Reciclagem bienal obrigatória para segurança elétrica"
+  },
+
+  'nr-10-basico': {
+title: 'NR-10 Segurança em Eletricidade (Básico)',
+    description: 'Curso completo de 40 horas que capacita profissionais para atuarem com segurança em instalações e serviços com eletricidade. Aborda riscos elétricos, análise e controle de perigos, uso adequado de EPIs e EPCs, procedimentos operacionais e documentação técnica obrigatória conforme norma regulamentadora.',
+    duration: '40 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Obrigatório',
+    objetivos: [
+      'Capacitar profissionais para trabalhos seguros com eletricidade',
+      'Identificar e prevenir riscos elétricos em instalações',
+      'Aplicar medidas de controle e proteção adequadas',
+      'Conhecer e aplicar normas técnicas e regulamentadoras',
+      'Desenvolver cultura de segurança em serviços elétricos'
+    ],
+    modules: [
+      {
+        title: 'Introdução à Segurança com Eletricidade',
+        description: 'Conceitos fundamentais sobre eletricidade, riscos associados e a importância da segurança elétrica no ambiente de trabalho.'
+      },
+      {
+        title: 'Riscos em Instalações e Serviços com Eletricidade',
+        description: 'Identificação e avaliação dos principais riscos elétricos: choque, arco elétrico, campos eletromagnéticos e incêndios.'
+      },
+      {
+        title: 'Técnicas de Análise de Risco',
+        description: 'Metodologias para análise e avaliação de riscos elétricos, incluindo ferramentas de identificação de perigos.'
+      },
+      {
+        title: 'Medidas de Controle do Risco Elétrico',
+        description: 'Estratégias de controle na fonte, trajetória e no indivíduo. Medidas coletivas e individuais de proteção.'
+      },
+      {
+        title: 'Normas Técnicas Brasileiras - NBR da ABNT',
+        description: 'Estudo das principais normas técnicas aplicáveis à segurança em eletricidade e suas exigências.'
+      },
+      {
+        title: 'Regulamentações do MTE',
+        description: 'Análise detalhada da NR-10 e suas interfaces com outras normas regulamentadoras do trabalho.'
+      },
+      {
+        title: 'Equipamentos de Proteção Coletiva e Individual',
+        description: 'Seleção, uso correto, inspeção e manutenção de EPCs e EPIs específicos para trabalhos elétricos.'
+      },
+      {
+        title: 'Rotinas de Trabalho - Procedimentos',
+        description: 'Desenvolvimento e implementação de procedimentos seguros para execução de serviços elétricos.'
+      },
+      {
+        title: 'Documentação de Instalações Elétricas',
+        description: 'Elaboração e interpretação de documentos técnicos obrigatórios conforme normas vigentes.'
+      },
+      {
+        title: 'Proteção e Combate a Incêndios',
+        description: 'Prevenção e combate a incêndios em instalações elétricas, incluindo métodos e equipamentos adequados.'
+      },
+      {
+        title: 'Acidentes de Origem Elétrica',
+        description: 'Análise de casos reais, causas e consequências de acidentes elétricos e medidas preventivas.'
+      },
+      {
+        title: 'Primeiros Socorros',
+        description: 'Técnicas de primeiros socorros específicas para vítimas de acidentes elétricos, incluindo procedimentos de emergência.'
+      }
+    ],
+    competencias: [
+      {
+        title: 'Análise e Controle de Riscos',
+        icon: <AlertTriangle className="h-5 w-5 text-cyan-600" />,
+        skills: [
+          'Identificação de riscos elétricos em instalações',
+          'Aplicação de técnicas de análise de risco',
+          'Implementação de medidas de controle adequadas',
+          'Avaliação de condições de segurança'
+        ]
+      },
+      {
+        title: 'Procedimentos Operacionais',
+        icon: <BookOpen className="h-5 w-5 text-cyan-600" />,
+        skills: [
+          'Elaboração de procedimentos de trabalho seguros',
+          'Execução de rotinas de segurança',
+          'Utilização correta de equipamentos',
+          'Implementação de sistemas de bloqueio'
+        ]
+      },
+      {
+        title: 'Normas e Regulamentações',
+        icon: <Shield className="h-5 w-5 text-cyan-600" />,
+        skills: [
+          'Conhecimento da NR-10 e NBRs aplicáveis',
+          'Interpretação de documentação técnica',
+          'Aplicação de requisitos normativos',
+          'Garantia de conformidade legal'
+        ]
+      },
+      {
+        title: 'Prevenção e Emergência',
+        icon: <Zap className="h-5 w-5 text-cyan-600" />,
+        skills: [
+          'Prevenção de acidentes elétricos',
+          'Procedimentos de emergência',
+          'Técnicas de primeiros socorros',
+          'Combate a incêndios elétricos'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido pelo MTE conforme NR-10',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica e prática',
+        'Comprovação de aptidão médica'
+      ]
+    },
+    theme: {
+      primaryColor: 'cyan',
+      gradientFrom: 'from-cyan-50',
+      gradientTo: 'to-blue-50',
+      bgColor: 'bg-cyan-100',
+      textColor: 'text-cyan-600',
+      iconBg: 'bg-cyan-100',
+      iconColor: 'text-cyan-600',
+      ctaColor: 'bg-cyan-600'
+    },
+    heroIcon: <Zap className="h-6 w-6 text-cyan-600" />,
+    heroImage: "/training-covers/nr-10-basico.png",
+    ctaTitle: "Capacite sua Equipe em Segurança Elétrica",
+    ctaSubtitle: "Treinamento obrigatório de 40 horas conforme NR-10"
+  },
+
+  'nr-10-complementar-sep': {
+title: 'NR-10 Complementar (SEP)',
+    description: 'O curso de NR-10 SEP é voltado a profissionais que atuam direta ou indiretamente em sistemas elétricos de potência. Aborda riscos típicos e medidas preventivas, técnicas de trabalho sob tensão, uso correto de EPIs e EPCs, procedimentos operacionais e condutas seguras para garantir a integridade de trabalhadores e instalações.',
+    duration: '40 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Avançado',
+    objetivos: [
+      'Capacitar para trabalho em Sistema Elétrico de Potência (SEP)',
+      'Aplicar técnicas de trabalho sob tensão',
+      'Implementar procedimentos de segurança em alta tensão',
+      'Utilizar adequadamente EPIs e EPCs para SEP'
+    ],
+    modules: [
+      {
+        title: "Fundamentos de SEP",
+        description: "Conceitos de Sistema Elétrico de Potência, geração, transmissão e distribuição, características da rede elétrica, equipamentos de subestação. Base teórica para trabalho em alta tensão."
+      },
+      {
+        title: "Riscos Específicos em SEP",
+        description: "Arco elétrico em alta tensão, efeitos fisiológicos da corrente elétrica, campos eletromagnéticos intensos, riscos de queda e altura. Perigos específicos de sistemas de potência."
+      },
+      {
+        title: "Técnicas de Trabalho em SEP",
+        description: "Trabalho ao potencial, trabalho à distância, trabalho com equipamento desenergizado, manobras e operações. Métodos especializados para alta tensão."
+      },
+      {
+        title: "Equipamentos de Proteção para SEP",
+        description: "EPIs específicos para alta tensão, EPCs para sistemas de potência, ferramentas isoladas, equipamentos de medição. Proteção especializada em SEP."
+      },
+      {
+        title: "Procedimentos Operacionais",
+        description: "Análise de Risco Elétrico (ARE), Permissão para Trabalho (PT), procedimentos de emergência, comunicação operacional. Gestão segura de operações em SEP."
+      },
+      {
+        title: "Primeiros Socorros em SEP",
+        description: "Resgate em altura, atendimento a vítimas de choque elétrico em alta tensão, queimaduras por arco elétrico, procedimentos específicos. Emergências médicas em SEP."
+      },
+      {
+        title: "Normas e Regulamentações",
+        description: "NR-10 específica para SEP, normas técnicas ABNT, regulamentações ANEEL, procedimentos de rede. Conformidade regulatória em sistemas de potência."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Trabalho em SEP',
+        icon: <Zap className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Técnicas ao potencial',
+          'Trabalho à distância',
+          'Manobras seguras',
+          'Operações especializadas'
+        ]
+      },
+      {
+        title: 'Análise de Riscos',
+        icon: <AlertTriangle className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'ARE - Análise Risco Elétrico',
+          'Avaliação de alta tensão',
+          'Campos eletromagnéticos',
+          'Arco elétrico'
+        ]
+      },
+      {
+        title: 'Proteção Especializada',
+        icon: <Shield className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'EPIs para alta tensão',
+          'EPCs de subestação',
+          'Ferramentas isoladas',
+          'Equipamentos medição'
+        ]
+      },
+      {
+        title: 'Procedimentos Avançados',
+        icon: <Cpu className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Permissão de Trabalho',
+          'Comunicação operacional',
+          'Emergências em SEP',
+          'Resgate especializado'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido conforme NR-10',
+      requisitos: [
+        'Ter curso NR-10 básico válido',
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática',
+        'Aptidão médica comprovada',
+        'Experiência comprovada em eletricidade'
+      ]
+    },
+    theme: {
+      primaryColor: 'purple',
+      gradientFrom: 'from-purple-50',
+      gradientTo: 'to-violet-50',
+      bgColor: 'bg-purple-100',
+      textColor: 'text-purple-600',
+      iconBg: 'bg-purple-100',
+      iconColor: 'text-purple-600',
+      ctaColor: 'bg-purple-600'
+    },
+    heroIcon: <Zap className="h-6 w-6 text-purple-600" />,
+    heroImage: "/training-covers/nr-10-complementar-sep.png",
+    ctaTitle: "Especialização em Alta Tensão",
+    ctaSubtitle: "Qualificação completa para Sistema Elétrico de Potência - SEP"
+  },
+
+  'nr-10-sep-periodico': {
+title: 'NR-10 SEP - Reciclagem',
+    description: 'Reciclagem para profissionais certificados em NR-10 SEP. Curso obrigatório para manter a certificação em Sistema Elétrico de Potência.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Avançado',
+    objetivos: [
+      'Atualizar conhecimentos sobre SEP (Sistema Elétrico de Potência)',
+      'Revisar procedimentos de segurança em alta tensão',
+      'Atualizar normas e regulamentações vigentes',
+      'Reforçar práticas de trabalho seguro em SEP'
+    ],
+    modules: [
+      {
+        title: "Atualizações Normativas SEP",
+        description: "Alterações recentes na NR-10, normas técnicas ABNT atualizadas, e regulamentações ANEEL aplicáveis. Atualização sobre mudanças legais e técnicas."
+      },
+      {
+        title: "Análise de Riscos em SEP",
+        description: "Identificação de riscos específicos, Análise de Risco Elétrico (ARE), e medidas de controle atualizadas. Metodologias atuais de avaliação."
+      },
+      {
+        title: "Equipamentos e Procedimentos",
+        description: "Novos EPIs para alta tensão, equipamentos de medição modernos, e procedimentos operacionais seguros. Tecnologias atuais em segurança elétrica."
+      },
+      {
+        title: "Emergências e Primeiros Socorros",
+        description: "Procedimentos de emergência em SEP, resgate em altura em estruturas elétricas, e primeiros socorros em choques elétricos. Atendimento especializado."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Atualização Normativa',
+        icon: <RefreshCw className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Alterações na NR-10',
+          'Normas ABNT atualizadas',
+          'Regulamentações ANEEL',
+          'Conformidade legal'
+        ]
+      },
+      {
+        title: 'Análise de Riscos SEP',
+        icon: <Shield className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Identificação de riscos específicos',
+          'Análise de Risco Elétrico (ARE)',
+          'Medidas de controle',
+          'Avaliação de segurança'
+        ]
+      },
+      {
+        title: 'Equipamentos Modernos',
+        icon: <Zap className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Novos EPIs para alta tensão',
+          'Equipamentos de medição',
+          'Procedimentos seguros',
+          'Tecnologias atuais'
+        ]
+      },
+      {
+        title: 'Resposta a Emergências',
+        icon: <AlertTriangle className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Procedimentos de emergência',
+          'Resgate em altura',
+          'Primeiros socorros elétricos',
+          'Atendimento especializado'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido conforme NR-10',
+      requisitos: [
+        'Certificação anterior NR-10 SEP válida ou vencida há menos de 90 dias',
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aptidão médica comprovada',
+        'Experiência comprovada em SEP'
+      ]
+    },
+    warningMessage: (
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <RefreshCw className="h-5 w-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-yellow-800 mb-1">Reciclagem Obrigatória</p>
+            <p className="text-sm text-yellow-700">
+              Curso de reciclagem obrigatório para renovação da certificação NR-10 SEP. 
+              Requer certificação anterior válida ou vencida há menos de 90 dias.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    theme: {
+      primaryColor: 'yellow',
+      gradientFrom: 'from-yellow-50',
+      gradientTo: 'to-amber-50',
+      bgColor: 'bg-yellow-100',
+      textColor: 'text-yellow-600',
+      iconBg: 'bg-yellow-100',
+      iconColor: 'text-yellow-600',
+      ctaColor: 'bg-yellow-600'
+    },
+    heroIcon: <Zap className="h-6 w-6 text-yellow-600" />,
+    heroImage: "/training-covers/trabalho-eletricidade-periodico.png",
+    ctaTitle: "Renove sua Certificação SEP",
+    ctaSubtitle: "Mantenha-se atualizado com as melhores práticas em sistemas elétricos"
+  },
+
+  'nr-10-sep-reciclagem': {
+title: 'NR-10 SEP - Reciclagem',
+    description: 'Curso de reciclagem para profissionais que trabalham no Sistema Elétrico de Potência (SEP), atualizando conhecimentos sobre alta tensão.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Avançado',
+    objetivos: [
+      'Atualizar conhecimentos sobre SEP',
+      'Revisar procedimentos de alta tensão',
+      'Reforçar práticas de segurança em SEP',
+      'Atualizar sobre mudanças normativas'
+    ],
+    modules: [
+      {
+        title: "Atualizações da NR-10 para SEP",
+        description: "Mudanças recentes na norma, novos requisitos para alta tensão, atualizações tecnológicas em SEP, análise de acidentes recentes. Conhecimento atualizado da legislação específica para SEP."
+      },
+      {
+        title: "Revisão de Procedimentos Críticos",
+        description: "Manobras em subestações, trabalhos em linha viva, desenergização temporária, procedimentos de religamento. Procedimentos operacionais especializados em alta tensão."
+      },
+      {
+        title: "Novas Tecnologias em SEP",
+        description: "Equipamentos de proteção modernos, sistemas digitais de controle, smart grid e automação, monitoramento remoto. Evolução tecnológica em sistemas elétricos de potência."
+      },
+      {
+        title: "Análise de Riscos Atualizada",
+        description: "Novos cenários de risco, arco elétrico - estudos recentes, interferências eletromagnéticas, proteção contra descargas atmosféricas. Gestão avançada de riscos em SEP."
+      },
+      {
+        title: "Segurança em Subestações",
+        description: "Procedimentos específicos para subestações, isolamento e sinalização, coordenação de equipes, comunicação operacional. Segurança especializada em ambientes de alta tensão."
+      },
+      {
+        title: "Práticas Operacionais Avançadas",
+        description: "Manobras com carga, manutenção em linha energizada, uso de equipamentos especiais, procedimentos de emergência. Técnicas avançadas para trabalho em SEP."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Atualização Normativa',
+        icon: <RefreshCw className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Conhecimento NR-10 atual',
+          'Requisitos para SEP',
+          'Mudanças regulamentares',
+          'Análise de acidentes'
+        ]
+      },
+      {
+        title: 'Procedimentos de SEP',
+        icon: <Zap className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Manobras em subestações',
+          'Trabalhos em linha viva',
+          'Desenergização segura',
+          'Religamento controlado'
+        ]
+      },
+      {
+        title: 'Análise de Riscos',
+        icon: <AlertTriangle className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Cenários de risco',
+          'Arco elétrico',
+          'Interferências eletromagnéticas',
+          'Proteção atmosférica'
+        ]
+      },
+      {
+        title: 'Tecnologias Avançadas',
+        icon: <Settings className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Sistemas digitais',
+          'Smart grid',
+          'Monitoramento remoto',
+          'Automação de SEP'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-10 do MTE',
+      requisitos: [
+        'Ter certificado NR-10 SEP vencendo ou vencido',
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Comprovação de experiência em SEP'
+      ]
+    },
+    theme: {
+      primaryColor: 'purple',
+      gradientFrom: 'from-purple-50',
+      gradientTo: 'to-violet-50',
+      bgColor: 'bg-purple-100',
+      textColor: 'text-purple-600',
+      iconBg: 'bg-purple-100',
+      iconColor: 'text-purple-600',
+      ctaColor: 'bg-purple-600'
+    },
+    heroIcon: <RefreshCw className="h-6 w-6 text-purple-600" />,
+    heroImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Renove sua Qualificação SEP",
+    ctaSubtitle: "Reciclagem bienal para Sistema Elétrico de Potência"
+  },
+
+  'nr-11-empilhadeira-periodico': {
+title: 'NR-11 Empilhadeira - Reciclagem',
+    description: 'Reciclagem para operadores de empilhadeira. Curso obrigatório para renovação da certificação e atualização de conhecimentos.',
+    duration: '8 horas',
+    category: 'Operação',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Atualizar conhecimentos sobre operação de empilhadeira',
+      'Revisar procedimentos de segurança atualizados',
+      'Reforçar práticas de inspeção e manutenção',
+      'Atualizar normas e regulamentações vigentes'
+    ],
+    modules: [
+      {
+        title: "Revisão Normativa",
+        description: "Alterações na NR-11, atualizações de procedimentos, novos requisitos de segurança, análise de acidentes recentes. Conhecimento atualizado da legislação aplicável."
+      },
+      {
+        title: "Operação Atualizada",
+        description: "Procedimentos operacionais revisados, novas técnicas de manuseio, inspeção pré-operacional atualizada, eficiência e produtividade. Melhores práticas operacionais atuais."
+      },
+      {
+        title: "Manutenção e Cuidados",
+        description: "Manutenção preventiva atualizada, identificação de defeitos, quando parar a operação, responsabilidades do operador. Gestão moderna de manutenção."
+      },
+      {
+        title: "Segurança e Emergências",
+        description: "Procedimentos de emergência atualizados, primeiros socorros específicos, prevenção de acidentes, comunicação eficaz. Resposta efetiva a situações críticas."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Atualização Técnica',
+        icon: <RefreshCw className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Normas atualizadas',
+          'Novos procedimentos',
+          'Regulamentações vigentes',
+          'Análise de casos'
+        ]
+      },
+      {
+        title: 'Operação Moderna',
+        icon: <Truck className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Técnicas atualizadas',
+          'Inspeção pré-operacional',
+          'Manuseio eficiente',
+          'Produtividade segura'
+        ]
+      },
+      {
+        title: 'Manutenção Preventiva',
+        icon: <Settings className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Cuidados atualizados',
+          'Identificação de defeitos',
+          'Responsabilidades operador',
+          'Gestão de manutenção'
+        ]
+      },
+      {
+        title: 'Segurança Aprimorada',
+        icon: <CheckCircle className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Procedimentos emergência',
+          'Primeiros socorros',
+          'Prevenção acidentes',
+          'Comunicação eficaz'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado conforme NR-11 do MTE',
+      requisitos: [
+        'Ter certificado NR-11 empilhadeira vencendo ou vencido',
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática'
+      ]
+    },
+    warningMessage: (
+      <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <RefreshCw className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-orange-800 mb-1">Reciclagem Obrigatória</p>
+            <p className="text-sm text-orange-700">
+              Curso de reciclagem anual obrigatório para operadores de empilhadeira. 
+              Necessário para renovação da certificação.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-amber-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    heroIcon: <RefreshCw className="h-6 w-6 text-orange-600" />,
+    heroImage: "/training-covers/nr-11-empilhadeira.png",
+    ctaTitle: "Renove sua Habilitação",
+    ctaSubtitle: "Reciclagem anual para operadores de empilhadeira"
+  },
+
+  'nr-11-empilhadeira-reciclagem': {
+title: 'NR-11 Empilhadeira - Reciclagem',
+    description: 'Curso de reciclagem obrigatório para operadores de empilhadeira, renovando conhecimentos sobre operação segura e manutenção preventiva.',
+    duration: '4 horas',
+    category: 'Operação',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Atualizar conhecimentos de operação segura',
+      'Revisar inspeções e manutenção',
+      'Reforçar boas práticas operacionais',
+      'Atualizar sobre mudanças normativas'
+    ],
+    modules: [
+      {
+        title: "Revisão da Operação Segura",
+        description: "Inspeção pré-operacional atualizada, novas práticas de segurança, análise de acidentes recentes, mudanças na NR-11. Atualização de conhecimentos operacionais essenciais."
+      },
+      {
+        title: "Atualização Técnica",
+        description: "Novos modelos e tecnologias, sistemas de segurança modernos, manutenção preventiva, eficiência operacional. Conhecimento sobre equipamentos e tecnologias atuais."
+      },
+      {
+        title: "Revisão Prática",
+        description: "Exercícios de manuseio, situações de emergência, avaliação de competências, feedback e melhorias. Prática supervisionada e avaliação de habilidades."
+      },
+      {
+        title: "Legislação e Normas",
+        description: "Atualizações na NR-11, novas exigências legais, responsabilidades do operador, documentação obrigatória. Conformidade com regulamentações atuais."
+      },
+      {
+        title: "Segurança Operacional",
+        description: "Procedimentos de emergência, prevenção de acidentes, trabalho em equipe, comunicação eficaz. Reforço das práticas de segurança no trabalho."
+      },
+      {
+        title: "Manutenção e Cuidados",
+        description: "Inspeção diária, manutenção básica, identificação de defeitos, quando parar a operação. Responsabilidades do operador na conservação do equipamento."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Operação Atualizada',
+        icon: <RefreshCw className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Inspeção pré-operacional',
+          'Práticas de segurança atuais',
+          'Análise de riscos',
+          'Procedimentos revisados'
+        ]
+      },
+      {
+        title: 'Conhecimento Técnico',
+        icon: <Truck className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Novas tecnologias',
+          'Sistemas modernos',
+          'Operação eficiente',
+          'Manuseio avançado'
+        ]
+      },
+      {
+        title: 'Manutenção Preventiva',
+        icon: <Settings className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Inspeção diária',
+          'Manutenção básica',
+          'Identificação de defeitos',
+          'Cuidados operacionais'
+        ]
+      },
+      {
+        title: 'Competência Prática',
+        icon: <CheckCircle className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Manuseio seguro',
+          'Situações de emergência',
+          'Avaliação contínua',
+          'Melhoria constante'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado conforme NR-11 do MTE',
+      requisitos: [
+        'Ter certificado NR-11 empilhadeira vencendo',
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação prática',
+        'Demonstração de competência'
+      ]
+    },
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-amber-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    heroIcon: <RefreshCw className="h-6 w-6 text-orange-600" />,
+    heroImage: "https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Renove sua Habilitação",
+    ctaSubtitle: "Reciclagem anual para operadores de empilhadeira"
+  },
+
+  'nr-11-operador-empilhadeira': {
+title: 'NR-11 Operador de Empilhadeira',
+    description: 'O curso de NR-11 para operadores de empilhadeira capacita profissionais para a operação segura e eficiente desses equipamentos, conforme as normas regulamentadoras. Aborda os princípios de funcionamento, estabilidade, riscos envolvidos, uso correto de EPIs e exemplos reais de acidentes para reforçar a prevenção.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Teórico + Prático',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Operar empilhadeiras de forma segura e eficiente',
+      'Conhecer e aplicar as normas de segurança da NR-11',
+      'Identificar e prevenir riscos na operação de empilhadeiras',
+      'Realizar inspeções e manutenção preventiva básica'
+    ],
+    modules: [
+      {
+        title: "Introdução à NR-11 Operador de Empilhadeira",
+        description: "Apresentação dos objetivos do curso, importância do cumprimento da NR-11, garantia de segurança na operação de empilhadeiras e estatísticas de acidentes e sua prevenção."
+      },
+      {
+        title: "Regulamentação Legal (NRs e NR-11)",
+        description: "Estudo das normas regulamentadoras relacionadas, movimentação, armazenagem e manuseio de materiais, foco específico na NR-11 e penalidades e responsabilidades legais."
+      },
+      {
+        title: "Operação e Conhecimento da Empilhadeira",
+        description: "Tipos de empilhadeira e suas aplicações, componentes principais da empilhadeira, comandos e controles operacionais e procedimentos operacionais fundamentais."
+      },
+      {
+        title: "Equipamentos de Proteção Individual (EPIs)",
+        description: "Uso obrigatório de EPIs durante a operação, capacete, cinto de segurança e calçado de proteção, outros EPIs específicos para operadores e inspeção e conservação dos equipamentos."
+      },
+      {
+        title: "Funcionamento das Empilhadeiras",
+        description: "Sistema de funcionamento das empilhadeiras, motor, direção e sistema de freios, mecanismos de elevação e inclinação e manutenção preventiva e checklist diário."
+      },
+      {
+        title: "Estabilidade e Segurança Operacional",
+        description: "Princípios de estabilidade da empilhadeira, triângulo de estabilidade, capacidade de carga e centro de gravidade, operação em rampas e superfícies irregulares."
+      },
+      {
+        title: "Práticas Operacionais Seguras",
+        description: "Técnicas de movimentação de cargas, empilhamento seguro, manobras em espaços confinados e procedimentos de emergência durante a operação."
+      },
+      {
+        title: "Manutenção e Inspeção",
+        description: "Checklist de inspeção pré-operacional, identificação de defeitos e problemas, procedimentos de manutenção preventiva e comunicação de não conformidades."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Operação Segura',
+        icon: <Forklift className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Operação segura e eficiente de empilhadeiras',
+          'Conhecimento dos comandos e controles',
+          'Técnicas de movimentação de cargas',
+          'Manobras em espaços confinados'
+        ]
+      },
+      {
+        title: 'Normas e Regulamentação',
+        icon: <BookOpen className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Conhecimento da NR-11 e normas relacionadas',
+          'Responsabilidades legais do operador',
+          'Penalidades por descumprimento',
+          'Documentação obrigatória'
+        ]
+      },
+      {
+        title: 'Segurança e Prevenção',
+        icon: <Shield className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Identificação e prevenção de riscos',
+          'Uso correto de EPIs obrigatórios',
+          'Princípios de estabilidade',
+          'Procedimentos de emergência'
+        ]
+      },
+      {
+        title: 'Manutenção e Inspeção',
+        icon: <Settings className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Checklist de inspeção pré-operacional',
+          'Manutenção preventiva básica',
+          'Identificação de defeitos',
+          'Sistema de freios e direção'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-11 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Aprovação na avaliação prática',
+        'Demonstração de operação segura'
+      ]
+    },
+    theme: {
+      primaryColor: 'yellow',
+      gradientFrom: 'from-yellow-50',
+      gradientTo: 'to-amber-50',
+      bgColor: 'bg-yellow-100',
+      textColor: 'text-yellow-600',
+      iconBg: 'bg-yellow-100',
+      iconColor: 'text-yellow-600',
+      ctaColor: 'bg-yellow-600'
+    },
+    heroIcon: <Forklift className="h-6 w-6 text-yellow-600" />,
+    heroImage: "/training-covers/nr-11-empilhadeira.png",
+    ctaTitle: "Torne-se um Operador Certificado",
+    ctaSubtitle: "Capacitação completa NR-11 para operadores de empilhadeira - 16 horas teórico + prático"
+  },
+
+  'nr-11-pontes-rolantes': {
+title: 'NR-11 Pontes Rolantes',
+    description: 'O curso de NR-11 para operadores de pontes rolantes aborda os princípios fundamentais da operação segura desses equipamentos, seguindo as exigências da normativa.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Especializado',
+    objetivos: [
+      'Capacitar operadores para uso seguro de pontes rolantes',
+      'Compreender características técnicas e construtivas dos equipamentos',
+      'Desenvolver habilidades operacionais e de segurança',
+      'Conhecer normas regulamentadoras e responsabilidades legais'
+    ],
+    modules: [
+      {
+        title: "Importância das Pontes Rolantes",
+        description: "Papel fundamental na logística industrial, aplicações e tipos de pontes rolantes, vantagens do uso em ambientes industriais, capacidades de carga e limitações, e integração com processos produtivos."
+      },
+      {
+        title: "Aspectos Normativos e Regulamentares",
+        description: "NR-11 e suas aplicações específicas, NR-12 - Segurança em máquinas e equipamentos, conformidade legal e responsabilidades, documentação obrigatória e registros, e penalidades e implicações legais."
+      },
+      {
+        title: "Características Técnicas e Construtivas",
+        description: "Mecanismos de elevação e translação, dispositivos de segurança e limitadores, instrumentos de comando e controle, sistema de frenagem e parada de emergência, uso de inversores de frequência, e caminhos de rolamento e estrutura."
+      },
+      {
+        title: "Aspectos Operacionais Básicos",
+        description: "Procedimentos de operação segura, regras de checklist pré-operacional, postura correta do operador, técnicas de movimentação de cargas, comunicação e sinalização, e coordenação com equipe de solo."
+      },
+      {
+        title: "Riscos e Medidas Preventivas",
+        description: "Identificação de riscos operacionais, queda de cargas e prevenção, colisões e esmagamentos, riscos elétricos em pontes rolantes, fadiga estrutural e manutenção preventiva, e análise de acidentes típicos."
+      },
+      {
+        title: "Inspeção e Manutenção",
+        description: "Inspeção diária e periódica, verificação de cabos de aço e correntes, teste de dispositivos de segurança, lubrificação e ajustes básicos, registro de manutenções e anomalias, e quando solicitar manutenção especializada."
+      },
+      {
+        title: "Sinalização e Amarração de Cargas",
+        description: "Técnicas de amarração segura, escolha adequada de acessórios de içamento, centro de gravidade e estabilidade, sinalização padronizada, comunicação visual e por rádio, e procedimentos para cargas especiais."
+      },
+      {
+        title: "Procedimentos de Emergência",
+        description: "Ações em caso de falha do equipamento, evacuação de área de risco, primeiros socorros específicos, comunicação de emergências, uso de equipamentos de resgate, e investigação pós-incidente."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Operação Técnica',
+        icon: <Move3D className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Operação segura de pontes rolantes',
+          'Movimentação precisa de cargas',
+          'Uso de comandos e controles',
+          'Técnicas de içamento e transporte'
+        ]
+      },
+      {
+        title: 'Segurança e Prevenção',
+        icon: <Shield className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Identificação de riscos operacionais',
+          'Aplicação de medidas preventivas',
+          'Inspeção pré-operacional',
+          'Procedimentos de emergência'
+        ]
+      },
+      {
+        title: 'Manutenção e Inspeção',
+        icon: <Wrench className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Inspeção diária de equipamentos',
+          'Verificação de dispositivos de segurança',
+          'Manutenção preventiva básica',
+          'Registro de anomalias'
+        ]
+      },
+      {
+        title: 'Normas e Procedimentos',
+        icon: <AlertTriangle className="h-5 w-5 text-indigo-600" />,
+        skills: [
+          'Conhecimento da NR-11 e NR-12',
+          'Documentação obrigatória',
+          'Sinalização e comunicação',
+          'Amarração e estabilidade de cargas'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido pelo MTE conforme NR-11',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (nota mínima 7,0)',
+        'Aprovação na avaliação prática',
+        'Idade mínima de 18 anos',
+        'Aptidão física e mental comprovada'
+      ]
+    },
+    warningMessage: (
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-blue-800 mb-1">Capacitação Especializada</p>
+            <p className="text-sm text-blue-700">
+              Operação de pontes rolantes requer treinamento específico para garantir segurança na movimentação de cargas pesadas em ambientes industriais.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    theme: {
+      primaryColor: 'indigo',
+      gradientFrom: 'from-indigo-50',
+      gradientTo: 'to-blue-50',
+      bgColor: 'bg-indigo-100',
+      textColor: 'text-indigo-600',
+      iconBg: 'bg-indigo-100',
+      iconColor: 'text-indigo-600',
+      ctaColor: 'bg-indigo-600'
+    },
+    heroIcon: <Move3D className="h-6 w-6 text-indigo-600" />,
+    heroImage: "/training-covers/nr-11-ponte-rolante.png",
+    ctaTitle: "Opere Pontes Rolantes com Segurança",
+    ctaSubtitle: "Capacitação especializada de 16 horas - Teoria e prática conforme NR-11"
+  },
+
+  'nr-11-seguranca-operacao-rebocadores': {
+title: 'NR-11 Segurança na Operação de Rebocadores',
+    description: 'O curso de NR-11 para operação com rebocadores industriais prepara os profissionais para o uso seguro e eficiente desses equipamentos em ambientes logísticos e fabris. O conteúdo aborda normas legais, características técnicas, riscos operacionais, prevenção de acidentes e boas práticas de manutenção e condução.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Capacitar operadores para o uso seguro de rebocadores industriais',
+      'Conhecer as normas regulamentadoras aplicáveis à operação',
+      'Identificar e prevenir riscos operacionais',
+      'Aplicar boas práticas de manutenção e condução',
+      'Reduzir acidentes em ambientes logísticos e fabris'
+    ],
+    modules: [
+      {
+        title: "Introdução à norma NR-11",
+        description: "Apresentação da Norma Regulamentadora nº 11, sua aplicação na operação de rebocadores industriais, objetivos, importância da norma e seu histórico e evolução regulamentar."
+      },
+      {
+        title: "Aspectos Regulamentares e Legais Vigentes",
+        description: "Exigências legais para condução de rebocadores, documentação e habilitação necessária, responsabilidades do operador e da empresa, fiscalização e penalidades aplicáveis."
+      },
+      {
+        title: "Tipos Construtivos e Aplicações dos Rebocadores",
+        description: "Diferentes tipos de rebocadores industriais, classificação por capacidade e função, aplicações logísticas específicas e escolha do equipamento adequado para cada operação."
+      },
+      {
+        title: "Características Técnicas e Operacionais",
+        description: "Principais componentes dos rebocadores, sistemas de tração e frenagem, funcionamento e controles operacionais, manuseio seguro dos equipamentos."
+      },
+      {
+        title: "Riscos de Acidentes e suas Consequências",
+        description: "Identificação dos principais riscos na operação, acidentes típicos com rebocadores, consequências para o operador e empresa, estatísticas e análise de casos reais."
+      },
+      {
+        title: "Acidentes Previsíveis e como Evitá-los",
+        description: "Situações de risco mais comuns, estratégias de prevenção de acidentes, condutas seguras na operação, procedimentos para minimizar incidentes."
+      },
+      {
+        title: "Regras Gerais de Segurança",
+        description: "Normas básicas de segurança operacional, procedimentos de início e fim de operação, sinalização e comunicação no ambiente de trabalho, uso obrigatório de equipamentos de proteção, inspeção pré-operacional e check-list de segurança."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Conhecimento Técnico',
+        icon: <Gauge className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Domínio das normas NR-11 e NR-12',
+          'Conhecimento dos tipos de rebocadores',
+          'Compreensão de sistemas técnicos',
+          'Análise de capacidade operacional'
+        ]
+      },
+      {
+        title: 'Operação Segura',
+        icon: <Truck className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Condução defensiva de rebocadores',
+          'Manobras seguras em espaços confinados',
+          'Acoplamento e desacoplamento correto',
+          'Comunicação e sinalização adequada'
+        ]
+      },
+      {
+        title: 'Prevenção de Riscos',
+        icon: <AlertTriangle className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Identificação de perigos operacionais',
+          'Análise preliminar de riscos',
+          'Aplicação de medidas preventivas',
+          'Resposta a situações de emergência'
+        ]
+      },
+      {
+        title: 'Manutenção e Inspeção',
+        icon: <Shield className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Inspeção pré-operacional completa',
+          'Manutenção preventiva básica',
+          'Identificação de falhas mecânicas',
+          'Registro de ocorrências e relatórios'
+        ]
+      }
+    ],
+    certificacao: {
+      titulo: 'Certificado de Operador de Rebocadores Industriais',
+      validade: '2 anos',
+      requisitos: ['Frequência mínima de 100%', 'Aprovação na avaliação teórica', 'Aprovação na avaliação prática operacional', 'Demonstração de competência em manobras seguras']
+    },
+    theme: {
+      primaryColor: 'amber',
+      gradientFrom: 'from-amber-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-amber-100',
+      textColor: 'text-amber-600',
+      iconBg: 'bg-amber-100',
+      iconColor: 'text-amber-600',
+      ctaColor: 'bg-amber-600'
+    },
+    heroIcon: <Truck className="h-6 w-6 text-amber-600" />,
+    heroImage: "/training-covers/nr-11-seguranca-operacao-rebocadores.png",
+    ctaTitle: "Capacite sua Equipe de Operação",
+    ctaSubtitle: "Operação segura e eficiente de rebocadores industriais"
+  },
+
+  'nr-11-seguranca-talhas': {
+title: 'NR-11 Segurança na Operação de Talhas',
+    description: 'O curso de NR-11 sobre operação segura com talhas capacita profissionais para o manuseio correto e seguro desses equipamentos de elevação de cargas. O conteúdo abrange riscos operacionais, características técnicas, inspeções preventivas e boas práticas para garantir segurança e eficiência nas operações com talhas em ambientes industriais.',
+    duration: '12 horas',
+    category: 'Segurança',
+    format: 'Curso teórico e prático',
+    location: 'Presencial',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Operar talhas de forma segura e eficiente',
+      'Identificar e prevenir riscos na movimentação de cargas',
+      'Realizar inspeções preventivas em talhas',
+      'Aplicar boas práticas de segurança em operações industriais'
+    ],
+    modules: [
+      {
+        title: "Introdução à NR-11",
+        description: "Visão geral da Norma Regulamentadora nº 11, aplicação à movimentação de cargas com talhas, exigências legais e segurança, responsabilidades do operador e conformidade com requisitos normativos."
+      },
+      {
+        title: "Riscos na Movimentação de Cargas",
+        description: "Identificação dos principais riscos, consequências do uso inadequado de talhas, medidas preventivas durante a operação, análise de acidentes e estudos de casos práticos para prevenção."
+      },
+      {
+        title: "Concepções e Características Técnicas",
+        description: "Tipos de talhas (manuais, elétricas e pneumáticas), componentes principais das talhas, especificações técnicas e capacidades, critérios de seleção adequados."
+      },
+      {
+        title: "Principais Aplicações Operacionais",
+        description: "Situações práticas de uso das talhas, aplicações em diferentes contextos industriais, técnicas de movimentação segura, eficiência e segurança nas operações."
+      },
+      {
+        title: "Equipamentos e Acessórios Complementares",
+        description: "Correntes, cabos e sistemas de fixação, ganchos e dispositivos de segurança, seleção e inspeção de acessórios, compatibilidade entre equipamentos."
+      },
+      {
+        title: "Inspeção Prévia – Checklist",
+        description: "Procedimentos de verificação antes do uso, checklist de segurança para talhas, identificação de desgastes e avarias, documentação e registros de inspeção."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Conhecimentos Técnicos',
+        icon: <Cog className="h-5 w-5 text-slate-600" />,
+        skills: ['Tipos de talhas e componentes', 'Especificações técnicas', 'Capacidades de carga', 'Sistemas de fixação']
+      },
+      {
+        title: 'Segurança Operacional',
+        icon: <Shield className="h-5 w-5 text-slate-600" />,
+        skills: ['Identificação de riscos', 'Medidas preventivas', 'Procedimentos seguros', 'Análise de acidentes']
+      },
+      {
+        title: 'Manutenção Preventiva',
+        icon: <Settings className="h-5 w-5 text-slate-600" />,
+        skills: ['Inspeções preventivas', 'Checklist de segurança', 'Identificação de desgastes', 'Documentação técnica']
+      },
+      {
+        title: 'Competências Práticas',
+        icon: <Wrench className="h-5 w-5 text-slate-600" />,
+        skills: ['Operação segura', 'Movimentação de cargas', 'Uso de acessórios', 'Aplicações industriais']
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-11 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Aprovação na avaliação prática',
+        'Demonstração de operação segura'
+      ]
+    },
+    theme: {
+      primaryColor: 'slate',
+      gradientFrom: 'from-slate-50',
+      gradientTo: 'to-indigo-50',
+      bgColor: 'bg-slate-100',
+      textColor: 'text-slate-600',
+      iconBg: 'bg-slate-100',
+      iconColor: 'text-slate-600',
+      ctaColor: 'bg-slate-600'
+    },
+    heroIcon: <Cog className="h-6 w-6 text-slate-600" />,
+    heroImage: "/training-covers/nr-11-ponte-rolante.png",
+    ctaTitle: "Interessado?",
+    ctaSubtitle: "Entre em contato para mais informações sobre datas e valores"
+  },
+
+  'nr-11-seguranca-transpaleteira': {
+title: 'NR-11 Segurança em Transpaleteira',
+    description: 'O curso de NR-11 para operadores de transpaleteira aborda os princípios fundamentais da operação segura desses equipamentos, seguindo as exigências das NRs 11 e 12. O conteúdo inclui noções de logística, aspectos técnicos e operacionais das transpaleteiras, além de cuidados com baterias tracionárias.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Capacitar operadores para uso seguro de transpaleteiras',
+      'Compreender as exigências das NR-11 e NR-12',
+      'Identificar e prevenir riscos operacionais',
+      'Dominar procedimentos de inspeção e manutenção básica'
+    ],
+    modules: [
+      {
+        title: "Normas Regulamentadoras NR11 e NR12",
+        description: "Estudo das normas que regem a operação segura de equipamentos de movimentação de carga, com foco nas exigências das NR-11 e NR-12."
+      },
+      {
+        title: "Noções e Princípios Gerais da Logística",
+        description: "Conceitos básicos da logística aplicados ao uso de transpaleteiras, incluindo organização, fluxo de materiais e eficiência operacional."
+      },
+      {
+        title: "Aspectos Técnicos e Construtivos",
+        description: "Apresentação das características construtivas das transpaleteiras, seus componentes, funcionamento e tipos mais comuns no mercado."
+      },
+      {
+        title: "Aspectos Operacionais",
+        description: "Procedimentos corretos de operação, sinalização, circulação em áreas compartilhadas e práticas para prevenir acidentes."
+      },
+      {
+        title: "Baterias Tracionárias",
+        description: "Instruções sobre manuseio, recarga, manutenção e cuidados de segurança com baterias de transpaleteiras elétricas."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Conhecimento Técnico',
+        icon: <Shield className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Compreensão das NR-11 e NR-12',
+          'Identificação de tipos de transpaleteiras',
+          'Conhecimento de componentes e funcionamento',
+          'Capacidade de carga e limites operacionais'
+        ]
+      },
+      {
+        title: 'Operação Segura',
+        icon: <Package className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Inspeção pré-operacional',
+          'Técnicas corretas de movimentação de carga',
+          'Sinalização e comunicação em armazéns',
+          'Procedimentos de emergência'
+        ]
+      },
+      {
+        title: 'Prevenção de Acidentes',
+        icon: <AlertTriangle className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Identificação de riscos na operação',
+          'Uso correto de EPIs',
+          'Ergonomia na operação',
+          'Prevenção de colisões e tombamentos'
+        ]
+      },
+      {
+        title: 'Manutenção e Cuidados',
+        icon: <Settings className="h-5 w-5 text-yellow-600" />,
+        skills: [
+          'Manutenção preventiva básica',
+          'Cuidados com baterias tracionárias',
+          'Procedimentos de recarga segura',
+          'Registro de não conformidades'
+        ]
+      }
+    ],
+    certificacao: {
+      titulo: 'Certificado de Operador de Transpaleteira',
+      validade: '2 anos',
+      requisitos: ['Frequência mínima de 75%', 'Avaliação teórica', 'Avaliação prática']
+    },
+    theme: {
+      primaryColor: 'yellow',
+      gradientFrom: 'from-yellow-50',
+      gradientTo: 'to-amber-50',
+      bgColor: 'bg-yellow-100',
+      textColor: 'text-yellow-600',
+      iconBg: 'bg-yellow-100',
+      iconColor: 'text-yellow-600',
+      ctaColor: 'bg-yellow-600'
+    },
+    heroIcon: <Package className="h-6 w-6 text-yellow-600" />,
+    heroImage: "/training-covers/nr-11-empilhadeira.png",
+    ctaTitle: "Capacite sua Equipe de Logística",
+    ctaSubtitle: "Operação segura e eficiente de transpaleteiras"
+  },
+
+  'nr-11-transporte-geral': {
+title: 'NR-11 - Transporte Geral',
+    description: 'Curso sobre transporte, movimentação, armazenagem e manuseio de materiais de forma segura, cobrindo equipamentos diversos além da empilhadeira.',
+    duration: '8 horas',
+    category: 'Operação',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Conhecer normas de transporte seguro',
+      'Operar equipamentos de movimentação',
+      'Aplicar técnicas de armazenagem',
+      'Prevenir acidentes na movimentação'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da NR-11",
+        description: "Objetivos e campo de aplicação, responsabilidades do empregador, direitos e deveres dos trabalhadores, e legislação aplicável. Base legal para operações de transporte seguro."
+      },
+      {
+        title: "Equipamentos de Transporte",
+        description: "Paleteiras manuais e elétricas, guindastes e talhas, esteiras transportadoras, e carrinho de mão e carrinhos diversos. Conhecimento dos diversos equipamentos de movimentação."
+      },
+      {
+        title: "Técnicas de Movimentação",
+        description: "Levantamento manual de cargas, uso de EPIs específicos, sinalização e comunicação, e trabalho em equipe. Métodos seguros para movimentação de materiais."
+      },
+      {
+        title: "Armazenagem Segura",
+        description: "Organização de estoques, empilhamento correto, estruturas porta-paletes, e segregação de materiais. Práticas para armazenamento eficiente e seguro."
+      },
+      {
+        title: "Prevenção de Acidentes",
+        description: "Principais riscos na movimentação, análise de acidentes típicos, medidas preventivas, e procedimentos de emergência. Estratégias para evitar acidentes operacionais."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Operação de Equipamentos',
+        icon: <Truck className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Paleteiras manuais e elétricas',
+          'Guindastes e talhas',
+          'Esteiras transportadoras',
+          'Carrinho de mão e similares'
+        ]
+      },
+      {
+        title: 'Movimentação Segura',
+        icon: <Package className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Técnicas de levantamento',
+          'Uso correto de EPIs',
+          'Sinalização adequada',
+          'Trabalho coordenado'
+        ]
+      },
+      {
+        title: 'Armazenagem Eficiente',
+        icon: <Shield className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Organização de estoques',
+          'Empilhamento correto',
+          'Estruturas porta-paletes',
+          'Segregação de materiais'
+        ]
+      },
+      {
+        title: 'Prevenção e Segurança',
+        icon: <AlertTriangle className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Identificação de riscos',
+          'Análise de acidentes',
+          'Medidas preventivas',
+          'Procedimentos de emergência'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-11 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Demonstração prática de competências',
+        'Idade mínima de 18 anos'
+      ]
+    },
+    theme: {
+      primaryColor: 'blue',
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-cyan-50',
+      bgColor: 'bg-blue-100',
+      textColor: 'text-blue-600',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      ctaColor: 'bg-blue-600'
+    },
+    heroIcon: <Truck className="h-6 w-6 text-blue-600" />,
+    heroImage: "/training-covers/nr-11-transporte-movimentacao-materiais.png",
+    ctaTitle: "Transporte com Segurança",
+    ctaSubtitle: "Capacitação completa em movimentação e armazenagem - NR-11"
+  },
+
+  'nr-11-transporte-movimentacao-materiais': {
+title: 'NR-11 Transporte, Movimentação, Armazenagem e Manuseio de Materiais',
+    description: 'O curso NR-11 – Transporte e Movimentação de Cargas oferece capacitação completa sobre o manuseio seguro de materiais com pontes rolantes, talhas, transpaleteiras e outros equipamentos. Abrange normas técnicas, análise de riscos, prevenção de acidentes e boas práticas operacionais essenciais para garantir segurança e eficiência no ambiente de trabalho.',
+    duration: '20 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Capacitar profissionais para o manuseio seguro de materiais',
+      'Dominar operação de pontes rolantes, talhas e transpaleteiras',
+      'Aplicar normas técnicas na movimentação de cargas',
+      'Prevenir acidentes através de análise de riscos',
+      'Implementar boas práticas operacionais'
+    ],
+    modules: [
+      {
+        title: "Introdução à NR-11 e Movimentação de Cargas",
+        description: "Apresentação da NR-11 e sua aplicabilidade, princípios fundamentais da movimentação de cargas, conceitos de segurança no transporte de materiais, responsabilidades na cadeia de movimentação."
+      },
+      {
+        title: "Acidentes e Riscos na Movimentação de Cargas",
+        description: "Estudo de acidentes comuns na movimentação, riscos associados aos equipamentos, falhas de dimensionamento de cargas, análise de casos reais e lições aprendidas."
+      },
+      {
+        title: "Operação de Pontes Rolantes",
+        description: "Fundamentos técnicos de pontes rolantes, importância e aplicações industriais, práticas operacionais seguras, elementos do plano de içamento industrial."
+      },
+      {
+        title: "Manutenção de Segurança em Pontes Rolantes",
+        description: "Procedimentos de manutenção preventiva, inspeções periódicas obrigatórias, identificação de desgastes e falhas, garantia de funcionamento seguro e eficiente."
+      },
+      {
+        title: "Operação de Transpaleteiras",
+        description: "Uso seguro de transpaleteiras elétricas, aspectos técnicos e construtivos, operação em ambientes logísticos, manuseio e manobras seguras."
+      },
+      {
+        title: "Baterias Tracionárias",
+        description: "Funcionamento de baterias tracionárias, cuidados no manuseio e recarga, manutenção preventiva de baterias, segurança na sala de baterias, descarte e reciclagem adequados."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Operação de Equipamentos',
+        icon: <Package className="h-5 w-5 text-orange-600" />,
+        skills: ['Pontes rolantes', 'Transpaleteiras elétricas', 'Talhas industriais', 'Equipamentos auxiliares']
+      },
+      {
+        title: 'Análise de Riscos',
+        icon: <Shield className="h-5 w-5 text-orange-600" />,
+        skills: ['Avaliação de perigos', 'Prevenção de acidentes', 'Análise de casos', 'Medidas preventivas']
+      },
+      {
+        title: 'Manutenção Preventiva',
+        icon: <Settings className="h-5 w-5 text-orange-600" />,
+        skills: ['Inspeções periódicas', 'Manutenção de segurança', 'Identificação de falhas', 'Documentação técnica']
+      },
+      {
+        title: 'Sistemas Energéticos',
+        icon: <Zap className="h-5 w-5 text-orange-600" />,
+        skills: ['Baterias tracionárias', 'Sistemas elétricos', 'Recarga segura', 'Gestão energética']
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido conforme NR-11',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática',
+        'Demonstração de competência operacional'
+      ]
+    },
+    warningMessage: (
+      <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <Package className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-orange-800 mb-1">Equipamentos Abordados</p>
+            <p className="text-sm text-orange-700">
+              Este curso cobre operação segura de pontes rolantes, talhas, transpaleteiras e sistemas de movimentação industrial.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-amber-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    heroIcon: <Package className="h-6 w-6 text-orange-600" />,
+    heroImage: "/training-covers/nr-11-transporte-movimentacao-materiais.png",
+    ctaTitle: "Capacitação em Movimentação de Cargas",
+    ctaSubtitle: "Certificação NR-11 para operação segura de equipamentos industriais - 20 horas"
+  },
+
+  'nr-12-maquinas-equipamentos': {
+title: 'NR-12 Máquinas e Equipamentos',
+    description: 'Capacita profissionais para operar, ajustar e manter máquinas conforme a NR-12, abordando medidas de proteção, análise de riscos e prevenção de acidentes. Garanta sua certificação obrigatória, atue em conformidade legal e contribua para um ambiente de trabalho mais seguro e produtivo.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Obrigatório',
+    objetivos: [
+      'Capacitar para operação segura de máquinas e equipamentos',
+      'Conhecer as exigências da NR-12 e suas aplicações',
+      'Identificar e avaliar riscos em máquinas e equipamentos',
+      'Aplicar medidas de proteção e dispositivos de segurança',
+      'Desenvolver cultura de prevenção de acidentes'
+    ],
+    modules: [
+      {
+        title: "Riscos Associados a Máquinas e Equipamentos",
+        description: "Identificação de riscos específicos de cada máquina, pontos de esmagamento, corte e prensagem, riscos de projeção de materiais, exposição a ruídos e vibrações, e proteções adequadas para cada tipo de risco."
+      },
+      {
+        title: "Funcionamento e Importância das Proteções",
+        description: "Tipos de proteções (fixas, móveis e intertravadas), dispositivos de segurança eletrônicos, barreiras físicas e sensores de presença, função das proteções na prevenção de acidentes e manutenção de proteções."
+      },
+      {
+        title: "Regras para Remoção de Proteções",
+        description: "Procedimentos para remoção autorizada, responsabilidades do pessoal de manutenção, uso de dispositivos de bloqueio (LOTO), documentação e autorização necessária, reinstalação e verificação pós-manutenção."
+      },
+      {
+        title: "Ações em Caso de Proteção Danificada ou Inoperante",
+        description: "Identificação de proteções danificadas, procedimento de parada imediata, comunicação com supervisor e manutenção, isolamento da área de risco e registro de ocorrências e não conformidades."
+      },
+      {
+        title: "Princípios de Segurança na Utilização de Máquinas",
+        description: "Operação consciente e responsável, uso correto de EPIs específicos, procedimentos de partida e parada seguras, verificação pré-operacional e boas práticas de organização e limpeza."
+      },
+      {
+        title: "Dispositivos de Parada de Emergência",
+        description: "Tipos e localização de botões de emergência, funcionamento e acionamento correto, reset e reinicialização segura, testes periódicos obrigatórios e situações que exigem parada de emergência."
+      },
+      {
+        title: "Sinalização e Comunicação de Segurança",
+        description: "Cores e símbolos padronizados, placas de advertência e proibição, demarcação de áreas de risco, comunicação visual e sonora e treinamento de novos operadores."
+      },
+      {
+        title: "Responsabilidades Legais e Documentação",
+        description: "Obrigações do empregador e trabalhador, inventário de máquinas e equipamentos, Análise de Risco (AR) e Apreciação de Risco, laudos técnicos e certificações, penalidades por descumprimento da NR-12."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação e Avaliação de Riscos',
+        icon: <AlertTriangle className="h-5 w-5 text-slate-600" />,
+        skills: [
+          'Identificação de riscos específicos de cada máquina',
+          'Reconhecimento de pontos de esmagamento e corte',
+          'Avaliação de riscos de projeção de materiais',
+          'Análise de exposição a ruídos e vibrações'
+        ]
+      },
+      {
+        title: 'Proteções e Dispositivos de Segurança',
+        icon: <Shield className="h-5 w-5 text-slate-600" />,
+        skills: [
+          'Conhecimento de proteções fixas, móveis e intertravadas',
+          'Operação de dispositivos de segurança eletrônicos',
+          'Uso de barreiras físicas e sensores de presença',
+          'Manutenção e verificação de proteções'
+        ]
+      },
+      {
+        title: 'Operação Segura e Manutenção',
+        icon: <Wrench className="h-5 w-5 text-slate-600" />,
+        skills: [
+          'Procedimentos de remoção autorizada de proteções',
+          'Uso de dispositivos de bloqueio (LOTO)',
+          'Operação consciente e responsável de máquinas',
+          'Verificação pré-operacional e manutenção preventiva'
+        ]
+      },
+      {
+        title: 'Emergências e Conformidade Legal',
+        icon: <Settings className="h-5 w-5 text-slate-600" />,
+        skills: [
+          'Acionamento correto de dispositivos de emergência',
+          'Procedimentos de parada imediata',
+          'Conhecimento das obrigações legais',
+          'Documentação e registro de ocorrências'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido pelo MTE conforme NR-12',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (nota mínima 7,0)',
+        'Demonstração prática de conhecimentos',
+        'Ser operador ou manutentor de máquinas'
+      ]
+    },
+    theme: {
+      primaryColor: 'slate',
+      gradientFrom: 'from-slate-50',
+      gradientTo: 'to-gray-50',
+      bgColor: 'bg-slate-100',
+      textColor: 'text-slate-600',
+      iconBg: 'bg-slate-100',
+      iconColor: 'text-slate-600',
+      ctaColor: 'bg-slate-600'
+    },
+    heroIcon: <Settings className="h-6 w-6 text-slate-600" />,
+    heroImage: "/training-covers/nr-12-seguranca-maquinas.png",
+    warningMessage: (
+      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-amber-800 mb-1">Certificação Obrigatória</p>
+            <p className="text-sm text-amber-700">
+              A NR-12 exige capacitação específica para todos os trabalhadores envolvidos na operação, manutenção, inspeção e demais intervenções em máquinas e equipamentos.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    ctaTitle: "Opere com Segurança",
+    ctaSubtitle: "Certificação obrigatória NR-12 para operadores de máquinas - 8 horas de treinamento especializado"
+  },
+
+  'nr-13-caldeiras-periodico': {
+title: 'NR-13 Caldeiras - Reciclagem',
+    description: 'Reciclagem para operadores de caldeiras. Curso obrigatório para renovação da certificação e atualização de conhecimentos em operação de caldeiras.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Avançado',
+    objetivos: [
+      'Atualizar conhecimentos sobre operação de caldeiras',
+      'Revisar procedimentos de segurança atualizados',
+      'Reforçar práticas de inspeção e manutenção',
+      'Atualizar normas e regulamentações vigentes'
+    ],
+    modules: [
+      {
+        title: "Atualizações Normativas",
+        description: "Alterações na NR-13, normas ABNT atualizadas, e regulamentações de segurança vigentes. Revisão das mudanças recentes na legislação aplicável."
+      },
+      {
+        title: "Inspeção e Manutenção",
+        description: "Procedimentos de inspeção atualizados, critérios de aceitação e rejeição, e manutenção preventiva e corretiva. Técnicas modernas de inspeção."
+      },
+      {
+        title: "Operação Segura",
+        description: "Procedimentos operacionais atualizados, controle de parâmetros operacionais, e sistemas de segurança e proteção. Melhores práticas operacionais."
+      },
+      {
+        title: "Emergências e Primeiros Socorros",
+        description: "Procedimentos de emergência, abandono seguro de instalação, e primeiros socorros em queimaduras. Resposta rápida a situações críticas."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Atualização Normativa',
+        icon: <RefreshCw className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Alterações na NR-13',
+          'Normas ABNT atualizadas',
+          'Regulamentações vigentes',
+          'Conformidade legal'
+        ]
+      },
+      {
+        title: 'Inspeção Avançada',
+        icon: <Shield className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Procedimentos de inspeção',
+          'Critérios de aceitação',
+          'Manutenção preventiva',
+          'Técnicas modernas'
+        ]
+      },
+      {
+        title: 'Operação Segura',
+        icon: <Flame className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Procedimentos operacionais',
+          'Controle de parâmetros',
+          'Sistemas de proteção',
+          'Melhores práticas'
+        ]
+      },
+      {
+        title: 'Gestão de Emergências',
+        icon: <AlertTriangle className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Procedimentos de emergência',
+          'Abandono seguro',
+          'Primeiros socorros',
+          'Resposta a crises'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido conforme NR-13',
+      requisitos: [
+        'Certificação anterior como operador de caldeiras',
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática',
+        'Exame médico específico válido'
+      ]
+    },
+    warningMessage: (
+      <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <RefreshCw className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-orange-800 mb-1">Reciclagem Obrigatória</p>
+            <p className="text-sm text-orange-700">
+              Curso de reciclagem obrigatório para renovação da certificação de operador de caldeiras. 
+              Requer certificação anterior válida.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-red-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    heroIcon: <Flame className="h-6 w-6 text-orange-600" />,
+    heroImage: "/training-covers/nr-13-caldeiras.png",
+    ctaTitle: "Renove sua Certificação",
+    ctaSubtitle: "Mantenha-se atualizado com as melhores práticas de segurança"
+  },
+
+  'nr-13-caldeiras-reciclagem': {
+title: 'NR-13 Caldeiras - Reciclagem',
+    description: 'Curso de reciclagem obrigatório para operadores de caldeiras, atualizando conhecimentos sobre operação segura e manutenção de caldeiras industriais.',
+    duration: '8 horas',
+    category: 'Operação',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Atualizar conhecimentos de operação de caldeiras',
+      'Revisar procedimentos de segurança',
+      'Reforçar boas práticas operacionais',
+      'Atualizar sobre mudanças normativas'
+    ],
+    modules: [
+      {
+        title: "Revisão e Atualizações da NR-13",
+        description: "Mudanças recentes na norma, novos requisitos para caldeiras, análise de acidentes recentes, atualizações tecnológicas. Conhecimento atualizado da legislação e casos práticos."
+      },
+      {
+        title: "Operação Segura Atualizada",
+        description: "Procedimentos de partida e parada, monitoramento de parâmetros críticos, controle de combustão, tratamento de água atualizado. Técnicas operacionais modernas e seguras."
+      },
+      {
+        title: "Manutenção e Inspeção",
+        description: "Novas técnicas de inspeção, manutenção preventiva, substituição de componentes, registros e documentação. Gestão atualizada de manutenção de caldeiras."
+      },
+      {
+        title: "Emergências e Segurança",
+        description: "Procedimentos de emergência, novos sistemas de segurança, treinamento prático atualizado, primeiros socorros específicos. Resposta eficaz a situações críticas."
+      },
+      {
+        title: "Tecnologias e Inovações",
+        description: "Novos equipamentos de controle, sistemas de automação, sensores modernos, eficiência energética. Atualizações tecnológicas em caldeiras industriais."
+      },
+      {
+        title: "Regulamentações e Documentos",
+        description: "Documentação obrigatória, relatórios de inspeção, certificações necessárias, responsabilidades legais. Conformidade total com exigências regulamentares."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Atualização Normativa',
+        icon: <RefreshCw className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Conhecimento NR-13 atual',
+          'Análise de mudanças',
+          'Requisitos atualizados',
+          'Jurisprudência recente'
+        ]
+      },
+      {
+        title: 'Operação Segura',
+        icon: <Flame className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Procedimentos de partida',
+          'Monitoramento crítico',
+          'Controle de combustão',
+          'Operação eficiente'
+        ]
+      },
+      {
+        title: 'Manutenção Avançada',
+        icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Técnicas de inspeção',
+          'Manutenção preventiva',
+          'Diagnóstico de falhas',
+          'Substituição segura'
+        ]
+      },
+      {
+        title: 'Gestão de Segurança',
+        icon: <CheckCircle className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Procedimentos emergência',
+          'Sistemas de segurança',
+          'Documentação técnica',
+          'Conformidade legal'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado conforme NR-13 do MTE',
+      requisitos: [
+        'Ter certificado NR-13 caldeiras vencendo',
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <RefreshCw className="h-6 w-6 text-red-600" />,
+    heroImage: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Renove sua Certificação",
+    ctaSubtitle: "Reciclagem anual obrigatória para operadores de caldeiras"
+  },
+
+  'nr-13-operador-caldeiras': {
+title: 'NR-13 Operador de Caldeiras',
+    description: 'Capacita profissionais para operar caldeiras de forma segura e conforme a legislação da NR-13, abordando normas técnicas, procedimentos operacionais, prevenção de acidentes e manutenção preventiva.',
+    duration: '40 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Especializado',
+    
+    objetivos: [
+      'Capacitar operadores para condução segura de caldeiras',
+      'Conhecer os riscos associados à operação de vasos de pressão',
+      'Aplicar procedimentos de segurança conforme NR-13',
+      'Realizar inspeções e manutenção preventiva básica',
+      'Desenvolver competências em situações de emergência'
+    ],
+    
+    modules: [
+      {
+        title: "Noções de Física Aplicada",
+        description: "Fundamentos de física relevantes para o funcionamento seguro de caldeiras e vasos de pressão, abordando conceitos de pressão, temperatura, volume, termodinâmica e transferência de calor."
+      },
+      {
+        title: "Noções de Química Aplicada",
+        description: "Conceitos básicos de química relacionados ao tratamento de água, processos de corrosão, incrustação e reações químicas envolvidas na operação de caldeiras."
+      },
+      {
+        title: "Conhecimentos Básicos sobre Caldeiras",
+        description: "Estrutura, funcionamento, tipos e classificação de caldeiras, com foco nos componentes principais, acessórios e sistemas de segurança obrigatórios."
+      },
+      {
+        title: "Introdução à Instrumentação",
+        description: "Apresentação de instrumentos de medição e controle utilizados em caldeiras, incluindo sistemas de pressão, temperatura, nível e automação."
+      },
+      {
+        title: "Operação da Unidade",
+        description: "Procedimentos e boas práticas na operação segura de caldeiras, desde a partida até a parada, incluindo controle de variáveis e documentação operacional."
+      },
+      {
+        title: "Avaliação e Controle de Riscos Inerentes",
+        description: "Métodos de identificação, avaliação e controle dos riscos presentes na operação de caldeiras, incluindo procedimentos em situações anormais."
+      },
+      {
+        title: "Manutenção e Inspeção",
+        description: "Rotinas de inspeção e manutenção essenciais para garantir a integridade e segurança das caldeiras, incluindo testes e registros."
+      },
+      {
+        title: "Procedimentos de Emergência",
+        description: "Protocolos de resposta a emergências e situações críticas na operação de caldeiras, incluindo despressurização e combate a incêndios."
+      }
+    ],
+    
+    competencias: [
+      {
+        title: "Operação Segura",
+        icon: <Flame className="h-5 w-5 text-orange-600" />,
+        skills: [
+          "Condução segura de partida e parada de caldeiras",
+          "Controle de variáveis operacionais críticas",
+          "Interpretação de instrumentos de medição",
+          "Documentação e registros operacionais"
+        ]
+      },
+      {
+        title: "Segurança e Prevenção",
+        icon: <Shield className="h-5 w-5 text-orange-600" />,
+        skills: [
+          "Identificação e avaliação de riscos operacionais",
+          "Aplicação de procedimentos de segurança",
+          "Resposta a situações de emergência",
+          "Utilização de equipamentos de proteção"
+        ]
+      },
+      {
+        title: "Conhecimento Técnico",
+        icon: <BookOpen className="h-5 w-5 text-orange-600" />,
+        skills: [
+          "Fundamentos de termodinâmica aplicada",
+          "Tratamento químico da água de alimentação",
+          "Componentes e sistemas de caldeiras",
+          "Normas técnicas e regulamentações"
+        ]
+      },
+      {
+        title: "Manutenção e Inspeção",
+        icon: <Users className="h-5 w-5 text-orange-600" />,
+        skills: [
+          "Técnicas de inspeção visual e operacional",
+          "Rotinas de manutenção preventiva",
+          "Calibração de instrumentos de medição",
+          "Registro e histórico de manutenções"
+        ]
+      }
+    ],
+    
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado reconhecido pelo MTE conforme NR-13',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (nota mínima 7,0)',
+        'Aprovação na avaliação prática',
+        'Escolaridade mínima: Ensino Fundamental',
+        'Idade mínima de 18 anos'
+      ]
+    },
+    
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-red-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    
+    heroIcon: <Flame className="h-6 w-6 text-orange-600" />,
+    heroImage: "/training-covers/nr-13-caldeiras.png",
+    
+    warningMessage: (
+      <div className="bg-red-50 border border-red-200 rounded-lg p-3 max-w-sm">
+        <div className="flex items-start gap-2">
+          <AlertTriangle className="h-4 w-4 text-red-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-red-800 text-sm mb-1">Operação de Alto Risco</p>
+            <p className="text-xs text-red-700">
+              Capacitação obrigatória conforme NR-13
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    
+    ctaTitle: "Torne-se um Operador Qualificado",
+    ctaSubtitle: "Treinamento especializado de 40 horas para operação segura de caldeiras conforme NR-13"
+  },
+
+  'nr-13-vasos-pressao-cat1': {
+title: 'NR-13 Vasos de Pressão Categoria 1',
+    description: 'Curso específico para vasos de pressão categoria 1. Capacita profissionais para operar, inspecionar e manter vasos de pressão de categoria 1 conforme as exigências da NR-13.',
+    duration: '40 horas',
+    category: 'Operação',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Avançado',
+    objetivos: [
+      'Operar vasos de pressão categoria 1 com segurança',
+      'Realizar inspeções de segurança específicas',
+      'Executar manutenção básica e preventiva',
+      'Aplicar procedimentos de emergência adequados'
+    ],
+    modules: [
+      {
+        title: "Fundamentos de Vasos de Pressão",
+        description: "Conceitos básicos de vasos de pressão, classificação por categoria, características da categoria 1, legislação NR-13 aplicável. Base teórica essencial."
+      },
+      {
+        title: "Operação de Vasos Categoria 1",
+        description: "Procedimentos operacionais específicos, controle de pressão e temperatura, sistemas de segurança, monitoramento contínuo. Operação segura e eficiente."
+      },
+      {
+        title: "Inspeção e Manutenção",
+        description: "Inspeção visual e técnica, critérios de aceitação categoria 1, manutenção preventiva, identificação de problemas. Gestão de integridade técnica."
+      },
+      {
+        title: "Segurança e Proteção",
+        description: "Dispositivos de segurança específicos, válvulas de alívio, instrumentação de controle, sistemas de monitoramento. Proteção contra sobrepressão."
+      },
+      {
+        title: "Procedimentos de Emergência",
+        description: "Planos de emergência específicos, vazamentos e sobrepressão, evacuação e isolamento, primeiros socorros. Resposta a situações críticas."
+      },
+      {
+        title: "Documentação e Registros",
+        description: "Registros obrigatórios categoria 1, relatórios de inspeção, documentação de manutenção, prontuário simplificado. Conformidade documental."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Operação Especializada',
+        icon: <Gauge className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Procedimentos categoria 1',
+          'Controle de pressão',
+          'Monitoramento contínuo',
+          'Operação segura'
+        ]
+      },
+      {
+        title: 'Inspeção Técnica',
+        icon: <Settings className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Inspeção visual e técnica',
+          'Critérios de aceitação',
+          'Manutenção preventiva',
+          'Identificação de problemas'
+        ]
+      },
+      {
+        title: 'Sistemas de Segurança',
+        icon: <Shield className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Dispositivos de proteção',
+          'Válvulas de alívio',
+          'Instrumentação controle',
+          'Monitoramento sistemas'
+        ]
+      },
+      {
+        title: 'Gestão de Emergências',
+        icon: <AlertTriangle className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Planos emergência',
+          'Vazamentos e sobrepressão',
+          'Evacuação e isolamento',
+          'Primeiros socorros'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '3 anos',
+      orgao: 'Certificado conforme NR-13 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática',
+        'Experiência comprovada em equipamentos pressurizados'
+      ]
+    },
+    theme: {
+      primaryColor: 'blue',
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-cyan-50',
+      bgColor: 'bg-blue-100',
+      textColor: 'text-blue-600',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      ctaColor: 'bg-blue-600'
+    },
+    heroIcon: <Gauge className="h-6 w-6 text-blue-600" />,
+    heroImage: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Especialização em Vasos de Pressão",
+    ctaSubtitle: "Capacitação específica para categoria 1 - NR-13"
+  },
+
+  'nr-13-vasos-pressao-categoria-1': {
+title: 'NR-13 - Vasos de Pressão Categoria 1',
+    description: 'Curso específico para operação e manutenção de vasos de pressão de categoria 1, para profissionais que atuam com equipamentos de baixo risco.',
+    duration: '8 horas',
+    category: 'Operação',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Operar vasos de pressão categoria 1 com segurança',
+      'Realizar inspeções básicas de segurança',
+      'Executar manutenção preventiva simples',
+      'Aplicar procedimentos básicos de emergência'
+    ],
+    modules: [
+      {
+        title: "Introdução aos Vasos de Pressão",
+        description: "Conceitos básicos de vasos de pressão, o que caracteriza categoria 1, riscos básicos associados, importância da segurança. Fundamentos para operação segura."
+      },
+      {
+        title: "Operação Básica Categoria 1",
+        description: "Procedimentos simples de operação, controle básico de pressão, verificações de segurança, rotinas operacionais. Operação segura em baixo risco."
+      },
+      {
+        title: "Inspeção Visual",
+        description: "Inspeção visual básica, identificação de problemas visíveis, quando parar a operação, comunicação de anomalias. Detecção precoce de problemas."
+      },
+      {
+        title: "Manutenção Básica",
+        description: "Manutenção preventiva simples, limpeza e conservação, cuidados básicos, responsabilidades do operador. Preservação do equipamento."
+      },
+      {
+        title: "Segurança e Emergência",
+        description: "Dispositivos básicos de segurança, procedimentos simples de emergência, quando chamar ajuda, primeiros socorros básicos. Resposta adequada a problemas."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Operação Segura',
+        icon: <Gauge className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Procedimentos básicos',
+          'Controle de pressão',
+          'Verificações segurança',
+          'Rotinas operacionais'
+        ]
+      },
+      {
+        title: 'Inspeção Visual',
+        icon: <Settings className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Identificação problemas',
+          'Critérios básicos',
+          'Comunicação anomalias',
+          'Decisão de parada'
+        ]
+      },
+      {
+        title: 'Manutenção Simples',
+        icon: <Shield className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Limpeza e conservação',
+          'Manutenção preventiva',
+          'Cuidados básicos',
+          'Responsabilidades'
+        ]
+      },
+      {
+        title: 'Resposta a Emergências',
+        icon: <AlertTriangle className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Procedimentos básicos',
+          'Identificação emergências',
+          'Acionamento ajuda',
+          'Primeiros socorros'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '3 anos',
+      orgao: 'Certificado conforme NR-13 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Demonstração prática das competências básicas',
+        'Conhecimento básico em equipamentos pressurizados'
+      ]
+    },
+    theme: {
+      primaryColor: 'green',
+      gradientFrom: 'from-green-50',
+      gradientTo: 'to-emerald-50',
+      bgColor: 'bg-green-100',
+      textColor: 'text-green-600',
+      iconBg: 'bg-green-100',
+      iconColor: 'text-green-600',
+      ctaColor: 'bg-green-600'
+    },
+    heroIcon: <Gauge className="h-6 w-6 text-green-600" />,
+    heroImage: "/training-covers/nr-13-caldeiras.png",
+    ctaTitle: "Operação Segura de Vasos",
+    ctaSubtitle: "Capacitação básica para categoria 1 - NR-13"
+  },
+
+  'nr-13-vasos-pressao': {
+title: 'NR-13 Vasos de Pressão e Unidades de Processo',
+    description: 'Capacita profissionais para operar, inspecionar e manter vasos de pressão e unidades de processo conforme a NR-13, abordando normas de segurança, análise de riscos e prevenção de acidentes.',
+    duration: '40 horas',
+    category: 'Segurança',
+    format: 'Teórico e Prático',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Avançado',
+    objetivos: [
+      'Operar vasos de pressão e unidades de processo com segurança',
+      'Aplicar normas técnicas e procedimentos da NR-13',
+      'Identificar e controlar riscos em sistemas pressurizados',
+      'Realizar inspeções e manutenções preventivas'
+    ],
+    modules: [
+      {
+        title: "Noções de Física e Química Aplicada",
+        description: "Conceitos fundamentais de física e química, pressão, temperatura e volume, corrosão e seus mecanismos, tratamento de água em sistemas de caldeiras. Base científica essencial para compreensão dos processos."
+      },
+      {
+        title: "Caldeiras: Conhecimentos Básicos e Instrumentação",
+        description: "Estrutura e componentes das caldeiras, funcionamento e princípios operacionais, classificações das caldeiras, principais instrumentos de medição, sistemas de controle e automação. Fundamentos para operação segura."
+      },
+      {
+        title: "Operação da Unidade e Procedimentos",
+        description: "Procedimentos operacionais padrão, segurança na operação, eficiência no funcionamento, rotinas de operação e monitoramento. Práticas operacionais para máxima segurança e eficiência."
+      },
+      {
+        title: "Avaliação e Controle de Riscos",
+        description: "Métodos de identificação de riscos, ferramentas de análise de riscos, mitigação de riscos em processos, fluidos sob pressão e altas temperaturas, estratégias de prevenção de falhas."
+      },
+      {
+        title: "Prevenção de Acidentes e Emergências",
+        description: "Prevenção contra deterioração e explosão, resposta a situações de emergência, integridade física dos equipamentos, proteção dos operadores. Gestão proativa de riscos críticos."
+      },
+      {
+        title: "Legislação, NR-13 e Categorização",
+        description: "Principais normas técnicas aplicáveis, estudo aprofundado da NR-13, classificação conforme critérios da NR-13, implicações operacionais por categoria, requisitos específicos por classe."
+      },
+      {
+        title: "Inspeção, Manutenção e Registros",
+        description: "Boas práticas de manutenção, procedimentos de inspeção, documentação obrigatória, periodicidade de inspeções, garantia de segurança e conformidade legal. Gestão da integridade dos equipamentos."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Operação Segura',
+        icon: <Gauge className="h-5 w-5 text-slate-600" />,
+        skills: [
+          'Operação de vasos de pressão',
+          'Controle de parâmetros operacionais',
+          'Monitoramento de sistemas',
+          'Procedimentos de segurança'
+        ]
+      },
+      {
+        title: 'Análise de Riscos',
+        icon: <Shield className="h-5 w-5 text-slate-600" />,
+        skills: [
+          'Identificação de riscos críticos',
+          'Avaliação de integridade',
+          'Controle de fluidos pressurizados',
+          'Prevenção de acidentes'
+        ]
+      },
+      {
+        title: 'Inspeção e Manutenção',
+        icon: <Wrench className="h-5 w-5 text-slate-600" />,
+        skills: [
+          'Técnicas de inspeção visual',
+          'Manutenção preventiva',
+          'Calibração de instrumentos',
+          'Registros técnicos'
+        ]
+      },
+      {
+        title: 'Conformidade NR-13',
+        icon: <BookOpen className="h-5 w-5 text-slate-600" />,
+        skills: [
+          'Conhecimento da legislação',
+          'Categorização de equipamentos',
+          'Documentação obrigatória',
+          'Periodicidade de inspeções'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '4 anos',
+      orgao: 'Certificado conforme NR-13 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática',
+        'Experiência comprovada na área'
+      ]
+    },
+    theme: {
+      primaryColor: 'slate',
+      gradientFrom: 'from-slate-50',
+      gradientTo: 'to-gray-50',
+      bgColor: 'bg-slate-100',
+      textColor: 'text-slate-600',
+      iconBg: 'bg-slate-100',
+      iconColor: 'text-slate-600',
+      ctaColor: 'bg-slate-600'
+    },
+    heroIcon: <Gauge className="h-6 w-6 text-slate-600" />,
+    heroImage: "/training-covers/nr-13-caldeiras.png",
+    ctaTitle: "Domine Sistemas Pressurizados",
+    ctaSubtitle: "Torne-se especialista em operação segura de vasos de pressão"
+  },
+
+  'nr-17-checkout': {
+title: 'NR-17 - Checkout',
+    description: 'Curso específico para operadores de checkout e caixas, abordando ergonomia, prevenção de LER/DORT e boas práticas no atendimento ao cliente.',
+    duration: '4 horas',
+    category: 'Ergonomia',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Aplicar princípios ergonômicos no checkout',
+      'Prevenir LER/DORT em operadores de caixa',
+      'Adotar posturas corretas durante o trabalho',
+      'Melhorar conforto e produtividade'
+    ],
+    modules: [
+      {
+        title: "Ergonomia no Checkout",
+        description: "Conceitos de ergonomia aplicados, principais riscos no checkout, anatomia básica aplicada, e importância da prevenção. Fundamentos para trabalho saudável em caixas."
+      },
+      {
+        title: "Posturas e Movimentos",
+        description: "Postura correta sentada, ajustes de cadeira e mesa, movimentos de braços e mãos, e posicionamento de equipamentos. Técnicas para reduzir tensão muscular."
+      },
+      {
+        title: "Prevenção de LER/DORT",
+        description: "Sintomas iniciais a observar, exercícios de alongamento, pausas e descansos, e quando buscar ajuda médica. Estratégias preventivas contra lesões ocupacionais."
+      },
+      {
+        title: "Práticas no Atendimento",
+        description: "Manuseio correto de produtos, uso adequado do scanner, organização do espaço de trabalho, e dicas para reduzir o estresse. Otimização do trabalho em checkout."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Ergonomia Aplicada',
+        icon: <ShoppingCart className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Ajuste ergonômico do posto',
+          'Posicionamento de equipamentos',
+          'Organização do espaço',
+          'Uso correto do scanner'
+        ]
+      },
+      {
+        title: 'Prevenção de Lesões',
+        icon: <Heart className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Identificação de sintomas iniciais',
+          'Prevenção de LER/DORT',
+          'Técnicas de relaxamento',
+          'Quando buscar ajuda médica'
+        ]
+      },
+      {
+        title: 'Posturas Saudáveis',
+        icon: <Activity className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Postura correta sentada',
+          'Movimentos adequados',
+          'Exercícios de alongamento',
+          'Pausas programadas'
+        ]
+      },
+      {
+        title: 'Produtividade Saudável',
+        icon: <Users className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Manuseio eficiente de produtos',
+          'Redução do estresse',
+          'Atendimento ergonômico',
+          'Melhoria do bem-estar'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-17 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Demonstração prática de posturas',
+        'Aplicação no posto de trabalho'
+      ]
+    },
+    warningMessage: (
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <ShoppingCart className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-blue-800 mb-1">Setor Específico</p>
+            <p className="text-sm text-blue-700">
+              Curso direcionado especificamente para operadores de checkout e caixas, 
+              com foco em ergonomia e prevenção de lesões ocupacionais.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    theme: {
+      primaryColor: 'blue',
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-cyan-50',
+      bgColor: 'bg-blue-100',
+      textColor: 'text-blue-600',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      ctaColor: 'bg-blue-600'
+    },
+    heroIcon: <ShoppingCart className="h-6 w-6 text-blue-600" />,
+    heroImage: "/training-covers/nr-17-ergonomia.png",
+    ctaTitle: "Ergonomia no Varejo",
+    ctaSubtitle: "Prevenção de lesões para operadores de checkout"
+  },
+
+  'nr-17-ergonomia-teleatendimento': {
+title: 'NR-17 Ergonomia para Teleatendimento/Telemarketing',
+    description: 'Capacita profissionais para aplicar práticas ergonômicas no ambiente de teleatendimento, promovendo saúde, conforto e prevenção de lesões ocupacionais conforme a NR-17.',
+    duration: '4 horas',
+    category: 'Saúde',
+    format: 'Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Fundamental',
+    objetivos: [
+      'Conhecer os fatores de risco no ambiente de teleatendimento',
+      'Aplicar práticas ergonômicas adequadas no posto de trabalho',
+      'Identificar sintomas de adoecimento ocupacional',
+      'Promover saúde e bem-estar no ambiente de trabalho',
+      'Cumprir as exigências do Anexo II da NR-17'
+    ],
+    modules: [
+      {
+        title: "Fatores de Risco para a Saúde no Teleatendimento",
+        description: "Análise dos principais riscos físicos, ergonômicos e psicossociais presentes no ambiente de teleatendimento, incluindo ruído, posturas inadequadas e pressão no trabalho."
+      },
+      {
+        title: "Medidas de Prevenção no Teleatendimento",
+        description: "Estratégias eficazes para prevenção de riscos no teleatendimento, incluindo organização do posto de trabalho, pausas regulamentares e técnicas de bem-estar."
+      },
+      {
+        title: "Sintomas de Adoecimento Relacionados à Atividade",
+        description: "Identificação e reconhecimento dos principais sintomas de adoecimento ocupacional como LER/DORT, problemas vocais, auditivos e visuais relacionados ao trabalho."
+      },
+      {
+        title: "Ajuste de Mobiliário e Equipamentos",
+        description: "Orientações práticas sobre ajustes ergonômicos adequados de cadeiras, mesas, monitores e equipamentos de trabalho para prevenção de lesões."
+      },
+      {
+        title: "Aspectos Legais e Normativos",
+        description: "Compreensão das exigências legais específicas do Anexo II da NR-17 para o setor de teleatendimento, direitos e responsabilidades."
+      },
+      {
+        title: "Qualidade de Vida no Trabalho",
+        description: "Promoção de hábitos saudáveis e práticas que contribuem para o bem-estar e qualidade de vida dos profissionais de teleatendimento."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Saúde e Prevenção',
+        icon: <Heart className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Identificação de fatores de risco ergonômicos',
+          'Reconhecimento de sintomas de LER/DORT',
+          'Prevenção de problemas vocais e auditivos',
+          'Gerenciamento do estresse ocupacional'
+        ]
+      },
+      {
+        title: 'Ambiente de Trabalho',
+        icon: <Users className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Organização ergonômica do posto de trabalho',
+          'Ajustes adequados de mobiliário',
+          'Uso correto de equipamentos',
+          'Implementação de pausas ativas'
+        ]
+      },
+      {
+        title: 'Conhecimento Técnico',
+        icon: <BookOpen className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Compreensão do Anexo II da NR-17',
+          'Direitos e deveres dos trabalhadores',
+          'Responsabilidades das empresas',
+          'Fiscalização e conformidade legal'
+        ]
+      },
+      {
+        title: 'Bem-estar Ocupacional',
+        icon: <Headphones className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Promoção da qualidade de vida no trabalho',
+          'Exercícios de ginástica laboral',
+          'Técnicas de relaxamento',
+          'Equilíbrio vida pessoal-profissional'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido pelo MTE conforme NR-17',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação final (nota mínima 7,0)',
+        'Ser profissional da área de teleatendimento'
+      ]
+    },
+    theme: {
+      primaryColor: 'green',
+      gradientFrom: 'from-green-50',
+      gradientTo: 'to-emerald-50',
+      bgColor: 'bg-green-100',
+      textColor: 'text-green-600',
+      iconBg: 'bg-green-100',
+      iconColor: 'text-green-600',
+      ctaColor: 'bg-green-600'
+    },
+    heroIcon: <Heart className="h-6 w-6 text-green-600" />,
+    heroImage: "/training-covers/trabalho-eletricidade-periodico.png",
+    ctaTitle: "Promova Saúde e Bem-estar",
+    ctaSubtitle: "Capacitação especializada em ergonomia para teleatendimento conforme NR-17"
+  },
+
+  'nr-17-ergonomia': {
+title: 'NR-17 Ergonomia',
+    description: 'Capacita profissionais para adaptar as condições de trabalho às características psicofisiológicas dos trabalhadores, promovendo conforto, segurança e eficiência. Aborda identificação de riscos ergonômicos, prevenção de doenças ocupacionais e aplicação de boas práticas para melhorar a saúde e o bem-estar no ambiente laboral, conforme a legislação vigente.',
+    duration: '16 horas',
+    category: 'Saúde',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Básico',
+    objetivos: [
+      'Compreender os princípios fundamentais da ergonomia',
+      'Adaptar condições de trabalho às características dos trabalhadores',
+      'Identificar e prevenir riscos ergonômicos',
+      'Prevenir doenças ocupacionais relacionadas',
+      'Promover saúde e bem-estar no ambiente laboral'
+    ],
+    modules: [
+      {
+        title: "O que é Ergonomia e Objetivos da NR-17",
+        description: "Definição e conceitos fundamentais de ergonomia, importância da ergonomia para a saúde no trabalho, principais objetivos da Norma Regulamentadora 17, histórico e evolução da NR-17 no Brasil. Base conceitual essencial para compreensão da ergonomia aplicada."
+      },
+      {
+        title: "Estrutura e Aplicação da NR-17",
+        description: "Visão geral da estrutura da norma, diretrizes e requisitos obrigatórios, aplicação prática das normas no ambiente de trabalho, adaptação das condições às características dos trabalhadores. Conhecimento prático para implementação efetiva."
+      },
+      {
+        title: "Riscos Ergonômicos e Formas de Prevenção",
+        description: "Identificação de riscos ergonômicos, postura inadequada e suas consequências, movimentos repetitivos e ritmo excessivo, medidas preventivas e corretivas. Estratégias para eliminação e controle de riscos ergonômicos."
+      },
+      {
+        title: "Organização do Trabalho e Análise Ergonômica",
+        description: "Influência da organização do trabalho na ergonomia, importância da análise ergonômica do trabalho (AET), metodologias de análise ergonômica, melhoria contínua dos postos de trabalho. Ferramentas práticas de avaliação."
+      },
+      {
+        title: "Riscos Específicos em Atividades Laborais",
+        description: "Fatores de risco em jornadas prolongadas, monotonia e fadiga mental, levantamento e transporte manual de cargas, trabalho em posições extremas, esforço físico intenso e suas implicações. Abordagem especializada por tipo de atividade."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Análise Ergonômica',
+        icon: <BookOpen className="h-5 w-5 text-lime-600" />,
+        skills: [
+          'Avaliação de postos de trabalho',
+          'Identificação de riscos ergonômicos',
+          'Metodologias de análise AET',
+          'Documentação de achados'
+        ]
+      },
+      {
+        title: 'Prevenção de LER/DORT',
+        icon: <Heart className="h-5 w-5 text-lime-600" />,
+        skills: [
+          'Prevenção de lesões por esforços repetitivos',
+          'Identificação de sintomas precoces',
+          'Medidas preventivas eficazes',
+          'Acompanhamento de casos'
+        ]
+      },
+      {
+        title: 'Adaptação do Trabalho',
+        icon: <Users className="h-5 w-5 text-lime-600" />,
+        skills: [
+          'Adequação de mobiliário e equipamentos',
+          'Organização racional do trabalho',
+          'Pausas e alternância de atividades',
+          'Melhoria do ambiente laboral'
+        ]
+      },
+      {
+        title: 'Conformidade NR-17',
+        icon: <Shield className="h-5 w-5 text-lime-600" />,
+        skills: [
+          'Conhecimento da legislação específica',
+          'Implementação de requisitos obrigatórios',
+          'Auditoria de conformidade',
+          'Documentação técnica'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: 'Não especificada (recomenda-se atualização bienal)',
+      orgao: 'Certificado reconhecido conforme NR-17',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Participação ativa nas dinâmicas práticas',
+        'Elaboração de análise ergonômica simplificada'
+      ]
+    },
+    theme: {
+      primaryColor: 'lime',
+      gradientFrom: 'from-lime-50',
+      gradientTo: 'to-green-50',
+      bgColor: 'bg-lime-100',
+      textColor: 'text-lime-600',
+      iconBg: 'bg-lime-100',
+      iconColor: 'text-lime-600',
+      ctaColor: 'bg-lime-600'
+    },
+    heroIcon: <Heart className="h-6 w-6 text-lime-600" />,
+    heroImage: "/training-covers/nr-17-ergonomia.png",
+    ctaTitle: "Transforme o Ambiente de Trabalho",
+    ctaSubtitle: "Promova saúde, conforto e produtividade através da ergonomia"
+  },
+
+  'nr-17-levantamento-manual': {
+title: 'NR-17 - Levantamento Manual de Cargas',
+    description: 'Curso específico sobre técnicas corretas de levantamento manual de cargas, prevenção de lesões na coluna e aplicação de princípios ergonômicos.',
+    duration: '4 horas',
+    category: 'Ergonomia',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Aplicar técnicas corretas de levantamento',
+      'Prevenir lesões na coluna vertebral',
+      'Identificar limites seguros de peso',
+      'Usar auxílios mecânicos adequados'
+    ],
+    modules: [
+      {
+        title: "Anatomia da Coluna Vertebral",
+        description: "Estrutura da coluna vertebral, músculos envolvidos no levantamento, principais lesões e causas, fatores de risco individuais. Conhecimento anatômico essencial para prevenção."
+      },
+      {
+        title: "Técnicas de Levantamento",
+        description: "Postura correta para levantamento, planejamento do movimento, uso das pernas e não das costas, trabalho em equipe. Métodos seguros para manuseio de cargas."
+      },
+      {
+        title: "Limites e Avaliação de Cargas",
+        description: "Limites seguros de peso, avaliação da carga e ambiente, frequência e duração, condições ambientais. Critérios para determinar capacidade de levantamento."
+      },
+      {
+        title: "Auxílios e Equipamentos",
+        description: "Equipamentos auxiliares disponíveis, cintos e cintas de apoio, quando usar auxílios mecânicos, organização do local de trabalho. Ferramentas para facilitar o trabalho."
+      },
+      {
+        title: "Prevenção e Exercícios",
+        description: "Exercícios de fortalecimento, alongamentos específicos, pausas e descansos, sinais de alerta do corpo. Programa preventivo para saúde da coluna."
+      },
+      {
+        title: "Aplicação Prática",
+        description: "Simulação de situações reais, avaliação de postos de trabalho, adaptação de técnicas, melhoria contínua. Implementação efetiva no ambiente laboral."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Técnicas de Levantamento',
+        icon: <Package className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Postura correta',
+          'Planejamento do movimento',
+          'Uso das pernas',
+          'Trabalho em equipe'
+        ]
+      },
+      {
+        title: 'Avaliação de Riscos',
+        icon: <Activity className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Análise de cargas',
+          'Limites seguros',
+          'Condições ambientais',
+          'Frequência adequada'
+        ]
+      },
+      {
+        title: 'Prevenção de Lesões',
+        icon: <Shield className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Identificação de riscos',
+          'Uso de auxílios',
+          'Organização do ambiente',
+          'Medidas preventivas'
+        ]
+      },
+      {
+        title: 'Saúde da Coluna',
+        icon: <Heart className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Exercícios de fortalecimento',
+          'Alongamentos específicos',
+          'Sinais de alerta',
+          'Cuidados pessoais'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-17 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Demonstração prática das técnicas',
+        'Avaliação no ambiente de trabalho'
+      ]
+    },
+    theme: {
+      primaryColor: 'green',
+      gradientFrom: 'from-green-50',
+      gradientTo: 'to-emerald-50',
+      bgColor: 'bg-green-100',
+      textColor: 'text-green-600',
+      iconBg: 'bg-green-100',
+      iconColor: 'text-green-600',
+      ctaColor: 'bg-green-600'
+    },
+    heroIcon: <Package className="h-6 w-6 text-green-600" />,
+    heroImage: "/training-covers/nr-17-ergonomia.png",
+    ctaTitle: "Proteja sua Coluna",
+    ctaSubtitle: "Aprenda técnicas seguras de levantamento manual"
+  },
+
+  'nr-18-classe-a': {
+title: 'NR-18 - Classe A',
+    description: 'Curso básico sobre condições e meio ambiente de trabalho na indústria da construção, direcionado para trabalhadores em geral da construção civil.',
+    duration: '6 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Conhecer os riscos da construção civil',
+      'Aplicar medidas básicas de segurança',
+      'Usar EPIs adequadamente',
+      'Identificar situações de perigo'
+    ],
+    modules: [
+      {
+        title: "Introdução à NR-18",
+        description: "Objetivos e campo de aplicação, responsabilidades na obra, PCMAT - Programa básico, organização da segurança. Fundamentos da segurança na construção civil."
+      },
+      {
+        title: "Principais Riscos na Construção",
+        description: "Quedas de altura, soterramento, choque elétrico, atropelamentos e colisões. Identificação e prevenção dos principais perigos em canteiros de obras."
+      },
+      {
+        title: "Equipamentos de Proteção",
+        description: "EPIs obrigatórios, capacete, óculos e luvas, calçados de segurança, cinturão de segurança. Uso correto dos equipamentos de proteção individual."
+      },
+      {
+        title: "Trabalho Seguro",
+        description: "Ordem e limpeza, sinalização de segurança, procedimentos básicos, comunicação de riscos. Práticas essenciais para manter a segurança no canteiro."
+      },
+      {
+        title: "Primeiros Socorros Básicos",
+        description: "Avaliação inicial da vítima, parada cardiorrespiratória, hemorragias e ferimentos, quando e como pedir socorro. Atendimento inicial de emergências."
+      },
+      {
+        title: "Prevenção de Acidentes",
+        description: "Inspeção de segurança, análise de riscos, medidas preventivas, cultura de segurança. Desenvolvimento de mentalidade preventiva no trabalho."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação de Riscos',
+        icon: <Building className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Reconhecimento de perigos',
+          'Análise de canteiros',
+          'Avaliação de riscos',
+          'Inspeção de segurança'
+        ]
+      },
+      {
+        title: 'Uso de EPIs',
+        icon: <HardHat className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Seleção adequada',
+          'Uso correto',
+          'Conservação',
+          'Inspeção de equipamentos'
+        ]
+      },
+      {
+        title: 'Procedimentos Seguros',
+        icon: <Shield className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Trabalho em altura',
+          'Movimentação de cargas',
+          'Uso de ferramentas',
+          'Ordem e limpeza'
+        ]
+      },
+      {
+        title: 'Resposta a Emergências',
+        icon: <AlertTriangle className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Primeiros socorros',
+          'Comunicação de emergência',
+          'Evacuação',
+          'Prevenção de acidentes'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-18 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Participação em simulados práticos',
+        'Idade mínima de 18 anos'
+      ]
+    },
+    theme: {
+      primaryColor: 'blue',
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-sky-50',
+      bgColor: 'bg-blue-100',
+      textColor: 'text-blue-600',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      ctaColor: 'bg-blue-600'
+    },
+    heroIcon: <Building className="h-6 w-6 text-blue-600" />,
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Segurança na Construção Civil",
+    ctaSubtitle: "Capacitação básica para trabalhar com segurança em obras"
+  },
+
+  'nr-18-pemt': {
+title: 'NR-18 PEMT Plataforma Móvel de Trabalho Aéreo',
+    description: 'Capacita os profissionais para identificar e minimizar riscos, utilizar corretamente os Equipamentos de Proteção Individual (EPIs), realizar manutenções preventivas e corretivas, além de garantir a segurança durante a operação de plataformas elevatórias.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Curso teórico e prático',
+    location: 'Presencial',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Operar plataformas elevatórias com segurança e eficiência',
+      'Identificar e minimizar riscos na operação de PEMTs',
+      'Utilizar corretamente EPIs e EPCs específicos',
+      'Realizar inspeções e manutenções preventivas'
+    ],
+    modules: [
+      {
+        title: "Aspectos Regulamentares e Legais",
+        description: "Requisitos legais e normativos da NR-18, ABNT 16776 aplicável às Plataformas de Trabalho Aéreo, conformidade e segurança no ambiente de trabalho, e responsabilidades legais do operador e empresa."
+      },
+      {
+        title: "Tipos Construtivos e Características Técnicas",
+        description: "Diferentes modelos de Plataformas Elevatórias Móveis, aplicações práticas de cada tipo de PEMT, especificações técnicas e capacidades, modos operacionais e limitações."
+      },
+      {
+        title: "Prevenção de Acidentes com PEMTs",
+        description: "Análise de cenários de acidentes típicos, identificação de causas de acidentes, medidas preventivas para mitigar riscos, estudos de caso e lições aprendidas."
+      },
+      {
+        title: "Plano de Segurança da Operação (PSO)",
+        description: "Desenvolvimento do Plano de Segurança da Operação, aplicação do PSO como ferramenta de segurança, planejamento de operações seguras, e documentação e registros obrigatórios."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Operação de PEMTs',
+        icon: <Construction className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Operação segura de plataformas',
+          'Controle de movimentos aéreos',
+          'Posicionamento e estabilização',
+          'Limites operacionais'
+        ]
+      },
+      {
+        title: 'Segurança e Prevenção',
+        icon: <Shield className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Análise de riscos operacionais',
+          'Uso correto de EPIs e EPCs',
+          'Prevenção de quedas e colisões',
+          'Procedimentos de emergência'
+        ]
+      },
+      {
+        title: 'Inspeção e Manutenção',
+        icon: <Wrench className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Inspeção pré-operacional',
+          'Manutenção preventiva básica',
+          'Identificação de falhas',
+          'Registro de manutenções'
+        ]
+      },
+      {
+        title: 'Conformidade NR-18',
+        icon: <BookOpen className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Conhecimento da NR-18 e ABNT 16776',
+          'Plano de Segurança da Operação',
+          'Documentação obrigatória',
+          'Responsabilidades legais'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-18 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Aprovação na avaliação prática',
+        'Demonstração de operação segura de PEMTs'
+      ]
+    },
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-yellow-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    heroIcon: <Construction className="h-6 w-6 text-orange-600" />,
+    heroImage: "/training-covers/nr-11-plataforma-elevatoria.png",
+    ctaTitle: "Opere Plataformas com Segurança",
+    ctaSubtitle: "Certificação NR-18 para operação de plataformas elevatórias móveis"
+  },
+
+  'nr-18-sinaleiro-amarrador-cargas': {
+title: 'NR-18 Sinaleiro e Amarrador de Cargas para Içamento',
+    description: 'Capacita profissionais para atuar com segurança na sinalização e amarração de cargas em operações de içamento, conforme a NR-18. Aborda técnicas corretas, prevenção de acidentes e uso adequado de equipamentos, garantindo certificação obrigatória e conformidade legal no setor da construção civil.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Básico',
+    objetivos: [
+      'Capacitar profissionais para sinalização segura em içamentos',
+      'Dominar técnicas de amarração de cargas',
+      'Prevenir acidentes em operações de movimentação',
+      'Garantir conformidade com a NR-18',
+      'Usar adequadamente equipamentos de amarração e sinalização'
+    ],
+    modules: [
+      {
+        title: "A Importância do Sinaleiro e do Amarrador de Cargas",
+        description: "Papel fundamental do sinaleiro nas operações, responsabilidades do amarrador de cargas, comunicação eficaz durante o içamento, impacto na segurança e eficiência operacional."
+      },
+      {
+        title: "Princípios Básicos do Içamento de Cargas",
+        description: "Fundamentos essenciais para içamentos seguros, conceitos de equilíbrio de cargas, centro de gravidade e pontos de apoio, distribuição adequada de peso."
+      },
+      {
+        title: "Introdução ao Plano de Carga",
+        description: "Conceitos iniciais sobre plano de carga, importância na prevenção de acidentes, organização das operações de içamento, documentação e registros necessários."
+      },
+      {
+        title: "Aspectos Operacionais do Içamento de Cargas",
+        description: "Procedimentos de preparação do içamento, práticas seguras de execução, sinalização padronizada e gestos convencionais, comunicação via rádio e sinais visuais."
+      },
+      {
+        title: "Principais Acessórios de Amarração",
+        description: "Identificação de cintas e cabos de aço, uso correto de ganchos e manilhas, dispositivos auxiliares de amarração, inspeção e manutenção dos acessórios, critérios de descarte e substituição."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Técnicas de Sinalização',
+        icon: <Eye className="h-5 w-5 text-blue-600" />,
+        skills: ['Gestos padronizados', 'Comunicação visual', 'Sinais convencionais', 'Coordenação operacional']
+      },
+      {
+        title: 'Amarração de Cargas',
+        icon: <Hand className="h-5 w-5 text-blue-600" />,
+        skills: ['Técnicas de amarração', 'Uso de acessórios', 'Distribuição de peso', 'Pontos de apoio']
+      },
+      {
+        title: 'Segurança Operacional',
+        icon: <Shield className="h-5 w-5 text-blue-600" />,
+        skills: ['Prevenção de acidentes', 'Análise de riscos', 'Procedimentos seguros', 'Conformidade NR-18']
+      },
+      {
+        title: 'Equipamentos e Acessórios',
+        icon: <Link2 className="h-5 w-5 text-blue-600" />,
+        skills: ['Cintas e cabos', 'Ganchos e manilhas', 'Inspeção visual', 'Critérios de descarte']
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido conforme NR-18',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Demonstração prática de sinalização',
+        'Execução correta de amarração de cargas'
+      ]
+    },
+    warningMessage: (
+      <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <Shield className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-orange-800 mb-1">Obrigatório na Construção Civil</p>
+            <p className="text-sm text-orange-700">
+              Certificação obrigatória para profissionais que atuam em canteiros de obras com movimentação de cargas por guindastes e gruas.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    theme: {
+      primaryColor: 'blue',
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-sky-50',
+      bgColor: 'bg-blue-100',
+      textColor: 'text-blue-600',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      ctaColor: 'bg-blue-600'
+    },
+    heroIcon: <Link2 className="h-6 w-6 text-blue-600" />,
+    heroImage: "/training-covers/nr-18-sinaleiro-amarrador-cargas.png",
+    ctaTitle: "Certificação NR-18",
+    ctaSubtitle: "Sinaleiro e Amarrador de Cargas - Obrigatório para construção civil"
+  },
+
+  'nr-20-basico': {
+title: 'NR-20 Básico',
+    description: 'Capacita profissionais para atuar com segurança em ambientes com inflamáveis e combustíveis, conforme a NR-20. Aborda conceitos fundamentais de prevenção de acidentes, identificação de riscos e procedimentos de emergência, garantindo certificação obrigatória e atuação responsável no trabalho.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Básico',
+    objetivos: [
+      'Conhecer os requisitos da NR-20 para trabalho seguro',
+      'Identificar riscos em ambientes com inflamáveis',
+      'Aplicar medidas de prevenção de acidentes',
+      'Executar procedimentos corretos de emergência',
+      'Garantir conformidade legal nas operações'
+    ],
+    modules: [
+      {
+        title: "Introdução à NR-20",
+        description: "Apresentação da Norma Regulamentadora nº 20, objetivos e campo de aplicação da norma, atividades com líquidos combustíveis e inflamáveis, e classificação das instalações."
+      },
+      {
+        title: "Inflamáveis",
+        description: "Características dos líquidos inflamáveis, propriedades dos combustíveis, riscos físicos e químicos, e classificações conforme a NR-20."
+      },
+      {
+        title: "Controles Coletivos e Individuais",
+        description: "Equipamentos de proteção coletiva (EPC), equipamentos de proteção individual (EPI), medidas administrativas de segurança, e sistemas de ventilação e exaustão."
+      },
+      {
+        title: "Fontes de Ignição e seus Controles",
+        description: "Identificação das principais fontes de ignição, eletricidade estática e seus riscos, trabalhos a quente e permissões especiais, controle e eliminação de riscos em áreas classificadas."
+      },
+      {
+        title: "Proteção contra Incêndios",
+        description: "Medidas preventivas contra incêndio, classes de fogo e agentes extintores, sistemas de combate a incêndio, e uso correto de extintores."
+      },
+      {
+        title: "Procedimentos de Emergência",
+        description: "Ações imediatas em caso de vazamento, rotas de fuga e pontos de encontro, comunicação de emergências, primeiros socorros básicos, e plano de resposta a emergências."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Normas e Regulamentações',
+        icon: <BookOpen className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Conhecimento da NR-20 e aplicações',
+          'Campo de aplicação da norma',
+          'Classificação de instalações',
+          'Conformidade legal nas operações'
+        ]
+      },
+      {
+        title: 'Identificação de Riscos',
+        icon: <Flame className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Características de líquidos inflamáveis',
+          'Propriedades dos combustíveis',
+          'Riscos físicos e químicos',
+          'Fontes de ignição perigosas'
+        ]
+      },
+      {
+        title: 'Prevenção e Proteção',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Uso correto de EPIs e EPCs',
+          'Medidas administrativas de segurança',
+          'Controle de fontes de ignição',
+          'Sistemas de ventilação e exaustão'
+        ]
+      },
+      {
+        title: 'Combate a Incêndios',
+        icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Classes de fogo e agentes extintores',
+          'Uso correto de extintores',
+          'Procedimentos de emergência',
+          'Plano de resposta a emergências'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '3 anos',
+      orgao: 'Certificado reconhecido conforme NR-20',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Participação em simulados de emergência',
+        'Demonstração prática do uso de extintores'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <Flame className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/inflamaveis-periodico.png",
+    warningMessage: (
+      <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-red-800 mb-1">Alta Periculosidade</p>
+            <p className="text-sm text-red-700">
+              Trabalho com inflamáveis requer certificação obrigatória e atenção constante aos procedimentos de segurança.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    ctaTitle: "Trabalhe com Segurança",
+    ctaSubtitle: "Capacitação essencial em NR-20 - 8 horas de treinamento em segurança com inflamáveis"
+  },
+
+  'nr-20-classe-a': {
+title: 'NR-20 - Classe A',
+    description: 'Curso introdutório sobre segurança e saúde no trabalho com inflamáveis e combustíveis, direcionado para trabalhadores que adentram eventual e/ou esporadicamente na instalação.',
+    duration: '4 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Conhecer riscos de inflamáveis',
+      'Identificar situações de perigo',
+      'Aplicar procedimentos básicos de emergência',
+      'Usar EPIs adequados'
+    ],
+    modules: [
+      {
+        title: "Introdução aos Inflamáveis",
+        description: "Conceitos básicos de inflamabilidade, tipos de combustíveis e inflamáveis, principais riscos associados, importância da segurança. Fundamentos essenciais sobre substâncias inflamáveis."
+      },
+      {
+        title: "Identificação de Perigos",
+        description: "Reconhecimento de áreas de risco, sinalização de segurança, equipamentos e instalações, situações de emergência. Habilidades para identificar e evitar perigos."
+      },
+      {
+        title: "Procedimentos Básicos",
+        description: "Acesso a instalações, comportamento seguro, comunicação de anomalias, evacuação de emergência. Protocolos essenciais para trabalho seguro."
+      },
+      {
+        title: "Proteção Individual",
+        description: "EPIs obrigatórios, roupas adequadas, equipamentos proibidos, primeiros socorros básicos. Equipamentos e práticas de proteção pessoal."
+      },
+      {
+        title: "Prevenção de Acidentes",
+        description: "Fontes de ignição, controle de vazamentos, ventilação adequada, procedimentos de isolamento. Medidas preventivas contra acidentes com inflamáveis."
+      },
+      {
+        title: "Resposta a Emergências",
+        description: "Plano de emergência, rotas de fuga, pontos de encontro, comunicação de emergência. Ações imediatas em situações de emergência."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Conhecimento de Riscos',
+        icon: <Flame className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Identificação de inflamáveis',
+          'Reconhecimento de perigos',
+          'Avaliação de riscos',
+          'Sinalização de segurança'
+        ]
+      },
+      {
+        title: 'Procedimentos de Segurança',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Acesso seguro a instalações',
+          'Comportamento preventivo',
+          'Uso correto de EPIs',
+          'Comunicação de anomalias'
+        ]
+      },
+      {
+        title: 'Resposta a Emergências',
+        icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Evacuação de emergência',
+          'Primeiros socorros básicos',
+          'Acionamento de alarmes',
+          'Rotas de fuga'
+        ]
+      },
+      {
+        title: 'Conhecimento Normativo',
+        icon: <BookOpen className="h-5 w-5 text-red-600" />,
+        skills: [
+          'NR-20 básica',
+          'Responsabilidades',
+          'Documentação',
+          'Requisitos legais'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '3 anos',
+      orgao: 'Certificado conforme NR-20 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Participação em exercício prático',
+        'Idade mínima de 18 anos'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <Flame className="h-6 w-6 text-red-600" />,
+    heroImage: "https://images.unsplash.com/photo-1578662996442-48f60103fc61?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Segurança com Inflamáveis",
+    ctaSubtitle: "Capacitação essencial para trabalho seguro com combustíveis"
+  },
+
+  'nr-20-classe3-avancado': {
+title: 'NR-20 - Classe III Avançado',
+    description: 'Curso avançado para profissionais que trabalham em instalações Classe III com inflamáveis e combustíveis. Capacitação completa em segurança operacional, gestão de riscos e resposta a emergências complexas.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Avançado',
+    objetivos: [
+      'Dominar os requisitos avançados da NR-20 para instalações Classe III',
+      'Gerenciar riscos complexos em ambientes com inflamáveis',
+      'Coordenar equipes de resposta a emergências',
+      'Implementar sistemas avançados de prevenção',
+      'Liderar auditorias e inspeções de segurança'
+    ],
+    modules: [
+      {
+        title: "Gestão Avançada de Segurança",
+        description: "Sistemas de gestão de segurança para instalações Classe III, análise avançada de riscos, metodologias HAZOP e What-If, indicadores de desempenho e melhoria contínua."
+      },
+      {
+        title: "Áreas Classificadas e Atmosferas Explosivas",
+        description: "Classificação de áreas segundo IEC e NEC, equipamentos Ex e certificações, ventilação e diluição de vapores, monitoramento contínuo de atmosferas."
+      },
+      {
+        title: "Sistemas de Controle e Automação",
+        description: "Sistemas instrumentados de segurança (SIS), intertravamentos e alarmes críticos, válvulas de segurança e sistemas de alívio, automação de processos perigosos."
+      },
+      {
+        title: "Análise de Cenários de Emergência",
+        description: "Modelagem de dispersão de vapores, análise de consequências de explosões, BLEVE e outros cenários catastróficos, planejamento de contingências."
+      },
+      {
+        title: "Resposta a Grandes Emergências",
+        description: "Comando de operações de emergência, evacuação de grandes áreas, interface com órgãos externos, comunicação de crise e mídia."
+      },
+      {
+        title: "Investigação de Incidentes Complexos",
+        description: "Metodologia de investigação de acidentes, análise de causa raiz avançada, lições aprendidas e divulgação, implementação de barreiras de prevenção."
+      },
+      {
+        title: "Legislação e Compliance Avançado",
+        description: "Interface com órgãos reguladores, auditorias de conformidade legal, responsabilidades civis e criminais, gestão de mudanças (MOC)."
+      },
+      {
+        title: "Simulados e Exercícios Práticos",
+        description: "Simulação de emergências complexas, uso de equipamentos especializados, coordenação de equipes multidisciplinares, avaliação de desempenho em campo."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Gestão de Riscos',
+        icon: <Shield className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Análise avançada de riscos operacionais',
+          'Implementação de barreiras de segurança',
+          'Gestão de mudanças em processos',
+          'Auditoria de sistemas de segurança'
+        ]
+      },
+      {
+        title: 'Operações Críticas',
+        icon: <Gauge className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Controle de processos perigosos',
+          'Operação de sistemas de segurança',
+          'Monitoramento de atmosferas explosivas',
+          'Coordenação de paradas de emergência'
+        ]
+      },
+      {
+        title: 'Resposta a Emergências',
+        icon: <AlertTriangle className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Comando de incidentes complexos',
+          'Evacuação de grandes áreas',
+          'Interface com autoridades',
+          'Comunicação de crise'
+        ]
+      },
+      {
+        title: 'Prevenção Avançada',
+        icon: <Flame className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Sistemas de detecção e alarme',
+          'Proteção ativa contra incêndios',
+          'Controle de fontes de ignição',
+          'Gestão de áreas classificadas'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '3 anos',
+      orgao: 'Certificado NR-20 Avançado reconhecido pelo MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 80%)',
+        'Aprovação na avaliação prática',
+        'Experiência prévia em instalações Classe II'
+      ]
+    },
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-red-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    heroIcon: <Flame className="h-6 w-6 text-orange-600" />,
+    heroImage: "/training-covers/nr-20-avancado.png",
+    ctaTitle: "Domine a Segurança em Instalações Classe III",
+    ctaSubtitle: "Capacitação avançada em NR-20 para profissionais especializados"
+  },
+
+  'nr-20-exposicao-benzeno': {
+title: 'NR-20 Exposição ao Benzeno',
+    description: 'Capacitação obrigatória segundo a NR-20 para trabalhadores que estão expostos ao risco do benzeno, como frentistas de postos de combustível, por exemplo.',
+    duration: '4 horas',
+    category: 'Saúde',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Específico',
+    objetivos: [
+      'Conhecer os riscos da exposição ao benzeno',
+      'Identificar sinais e sintomas de intoxicação',
+      'Aplicar medidas de prevenção e proteção',
+      'Compreender o monitoramento ambiental e biológico',
+      'Atuar conforme exigências da NR-20 Anexo 2'
+    ],
+    modules: [
+      {
+        title: "Riscos de exposição ao benzeno e vias de absorção",
+        description: "Estudo das propriedades físico-químicas do benzeno, vias de absorção pelo organismo e efeitos à saúde, incluindo seu potencial cancerígeno e limites de exposição ocupacional."
+      },
+      {
+        title: "Conceitos básicos sobre monitoramento ambiental, biológico e de saúde",
+        description: "Introdução às técnicas de monitoramento ambiental do benzeno, indicadores biológicos de exposição, exames médicos obrigatórios e programa de controle médico ocupacional."
+      },
+      {
+        title: "Sinais e sintomas de intoxicação ocupacional por benzeno",
+        description: "Identificação dos sintomas de intoxicação aguda e crônica, alterações hematológicas como anemia e leucopenia, e manifestações graves como síndrome mielodisplásica."
+      },
+      {
+        title: "Medidas de prevenção",
+        description: "Hierarquia de controles de risco, desde eliminação e substituição até controles de engenharia, práticas seguras de trabalho e uso correto de EPIs específicos."
+      },
+      {
+        title: "Procedimentos de emergência",
+        description: "Protocolos de resposta em caso de vazamentos, primeiros socorros para exposições agudas, procedimentos de descontaminação e comunicação de incidentes."
+      },
+      {
+        title: "Aspectos legais e normativos",
+        description: "Compreensão da NR-20 Anexo 2, Acordo Nacional do Benzeno, limites de tolerância, responsabilidades legais e direitos dos trabalhadores expostos."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação de Riscos',
+        icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Reconhecimento dos riscos do benzeno',
+          'Identificação de vias de absorção',
+          'Avaliação de potencial cancerígeno',
+          'Análise de limites de exposição'
+        ]
+      },
+      {
+        title: 'Monitoramento e Controle',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Técnicas de monitoramento ambiental',
+          'Indicadores biológicos de exposição',
+          'Interpretação de exames laboratoriais',
+          'Programa de controle médico'
+        ]
+      },
+      {
+        title: 'Sinais e Sintomas',
+        icon: <FlaskConical className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Identificação de intoxicação aguda',
+          'Reconhecimento de efeitos crônicos',
+          'Alterações hematológicas',
+          'Manifestações neoplásicas'
+        ]
+      },
+      {
+        title: 'Prevenção e Emergência',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Hierarquia de controles de risco',
+          'Uso correto de EPIs específicos',
+          'Procedimentos de emergência',
+          'Conhecimento da legislação aplicável'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado reconhecido pelo MTE conforme NR-20',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação final (nota mínima 7,0)',
+        'Trabalhar em área com exposição ao benzeno'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-rose-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <FlaskConical className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/nr-20-avancado-i.png",
+    warningMessage: (
+      <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-red-800 mb-1">Agente Cancerígeno</p>
+            <p className="text-sm text-red-700">
+              O benzeno é classificado como cancerígeno humano confirmado. Esta capacitação é obrigatória para todos os trabalhadores expostos, conforme NR-20 Anexo 2.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    ctaTitle: "Proteja seus Trabalhadores",
+    ctaSubtitle: "Treinamento especializado em exposição ao benzeno conforme NR-20"
+  },
+
+  'nr-20-iniciacao': {
+title: 'NR-20 Iniciação',
+    description: 'Capacita trabalhadores para reconhecer riscos e adotar medidas preventivas em ambientes com inflamáveis e combustíveis, conforme a NR-20. Aborda noções básicas de segurança, procedimentos de emergência e prevenção de acidentes, garantindo certificação obrigatória e atuação segura desde o primeiro contato com esses produtos.',
+    duration: '4 horas',
+    category: 'Segurança',
+    format: 'Curso teórico',
+    location: 'Presencial/Online',
+    nivel: 'Básico',
+    objetivos: [
+      'Reconhecer riscos em ambientes com inflamáveis e combustíveis',
+      'Adotar medidas preventivas conforme a NR-20',
+      'Aplicar procedimentos de emergência',
+      'Atuar com segurança no manuseio de produtos inflamáveis'
+    ],
+    modules: [
+      {
+        title: "Inflamáveis: Características e Riscos",
+        description: "Propriedades físicas e químicas dos inflamáveis, perigos associados aos produtos inflamáveis, riscos à segurança no ambiente de trabalho, e classificação de produtos inflamáveis conforme suas características."
+      },
+      {
+        title: "Controles Coletivos e Individuais",
+        description: "Medidas de prevenção e proteção dos trabalhadores, barreiras físicas e sistemas de ventilação, EPIs específicos para trabalhos com inflamáveis, e procedimentos operacionais seguros para manuseio."
+      },
+      {
+        title: "Fontes de Ignição e seu Controle",
+        description: "Identificação das principais fontes de ignição, estratégias para eliminação de fontes de ignição, controle de riscos em áreas com inflamáveis, e procedimentos de permissão de trabalho."
+      },
+      {
+        title: "Proteção contra Incêndio",
+        description: "Práticas de segurança contra incêndio, sistemas de proteção aplicáveis, armazenamento seguro de líquidos inflamáveis, e manuseio e transporte de produtos inflamáveis com segurança."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação de Riscos',
+        icon: <AlertTriangle className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Reconhecimento de produtos inflamáveis',
+          'Identificação de perigos e riscos',
+          'Classificação de inflamáveis',
+          'Avaliação de ambientes perigosos'
+        ]
+      },
+      {
+        title: 'Medidas de Proteção',
+        icon: <Shield className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Uso correto de EPIs específicos',
+          'Aplicação de controles coletivos',
+          'Implementação de barreiras de segurança',
+          'Procedimentos operacionais seguros'
+        ]
+      },
+      {
+        title: 'Prevenção de Incêndios',
+        icon: <Flame className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Controle de fontes de ignição',
+          'Sistemas de proteção contra incêndio',
+          'Armazenamento seguro de inflamáveis',
+          'Procedimentos de emergência'
+        ]
+      },
+      {
+        title: 'Conformidade NR-20',
+        icon: <BookOpen className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Conhecimento da norma NR-20',
+          'Aplicação de requisitos obrigatórios',
+          'Documentação e registros',
+          'Permissão para trabalho'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '3 anos',
+      orgao: 'Certificado conforme NR-20 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Compreensão dos procedimentos de segurança',
+        'Demonstração de conhecimento prático'
+      ]
+    },
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-red-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    heroIcon: <Flame className="h-6 w-6 text-orange-600" />,
+    heroImage: "/training-covers/nr-20-intermediario.png",
+    ctaTitle: "Segurança com Inflamáveis",
+    ctaSubtitle: "Certificação inicial NR-20 para trabalho seguro com combustíveis"
+  },
+
+  'nr-20-intermediario': {
+title: 'NR-20 Intermediário',
+    description: 'Capacita profissionais para atuar com segurança em ambientes que envolvem inflamáveis e combustíveis, conforme a NR-20. Aborda identificação de riscos, prevenção de incêndios, controle de fontes de ignição, procedimentos de emergência e uso correto de EPIs. Certificação obrigatória para quem realiza manutenção, inspeção, operação ou atendimento a emergências em instalações até classes III, garantindo conformidade legal e proteção no trabalho.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Aprofundar conhecimentos sobre segurança com inflamáveis',
+      'Dominar técnicas avançadas de prevenção de acidentes',
+      'Executar manutenção e inspeção em instalações classe III',
+      'Aplicar procedimentos de emergência complexos'
+    ],
+    modules: [
+      {
+        title: "Inflamáveis: Características e Riscos Avançados",
+        description: "Estudo das propriedades físico-químicas dos inflamáveis, riscos à segurança e à saúde dos trabalhadores, perigos no manuseio e armazenamento, classificação de substâncias perigosas, e limites de explosividade e ponto de fulgor."
+      },
+      {
+        title: "Controles Avançados para Trabalhos com Inflamáveis",
+        description: "Sistemas avançados de controle coletivo, seleção e uso adequado de EPIs especializados, sistemas de ventilação e exaustão industrial, monitoramento ambiental de vapores, e procedimentos de descontaminação."
+      },
+      {
+        title: "Fontes de Ignição e Controle Especializado",
+        description: "Identificação detalhada de fontes de ignição, controle de eletricidade estática avançado, técnicas de prevenção em áreas classificadas, permissão de trabalho a quente, e equipamentos à prova de explosão."
+      },
+      {
+        title: "Proteção Avançada contra Incêndio",
+        description: "Estratégias avançadas de prevenção, sistemas fixos de combate a incêndio, equipamentos específicos para líquidos inflamáveis, técnicas de combate a incêndios classe B, e brigadas de emergência especializadas."
+      },
+      {
+        title: "Procedimentos de Emergência com Inflamáveis",
+        description: "Planos de emergência específicos, procedimentos de evacuação e abandono, contenção de vazamentos e derrames, comunicação de emergência avançada, coordenação com equipes externas, e primeiros socorros para queimaduras químicas."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Análise de Riscos Avançada',
+        icon: <AlertTriangle className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Avaliação de riscos complexos',
+          'Análise de atmosferas explosivas',
+          'Identificação de perigos ocultos',
+          'Mapeamento de áreas classificadas'
+        ]
+      },
+      {
+        title: 'Controle e Prevenção',
+        icon: <Shield className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Sistemas de controle avançados',
+          'Monitoramento contínuo de vapores',
+          'Prevenção em áreas classificadas',
+          'Gestão de trabalhos a quente'
+        ]
+      },
+      {
+        title: 'Combate a Emergências',
+        icon: <Flame className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Técnicas de combate classe B',
+          'Contenção de vazamentos',
+          'Coordenação de evacuação',
+          'Primeiros socorros químicos'
+        ]
+      },
+      {
+        title: 'Operação Classe III',
+        icon: <BookOpen className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Manutenção em instalações classe III',
+          'Inspeção de equipamentos críticos',
+          'Operação segura de sistemas',
+          'Documentação e registros técnicos'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido conforme NR-20 para instalações classe III',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática',
+        'Simulados de emergência aprovados',
+        'Pré-requisito: NR-20 Básico ou experiência comprovada'
+      ]
+    },
+    warningMessage: (
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <Shield className="h-5 w-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-yellow-800 mb-1">Instalações Classe III</p>
+            <p className="text-sm text-yellow-700">
+              Certificação obrigatória para profissionais que atuam em instalações de armazenamento 
+              e manuseio de líquidos inflamáveis classe III.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    theme: {
+      primaryColor: 'amber',
+      gradientFrom: 'from-amber-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-amber-100',
+      textColor: 'text-amber-600',
+      iconBg: 'bg-amber-100',
+      iconColor: 'text-amber-600',
+      ctaColor: 'bg-amber-600'
+    },
+    heroIcon: <Flame className="h-6 w-6 text-amber-600" />,
+    heroImage: "/training-covers/nr-20-intermediario.png",
+    ctaTitle: "Especialização em Inflamáveis",
+    ctaSubtitle: "Certificação NR-20 Intermediário para instalações classe III - 16 horas"
+  },
+
+  'nr-22-mineracao': {
+title: 'NR-22 - Segurança na Mineração',
+    description: 'Curso sobre segurança e saúde ocupacional na indústria da mineração, abordando riscos específicos do setor e medidas preventivas.',
+    duration: '40 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'Locais com mineração',
+    nivel: 'Avançado',
+    objetivos: [
+      'Identificar riscos específicos da mineração',
+      'Implementar medidas de controle adequadas',
+      'Atuar em emergências mineiras',
+      'Promover cultura de segurança no setor'
+    ],
+    modules: [
+      {
+        title: "Introdução à NR-22 e Gestão de SST",
+        description: "Objetivos e campo de aplicação da NR-22, responsabilidades do empregador, organização dos serviços de SST, CIPAMIN - Comissão Interna de Prevenção. Estrutura organizacional de segurança em mineração."
+      },
+      {
+        title: "Riscos Específicos da Mineração",
+        description: "Riscos geológicos e geotécnicos, explosões e incêndios em minas, gases tóxicos e atmosferas perigosas, ruído, vibração e poeiras minerais. Identificação e controle de perigos inerentes ao setor."
+      },
+      {
+        title: "Métodos de Lavra e Segurança",
+        description: "Lavra a céu aberto, lavra subterrânea, escavações e taludes, estabilidade de estruturas. Técnicas seguras de extração mineral e controle geotécnico."
+      },
+      {
+        title: "Explosivos e Desmonte",
+        description: "Manuseio seguro de explosivos, técnicas de desmonte controlado, armazenamento e transporte, controle de vibrações. Gestão segura de operações com explosivos."
+      },
+      {
+        title: "Equipamentos e Máquinas Mineiras",
+        description: "Caminhões fora-de-estrada, escavadeiras e carregadeiras, equipamentos de perfuração, manutenção preventiva e inspeções. Operação segura de equipamentos de grande porte."
+      },
+      {
+        title: "Emergências e Salvamento",
+        description: "Plano de emergência em mineração, equipe de salvamento mineiro, resgate em espaços confinados, primeiros socorros específicos. Preparação para situações críticas em ambientes de mineração."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Gestão de Riscos Mineiros',
+        icon: <Mountain className="h-5 w-5 text-amber-700" />,
+        skills: [
+          'Avaliação de riscos geológicos',
+          'Controle de atmosferas perigosas',
+          'Gestão de estabilidade geotécnica',
+          'Prevenção de acidentes mineiros'
+        ]
+      },
+      {
+        title: 'Operações Seguras',
+        icon: <HardHat className="h-5 w-5 text-amber-700" />,
+        skills: [
+          'Técnicas de lavra segura',
+          'Operação de equipamentos pesados',
+          'Manuseio de explosivos',
+          'Procedimentos de desmonte'
+        ]
+      },
+      {
+        title: 'Resposta a Emergências',
+        icon: <AlertTriangle className="h-5 w-5 text-amber-700" />,
+        skills: [
+          'Salvamento mineiro',
+          'Resgate em espaços confinados',
+          'Evacuação de minas',
+          'Primeiros socorros especializados'
+        ]
+      },
+      {
+        title: 'Conformidade e SST',
+        icon: <Shield className="h-5 w-5 text-amber-700" />,
+        skills: [
+          'Implementação da NR-22',
+          'Gestão de CIPAMIN',
+          'Documentação técnica',
+          'Auditorias de segurança'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-22 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática',
+        'Experiência no setor recomendada'
+      ]
+    },
+    theme: {
+      primaryColor: 'amber',
+      gradientFrom: 'from-amber-50',
+      gradientTo: 'to-yellow-50',
+      bgColor: 'bg-amber-100',
+      textColor: 'text-amber-700',
+      iconBg: 'bg-amber-100',
+      iconColor: 'text-amber-700',
+      ctaColor: 'bg-amber-700'
+    },
+    heroIcon: <Mountain className="h-6 w-6 text-amber-700" />,
+    heroImage: "/training-covers/nr-12-seguranca-maquinas.png",
+    ctaTitle: "Domine a Segurança em Mineração",
+    ctaSubtitle: "Capacite-se para trabalhar com segurança no setor mineral"
+  },
+
+  'nr-23-ppci': {
+title: 'NR-23 - PPCI',
+    description: 'Curso sobre Prevenção e Proteção Contra Incêndios, abordando medidas preventivas, sistemas de combate e procedimentos de emergência.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Implementar medidas preventivas contra incêndios',
+      'Operar sistemas de proteção contra incêndio',
+      'Atuar em emergências com fogo',
+      'Desenvolver planos de abandono'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da Proteção Contra Incêndios",
+        description: "Teoria do fogo e combustão, classes de incêndio, métodos de extinção, e agentes extintores. Base teórica essencial para prevenção e combate."
+      },
+      {
+        title: "Sistemas de Prevenção",
+        description: "Medidas preventivas estruturais, compartimentação e isolamento, saídas de emergência, e sinalização de segurança para prevenção eficaz."
+      },
+      {
+        title: "Equipamentos de Combate",
+        description: "Extintores portáteis e sobre rodas, sistemas de hidrantes, sprinklers e sistemas automáticos, detecção e alarme. Operação segura de equipamentos."
+      },
+      {
+        title: "Procedimentos de Emergência",
+        description: "Planos de abandono, comunicação de emergência, primeiros socorros em queimaduras, e interface com Corpo de Bombeiros. Resposta rápida e eficaz."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Prevenção de Incêndios',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Medidas preventivas estruturais',
+          'Compartimentação de riscos',
+          'Saídas de emergência adequadas',
+          'Sinalização de segurança'
+        ]
+      },
+      {
+        title: 'Combate ao Fogo',
+        icon: <Flame className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Uso correto de extintores',
+          'Operação de hidrantes',
+          'Técnicas de extinção',
+          'Classes de incêndio'
+        ]
+      },
+      {
+        title: 'Sistemas de Proteção',
+        icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Sprinklers automáticos',
+          'Detecção e alarme',
+          'Sistemas fixos de combate',
+          'Manutenção preventiva'
+        ]
+      },
+      {
+        title: 'Gestão de Emergências',
+        icon: <Siren className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Planos de abandono',
+          'Coordenação de evacuação',
+          'Primeiros socorros',
+          'Interface com bombeiros'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-23 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Aprovação na avaliação prática',
+        'Demonstração de uso de extintores'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <Flame className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/nocoes-combate-incendios.png",
+    ctaTitle: "Proteção Contra Incêndios",
+    ctaSubtitle: "Certificação NR-23 PPCI - Prevenção e combate ao fogo"
+  },
+
+  'nr-26-sinalizacao-seguranca': {
+title: 'NR-26 Sinalização de Segurança',
+    description: 'Capacita profissionais para identificar, aplicar e interpretar corretamente as cores e sinais de segurança em ambientes de trabalho, conforme a NR-26. Aborda normas de sinalização, prevenção de acidentes e promoção de ambientes mais seguros, garantindo certificação obrigatória e conformidade legal.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Teórico e Prático',
+    location: 'Presencial/Online',
+    nivel: 'Básico',
+    objetivos: [
+      'Identificar e interpretar sinalizações de segurança',
+      'Aplicar corretamente cores e sinais conforme NR-26',
+      'Compreender sistemas de classificação de produtos químicos',
+      'Promover ambientes de trabalho mais seguros'
+    ],
+    modules: [
+      {
+        title: "Noções de risco e perigo",
+        description: "Diferença entre risco e perigo, identificação de riscos no ambiente de trabalho, avaliação de riscos ocupacionais, foco na segurança dos colaboradores. Fundamentos essenciais para compreensão da sinalização de segurança."
+      },
+      {
+        title: "Conceitos de toxicologia",
+        description: "Efeitos tóxicos de substâncias químicas, impacto sobre o organismo humano, exposições a curto e longo prazo, limites de tolerância e segurança. Base para entendimento dos perigos químicos sinalizados."
+      },
+      {
+        title: "Sinalização de Segurança e sistemas de classificação",
+        description: "Importância das sinalizações de segurança, comunicação de riscos através de sinais, sistemas de classificação de produtos químicos, rotulagem e proteção no ambiente de trabalho. Aplicação prática da NR-26."
+      },
+      {
+        title: "Perigos abordados pelo GHS",
+        description: "Sistema Globalmente Harmonizado (GHS), classificação de perigos químicos, toxidade, inflamabilidade e corrosividade, interpretação de pictogramas e rótulos. Padrão internacional de comunicação de riscos."
+      },
+      {
+        title: "Documentação e procedimentos",
+        description: "Fichas de Informação de Segurança (FISPQ), procedimentos de emergência, registros e documentação obrigatória, comunicação de riscos na empresa. Gestão documental de segurança química."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação de Sinalizações',
+        icon: <Eye className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Interpretação de cores de segurança',
+          'Reconhecimento de pictogramas GHS',
+          'Leitura de sinais de advertência',
+          'Identificação de rotas de fuga'
+        ]
+      },
+      {
+        title: 'Gestão de Riscos Químicos',
+        icon: <AlertTriangle className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Classificação de produtos químicos',
+          'Avaliação de toxicidade',
+          'Controle de exposição',
+          'Medidas preventivas'
+        ]
+      },
+      {
+        title: 'Documentação FISPQ',
+        icon: <FileText className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Elaboração de fichas de segurança',
+          'Interpretação de dados técnicos',
+          'Procedimentos de emergência',
+          'Comunicação de riscos'
+        ]
+      },
+      {
+        title: 'Conformidade NR-26',
+        icon: <Shield className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Aplicação da legislação',
+          'Implementação de sinalização',
+          'Auditoria de conformidade',
+          'Treinamento de equipes'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-26 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica',
+        'Compreensão dos sistemas de sinalização'
+      ]
+    },
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-yellow-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    heroIcon: <AlertTriangle className="h-6 w-6 text-orange-600" />,
+    heroImage: "/training-covers/nr-26-sinalizacao-seguranca.png",
+    ctaTitle: "Comunique Riscos Efetivamente",
+    ctaSubtitle: "Domine a linguagem visual da segurança no trabalho"
+  },
+
+  'nr-31-agricultura': {
+title: 'NR-31 - Segurança na Agricultura',
+    description: 'Curso sobre segurança e saúde no trabalho na agricultura, pecuária silvicultura, exploração florestal e aquicultura, abordando riscos específicos do setor rural.',
+    duration: '20 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'Interior de SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Conhecer riscos específicos da agricultura',
+      'Aplicar medidas de proteção no campo',
+      'Operar máquinas agrícolas com segurança',
+      'Manejar agrotóxicos adequadamente'
+    ],
+    modules: [
+      {
+        title: "Introdução à NR-31",
+        description: "Objetivos e campo de aplicação, responsabilidades do empregador rural, SIPAT Rural, organização para prevenção. Base legal e organizacional da segurança no trabalho rural."
+      },
+      {
+        title: "Riscos na Atividade Rural",
+        description: "Acidentes com máquinas e implementos, riscos com animais, exposição solar e climática, picadas de animais peçonhentos. Identificação e controle de perigos específicos do ambiente rural."
+      },
+      {
+        title: "Máquinas e Implementos Agrícolas",
+        description: "Tratores e segurança operacional, implementos agrícolas diversos, manutenção preventiva, dispositivos de segurança. Operação segura de equipamentos agrícolas."
+      },
+      {
+        title: "Agrotóxicos e Produtos Químicos",
+        description: "Classificação toxicológica, EPIs específicos para agrotóxicos, armazenamento seguro, descarte de embalagens. Manejo responsável de defensivos agrícolas."
+      },
+      {
+        title: "Ergonomia Rural",
+        description: "Posturas no trabalho rural, levantamento de cargas no campo, pausas e hidratação, prevenção de LER/DORT rural. Adaptação do trabalho às condições do campo."
+      },
+      {
+        title: "Primeiros Socorros Rurais",
+        description: "Acidentes típicos no campo, intoxicação por agrotóxicos, picadas e ferroadas, transporte de acidentados. Atendimento emergencial em áreas remotas."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Segurança Agrícola',
+        icon: <Wheat className="h-5 w-5 text-green-700" />,
+        skills: [
+          'Identificação de riscos rurais',
+          'Prevenção de acidentes agrícolas',
+          'Segurança com animais',
+          'Proteção contra intempéries'
+        ]
+      },
+      {
+        title: 'Operação de Máquinas',
+        icon: <Tractor className="h-5 w-5 text-green-700" />,
+        skills: [
+          'Operação segura de tratores',
+          'Manejo de implementos agrícolas',
+          'Manutenção preventiva',
+          'Inspeção de segurança'
+        ]
+      },
+      {
+        title: 'Manejo de Agrotóxicos',
+        icon: <Shield className="h-5 w-5 text-green-700" />,
+        skills: [
+          'Aplicação segura de defensivos',
+          'Uso correto de EPIs específicos',
+          'Armazenamento adequado',
+          'Descarte responsável'
+        ]
+      },
+      {
+        title: 'Saúde no Campo',
+        icon: <Heart className="h-5 w-5 text-green-700" />,
+        skills: [
+          'Ergonomia rural aplicada',
+          'Primeiros socorros rurais',
+          'Prevenção de intoxicações',
+          'Combate a endemias rurais'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-31 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Demonstração prática no campo',
+        'Idade mínima de 18 anos'
+      ]
+    },
+    theme: {
+      primaryColor: 'green',
+      gradientFrom: 'from-green-50',
+      gradientTo: 'to-emerald-50',
+      bgColor: 'bg-green-100',
+      textColor: 'text-green-700',
+      iconBg: 'bg-green-100',
+      iconColor: 'text-green-700',
+      ctaColor: 'bg-green-700'
+    },
+    heroIcon: <Wheat className="h-6 w-6 text-green-700" />,
+    heroImage: "/training-covers/nr-31-defensivos-agricolas.png",
+    ctaTitle: "Segurança no Campo",
+    ctaSubtitle: "Proteja-se e produza com consciência no trabalho rural"
+  },
+
+  'nr-32-servicos-saude': {
+title: 'NR-32 - Segurança em Serviços de Saúde',
+    description: 'Curso sobre segurança e saúde no trabalho em serviços de saúde, abordando riscos biológicos, químicos, físicos e de acidentes em hospitais, clínicas e laboratórios.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Identificar riscos em serviços de saúde',
+      'Aplicar medidas de biossegurança',
+      'Prevenir acidentes com materiais perfurocortantes',
+      'Implementar controles de infecção'
+    ],
+    modules: [
+      {
+        title: "Introdução à NR-32",
+        description: "Objetivos e campo de aplicação, responsabilidades em serviços de saúde, PCMSO específico para saúde, organização da segurança hospitalar. Fundamentos da segurança em ambientes de saúde."
+      },
+      {
+        title: "Riscos Biológicos",
+        description: "Agentes biológicos de risco, vias de transmissão, classificação de risco biológico, medidas de contenção. Proteção contra patógenos em ambiente hospitalar."
+      },
+      {
+        title: "Prevenção e Controle de Infecções",
+        description: "Precauções padrão, precauções específicas, higienização das mãos, uso correto de EPIs. Protocolos essenciais de biossegurança em saúde."
+      },
+      {
+        title: "Materiais Perfurocortantes",
+        description: "Manuseio seguro de agulhas, descarte adequado, prevenção de acidentes, protocolo pós-exposição. Gestão segura de materiais cortantes em ambientes de saúde."
+      },
+      {
+        title: "Riscos Químicos e Físicos",
+        description: "Produtos químicos em saúde, radiações ionizantes, gases anestésicos, ruído e ergonomia hospitalar. Controle de riscos não-biológicos em serviços de saúde."
+      },
+      {
+        title: "Gestão de Resíduos de Saúde",
+        description: "Classificação de resíduos, segregação adequada, tratamento e destinação, responsabilidades legais. Manejo responsável de resíduos hospitalares."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Biossegurança',
+        icon: <Shield className="h-5 w-5 text-teal-600" />,
+        skills: [
+          'Controle de infecção hospitalar',
+          'Uso correto de EPIs',
+          'Precauções padrão e específicas',
+          'Protocolos de contenção'
+        ]
+      },
+      {
+        title: 'Gestão de Riscos',
+        icon: <Heart className="h-5 w-5 text-teal-600" />,
+        skills: [
+          'Identificação de riscos biológicos',
+          'Avaliação de riscos químicos',
+          'Controle de riscos físicos',
+          'Prevenção de acidentes'
+        ]
+      },
+      {
+        title: 'Procedimentos Seguros',
+        icon: <Syringe className="h-5 w-5 text-teal-600" />,
+        skills: [
+          'Manuseio de perfurocortantes',
+          'Técnicas assépticas',
+          'Protocolo pós-exposição',
+          'Descarte seguro'
+        ]
+      },
+      {
+        title: 'Gestão de Resíduos',
+        icon: <Recycle className="h-5 w-5 text-teal-600" />,
+        skills: [
+          'Classificação de resíduos',
+          'Segregação adequada',
+          'Destinação correta',
+          'Documentação legal'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-32 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Demonstração prática de procedimentos',
+        'Comprovação de vínculo com serviços de saúde'
+      ]
+    },
+    theme: {
+      primaryColor: 'teal',
+      gradientFrom: 'from-teal-50',
+      gradientTo: 'to-cyan-50',
+      bgColor: 'bg-teal-100',
+      textColor: 'text-teal-600',
+      iconBg: 'bg-teal-100',
+      iconColor: 'text-teal-600',
+      ctaColor: 'bg-teal-600'
+    },
+    heroIcon: <Heart className="h-6 w-6 text-teal-600" />,
+    heroImage: "/training-covers/primeiros-socorros.png",
+    ctaTitle: "Proteção em Ambientes de Saúde",
+    ctaSubtitle: "Capacite-se para trabalhar com segurança em serviços de saúde"
+  },
+
+  'nr-33-espaco-confinado': {
+title: 'NR-33 Trabalhadores Autorizados e Vigias em Espaço Confinado',
+    description: 'Capacita profissionais para atuar com segurança em espaços confinados, conforme a NR-33, abordando identificação e controle de riscos, uso correto de equipamentos, procedimentos de entrada e trabalho, além de noções de resgate e primeiros socorros.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Identificar e avaliar espaços confinados',
+      'Controlar riscos específicos desses ambientes',
+      'Executar procedimentos seguros de entrada e trabalho',
+      'Atuar como vigia de segurança',
+      'Aplicar noções básicas de resgate e primeiros socorros'
+    ],
+    modules: [
+      {
+        title: "Definições da NR-33",
+        description: "Apresentação da Norma Regulamentadora NR-33, definição legal de espaço confinado, exigências para trabalho seguro, responsabilidades de trabalhadores e empregadores, e documentação obrigatória."
+      },
+      {
+        title: "Reconhecimento, avaliação e controle de riscos",
+        description: "Métodos de identificação de riscos, avaliação de atmosferas perigosas, controle de riscos físicos e químicos, estratégias de mitigação e medidas de segurança preventivas."
+      },
+      {
+        title: "Funcionamento de equipamentos utilizados",
+        description: "Equipamentos de monitoramento atmosférico, sistemas de ventilação e exaustão, equipamentos de comunicação, dispositivos de resgate, manutenção e inspeção de equipamentos."
+      },
+      {
+        title: "Procedimentos e utilização da PET",
+        description: "Permissão de Entrada e Trabalho (PET), preenchimento correto da documentação, procedimentos de liberação de entrada, checklist de segurança, validade e renovação da PET."
+      },
+      {
+        title: "Noções de resgate e primeiros socorros",
+        description: "Técnicas básicas de resgate, uso de equipamentos de salvamento, primeiros socorros específicos, procedimentos em caso de emergência, comunicação com equipes externas e simulação prática de resgate."
+      }
+    ],
+    competencias: [
+      {
+        title: "Identificação e Avaliação",
+        icon: <AlertTriangle className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Identificação de espaços confinados',
+          'Avaliação de atmosferas perigosas',
+          'Análise de riscos químicos e físicos',
+          'Métodos de monitoramento contínuo'
+        ]
+      },
+      {
+        title: "Controle e Prevenção",
+        icon: <Shield className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Medidas de controle de riscos',
+          'Procedimentos seguros de entrada',
+          'Uso correto de EPIs e EPCs',
+          'Sistemas de ventilação forçada'
+        ]
+      },
+      {
+        title: "Documentação e PET",
+        icon: <BookOpen className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Preenchimento da PET',
+          'Procedimentos de liberação',
+          'Checklist de segurança',
+          'Controle de validade da PET'
+        ]
+      },
+      {
+        title: "Resgate e Emergência",
+        icon: <Users className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Técnicas de resgate em espaços confinados',
+          'Primeiros socorros específicos',
+          'Comunicação de emergência',
+          'Simulações práticas'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado reconhecido conforme NR-33',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática',
+        'Participação em simulados de resgate',
+        'Aptidão médica comprovada'
+      ]
+    },
+    theme: {
+      primaryColor: 'purple',
+      gradientFrom: 'from-purple-50',
+      gradientTo: 'to-indigo-50',
+      bgColor: 'bg-purple-100',
+      textColor: 'text-purple-600',
+      iconBg: 'bg-purple-100',
+      iconColor: 'text-purple-600',
+      ctaColor: 'bg-purple-600'
+    },
+    heroIcon: <AlertTriangle className="h-6 w-6 text-purple-600" />,
+    heroImage: "/training-covers/nr-33-espaco-confinado.png",
+    ctaTitle: "Capacite sua equipe para trabalho seguro em espaços confinados",
+    ctaSubtitle: "Treinamento completo conforme NR-33 com foco na segurança e prevenção de acidentes"
+  },
+
+  'nr-33-supervisor-espaco-confinado': {
+title: 'NR-33 Supervisor em Espaço Confinado',
+    description: 'Capacita profissionais para supervisionar atividades em espaços confinados, conforme a NR-33. Aborda identificação de riscos, medidas de controle, procedimentos de emergência e responsabilidades do supervisor, garantindo certificação obrigatória, segurança das equipes e conformidade legal.',
+    duration: '40 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Avançado',
+    objetivos: [
+      'Capacitar supervisores para gestão segura de trabalhos em espaços confinados',
+      'Desenvolver competências para análise e controle de riscos',
+      'Coordenar equipes e procedimentos de entrada segura',
+      'Gerenciar situações de emergência e resgate',
+      'Garantir conformidade com a NR-33 e legislação aplicável'
+    ],
+    modules: [
+      {
+        title: "Definições da NR-33",
+        description: "Apresentação das principais definições e exigências da Norma Regulamentadora NR-33, que trata dos requisitos para o trabalho em espaços confinados, com foco nas responsabilidades legais do supervisor e documentação obrigatória."
+      },
+      {
+        title: "Identificação dos espaços confinados",
+        description: "Como identificar espaços confinados, suas características específicas, tipos de classificações e a importância fundamental do reconhecimento adequado para implementar medidas de segurança eficazes."
+      },
+      {
+        title: "Reconhecimento, avaliação e controle de riscos",
+        description: "Métodos avançados para identificar, avaliar e controlar os riscos associados ao trabalho em espaços confinados, incluindo estratégias de mitigação e hierarquia de medidas preventivas."
+      },
+      {
+        title: "Funcionamento de equipamentos utilizados",
+        description: "Descrição detalhada dos equipamentos necessários para a segurança em espaços confinados, abordando funcionamento, manutenção, calibração e precauções durante o uso."
+      },
+      {
+        title: "Procedimentos e utilização da PET",
+        description: "Explicação sobre os procedimentos de segurança durante a utilização da Permissão de Entrada e Trabalho (PET) e a correta aplicação em espaços confinados, incluindo APR e checklists."
+      },
+      {
+        title: "Critérios de indicação e uso de equipamentos para controle de riscos",
+        description: "Como escolher os equipamentos adequados para controlar os riscos específicos de espaços confinados, considerando critérios técnicos estabelecidos pela NR-33 para EPIs e EPCs."
+      },
+      {
+        title: "Conhecimento sobre práticas seguras em espaços confinados",
+        description: "Abordagem das melhores práticas para garantir a segurança no ambiente de trabalho em espaços confinados, incluindo treinamento de equipes e procedimentos operacionais."
+      },
+      {
+        title: "Legislação de segurança e saúde no trabalho",
+        description: "Visão geral sobre as leis e regulamentações que regem a segurança e saúde no trabalho, com foco nas normas aplicáveis aos espaços confinados e responsabilidades legais."
+      },
+      {
+        title: "Programa de Proteção Respiratória",
+        description: "Como implementar e monitorar o Programa de Proteção Respiratória, incluindo uso de respiradores, filtros, ensaios de vedação e outros EPIs para proteger trabalhadores."
+      },
+      {
+        title: "Área classificada",
+        description: "Definição de áreas classificadas com riscos específicos de explosões ou incêndios, equipamentos Ex e medidas de segurança que devem ser adotadas pelo supervisor."
+      },
+      {
+        title: "Noções de resgate e primeiros socorros",
+        description: "Noções básicas de resgate e primeiros socorros aplicados a situações de emergência em espaços confinados, incluindo o papel da equipe de resgate e primeiros cuidados."
+      },
+      {
+        title: "Operações de salvamento",
+        description: "Procedimentos para realizar operações de salvamento seguras e eficientes em espaços confinados, com ênfase na rapidez, coordenação com equipes externas e técnicas adequadas."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Gestão de Riscos Críticos',
+        icon: <AlertTriangle className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Avaliação e controle de atmosferas perigosas',
+          'Implementação de medidas preventivas hierárquicas',
+          'Monitoramento contínuo de condições ambientais',
+          'Coordenação de equipamentos de segurança'
+        ]
+      },
+      {
+        title: 'Liderança de Equipes',
+        icon: <Users className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Coordenação de equipes em situações críticas',
+          'Comunicação eficaz em ambientes perigosos',
+          'Tomada de decisões sob pressão',
+          'Treinamento e capacitação de trabalhadores'
+        ]
+      },
+      {
+        title: 'Emergência e Resgate',
+        icon: <Shield className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Planejamento e coordenação de resgates',
+          'Primeiros socorros em espaços confinados',
+          'Acionamento de equipes especializadas',
+          'Gestão de situações de pânico'
+        ]
+      },
+      {
+        title: 'Conformidade Legal',
+        icon: <BookOpen className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Conhecimento aprofundado da NR-33',
+          'Documentação e registros obrigatórios',
+          'Responsabilidades civis e criminais',
+          'Auditoria e fiscalização de conformidade'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado reconhecido pelo MTE conforme NR-33',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (nota mínima 8,0)',
+        'Aprovação na avaliação prática',
+        'Experiência prévia em espaços confinados',
+        'Idade mínima de 18 anos'
+      ]
+    },
+    theme: {
+      primaryColor: 'purple',
+      gradientFrom: 'from-purple-50',
+      gradientTo: 'to-violet-50',
+      bgColor: 'bg-purple-100',
+      textColor: 'text-purple-600',
+      iconBg: 'bg-purple-100',
+      iconColor: 'text-purple-600',
+      ctaColor: 'bg-purple-600'
+    },
+    heroIcon: <AlertOctagon className="h-6 w-6 text-purple-600" />,
+    heroImage: "/training-covers/gestao-seguranca-trabalho.png",
+    warningMessage: (
+      <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="h-5 w-5 text-purple-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-purple-800 mb-1">Liderança em Ambientes de Alto Risco</p>
+            <p className="text-sm text-purple-700">
+              O supervisor é responsável pela vida das equipes em espaços confinados. Esta capacitação avançada de 40 horas é obrigatória conforme NR-33 para exercer a função de supervisão em ambientes perigosos.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    ctaTitle: "Lidere com Segurança em Ambientes Críticos",
+    ctaSubtitle: "Capacitação avançada para supervisão de espaços confinados conforme NR-33"
+  },
+
+  'nr-34-trabalho-quente': {
+title: 'NR-34 - Trabalho a Quente',
+    description: 'Curso sobre condições e meio ambiente de trabalho na indústria da construção e reparação naval, focando em trabalhos a quente como soldagem e corte.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'Santos, SP',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Executar trabalhos a quente com segurança',
+      'Aplicar medidas de prevenção contra incêndios',
+      'Usar equipamentos de proteção adequados',
+      'Controlar riscos específicos da soldagem'
+    ],
+    modules: [
+      {
+        title: "Introdução aos Trabalhos a Quente",
+        description: "Definição e tipos de trabalho a quente, riscos associados à soldagem e corte, legislação e normas aplicáveis, responsabilidades e competências. Fundamentos essenciais para operações seguras com calor."
+      },
+      {
+        title: "Permissão de Trabalho",
+        description: "Sistema de permissão para trabalho a quente, análise prévia de riscos, medidas de controle necessárias, documentação e registro. Gestão administrativa de segurança em trabalhos especiais."
+      },
+      {
+        title: "Equipamentos de Soldagem e Corte",
+        description: "Soldagem elétrica e oxiacetilênica, corte térmico e plasma, inspeção e manutenção de equipamentos, armazenamento de gases combustíveis. Conhecimento técnico de ferramentas e equipamentos."
+      },
+      {
+        title: "Prevenção e Combate a Incêndios",
+        description: "Medidas preventivas contra incêndios, sistemas de detecção e alarme, equipamentos de combate, procedimentos de emergência. Proteção contra o principal risco em trabalhos a quente."
+      },
+      {
+        title: "Proteção Individual e Coletiva",
+        description: "EPIs específicos para soldagem, proteção respiratória, ventilação adequada, isolamento de área. Barreiras de proteção essenciais para trabalhos com calor e radiação."
+      },
+      {
+        title: "Espaços Confinados e Trabalho a Quente",
+        description: "Riscos combinados, procedimentos especiais, monitoramento atmosférico, comunicação e resgate. Gestão de riscos críticos em ambientes especiais com trabalho a quente."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Operação de Soldagem',
+        icon: <Flame className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Técnicas de soldagem segura',
+          'Operação de equipamentos de corte',
+          'Manuseio de gases combustíveis',
+          'Controle de fontes de ignição'
+        ]
+      },
+      {
+        title: 'Prevenção de Incêndios',
+        icon: <Shield className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Análise de riscos de incêndio',
+          'Medidas preventivas',
+          'Uso de extintores',
+          'Procedimentos de evacuação'
+        ]
+      },
+      {
+        title: 'Gestão de Segurança',
+        icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Sistema de permissão de trabalho',
+          'Análise preliminar de riscos',
+          'Isolamento de áreas',
+          'Comunicação de segurança'
+        ]
+      },
+      {
+        title: 'Proteção e EPIs',
+        icon: <Wrench className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Seleção de EPIs adequados',
+          'Proteção contra radiação UV',
+          'Proteção respiratória',
+          'Manutenção de equipamentos'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-34 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 80%)',
+        'Aprovação na avaliação prática',
+        'Experiência comprovada em soldagem'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <Flame className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/nr-34-industria-naval.png",
+    ctaTitle: "Domine Trabalhos a Quente",
+    ctaSubtitle: "Capacite-se para soldagem e corte com máxima segurança"
+  },
+
+  'nr-35-supervisor-trabalho-altura': {
+title: 'NR-35 Supervisor de Trabalho em Altura',
+    description: 'Capacita profissionais para supervisionar, planejar e autorizar atividades em altura acima de 2 metros, garantindo que sejam executadas conforme as normas de segurança da NR-35. O curso aborda análise de riscos, preenchimento de permissões de trabalho, inspeção de equipamentos, planejamento de resgates e adaptação das medidas de proteção às características de cada tarefa.',
+    duration: '40 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Avançado',
+    objetivos: [
+      'Supervisionar trabalhos em altura com segurança',
+      'Planejar e autorizar atividades acima de 2 metros',
+      'Preencher permissões de trabalho adequadamente',
+      'Gerenciar equipes e conflitos em situações de risco',
+      'Coordenar procedimentos de emergência e resgate'
+    ],
+    modules: [
+      {
+        title: "Normas e regulamentos aplicáveis ao trabalho em altura",
+        description: "Apresentação das normas e regulamentações para segurança dos trabalhadores, cumprimento das exigências legais e aplicações práticas da NR-35 em atividades supervisionadas."
+      },
+      {
+        title: "Análise de risco e condições impeditivas",
+        description: "Métodos avançados para análise de risco, identificação de condições impeditivas, comprometimento da segurança e saúde, e documentação de registros de análise para supervisão."
+      },
+      {
+        title: "Riscos potenciais inerentes ao trabalho em altura e medidas de prevenção e controle",
+        description: "Identificação dos principais riscos envolvidos no trabalho em altura, implementação de medidas preventivas e de controle para garantia de segurança durante as atividades supervisionadas."
+      },
+      {
+        title: "Sistemas, equipamentos e procedimentos de proteção coletiva",
+        description: "Supervisão de sistemas de proteção coletiva, redes de segurança, plataformas elevatórias e procedimentos de utilização e manutenção adequados."
+      },
+      {
+        title: "EPIs para trabalhos em altura: seleção, inspeção, conservação e limitação de uso",
+        description: "Critérios para seleção adequada de EPIs, procedimentos de inspeção, conservação e armazenamento, além de limitações de uso e vida útil para equipes supervisionadas."
+      },
+      {
+        title: "Acidentes típicos em trabalhos em altura",
+        description: "Análise de estatísticas de acidentes em altura, estudo de casos reais, identificação de fatores contribuintes e implementação de lições aprendidas na prevenção."
+      },
+      {
+        title: "Condutas em situações de emergência, incluindo noções básicas de técnicas de resgate",
+        description: "Coordenação de procedimentos de emergência, técnicas básicas de resgate, liderança de equipes de emergência e aplicação de primeiros socorros específicos."
+      },
+      {
+        title: "Desenvolvendo a Comunicação",
+        description: "Importância da comunicação eficaz na supervisão, comunicação em situações de risco, fornecimento de feedback construtivo e desenvolvimento da comunicação assertiva."
+      },
+      {
+        title: "Requisitos da boa comunicação",
+        description: "Desenvolvimento de clareza e objetividade, prática de escuta ativa, aplicação de empatia na comunicação e uso de linguagem apropriada para supervisão."
+      },
+      {
+        title: "Tipos de Comunicação",
+        description: "Domínio da comunicação verbal, não-verbal, escrita e visual para eficácia na supervisão e liderança de equipes em trabalhos em altura."
+      },
+      {
+        title: "Ruídos na comunicação",
+        description: "Identificação de barreiras comunicativas, reconhecimento de ruídos físicos e psicológicos, identificação de filtros e distorções, e estratégias para minimizar interferências."
+      },
+      {
+        title: "Técnicas para melhorar a sua comunicação",
+        description: "Desenvolvimento da clareza comunicativa, aplicação de técnicas de persuasão, otimização da comunicação em equipe e uso estratégico de recursos visuais."
+      },
+      {
+        title: "Técnicas de oratória",
+        description: "Desenvolvimento de postura e apresentação profissional, controle da voz, organização estruturada do discurso e gestão eficaz do nervosismo em liderança."
+      },
+      {
+        title: "Gerenciamento de Conflitos",
+        description: "Identificação precoce de conflitos, aplicação de técnicas de mediação, condução de negociação e resolução, além de estratégias para prevenção de conflitos futuros em equipes."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Supervisão e Planejamento',
+        icon: <Shield className="h-5 w-5 text-blue-800" />,
+        skills: [
+          'Supervisão eficaz de trabalhos em altura',
+          'Planejamento e autorização de atividades acima de 2 metros',
+          'Preenchimento adequado de permissões de trabalho',
+          'Análise avançada de riscos e condições impeditivas'
+        ]
+      },
+      {
+        title: 'Liderança e Gestão de Equipes',
+        icon: <Users className="h-5 w-5 text-blue-800" />,
+        skills: [
+          'Gerenciamento eficaz de equipes em situações de risco',
+          'Comunicação assertiva e feedback construtivo',
+          'Técnicas avançadas de oratória e apresentação',
+          'Mediação e resolução de conflitos'
+        ]
+      },
+      {
+        title: 'Emergências e Resgates',
+        icon: <Shield className="h-5 w-5 text-blue-800" />,
+        skills: [
+          'Coordenação de procedimentos de emergência',
+          'Liderança de equipes em situações de resgate',
+          'Aplicação de técnicas básicas de resgate',
+          'Coordenação de primeiros socorros específicos'
+        ]
+      },
+      {
+        title: 'Conformidade e Documentação',
+        icon: <Shield className="h-5 w-5 text-blue-800" />,
+        skills: [
+          'Conhecimento profundo das normas NR-35',
+          'Inspeção e validação de equipamentos de proteção',
+          'Documentação adequada de análises e procedimentos',
+          'Adaptação de medidas às características específicas'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido pelo MTE conforme NR-35',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática',
+        'Apresentação de trabalho de supervisão',
+        'Pré-requisito: NR-35 básico válido'
+      ]
+    },
+    theme: {
+      primaryColor: 'blue',
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-slate-50',
+      bgColor: 'bg-blue-100',
+      textColor: 'text-blue-800',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-800',
+      ctaColor: 'bg-blue-800'
+    },
+    heroIcon: <Shield className="h-6 w-6 text-blue-800" />,
+    heroImage: "/training-covers/nr-35-supervisor-trabalho-altura.png",
+    ctaTitle: 'Torne-se um Supervisor Qualificado',
+    ctaSubtitle: 'Formação avançada em supervisão de trabalho em altura com foco em liderança e gestão de equipes'
+  },
+
+  'nr-35-trabalho-em-altura': {
+title: 'NR-35 - Trabalho em Altura',
+    description: 'Curso completo sobre segurança em trabalho em altura, incluindo uso de EPIs, análise de riscos e procedimentos de emergência.',
+    duration: '40 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Capacitar profissionais para trabalhos seguros em altura',
+      'Ensinar o uso correto de EPIs específicos para altura',
+      'Desenvolver competências em análise de riscos em altura',
+      'Treinar procedimentos de emergência e resgate em altura',
+      'Implementar medidas de controle e prevenção de acidentes'
+    ],
+    modules: [
+      {
+        title: "Normas e regulamentos aplicáveis ao trabalho em altura",
+        description: "Apresentação das normas e regulamentações, segurança dos trabalhadores, cumprimento das exigências legais e NR-35 com suas aplicações práticas no ambiente de trabalho."
+      },
+      {
+        title: "Análise de risco e condições impeditivas",
+        description: "Métodos para análise de risco eficiente, identificação de condições impeditivas, comprometimento da segurança e saúde, documentação e registros de análise."
+      },
+      {
+        title: "Riscos potenciais inerentes ao trabalho em altura e medidas de prevenção e controle",
+        description: "Identificação dos principais riscos envolvidos no trabalho em altura, medidas preventivas e de controle para garantir segurança durante as atividades."
+      },
+      {
+        title: "Sistemas, equipamentos e procedimentos de proteção coletiva",
+        description: "Sistemas de proteção coletiva, redes de segurança, plataformas elevatórias e procedimentos adequados de utilização e manutenção dos equipamentos."
+      },
+      {
+        title: "Equipamentos de Proteção Individual, acessórios e sistemas de ancoragem",
+        description: "Seleção, inspeção, conservação e limitações de uso dos EPIs, sistemas de ancoragem, pontos de ancoragem e procedimentos de verificação."
+      },
+      {
+        title: "Plano de emergência e resgate e primeiros socorros",
+        description: "Elaboração de planos de emergência, procedimentos de resgate, técnicas de primeiros socorros específicas para acidentes em altura e comunicação de emergência."
+      }
+    ],
+    competencias: [
+      {
+        title: "Análise e Prevenção de Riscos",
+        icon: <Shield className="h-5 w-5 text-blue-600" />,
+        skills: [
+          "Identificação de riscos específicos do trabalho em altura",
+          "Análise de condições impeditivas",
+          "Implementação de medidas de controle",
+          "Avaliação contínua de segurança"
+        ]
+      },
+      {
+        title: "Equipamentos e Proteção",
+        icon: <Shield className="h-5 w-5 text-blue-600" />,
+        skills: [
+          "Uso correto de EPIs específicos para altura",
+          "Inspeção e manutenção de equipamentos",
+          "Sistemas de ancoragem e proteção coletiva",
+          "Limitações e vida útil dos equipamentos"
+        ]
+      },
+      {
+        title: "Emergência e Resgate",
+        icon: <AlertTriangle className="h-5 w-5 text-blue-600" />,
+        skills: [
+          "Elaboração de planos de emergência",
+          "Técnicas de resgate em altura",
+          "Primeiros socorros específicos",
+          "Comunicação em situações de emergência"
+        ]
+      },
+      {
+        title: "Normas e Compliance",
+        icon: <Wrench className="h-5 w-5 text-blue-600" />,
+        skills: [
+          "Conhecimento da NR-35 e regulamentações",
+          "Documentação e registros obrigatórios",
+          "Responsabilidades legais e técnicas",
+          "Auditoria e fiscalização"
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido pelo MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (nota mínima 7,0)',
+        'Aprovação na avaliação prática'
+      ]
+    },
+    theme: {
+      primaryColor: 'blue',
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-indigo-50',
+      bgColor: 'bg-blue-100',
+      textColor: 'text-blue-600',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      ctaColor: 'bg-blue-600'
+    },
+    heroIcon: <Shield className="h-6 w-6 text-blue-600" />,
+    heroImage: "/training-covers/nr-35-trabalho-em-altura.png",
+    ctaTitle: "Garanta a Segurança em Altura",
+    ctaSubtitle: "Treinamento completo em NR-35 para trabalhos seguros em altura"
+  },
+
+  'nr-37-limpeza-urbana': {
+title: 'NR-37 - Segurança na Limpeza Urbana',
+    description: 'Curso sobre segurança e saúde no trabalho em empresas de limpeza urbana e manejo de resíduos sólidos, abordando riscos específicos da coleta e tratamento de lixo.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Conhecer riscos da limpeza urbana',
+      'Aplicar medidas de proteção específicas',
+      'Manejar resíduos com segurança',
+      'Prevenir acidentes e doenças ocupacionais'
+    ],
+    modules: [
+      {
+        title: "Introdução à NR-37",
+        description: "Objetivos e campo de aplicação, responsabilidades na limpeza urbana, organização da segurança, legislação específica do setor. Fundamentos da segurança em serviços de limpeza urbana."
+      },
+      {
+        title: "Riscos na Limpeza Urbana",
+        description: "Riscos biológicos e infecciosos, contato com materiais perfurocortantes, riscos ergonômicos, acidentes de trânsito. Identificação e controle dos principais perigos do setor."
+      },
+      {
+        title: "Coleta de Resíduos Sólidos",
+        description: "Tipos de resíduos urbanos, técnicas de coleta segura, operação de veículos coletores, trabalho em via pública. Procedimentos seguros para coleta e transporte de resíduos."
+      },
+      {
+        title: "Equipamentos de Proteção",
+        description: "EPIs específicos para limpeza urbana, uniformes e calçados adequados, proteção contra agentes biológicos, manutenção e higienização. Barreiras de proteção essenciais para o trabalho."
+      },
+      {
+        title: "Varrição e Limpeza Pública",
+        description: "Técnicas de varrição, limpeza de logradouros, capina e poda urbana, trabalho noturno e diurno. Métodos seguros para manutenção da limpeza urbana."
+      },
+      {
+        title: "Prevenção de Doenças",
+        description: "Imunização obrigatória, higiene pessoal e coletiva, primeiros socorros específicos, vigilância da saúde. Proteção da saúde dos trabalhadores de limpeza urbana."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Manejo de Resíduos',
+        icon: <Trash2 className="h-5 w-5 text-emerald-700" />,
+        skills: [
+          'Classificação de resíduos',
+          'Coleta seletiva segura',
+          'Manuseio de materiais perigosos',
+          'Descarte adequado'
+        ]
+      },
+      {
+        title: 'Segurança Operacional',
+        icon: <Recycle className="h-5 w-5 text-emerald-700" />,
+        skills: [
+          'Operação de veículos coletores',
+          'Trabalho em vias públicas',
+          'Sinalização de segurança',
+          'Prevenção de acidentes'
+        ]
+      },
+      {
+        title: 'Proteção Biológica',
+        icon: <Shield className="h-5 w-5 text-emerald-700" />,
+        skills: [
+          'Uso correto de EPIs',
+          'Proteção contra patógenos',
+          'Higienização adequada',
+          'Controle de exposição'
+        ]
+      },
+      {
+        title: 'Saúde Ocupacional',
+        icon: <Heart className="h-5 w-5 text-emerald-700" />,
+        skills: [
+          'Ergonomia aplicada',
+          'Imunização completa',
+          'Prevenção de doenças',
+          'Primeiros socorros'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado conforme NR-37 do MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Demonstração prática de procedimentos',
+        'Comprovação de imunização'
+      ]
+    },
+    theme: {
+      primaryColor: 'emerald',
+      gradientFrom: 'from-emerald-50',
+      gradientTo: 'to-green-50',
+      bgColor: 'bg-emerald-100',
+      textColor: 'text-emerald-700',
+      iconBg: 'bg-emerald-100',
+      iconColor: 'text-emerald-700',
+      ctaColor: 'bg-emerald-700'
+    },
+    heroIcon: <Trash2 className="h-6 w-6 text-emerald-700" />,
+    heroImage: "https://images.unsplash.com/photo-1558583082-409143c794ca?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Segurança em Limpeza Urbana",
+    ctaSubtitle: "Proteja-se e contribua para cidades mais limpas e saudáveis"
+  },
+
+  'nr-37-plataformas-petroleo': {
+title: 'NR-37 - Segurança em Plataformas de Petróleo',
+    description: 'Capacitação em segurança e saúde em plataformas de petróleo. Curso especializado para profissionais que atuam em instalações offshore, abordando riscos específicos e procedimentos de segurança marítima.',
+    duration: '40 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'Rio de Janeiro, RJ',
+    nivel: 'Avançado',
+    objetivos: [
+      'Conhecer os requisitos da NR-37 para plataformas offshore',
+      'Identificar riscos específicos do ambiente marítimo',
+      'Aplicar procedimentos de segurança em plataformas',
+      'Executar planos de emergência e abandono',
+      'Dominar técnicas de sobrevivência no mar'
+    ],
+    modules: [
+      {
+        title: "Introdução à NR-37",
+        description: "Regulamentação para plataformas de petróleo, estrutura e aplicação da norma, direitos e deveres dos trabalhadores, interface com normas internacionais."
+      },
+      {
+        title: "Riscos em Ambiente Offshore",
+        description: "Riscos físicos, químicos e biológicos, atmosferas explosivas e H2S, riscos de queda ao mar, condições meteorológicas adversas."
+      },
+      {
+        title: "Sistemas de Segurança",
+        description: "Equipamentos de proteção individual marítimos, sistemas de detecção e alarme, proteção contra incêndio offshore, sistemas de comunicação de emergência."
+      },
+      {
+        title: "Procedimentos de Trabalho",
+        description: "Permissão de trabalho em plataformas, trabalhos a quente e em altura, espaços confinados offshore, operações de mergulho."
+      },
+      {
+        title: "Transporte e Movimentação",
+        description: "Transporte por helicóptero (HUET), cestas de transferência, embarque e desembarque, movimentação de cargas no mar."
+      },
+      {
+        title: "Emergências Marítimas",
+        description: "Abandono de plataforma, uso de baleeiras e balsas, técnicas de sobrevivência no mar, resgate por helicóptero."
+      },
+      {
+        title: "Primeiros Socorros Offshore",
+        description: "Atendimento médico em alto mar, evacuação aeromédica, hipotermia e afogamento, picadas de animais marinhos."
+      },
+      {
+        title: "Simulados Práticos",
+        description: "Exercícios de abandono, treinamento em piscina, uso de equipamentos salva-vidas, simulação de emergências."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Segurança Offshore',
+        icon: <Anchor className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Procedimentos de segurança marítima',
+          'Operação em plataformas',
+          'Gestão de riscos offshore',
+          'Compliance com NR-37'
+        ]
+      },
+      {
+        title: 'Operações com Petróleo',
+        icon: <Droplets className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Manuseio de hidrocarbonetos',
+          'Prevenção de vazamentos',
+          'Controle de atmosferas explosivas',
+          'Resposta a emergências químicas'
+        ]
+      },
+      {
+        title: 'Sobrevivência no Mar',
+        icon: <Wind className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Técnicas de sobrevivência',
+          'Uso de equipamentos salva-vidas',
+          'Natação com equipamentos',
+          'Sinalização de emergência'
+        ]
+      },
+      {
+        title: 'Resposta a Emergências',
+        icon: <HardHat className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Abandono de plataforma',
+          'Combate a incêndio offshore',
+          'Resgate marítimo',
+          'Primeiros socorros especializados'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado NR-37 reconhecido pela ANP e Marinha',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação em todas as avaliações',
+        'Aptidão médica para trabalho offshore',
+        'Certificado HUET válido',
+        'Treinamento prático em simulador'
+      ]
+    },
+    theme: {
+      primaryColor: 'blue',
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-cyan-50',
+      bgColor: 'bg-blue-100',
+      textColor: 'text-blue-600',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      ctaColor: 'bg-blue-600'
+    },
+    heroIcon: <Anchor className="h-6 w-6 text-blue-600" />,
+    heroImage: "/training-covers/nr-37-plataformas.png",
+    warningMessage: (
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex items-start gap-3">
+        <Anchor className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+        <div className="text-sm text-blue-800">
+          <strong>Requisitos Especiais:</strong> Este curso requer aptidão médica específica para trabalho offshore e certificação HUET (Helicopter Underwater Escape Training) válida.
+        </div>
+      </div>
+    ),
+    ctaTitle: "Especialização em Segurança Offshore",
+    ctaSubtitle: "Capacitação completa NR-37 para plataformas de petróleo"
+  },
+
+  'pca-conservacao-auditiva': {
+title: 'PCA - Programa de Conservação Auditiva',
+    description: 'O PCA inclui avaliação dos riscos, exames audiométricos periódicos, uso adequado de Equipamentos de Proteção Individual (EPIs), monitoramento do ambiente e treinamento dos colaboradores. Além de proteger a saúde auditiva dos trabalhadores, o programa contribui para a redução de afastamentos, aumento da produtividade e conformidade legal, sendo fundamental para ambientes industriais, hospitais, construção civil e outros setores com exposição a ruído.',
+    duration: '8 horas',
+    category: 'Saúde',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Especializado',
+    objetivos: [
+      'Implementar e gerenciar programas de conservação auditiva',
+      'Identificar e avaliar riscos relacionados ao ruído ocupacional',
+      'Aplicar medidas de controle e proteção auditiva',
+      'Realizar monitoramento audiométrico dos trabalhadores',
+      'Garantir conformidade com NR-7, NR-9 e NR-15'
+    ],
+    modules: [
+      {
+        title: "Introdução – A Prevenção da Perda Auditiva",
+        description: "Anatomia e fisiologia do sistema auditivo, tipos de perda auditiva ocupacional, efeitos do ruído na saúde e a importância da conservação auditiva no ambiente de trabalho."
+      },
+      {
+        title: "Legislação Pertinente",
+        description: "NR-15 e anexos sobre ruído, NR-7 e exames audiométricos, NR-9 e PPRA, limites de tolerância, doses de exposição e responsabilidades legais."
+      },
+      {
+        title: "Técnicas de Análise de Riscos",
+        description: "Medição e avaliação de ruído ocupacional, dosimetria, decibelímetros, mapeamento de ruído ambiental, análise de frequência e interpretação de laudos."
+      },
+      {
+        title: "Estruturação Básica do PCA",
+        description: "Etapas de implementação do PCA, definição de objetivos e metas, cronograma de atividades, indicadores de desempenho e documentação obrigatória."
+      },
+      {
+        title: "Gerenciamento Audiométrico",
+        description: "Tipos de exames audiométricos, periodicidade, interpretação de audiogramas, mudança significativa de limiar (MSLT) e acompanhamento médico."
+      },
+      {
+        title: "Medidas de Controle",
+        description: "Hierarquia de controles, eliminação e substituição, controles de engenharia e administrativos, enclausuramento, isolamento acústico e tratamento de ambientes."
+      },
+      {
+        title: "Equipamentos de Proteção Auditiva",
+        description: "Tipos de protetores auriculares, seleção adequada de EPIs auditivos, atenuação e NRRsf, uso correto, higienização e treinamento."
+      },
+      {
+        title: "Educação e Treinamento",
+        description: "Desenvolvimento de material educativo, técnicas de sensibilização, campanhas de conservação auditiva, integração com outros programas de SST e avaliação de eficácia."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Avaliação e Prevenção',
+        icon: <Ear className="h-5 w-5 text-teal-600" />,
+        skills: [
+          'Identificação e avaliação de riscos auditivos',
+          'Medição e análise de ruído ocupacional',
+          'Interpretação de dosimetria e audiometrias',
+          'Aplicação da hierarquia de controles'
+        ]
+      },
+      {
+        title: 'Gestão do PCA',
+        icon: <Award className="h-5 w-5 text-teal-600" />,
+        skills: [
+          'Estruturação e implementação do PCA',
+          'Gerenciamento audiométrico completo',
+          'Documentação e registros obrigatórios',
+          'Indicadores e monitoramento do programa'
+        ]
+      },
+      {
+        title: 'Proteção e EPIs',
+        icon: <Users className="h-5 w-5 text-teal-600" />,
+        skills: [
+          'Seleção adequada de protetores auriculares',
+          'Cálculos de atenuação e NRRsf',
+          'Treinamento em uso e higienização',
+          'Controles coletivos de engenharia'
+        ]
+      },
+      {
+        title: 'Educação e Legislação',
+        icon: <BookOpen className="h-5 w-5 text-teal-600" />,
+        skills: [
+          'Conformidade com NR-7, NR-9 e NR-15',
+          'Desenvolvimento de material educativo',
+          'Campanhas de conscientização',
+          'Integração com outros programas de SST'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido pelo MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação final (nota mínima 7,0)',
+        'Profissional da área de SST ou saúde ocupacional'
+      ]
+    },
+    theme: {
+      primaryColor: 'teal',
+      gradientFrom: 'from-teal-50',
+      gradientTo: 'to-cyan-50',
+      bgColor: 'bg-teal-100',
+      textColor: 'text-teal-600',
+      iconBg: 'bg-teal-100',
+      iconColor: 'text-teal-600',
+      ctaColor: 'bg-teal-600'
+    },
+    heroIcon: <Ear className="h-6 w-6 text-teal-600" />,
+    heroImage: "/training-covers/higiene-ocupacional.png",
+    warningMessage: (
+      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-8">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-amber-800 mb-1">Proteção Auditiva Essencial</p>
+            <p className="text-sm text-amber-700">
+              A perda auditiva ocupacional é irreversível mas evitável. O PCA é fundamental para indústrias, construção civil, hospitais e setores com exposição a ruído acima de 85 dB(A).
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    ctaTitle: "Proteja a Audição dos Seus Trabalhadores",
+    ctaSubtitle: "Treinamento especializado em PCA para profissionais de SST"
+  },
+
+  'ppr-protecao-respiratoria': {
+title: 'PPR Programa de Proteção Respiratória',
+    description: 'O PPR estabelece práticas administrativas e operacionais para selecionar, usar e manter corretamente os Equipamentos de Proteção Respiratória (EPR), garantindo a proteção eficaz dos trabalhadores.',
+    duration: '16 horas',
+    category: 'Saúde',
+    format: 'Teórico + Prático',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Implementar um Programa de Proteção Respiratória eficaz',
+      'Selecionar e usar corretamente EPRs',
+      'Avaliar riscos respiratórios no ambiente de trabalho',
+      'Garantir conformidade com as normas de segurança'
+    ],
+    modules: [
+      {
+        title: "Introdução - A Prevenção da Exposição a Inalações Perigosas",
+        description: "Principais abordagens e estratégias de prevenção, exposição a substâncias inalatórias perigosas, proteção da saúde dos trabalhadores e conceitos fundamentais de proteção respiratória."
+      },
+      {
+        title: "Legislação Pertinente",
+        description: "Leis e regulamentações aplicáveis, proteção contra inalações perigosas, normas de segurança e saúde no trabalho e utilização de Equipamentos de Proteção Respiratória."
+      },
+      {
+        title: "Considerações Introdutórias sobre o PPR",
+        description: "Introdução ao Programa de Proteção Respiratória, importância da implementação do PPR, proteção dos trabalhadores e estrutura básica do programa."
+      },
+      {
+        title: "Política de Segurança e Saúde da Empresa",
+        description: "Política de segurança relacionada ao PPR, compromisso da empresa, proteção da saúde respiratória e integração com políticas corporativas."
+      },
+      {
+        title: "Conceito e Definição do Programa",
+        description: "Definição do PPR, objetivos do programa, contribuição para segurança e trabalhadores expostos a riscos respiratórios."
+      },
+      {
+        title: "Diretrizes e Elementos do Programa",
+        description: "Diretrizes fundamentais, implementação eficaz, operação do PPR, componentes essenciais, avaliação de riscos, treinamento dos trabalhadores e utilização de equipamentos adequados."
+      },
+      {
+        title: "Responsabilidades sobre o Programa",
+        description: "Responsabilidades dos gestores, profissionais de segurança do trabalho, responsabilidades dos trabalhadores, implementação e cumprimento do PPR."
+      },
+      {
+        title: "Aspectos Técnicos e Avaliação de Riscos",
+        description: "Tipos de riscos respiratórios, critérios de seleção de EPR, práticas corretas de utilização, métodos de avaliação ambiental, técnicas de identificação e fontes de exposição."
+      },
+      {
+        title: "Classificação dos Riscos e Seleção de EPRs",
+        description: "Riscos respiratórios comuns, poeiras, vapores e gases, impactos para a saúde ocupacional, classificação por severidade, fatores de seleção e critérios adequados."
+      },
+      {
+        title: "Implementação e Manutenção do PPR",
+        description: "Procedimentos de implementação, treinamento contínuo, manutenção preventiva de equipamentos, auditorias internas e melhoria contínua do programa."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Fundamentos e Legislação',
+        icon: <Shield className="h-5 w-5 text-sky-600" />,
+        skills: [
+          'Prevenção da exposição a inalações perigosas',
+          'Conhecimento da legislação aplicável',
+          'Políticas de segurança empresariais',
+          'Conceitos fundamentais do PPR'
+        ]
+      },
+      {
+        title: 'Avaliação de Riscos',
+        icon: <Activity className="h-5 w-5 text-sky-600" />,
+        skills: [
+          'Métodos de avaliação ambiental',
+          'Identificação de fontes de exposição',
+          'Classificação de riscos respiratórios',
+          'Análise de poeiras, vapores e gases'
+        ]
+      },
+      {
+        title: 'Seleção e Uso de EPRs',
+        icon: <Wind className="h-5 w-5 text-sky-600" />,
+        skills: [
+          'Critérios de seleção de EPRs',
+          'Uso correto dos equipamentos',
+          'Fatores de conforto e adequação',
+          'Práticas corretas de utilização'
+        ]
+      },
+      {
+        title: 'Gestão do Programa',
+        icon: <Users className="h-5 w-5 text-sky-600" />,
+        skills: [
+          'Implementação eficaz do PPR',
+          'Responsabilidades dos gestores',
+          'Treinamento de trabalhadores',
+          'Manutenção e auditoria do programa'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido pelo MTE',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (nota mínima 7,0)',
+        'Aprovação na avaliação prática',
+        'Demonstração de competência em PPR'
+      ]
+    },
+    theme: {
+      primaryColor: 'sky',
+      gradientFrom: 'from-sky-50',
+      gradientTo: 'to-blue-50',
+      bgColor: 'bg-sky-100',
+      textColor: 'text-sky-600',
+      iconBg: 'bg-sky-100',
+      iconColor: 'text-sky-600',
+      ctaColor: 'bg-sky-600'
+    },
+    heroIcon: <Wind className="h-6 w-6 text-sky-600" />,
+    heroImage: "/training-covers/uso-epi.png",
+    warningMessage: (
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-blue-800 mb-1">Proteção Respiratória Essencial</p>
+            <p className="text-sm text-blue-700">
+              O PPR é fundamental para ambientes com exposição a substâncias inalatórias perigosas.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    ctaTitle: "Implemente um PPR Eficaz",
+    ctaSubtitle: "Programa completo de proteção respiratória - 16 horas de capacitação especializada"
+  },
+
+  'prevencao-acidentes-quimicos': {
+title: 'Prevenção de Acidentes Químicos',
+    description: 'Curso especializado em prevenção de acidentes com produtos químicos, abordando manuseio seguro, armazenamento adequado e procedimentos de emergência.',
+    duration: '12 horas',
+    category: 'Segurança Química',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Identificar riscos químicos no ambiente',
+      'Manusear produtos químicos com segurança',
+      'Implementar medidas preventivas',
+      'Responder adequadamente a emergências químicas'
+    ],
+    modules: [
+      {
+        title: "Introdução aos Riscos Químicos",
+        description: "Classificação de produtos químicos, propriedades perigosas das substâncias, vias de exposição e efeitos na saúde, legislação sobre produtos químicos. Fundamentos essenciais para segurança química."
+      },
+      {
+        title: "Identificação e Rotulagem",
+        description: "Sistema GHS (Globally Harmonized System), pictogramas de segurança, frases de risco e precaução, Fichas de Informação de Segurança (FISPQ). Comunicação eficaz de riscos químicos."
+      },
+      {
+        title: "Manuseio Seguro",
+        description: "Procedimentos de manuseio, equipamentos de proteção adequados, técnicas de transferência segura, prevenção de vazamentos. Práticas seguras para trabalho com produtos químicos."
+      },
+      {
+        title: "Armazenamento de Produtos Químicos",
+        description: "Critérios de compatibilidade, condições de armazenamento, sistemas de contenção, controle de inventário. Gestão adequada de estoques químicos para prevenir acidentes."
+      },
+      {
+        title: "Emergências Químicas",
+        description: "Planos de emergência química, procedimentos de derramamento, neutralização e descontaminação, evacuação e primeiros socorros. Resposta rápida e eficaz a acidentes químicos."
+      },
+      {
+        title: "Gestão de Resíduos Químicos",
+        description: "Classificação de resíduos perigosos, tratamento e disposição, documentação e rastreabilidade, responsabilidade legal. Manejo responsável e conforme de resíduos químicos."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação de Riscos',
+        icon: <FlaskConical className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Análise de produtos químicos',
+          'Avaliação de perigos',
+          'Interpretação de FISPQ',
+          'Classificação GHS'
+        ]
+      },
+      {
+        title: 'Manuseio Seguro',
+        icon: <Shield className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Técnicas de transferência',
+          'Uso correto de EPIs',
+          'Procedimentos operacionais',
+          'Prevenção de contaminação'
+        ]
+      },
+      {
+        title: 'Resposta a Emergências',
+        icon: <AlertTriangle className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Contenção de derramamentos',
+          'Neutralização química',
+          'Primeiros socorros específicos',
+          'Evacuação segura'
+        ]
+      },
+      {
+        title: 'Gestão e Documentação',
+        icon: <FileSearch className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Controle de inventário',
+          'Documentação legal',
+          'Planos de segurança',
+          'Gestão de resíduos'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado de Especialista em Segurança Química',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 80%)',
+        'Demonstração prática de procedimentos',
+        'Elaboração de plano de segurança química'
+      ]
+    },
+    theme: {
+      primaryColor: 'purple',
+      gradientFrom: 'from-purple-50',
+      gradientTo: 'to-violet-50',
+      bgColor: 'bg-purple-100',
+      textColor: 'text-purple-600',
+      iconBg: 'bg-purple-100',
+      iconColor: 'text-purple-600',
+      ctaColor: 'bg-purple-600'
+    },
+    heroIcon: <FlaskConical className="h-6 w-6 text-purple-600" />,
+    heroImage: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Domine a Segurança Química",
+    ctaSubtitle: "Proteja sua equipe contra riscos químicos"
+  },
+
+  'prevencao-combate-assedio-violencia-trabalho': {
+title: 'Prevenção e Combate ao Assédio Sexual e às Demais Formas de Violência no Trabalho',
+    description: 'Capacita profissionais para identificar, prevenir e enfrentar o assédio sexual, moral e outras formas de violência no ambiente laboral, conforme a legislação vigente. O curso aborda conceitos, legislação, canais de denúncia, procedimentos de investigação, responsabilidades das empresas e da CIPA, além de promover a conscientização sobre igualdade, diversidade e respeito.',
+    duration: '4 horas',
+    category: 'Saúde',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Básico',
+    objetivos: [
+      'Identificar situações de assédio e violência no trabalho',
+      'Conhecer a legislação e direitos trabalhistas',
+      'Prevenir comportamentos inadequados no ambiente laboral',
+      'Criar um ambiente de trabalho seguro e respeitoso'
+    ],
+    modules: [
+      {
+        title: "Conceitos e Definições Fundamentais",
+        description: "Definição de assédio sexual no ambiente de trabalho, conceito de assédio moral e suas características, outras formas de violência laboral, diferenças entre conflito profissional e assédio, e impactos na saúde física e mental dos trabalhadores."
+      },
+      {
+        title: "Legislação e Marco Legal",
+        description: "Lei 14.540/2023 e suas determinações, Código Penal e crimes contra a dignidade sexual, CLT e proteção ao trabalhador, Convenções da OIT sobre o tema, e penalidades e sanções previstas em lei."
+      },
+      {
+        title: "Identificação e Reconhecimento",
+        description: "Sinais e indicadores de assédio, comportamentos que configuram violência, situações de vulnerabilidade, perfil de vítimas e agressores, e mitos e verdades sobre assédio."
+      },
+      {
+        title: "Canais de Denúncia e Acolhimento",
+        description: "Criação de canais seguros de denúncia, procedimentos de acolhimento às vítimas, garantia de confidencialidade, proteção contra retaliação, e papel do RH e da liderança."
+      },
+      {
+        title: "Procedimentos de Investigação",
+        description: "Protocolo de investigação interna, coleta e preservação de evidências, entrevistas e depoimentos, elaboração de relatórios, e medidas cautelares durante investigação."
+      },
+      {
+        title: "Papel da CIPA e Responsabilidades",
+        description: "Atribuições da CIPA na prevenção, responsabilidades dos empregadores, deveres dos gestores e líderes, corresponsabilidade dos colaboradores, e criação de comissões específicas."
+      },
+      {
+        title: "Diversidade, Igualdade e Respeito",
+        description: "Promoção da igualdade de gênero, respeito à diversidade sexual, inclusão de pessoas com deficiência, combate ao preconceito e discriminação, e construção de cultura organizacional saudável."
+      },
+      {
+        title: "Prevenção e Boas Práticas",
+        description: "Políticas preventivas eficazes, código de conduta e ética, campanhas de conscientização, treinamentos e capacitações regulares, e monitoramento e avaliação contínua."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Identificação e Prevenção',
+        icon: <Shield className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Reconhecimento de situações de assédio',
+          'Identificação de comportamentos inadequados',
+          'Prevenção de violência no trabalho',
+          'Detecção de sinais de alerta'
+        ]
+      },
+      {
+        title: 'Acolhimento e Apoio',
+        icon: <Heart className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Acolhimento adequado às vítimas',
+          'Escuta ativa e empática',
+          'Orientação sobre direitos',
+          'Encaminhamento para apoio especializado'
+        ]
+      },
+      {
+        title: 'Procedimentos e Investigação',
+        icon: <BookOpen className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Protocolo de denúncia e investigação',
+          'Documentação de casos',
+          'Preservação de evidências',
+          'Elaboração de relatórios'
+        ]
+      },
+      {
+        title: 'Cultura Organizacional',
+        icon: <Users className="h-5 w-5 text-purple-600" />,
+        skills: [
+          'Promoção de ambiente respeitoso',
+          'Valorização da diversidade',
+          'Implementação de políticas preventivas',
+          'Campanhas de conscientização'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos (recomendado)',
+      orgao: 'Certificado conforme Lei 14.540/2023',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Participação ativa nas discussões',
+        'Aprovação na avaliação final',
+        'Compromisso com código de conduta'
+      ]
+    },
+    warningMessage: (
+      <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <Shield className="h-5 w-5 text-purple-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-purple-800 mb-1">Obrigatório por Lei</p>
+            <p className="text-sm text-purple-700">
+              Conforme Lei 14.540/2023, este treinamento é obrigatório para todas as empresas com CIPA, 
+              promovendo ambientes de trabalho seguros e respeitosos.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    theme: {
+      primaryColor: 'purple',
+      gradientFrom: 'from-purple-50',
+      gradientTo: 'to-violet-50',
+      bgColor: 'bg-purple-100',
+      textColor: 'text-purple-600',
+      iconBg: 'bg-purple-100',
+      iconColor: 'text-purple-600',
+      ctaColor: 'bg-purple-600'
+    },
+    heroIcon: <Heart className="h-6 w-6 text-purple-600" />,
+    heroImage: "/training-covers/prevencao-combate-assedio-violencia-trabalho.png",
+    ctaTitle: "Promova um Ambiente Respeitoso",
+    ctaSubtitle: "Capacitação obrigatória em prevenção ao assédio e violência no trabalho"
+  },
+
+  'programa-5s': {
+title: 'Programa 5S',
+    description: 'Curso sobre o programa 5S, metodologia japonesa para organização, limpeza e padronização do ambiente de trabalho, promovendo qualidade, produtividade e segurança.',
+    duration: '4 horas',
+    category: 'Qualidade',
+    format: 'Presencial/Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Básico',
+    objetivos: [
+      'Compreender os conceitos dos 5S',
+      'Implementar cada etapa do programa',
+      'Desenvolver disciplina e organização',
+      'Melhorar qualidade e produtividade'
+    ],
+    modules: [
+      {
+        title: "Introdução ao Programa 5S",
+        description: "Origem e filosofia dos 5S, benefícios para a organização, impacto na segurança do trabalho, cases de sucesso e importância da metodologia japonesa."
+      },
+      {
+        title: "1º S - SEIRI (Utilização)",
+        description: "Conceito de utilização, separação do necessário e desnecessário, técnica da etiqueta vermelha, descarte adequado e otimização do espaço de trabalho."
+      },
+      {
+        title: "2º S - SEITON (Organização)",
+        description: "Definição de lugar para cada coisa, identificação e sinalização, layout eficiente, facilitar o acesso e organização visual do ambiente."
+      },
+      {
+        title: "3º S - SEISO (Limpeza)",
+        description: "Limpeza como inspeção, identificação de fontes de sujeira, responsabilidades de limpeza, manutenção da limpeza e criação de rotinas."
+      },
+      {
+        title: "4º S - SEIKETSU (Padronização)",
+        description: "Padronização dos três primeiros S, criação de procedimentos, manutenção das condições adequadas, estabelecimento de padrões visuais."
+      },
+      {
+        title: "5º S - SHITSUKE (Disciplina)",
+        description: "Desenvolvimento da disciplina, transformação em hábito, educação e treinamento contínuo, autocontrole e melhoria contínua."
+      },
+      {
+        title: "Implementação e Sustentação do 5S",
+        description: "Estratégias de implementação, envolvimento da equipe, auditoria 5S, indicadores de desempenho, superação de resistências e manutenção a longo prazo."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Utilização e Organização',
+        icon: <Target className="h-5 w-5 text-violet-600" />,
+        skills: [
+          'SEIRI - Separação do necessário',
+          'SEITON - Organização e identificação',
+          'Técnica da etiqueta vermelha',
+          'Layout eficiente do ambiente'
+        ]
+      },
+      {
+        title: 'Limpeza e Padronização',
+        icon: <Sparkles className="h-5 w-5 text-violet-600" />,
+        skills: [
+          'SEISO - Limpeza como inspeção',
+          'SEIKETSU - Padronização de processos',
+          'Identificação de fontes de sujeira',
+          'Criação de procedimentos padronizados'
+        ]
+      },
+      {
+        title: 'Disciplina e Sustentação',
+        icon: <Eye className="h-5 w-5 text-violet-600" />,
+        skills: [
+          'SHITSUKE - Desenvolvimento da disciplina',
+          'Transformação em hábitos',
+          'Educação e treinamento contínuo',
+          'Autocontrole e melhoria contínua'
+        ]
+      },
+      {
+        title: 'Implementação e Gestão',
+        icon: <Users className="h-5 w-5 text-violet-600" />,
+        skills: [
+          'Estratégias de implementação',
+          'Envolvimento da equipe',
+          'Auditoria 5S',
+          'Indicadores de desempenho'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado de Implementador 5S',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Projeto prático de implementação',
+        'Apresentação de caso de aplicação'
+      ]
+    },
+    theme: {
+      primaryColor: 'violet',
+      gradientFrom: 'from-violet-50',
+      gradientTo: 'to-purple-50',
+      bgColor: 'bg-violet-100',
+      textColor: 'text-violet-600',
+      iconBg: 'bg-violet-100',
+      iconColor: 'text-violet-600',
+      ctaColor: 'bg-violet-600'
+    },
+    heroIcon: <Target className="h-6 w-6 text-violet-600" />,
+    heroImage: "/training-covers/investigacao-acidentes.png",
+    ctaTitle: "Organize com Excelência",
+    ctaSubtitle: "Metodologia 5S para qualidade e produtividade - 4 horas de transformação organizacional"
+  },
+
+  'rcp-primeiros-socorros': {
+title: 'RCP - Primeiros Socorros',
+    description: 'Curso de Ressuscitação Cardiopulmonar e Primeiros Socorros, ensinando técnicas essenciais para salvar vidas em situações de emergência no ambiente de trabalho.',
+    duration: '8 horas',
+    category: 'Primeiros Socorros',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Reconhecer situações de emergência',
+      'Realizar RCP de qualidade',
+      'Aplicar técnicas de primeiros socorros',
+      'Usar DEA (Desfibrilador Externo Automático)'
+    ],
+    modules: [
+      {
+        title: "Conceitos Fundamentais",
+        description: "Avaliação inicial da vítima, cadeia de sobrevivência, biossegurança do socorrista, acionamento do socorro. Base essencial para atendimento de emergência eficaz."
+      },
+      {
+        title: "Ressuscitação Cardiopulmonar (RCP)",
+        description: "Reconhecimento da parada cardíaca, compressões torácicas eficazes, ventilação de resgate, RCP em adultos, crianças e bebês. Técnicas que salvam vidas em parada cardiorrespiratória."
+      },
+      {
+        title: "Desfibrilação Externa Automática",
+        description: "Funcionamento do DEA, indicações e contraindicações, procedimento de uso, manutenção e verificações. Uso correto do equipamento essencial para reversão de arritmias."
+      },
+      {
+        title: "Obstrução de Vias Aéreas",
+        description: "Reconhecimento da obstrução, manobra de Heimlich, obstrução em crianças e bebês, situações especiais. Técnicas de desobstrução para evitar asfixia."
+      },
+      {
+        title: "Emergências Comuns",
+        description: "Hemorragias e ferimentos, fraturas e entorses, queimaduras, convulsões e desmaios. Atendimento inicial de traumas e emergências clínicas frequentes."
+      },
+      {
+        title: "Prática Supervisionada",
+        description: "Simulação de cenários, prática em manequins, trabalho em equipe, avaliação de competências. Treinamento prático intensivo para fixação das técnicas."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Suporte Básico de Vida',
+        icon: <Heart className="h-5 w-5 text-red-600" />,
+        skills: [
+          'RCP de alta qualidade',
+          'Uso do DEA',
+          'Manobra de Heimlich',
+          'Avaliação primária'
+        ]
+      },
+      {
+        title: 'Atendimento de Emergência',
+        icon: <Activity className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Controle de hemorragias',
+          'Imobilização de fraturas',
+          'Tratamento de queimaduras',
+          'Manejo de convulsões'
+        ]
+      },
+      {
+        title: 'Protocolos de Segurança',
+        icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Biossegurança do socorrista',
+          'Acionamento correto do SAMU',
+          'Documentação do atendimento',
+          'Comunicação de emergência'
+        ]
+      },
+      {
+        title: 'Trabalho em Equipe',
+        icon: <Users className="h-5 w-5 text-red-600" />,
+        skills: [
+          'Coordenação de atendimento',
+          'Revezamento em RCP',
+          'Comunicação eficaz',
+          'Divisão de tarefas'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado de Primeiros Socorros',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aprovação na avaliação prática',
+        'Demonstração de competência em RCP'
+      ]
+    },
+    theme: {
+      primaryColor: 'red',
+      gradientFrom: 'from-red-50',
+      gradientTo: 'to-pink-50',
+      bgColor: 'bg-red-100',
+      textColor: 'text-red-600',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-red-600',
+      ctaColor: 'bg-red-600'
+    },
+    heroIcon: <Heart className="h-6 w-6 text-red-600" />,
+    heroImage: "/training-covers/primeiros-socorros.png",
+    ctaTitle: "Salve Vidas com Conhecimento",
+    ctaSubtitle: "Aprenda técnicas essenciais de primeiros socorros e RCP"
+  },
+
+  'reciclagem-nr-33-espacos-confinados': {
+title: 'NR-33 Espaços Confinados - Reciclagem',
+    description: 'Renovação ou atualização de certificação de trabalhadores em espaços confinados. Curso de reciclagem obrigatório para manter a validade da certificação NR-33.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Atualizar conhecimentos sobre identificação de espaços confinados',
+      'Revisar procedimentos de segurança atualizados',
+      'Reforçar práticas de controle de riscos',
+      'Atualizar procedimentos de emergência e resgate',
+      'Revisar mudanças na legislação NR-33'
+    ],
+    modules: [
+      {
+        title: "Atualizações Normativas",
+        description: "Alterações recentes na NR-33, jurisprudência e casos práticos, novas tecnologias em espaços confinados. Revisão completa das mudanças regulamentares e legais."
+      },
+      {
+        title: "Revisão de Procedimentos",
+        description: "Análise Preliminar de Riscos (APR), Permissão de entrada e trabalho (PET), procedimentos de emergência atualizados. Atualização dos protocolos de segurança essenciais."
+      },
+      {
+        title: "Equipamentos e Tecnologias",
+        description: "Novos EPIs e EPCs disponíveis, sistemas de monitoramento contínuo, equipamentos de resgate modernos. Conhecimento das últimas tecnologias de segurança."
+      },
+      {
+        title: "Casos Práticos e Simulados",
+        description: "Análise de acidentes recentes, simulados de emergência, exercícios práticos de resgate. Aprendizado baseado em situações reais e práticas."
+      },
+      {
+        title: "Avaliação de Competências",
+        description: "Teste teórico atualizado, demonstração prática de procedimentos, análise crítica de situações. Validação completa do conhecimento adquirido."
+      },
+      {
+        title: "Reforço de Boas Práticas",
+        description: "Comunicação eficaz em espaços confinados, trabalho em equipe, cultura de segurança. Consolidação das melhores práticas de trabalho seguro."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Atualização Normativa',
+        icon: <RefreshCw className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Conhecimento NR-33 atualizada',
+          'Jurisprudência recente',
+          'Novas tecnologias',
+          'Mudanças regulamentares'
+        ]
+      },
+      {
+        title: 'Procedimentos Revisados',
+        icon: <Shield className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'APR atualizada',
+          'PET moderna',
+          'Protocolos emergência',
+          'Novos equipamentos'
+        ]
+      },
+      {
+        title: 'Gestão de Riscos',
+        icon: <AlertTriangle className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Identificação de perigos',
+          'Controles atualizados',
+          'Monitoramento contínuo',
+          'Prevenção moderna'
+        ]
+      },
+      {
+        title: 'Competências Práticas',
+        icon: <CheckCircle className="h-5 w-5 text-blue-600" />,
+        skills: [
+          'Resgate atualizado',
+          'Comunicação eficaz',
+          'Trabalho em equipe',
+          'Simulados práticos'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado reconhecido conforme NR-33',
+      requisitos: [
+        'Certificação anterior NR-33 válida ou vencida há menos de 90 dias',
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Aptidão médica comprovada',
+        'Participação em exercícios práticos'
+      ]
+    },
+    theme: {
+      primaryColor: 'blue',
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-cyan-50',
+      bgColor: 'bg-blue-100',
+      textColor: 'text-blue-600',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      ctaColor: 'bg-blue-600'
+    },
+    heroIcon: <RefreshCw className="h-6 w-6 text-blue-600" />,
+    heroImage: "/training-covers/reciclagem-nr-33-espacos-confinados.png",
+    ctaTitle: "Renove sua Certificação NR-33",
+    ctaSubtitle: "Mantenha-se atualizado com as melhores práticas em espaços confinados"
+  },
+
+  'reciclagem-nr-35-teorico': {
+title: 'Reciclagem NR-35 - Trabalho em Altura',
+    description: 'Curso de reciclagem obrigatório para profissionais que já possuem certificação em NR-35. Atualização de conhecimentos sobre normas, procedimentos e boas práticas de segurança em trabalho em altura.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial + Online',
+    location: 'São Paulo, SP',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Revisar e atualizar conhecimentos sobre a NR-35',
+      'Reforçar boas práticas de segurança em altura',
+      'Atualizar sobre mudanças nas normas e regulamentos',
+      'Renovar a certificação conforme exigência legal',
+      'Compartilhar experiências e lições aprendidas'
+    ],
+    modules: [
+      {
+        title: "Revisão das Normas e Regulamentos",
+        description: "Atualizações recentes na NR-35, mudanças na legislação trabalhista, novas diretrizes de segurança, responsabilidades legais atualizadas. Conhecimento atualizado da regulamentação vigente."
+      },
+      {
+        title: "Análise de Acidentes e Lições Aprendidas",
+        description: "Estatísticas recentes de acidentes, estudos de caso reais, análise de causas e consequências, medidas preventivas aprimoradas. Aprendizado baseado em experiências práticas."
+      },
+      {
+        title: "Equipamentos de Proteção - Novidades",
+        description: "Novos equipamentos disponíveis no mercado, atualizações em normas técnicas de EPIs, inspeção e manutenção preventiva, tecnologias emergentes em proteção. Evolução dos equipamentos de segurança."
+      },
+      {
+        title: "Procedimentos de Trabalho Atualizados",
+        description: "Revisão da Análise Preliminar de Risco (APR), Permissão de Trabalho em Altura (PTA), procedimentos de emergência e resgate, comunicação e sinalização de segurança. Protocolos modernos de trabalho."
+      },
+      {
+        title: "Exercícios Práticos e Simulações",
+        description: "Demonstração de equipamentos, simulação de situações de risco, práticas de inspeção de EPIs, exercícios de resgate básico. Aplicação prática dos conhecimentos atualizados."
+      },
+      {
+        title: "Melhores Práticas e Inovações",
+        description: "Novas técnicas de trabalho em altura, sistemas de proteção inovadores, gestão moderna de riscos, tendências em segurança. Conhecimento das práticas mais avançadas do setor."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Atualização Normativa',
+        icon: <RefreshCw className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Conhecimento NR-35 atual',
+          'Mudanças na legislação',
+          'Novas diretrizes',
+          'Responsabilidades legais'
+        ]
+      },
+      {
+        title: 'Análise de Casos',
+        icon: <AlertTriangle className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Estatísticas de acidentes',
+          'Estudos de caso',
+          'Análise de causas',
+          'Medidas preventivas'
+        ]
+      },
+      {
+        title: 'Equipamentos Modernos',
+        icon: <Shield className="h-5 w-5 text-green-600" />,
+        skills: [
+          'Novos equipamentos',
+          'Normas técnicas atuais',
+          'Inspeção preventiva',
+          'Tecnologias emergentes'
+        ]
+      },
+      {
+        title: 'Procedimentos Atualizados',
+        icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+        skills: [
+          'APR revisada',
+          'PTA atualizada',
+          'Procedimentos emergência',
+          'Comunicação eficaz'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado reconhecido pelo MTE',
+      requisitos: [
+        'Certificação NR-35 válida ou vencida há menos de 90 dias',
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação final',
+        'Participação ativa no curso'
+      ]
+    },
+    warningMessage: (
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <RefreshCw className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-blue-800 mb-1">Reciclagem Bienal</p>
+            <p className="text-sm text-blue-700">
+              A reciclagem deve ser realizada bienalmente (a cada 2 anos) ou sempre que houver 
+              mudança nos procedimentos, condições ou operações de trabalho.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+    theme: {
+      primaryColor: 'green',
+      gradientFrom: 'from-green-50',
+      gradientTo: 'to-emerald-50',
+      bgColor: 'bg-green-100',
+      textColor: 'text-green-600',
+      iconBg: 'bg-green-100',
+      iconColor: 'text-green-600',
+      ctaColor: 'bg-green-600'
+    },
+    heroIcon: <RefreshCw className="h-6 w-6 text-green-600" />,
+    heroImage: "/training-covers/reciclagem-nr-35-teorico.png",
+    ctaTitle: "Renove sua Certificação NR-35",
+    ctaSubtitle: "Mantenha-se atualizado e em conformidade com a legislação"
+  },
+
+  'seguranca-construcao-civil': {
+title: 'Segurança na Construção Civil',
+    description: 'Curso especializado em segurança para a indústria da construção civil, abordando riscos específicos, equipamentos de proteção e prevenção de acidentes em canteiros de obras.',
+    duration: '20 horas',
+    category: 'Construção Civil',
+    format: 'Presencial',
+    location: 'São Paulo, SP',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Identificar riscos em canteiros de obras',
+      'Implementar medidas de segurança específicas',
+      'Utilizar EPIs e EPCs adequadamente',
+      'Supervisionar trabalhos com segurança'
+    ],
+    modules: [
+      {
+        title: "Legislação e Normas",
+        description: "NR-18 - Condições e Meio Ambiente de Trabalho na Indústria da Construção, NR-35 - Trabalho em Altura, responsabilidades legais, documentação obrigatória. Base legal para segurança na construção civil."
+      },
+      {
+        title: "Identificação de Riscos",
+        description: "Riscos de queda, riscos com máquinas e equipamentos, riscos elétricos, exposição a agentes químicos. Mapeamento completo de perigos em canteiros de obras."
+      },
+      {
+        title: "Equipamentos de Proteção",
+        description: "EPIs obrigatórios na construção, sistemas de proteção coletiva, andaimes e plataformas, redes de proteção. Barreiras essenciais contra acidentes na construção."
+      },
+      {
+        title: "Trabalho em Altura",
+        description: "Técnicas de acesso por corda, ancoragem e pontos fixos, sistemas de retenção e posicionamento, resgate em altura. Procedimentos seguros para trabalhos elevados."
+      },
+      {
+        title: "Máquinas e Equipamentos",
+        description: "Operação segura de equipamentos, inspeção e manutenção, sinalização de segurança, isolamento de áreas. Gestão segura de máquinas em canteiros."
+      },
+      {
+        title: "Gestão de Segurança",
+        description: "PCMAT - Programa de Condições e Meio Ambiente, SESMT na construção civil, investigação de acidentes, cultura de segurança. Administração integrada de SST na construção."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Análise de Riscos',
+        icon: <HardHat className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Identificação de perigos',
+          'Avaliação de riscos físicos',
+          'Análise de trabalho em altura',
+          'Mapeamento de áreas críticas'
+        ]
+      },
+      {
+        title: 'Proteção e Prevenção',
+        icon: <Shield className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Seleção de EPIs adequados',
+          'Implementação de EPCs',
+          'Sistemas de ancoragem',
+          'Isolamento de áreas'
+        ]
+      },
+      {
+        title: 'Operação Segura',
+        icon: <Wrench className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Operação de equipamentos',
+          'Inspeção de máquinas',
+          'Manutenção preventiva',
+          'Sinalização de segurança'
+        ]
+      },
+      {
+        title: 'Gestão e Documentação',
+        icon: <AlertTriangle className="h-5 w-5 text-orange-600" />,
+        skills: [
+          'Elaboração de PCMAT',
+          'Investigação de acidentes',
+          'Documentação legal',
+          'Treinamentos de segurança'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado de Especialista em Segurança na Construção Civil',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 80%)',
+        'Aprovação na avaliação prática',
+        'Experiência mínima na área'
+      ]
+    },
+    theme: {
+      primaryColor: 'orange',
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-amber-50',
+      bgColor: 'bg-orange-100',
+      textColor: 'text-orange-600',
+      iconBg: 'bg-orange-100',
+      iconColor: 'text-orange-600',
+      ctaColor: 'bg-orange-600'
+    },
+    heroIcon: <HardHat className="h-6 w-6 text-orange-600" />,
+    heroImage: "/training-covers/nr-18-sinaleiro-amarrador-cargas.png",
+    ctaTitle: "Construa com Segurança",
+    ctaSubtitle: "Proteja vidas em canteiros de obras"
+  },
+
+  'seguranca-trabalho-geral': {
+title: 'Segurança do Trabalho - Geral',
+    description: 'Curso abrangente sobre fundamentos de segurança do trabalho, abordando conceitos básicos, prevenção de acidentes e cultura de segurança para todos os trabalhadores.',
+    duration: '8 horas',
+    category: 'Segurança',
+    format: 'Presencial/Online',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Básico',
+    objetivos: [
+      'Compreender fundamentos de segurança',
+      'Identificar riscos no ambiente de trabalho',
+      'Aplicar medidas preventivas básicas',
+      'Desenvolver cultura de segurança'
+    ],
+    modules: [
+      {
+        title: "Introdução à Segurança do Trabalho",
+        description: "História da segurança do trabalho, conceitos fundamentais, legislação trabalhista básica e importância da prevenção no ambiente organizacional."
+      },
+      {
+        title: "Identificação de Riscos",
+        description: "Tipos de riscos ocupacionais, elaboração de mapas de riscos, técnicas de análise do ambiente de trabalho e comunicação eficaz de riscos."
+      },
+      {
+        title: "Equipamentos de Proteção",
+        description: "EPIs (Equipamentos de Proteção Individual), EPCs (Equipamentos de Proteção Coletiva), uso correto e manutenção adequada, responsabilidades legais."
+      },
+      {
+        title: "Prevenção de Acidentes",
+        description: "Principais causas de acidentes de trabalho, comportamento seguro, importância da ordem e limpeza, procedimentos básicos de segurança."
+      },
+      {
+        title: "Emergências e Primeiros Socorros",
+        description: "Plano de emergência básico, procedimentos de evacuação de áreas, primeiros socorros fundamentais e comunicação em situações de emergência."
+      },
+      {
+        title: "Cultura de Segurança",
+        description: "Responsabilidade individual na segurança, trabalho em equipe seguro, comunicação eficaz sobre segurança e processos de melhoria contínua."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Fundamentos e Conceitos',
+        icon: <Shield className="h-5 w-5 text-cyan-600" />,
+        skills: [
+          'História e conceitos de segurança do trabalho',
+          'Legislação trabalhista básica',
+          'Importância da prevenção',
+          'Responsabilidade individual'
+        ]
+      },
+      {
+        title: 'Identificação de Riscos',
+        icon: <Eye className="h-5 w-5 text-cyan-600" />,
+        skills: [
+          'Reconhecimento de tipos de riscos ocupacionais',
+          'Elaboração de mapas de riscos',
+          'Análise do ambiente de trabalho',
+          'Comunicação de riscos identificados'
+        ]
+      },
+      {
+        title: 'Prevenção e Proteção',
+        icon: <HardHat className="h-5 w-5 text-cyan-600" />,
+        skills: [
+          'Uso correto de EPIs e EPCs',
+          'Prevenção de acidentes',
+          'Comportamento seguro no trabalho',
+          'Ordem e limpeza preventivas'
+        ]
+      },
+      {
+        title: 'Emergências e Cultura',
+        icon: <Users className="h-5 w-5 text-cyan-600" />,
+        skills: [
+          'Procedimentos de emergência básicos',
+          'Primeiros socorros fundamentais',
+          'Desenvolvimento de cultura de segurança',
+          'Trabalho em equipe seguro'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado de Segurança do Trabalho',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Participação em atividades práticas',
+        'Comprometimento com segurança'
+      ]
+    },
+    theme: {
+      primaryColor: 'cyan',
+      gradientFrom: 'from-cyan-50',
+      gradientTo: 'to-blue-50',
+      bgColor: 'bg-cyan-100',
+      textColor: 'text-cyan-600',
+      iconBg: 'bg-cyan-100',
+      iconColor: 'text-cyan-600',
+      ctaColor: 'bg-cyan-600'
+    },
+    heroIcon: <Shield className="h-6 w-6 text-cyan-600" />,
+    heroImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop&crop=center",
+    ctaTitle: "Construa uma Base Sólida",
+    ctaSubtitle: "Fundamentos essenciais de segurança do trabalho - 8 horas de capacitação abrangente"
+  },
+
+  'sipat-seguranca': {
+title: 'SIPAT - Semana Interna de Prevenção de Acidentes',
+    description: 'Curso para organização e execução da SIPAT, evento anual obrigatório focado na conscientização sobre segurança e saúde no trabalho. Capacitação completa para coordenar atividades educativas eficazes.',
+    duration: '8 horas',
+    category: 'Educação',
+    format: 'Presencial/Online',
+    location: 'São Paulo, SP',
+    nivel: 'Básico',
+    objetivos: [
+      'Planejar e organizar a SIPAT',
+      'Desenvolver atividades educativas',
+      'Engajar trabalhadores em segurança',
+      'Cumprir requisitos legais da NR-05'
+    ],
+    modules: [
+      {
+        title: "Fundamentos da SIPAT",
+        description: "Objetivos e importância da SIPAT, requisitos legais da NR-05, responsabilidades da CIPA, periodicidade e duração do evento anual obrigatório de conscientização em segurança."
+      },
+      {
+        title: "Planejamento da SIPAT",
+        description: "Definição de tema central, cronograma de atividades, recursos necessários, formação de comissão organizadora e estratégias para maximizar o engajamento dos trabalhadores."
+      },
+      {
+        title: "Metodologias Educativas",
+        description: "Palestras e workshops, dinâmicas e jogos educativos, teatro e apresentações, exposições e materiais visuais para tornar o aprendizado atrativo e eficaz."
+      },
+      {
+        title: "Temas de Segurança",
+        description: "Prevenção de acidentes típicos, uso correto de EPIs, ergonomia no trabalho, primeiros socorros básicos e outros temas relevantes para a segurança ocupacional."
+      },
+      {
+        title: "Execução e Avaliação",
+        description: "Coordenação das atividades, registro e documentação, avaliação de participação, relatório final da SIPAT e medição da efetividade das ações educativas implementadas."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Planejamento e Organização',
+        icon: <Calendar className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Fundamentos legais da SIPAT',
+          'Planejamento estratégico do evento',
+          'Definição de temas e cronograma',
+          'Formação de comissão organizadora'
+        ]
+      },
+      {
+        title: 'Metodologias Educativas',
+        icon: <Presentation className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Palestras e workshops dinâmicos',
+          'Jogos e dinâmicas educativas',
+          'Teatro e apresentações criativas',
+          'Materiais visuais e exposições'
+        ]
+      },
+      {
+        title: 'Engajamento de Equipes',
+        icon: <Users className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Estratégias de engajamento',
+          'Comunicação eficaz em segurança',
+          'Coordenação de atividades',
+          'Motivação para participação ativa'
+        ]
+      },
+      {
+        title: 'Avaliação e Documentação',
+        icon: <Trophy className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Registro e documentação de atividades',
+          'Avaliação de participação',
+          'Elaboração de relatório final',
+          'Medição de efetividade educativa'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '1 ano',
+      orgao: 'Certificado de Organização de SIPAT',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Participação em atividades práticas',
+        'Elaboração de plano de SIPAT',
+        'Demonstração de capacidade organizativa'
+      ]
+    },
+    theme: {
+      primaryColor: 'amber',
+      gradientFrom: 'from-amber-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-amber-100',
+      textColor: 'text-amber-600',
+      iconBg: 'bg-amber-100',
+      iconColor: 'text-amber-600',
+      ctaColor: 'bg-amber-600'
+    },
+    heroIcon: <Calendar className="h-6 w-6 text-amber-600" />,
+    heroImage: "/training-covers/sipat.png",
+    ctaTitle: "Organize SIPATs de Sucesso",
+    ctaSubtitle: "Capacitação completa para eventos educativos - 8 horas de treinamento em organização de SIPAT"
+  },
+
+  'valas-escavacoes': {
+title: 'Segurança em Valas e Escavações',
+    description: 'Capacitação em segurança para trabalhos em valas e escavações. Aprenda a identificar riscos, implementar sistemas de proteção e garantir a segurança em operações de escavação conforme normas técnicas.',
+    duration: '16 horas',
+    category: 'Segurança',
+    format: 'Presencial',
+    location: 'Disponível em todo Brasil',
+    nivel: 'Intermediário',
+    objetivos: [
+      'Identificar e avaliar riscos em escavações',
+      'Implementar sistemas de escoramento e proteção',
+      'Aplicar procedimentos seguros de escavação',
+      'Executar inspeções e monitoramento contínuo',
+      'Responder a emergências em valas'
+    ],
+    modules: [
+      {
+        title: "Fundamentos e Legislação",
+        description: "Normas regulamentadoras aplicáveis, NBR 9061 e outras normas técnicas, tipos de solo e suas características, estatísticas de acidentes em escavações."
+      },
+      {
+        title: "Análise de Riscos em Escavações",
+        description: "Riscos de desmoronamento e soterramento, atmosferas perigosas em valas, riscos de queda e impacto, interferências subterrâneas (tubulações, cabos)."
+      },
+      {
+        title: "Sistemas de Proteção",
+        description: "Tipos de escoramento (madeira, metálico), taludes e inclinações seguras, sistemas de proteção tipo caixa, bermas e patamares de segurança."
+      },
+      {
+        title: "Procedimentos de Escavação",
+        description: "Planejamento da escavação, sequência segura de trabalho, acesso e saída de valas, posicionamento de materiais escavados."
+      },
+      {
+        title: "Inspeção e Monitoramento",
+        description: "Inspeção diária obrigatória, monitoramento de estabilidade, verificação após chuvas, documentação e registros."
+      },
+      {
+        title: "Equipamentos e EPIs",
+        description: "EPIs específicos para escavação, equipamentos de resgate, sistemas de ventilação, detectores de gases."
+      },
+      {
+        title: "Emergências e Resgate",
+        description: "Procedimentos de emergência, técnicas de resgate em soterramento, primeiros socorros específicos, comunicação de emergências."
+      },
+      {
+        title: "Casos Práticos",
+        description: "Análise de acidentes reais, exercícios de identificação de riscos, simulação de inspeções, elaboração de APR para escavações."
+      }
+    ],
+    competencias: [
+      {
+        title: 'Avaliação de Riscos',
+        icon: <AlertTriangle className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Análise de estabilidade do solo',
+          'Identificação de interferências',
+          'Avaliação de condições climáticas',
+          'Reconhecimento de sinais de perigo'
+        ]
+      },
+      {
+        title: 'Sistemas de Proteção',
+        icon: <Construction className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Dimensionamento de escoramentos',
+          'Instalação de proteções',
+          'Cálculo de taludes seguros',
+          'Implementação de barreiras'
+        ]
+      },
+      {
+        title: 'Operação Segura',
+        icon: <HardHat className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Procedimentos de escavação',
+          'Uso correto de equipamentos',
+          'Trabalho em equipe',
+          'Comunicação eficaz'
+        ]
+      },
+      {
+        title: 'Inspeção e Controle',
+        icon: <Shovel className="h-5 w-5 text-amber-600" />,
+        skills: [
+          'Inspeções sistemáticas',
+          'Monitoramento contínuo',
+          'Documentação adequada',
+          'Ações corretivas'
+        ]
+      }
+    ],
+    certificacao: {
+      validade: '2 anos',
+      orgao: 'Certificado em Segurança em Valas e Escavações',
+      requisitos: [
+        'Frequência mínima de 100%',
+        'Aprovação na avaliação teórica (mínimo 70%)',
+        'Participação nas atividades práticas',
+        'Demonstração de competências em campo'
+      ]
+    },
+    theme: {
+      primaryColor: 'amber',
+      gradientFrom: 'from-amber-50',
+      gradientTo: 'to-orange-50',
+      bgColor: 'bg-amber-100',
+      textColor: 'text-amber-600',
+      iconBg: 'bg-amber-100',
+      iconColor: 'text-amber-600',
+      ctaColor: 'bg-amber-600'
+    },
+    heroIcon: <Construction className="h-6 w-6 text-amber-600" />,
+    heroImage: "/training-covers/valas-escavacoes.png",
+    ctaTitle: "Garanta Segurança Total em Escavações",
+    ctaSubtitle: "Prevenção de acidentes em valas e trabalhos subterrâneos"
+  }
+}
+
+interface PageProps {
+  params: Promise<{ slug: string }>
+}
+
+export default async function TrainingPage({ params }: PageProps) {
+  const { slug } = await params
+  const training = trainingData[slug]
+  
+  if (!training) {
+    notFound()
+  }
+
+  return <TrainingPageTemplate data={training} />
+}
+
+export function generateStaticParams() {
+  return Object.keys(trainingData).map((slug) => ({
+    slug: slug,
+  }))
+}

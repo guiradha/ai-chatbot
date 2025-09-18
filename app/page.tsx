@@ -30,6 +30,7 @@ import {
 } from 'lucide-react'
 import FeaturesSection from '@/components/features-section'
 import { SaoESalvoLogo } from '@/components/sao-e-salvo-logo'
+import { GlobalFooter } from '@/components/global-footer'
 
 export default function LandingPage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
@@ -208,7 +209,7 @@ export default function LandingPage() {
       <FeaturesSection />
 
       {/* Treinamentos Section */}
-      <section id="treinamentos" className="py-20 bg-background">
+      <section id="treinamentos" className="py-12 bg-background">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -222,7 +223,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {/* NR-35 - Trabalho em Altura */}
             <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
-              <Link href="/treinamentos/nr-35-trabalho-em-altura">
+              <Link href="/cursos-nr/nr-35-trabalho-em-altura">
                 <div className="relative h-48 cursor-pointer overflow-hidden">
                   <img 
                     src="/training-covers/nr-35-trabalho-em-altura.png" 
@@ -269,7 +270,7 @@ export default function LandingPage() {
 
                 {/* Footer with button - now always at bottom */}
                 <CardFooter className="pt-0 mt-auto">
-                  <Link href="/treinamentos/nr-35-trabalho-em-altura" className="w-full">
+                  <Link href="/cursos-nr/nr-35-trabalho-em-altura" className="w-full">
                     <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
                       Ver detalhes
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -281,7 +282,7 @@ export default function LandingPage() {
 
             {/* NR-33 - Espaço Confinado */}
             <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
-              <Link href="/treinamentos/nr-33-espaco-confinado">
+              <Link href="/cursos-nr/nr-33-espaco-confinado">
                 <div className="relative h-48 cursor-pointer overflow-hidden">
                   <img 
                     src="/training-covers/nr-33-espaco-confinado.png" 
@@ -328,7 +329,7 @@ export default function LandingPage() {
 
                 {/* Footer with button - now always at bottom */}
                 <CardFooter className="pt-0 mt-auto">
-                  <Link href="/treinamentos/nr-33-espaco-confinado" className="w-full">
+                  <Link href="/cursos-nr/nr-33-espaco-confinado" className="w-full">
                     <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
                       Ver detalhes
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -340,7 +341,7 @@ export default function LandingPage() {
 
             {/* NR-10 - Segurança em Eletricidade */}
             <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
-              <Link href="/treinamentos/nr-10-basico">
+              <Link href="/cursos-nr/nr-10-basico">
                 <div className="relative h-48 cursor-pointer overflow-hidden">
                   <img 
                     src="/training-covers/nr-10-basico.png" 
@@ -387,7 +388,7 @@ export default function LandingPage() {
 
                 {/* Footer with button - now always at bottom */}
                 <CardFooter className="pt-0 mt-auto">
-                  <Link href="/treinamentos/nr-10-basico" className="w-full">
+                  <Link href="/cursos-nr/nr-10-basico" className="w-full">
                     <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
                       Ver detalhes
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -399,7 +400,7 @@ export default function LandingPage() {
 
             {/* Combate a Incêndios */}
             <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
-              <Link href="/treinamentos/nocoes-combate-incendios">
+              <Link href="/cursos-nr/nocoes-combate-incendios">
                 <div className="relative h-48 cursor-pointer overflow-hidden">
                   <img 
                     src="/training-covers/nocoes-combate-incendios.png" 
@@ -446,7 +447,7 @@ export default function LandingPage() {
 
                 {/* Footer with button - now always at bottom */}
                 <CardFooter className="pt-0 mt-auto">
-                  <Link href="/treinamentos/nocoes-combate-incendios" className="w-full">
+                  <Link href="/cursos-nr/nocoes-combate-incendios" className="w-full">
                     <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
                       Ver detalhes
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -458,7 +459,7 @@ export default function LandingPage() {
 
             {/* NR-05 - CIPA */}
             <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
-              <Link href="/treinamentos/nr-05-cipa-grau-risco-2">
+              <Link href="/cursos-nr/nr-05-cipa-grau-risco-2">
                 <div className="relative h-48 cursor-pointer overflow-hidden">
                   <img 
                     src="/training-covers/cipa.png" 
@@ -505,7 +506,7 @@ export default function LandingPage() {
 
                 {/* Footer with button - now always at bottom */}
                 <CardFooter className="pt-0 mt-auto">
-                  <Link href="/treinamentos/nr-05-cipa-grau-risco-2" className="w-full">
+                  <Link href="/cursos-nr/nr-05-cipa-grau-risco-2" className="w-full">
                     <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
                       Ver detalhes
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -517,7 +518,7 @@ export default function LandingPage() {
 
             {/* Primeiros Socorros */}
             <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
-              <Link href="/treinamentos/nocoes-primeiros-socorros">
+              <Link href="/cursos-nr/nocoes-primeiros-socorros">
                 <div className="relative h-48 cursor-pointer overflow-hidden">
                   <img 
                     src="/training-covers/nocoes-primeiros-socorros.png" 
@@ -561,7 +562,7 @@ export default function LandingPage() {
 
                 {/* Footer with button - now always at bottom */}
                 <CardFooter className="pt-0 mt-auto">
-                  <Link href="/treinamentos/nocoes-primeiros-socorros" className="w-full">
+                  <Link href="/cursos-nr/nocoes-primeiros-socorros" className="w-full">
                     <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
                       Ver detalhes
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -589,7 +590,7 @@ export default function LandingPage() {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-20 bg-muted/50">
+      <section id="benefits" className="py-12 bg-muted/50">
         <div className="container px-4 mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -658,9 +659,11 @@ export default function LandingPage() {
                       nossa empresa foi fundamental para o engajamento."
                     </blockquote>
                     <div className="flex items-center gap-4">
-                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-brand-blue-main to-brand-blue-2 flex items-center justify-center text-white font-bold">
-                        CM
-                      </div>
+                      <img 
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face&auto=format&q=80"
+                        alt="Carlos Mendes"
+                        className="h-12 w-12 rounded-full object-cover"
+                      />
                       <div>
                         <p className="font-semibold">Carlos Mendes</p>
                         <p className="text-sm text-muted-foreground">Diretor de SST - Vale</p>
@@ -683,9 +686,11 @@ export default function LandingPage() {
                       nossos custos em 40% e aumentou significativamente o engajamento dos colaboradores."
                     </blockquote>
                     <div className="flex items-center gap-4">
-                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-brand-blue-main to-brand-blue-2 flex items-center justify-center text-white font-bold">
-                        MS
-                      </div>
+                      <img 
+                        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face&auto=format&q=80"
+                        alt="Marina Santos"
+                        className="h-12 w-12 rounded-full object-cover"
+                      />
                       <div>
                         <p className="font-semibold">Marina Santos</p>
                         <p className="text-sm text-muted-foreground">Gerente de SSO - Petrobras</p>
@@ -708,9 +713,11 @@ export default function LandingPage() {
                       colaboradores em construção civil em apenas 4 meses."
                     </blockquote>
                     <div className="flex items-center gap-4">
-                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-brand-blue-main to-brand-blue-2 flex items-center justify-center text-white font-bold">
-                        RS
-                      </div>
+                      <img 
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&auto=format&q=80"
+                        alt="Roberto Silva"
+                        className="h-12 w-12 rounded-full object-cover"
+                      />
                       <div>
                         <p className="font-semibold">Roberto Silva</p>
                         <p className="text-sm text-muted-foreground">Diretor Técnico - MRV Engenharia</p>
@@ -733,9 +740,11 @@ export default function LandingPage() {
                       Recomendo para qualquer empresa que busca excelência em SST."
                     </blockquote>
                     <div className="flex items-center gap-4">
-                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-brand-blue-main to-brand-blue-2 flex items-center justify-center text-white font-bold">
-                        AC
-                      </div>
+                      <img 
+                        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face&auto=format&q=80"
+                        alt="Ana Costa"
+                        className="h-12 w-12 rounded-full object-cover"
+                      />
                       <div>
                         <p className="font-semibold">Ana Costa</p>
                         <p className="text-sm text-muted-foreground">Coordenadora SST - JBS</p>
@@ -764,7 +773,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="container px-4 mx-auto">
           <Card className="p-8 md:p-12 text-center text-white bg-brand-blue-main">
             <h2 className="text-3xl font-bold mb-4">
@@ -791,51 +800,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t py-12">
-        <div className="container px-4 mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <div className="mb-4">
-                <SaoESalvoLogo size="md" />
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Tecnologia a favor da vida
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">Produto</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/treinamentos" className="hover:text-primary">Treinamentos</Link></li>
-                <li><a href="#" className="hover:text-primary">Funcionalidades</a></li>
-                <li><a href="#" className="hover:text-primary">Planos</a></li>
-                <li><a href="#" className="hover:text-primary">Segurança</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">Empresa</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/sobre" className="hover:text-primary">Sobre</Link></li>
-                <li><Link href="/blog" className="hover:text-primary">Blog</Link></li>
-                <li><Link href="/carreiras" className="hover:text-primary">Carreiras</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">Suporte</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/central-de-ajuda" className="hover:text-primary">Central de Ajuda</Link></li>
-                <li><Link href="/contato" className="hover:text-primary">Contato</Link></li>
-                <li><Link href="/status" className="hover:text-primary">Status</Link></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="border-t mt-8 pt-4">
-          <div className="container px-4 mx-auto text-center text-sm text-muted-foreground">
-            © 2025 São e Salvo. Todos os direitos reservados.
-          </div>
-        </div>
-      </footer>
+      <GlobalFooter />
     </div>
   )
 }

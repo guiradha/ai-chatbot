@@ -33,6 +33,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
+import { AssistenteHeaderPortal } from './assistente-header-portal';
 
 export function Chat({
   id,
@@ -160,6 +161,7 @@ export function Chat({
 
   return (
     <>
+      <AssistenteHeaderPortal />
       <div className="overscroll-behavior-contain flex h-dvh min-w-0 touch-pan-y flex-col bg-background">
         <ChatHeader
           chatId={id}

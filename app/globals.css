@@ -47,6 +47,7 @@
   --sidebar-ring: #307FF4;
   /* border radius unit */
   --radius: 0.5rem;
+  --sidebar: hsl(0 0% 98%);
 }
 
 /* define design tokens (dark mode) */
@@ -83,6 +84,7 @@
   --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
   --sidebar-border: #505054;
   --sidebar-ring: #588DCF;
+  --sidebar: hsl(240 5.9% 10%);
 }
 
 /* define theme */
@@ -147,7 +149,7 @@
   --color-brand-blue-5: #A8C8F6;
   --color-brand-blue-6: #C1D5F5;
   --color-brand-blue-7: #D8E3F5;
-  
+
   --color-brand-grey-main: #26262A;
   --color-brand-grey-2: #505054;
   --color-brand-grey-3: #78777C;
@@ -155,28 +157,28 @@
   --color-brand-grey-5: #B4B4B9;
   --color-brand-grey-6: #C9C9CD;
   --color-brand-grey-7: #DBDDE1;
-  
+
   /* Secondary brand palette - UI colors */
   --color-brand-success: #10B981;
   --color-brand-success-light: #6EE7B7;
   --color-brand-success-dark: #047857;
-  
+
   --color-brand-danger: #EF4444;
   --color-brand-danger-light: #FCA5A5;
   --color-brand-danger-dark: #B91C1C;
-  
+
   --color-brand-warning: #F59E0B;
   --color-brand-warning-light: #FCD34D;
   --color-brand-warning-dark: #D97706;
-  
+
   --color-brand-purple: #8B5CF6;
   --color-brand-purple-light: #C4B5FD;
   --color-brand-purple-dark: #6D28D9;
-  
+
   --color-brand-info: #06B6D4;
   --color-brand-info-light: #67E8F9;
   --color-brand-info-dark: #0891B2;
-  
+
   --color-tea-green: #d0efb1;
   --color-tea-green-100: #2a450e;
   --color-tea-green-200: #548b1c;
@@ -386,4 +388,49 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
+}
+
+/* Custom object positioning for course images */
+.object-top2 {
+  object-position: 50% 25% !important;
+}
+
+@theme inline {
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

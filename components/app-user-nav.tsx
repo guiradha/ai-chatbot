@@ -1,7 +1,6 @@
 'use client';
 
-import { ChevronUp, LogOut, LogIn, Moon, Sun } from 'lucide-react';
-import Image from 'next/image';
+import { ChevronUp, LogOut, LogIn, Moon, Sun, Settings } from 'lucide-react';
 import type { User } from 'next-auth';
 import { signOut, useSession } from 'next-auth/react';
 import { useTheme } from 'next-themes';
@@ -37,15 +36,13 @@ export function AppUserNav({ user }: { user: User | undefined }) {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-accent"
+        className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors hover:border hover:border-gray-300"
       >
-        <Image
-          src={`https://avatar.vercel.sh/${user?.email}`}
-          alt={user?.email ?? 'User Avatar'}
-          width={24}
-          height={24}
-          className="rounded-full"
-        />
+        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted">
+          <span className="text-sm font-semibold">
+            {user?.email?.[0]?.toUpperCase() || 'U'}
+          </span>
+        </div>
         <span className="truncate">
           {isGuest ? 'Convidado' : user?.email}
         </span>
@@ -72,6 +69,17 @@ export function AppUserNav({ user }: { user: User | undefined }) {
               <Moon className="h-4 w-4" />
             )}
             <span>Modo {resolvedTheme === 'light' ? 'escuro' : 'claro'}</span>
+          </button>
+
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              router.push('/configuracoes');
+            }}
+            className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-accent"
+          >
+            <Settings className="h-4 w-4" />
+            <span>Configurações</span>
           </button>
 
           <button

@@ -34,7 +34,7 @@ export async function middleware(request: NextRequest) {
   const isGuest = guestRegex.test(token?.email ?? '');
 
   if (token && !isGuest && ['/login', '/register'].includes(pathname)) {
-    return NextResponse.redirect(new URL('/', request.url));
+    return NextResponse.redirect(new URL('/inicio', request.url));
   }
 
   return NextResponse.next();
@@ -43,12 +43,22 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     '/',
-    '/assistente/:id',
+    '/inicio',
+    '/assistente',
+    '/assistente/:path*',
+    '/cursos',
+    '/certificados',
+    '/relatorios',
+    '/equipe',
+    '/documentos',
+    '/ajuda',
+    '/configuracoes',
+    '/admin',
+    '/admin/:path*',
     '/api/:path*',
     '/login',
     '/register',
-    '/assistente',
-    '/treinamentos',
+    '/cursos-nr',
 
     /*
      * Match all request paths except for the ones starting with:

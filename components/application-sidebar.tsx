@@ -16,31 +16,36 @@ import {
 
 const menuItems = [
   {
+    title: 'Início',
+    icon: BarChart3,
+    href: '/inicio',
+  },
+  {
     title: 'Assistente',
     icon: MessageSquare,
     href: '/assistente',
   },
   {
-    title: 'Treinamentos',
+    title: 'Cursos',
     icon: GraduationCap,
-    href: '/treinamentos',
+    href: '/inicio/cursos',
   },
   {
     title: 'Relatórios',
-    icon: BarChart3,
-    href: '/relatorios',
+    icon: FileText,
+    href: '/inicio/relatorios',
     disabled: true,
   },
   {
     title: 'Equipe',
     icon: Users,
-    href: '/equipe',
+    href: '/inicio/equipe',
     disabled: true,
   },
   {
     title: 'Documentos',
     icon: FileText,
-    href: '/documentos',
+    href: '/inicio/documentos',
     disabled: true,
   },
 ];
@@ -49,13 +54,13 @@ const bottomMenuItems = [
   {
     title: 'Ajuda',
     icon: HelpCircle,
-    href: '/ajuda',
+    href: '/inicio/ajuda',
     disabled: true,
   },
   {
     title: 'Configurações',
     icon: Settings,
-    href: '/configuracoes',
+    href: '/inicio/configuracoes',
     disabled: true,
   },
 ];

@@ -19,10 +19,10 @@ function PureSuggestedActions({
   selectedVisibilityType,
 }: SuggestedActionsProps) {
   const suggestedActions = [
-    'Quais são as vantagens de usar Next.js?',
-    'Escreva código para demonstrar o algoritmo de Dijkstra',
-    'Me ajude a escrever um ensaio sobre o Vale do Silício',
-    'Qual é o clima em São Paulo?',
+    'Quais são os requisitos para o treinamento NR-35?',
+    'Como emitir um certificado de conclusão?',
+    'Qual a diferença entre NR-10 e NR-33?',
+    'Como acompanhar o progresso da minha equipe?',
   ];
 
   return (

@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Clock, CheckCircle, Award, MapPin, BookOpen, Shield } from "lucide-react"
 import { SaoESalvoLogo } from '@/components/sao-e-salvo-logo'
+import { GlobalFooter } from '@/components/global-footer'
 import { ReactNode } from 'react'
 
 export interface TrainingModule {
@@ -59,45 +60,13 @@ interface TrainingPageTemplateProps {
 export function TrainingPageTemplate({ data }: TrainingPageTemplateProps) {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Navigation */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container px-4 mx-auto flex h-16 items-center justify-between">
-          <Link href="/" className="cursor-pointer">
-            <SaoESalvoLogo size="md" />
-          </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/treinamentos" className="text-sm font-medium hover:text-primary transition-colors">
-              Treinamentos
-            </Link>
-            <Link href="/#features" className="text-sm font-medium hover:text-primary transition-colors">
-              Funcionalidades
-            </Link>
-            <Link href="/#benefits" className="text-sm font-medium hover:text-primary transition-colors">
-              Benefícios
-            </Link>
-            <Link href="/#pricing" className="text-sm font-medium hover:text-primary transition-colors">
-              Planos
-            </Link>
-            <Link href="/#testimonials" className="text-sm font-medium hover:text-primary transition-colors">
-              Depoimentos
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="/login">
-              <Button variant="ghost">Entrar</Button>
-            </Link>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white">Contato Comercial</Button>
-          </div>
-        </div>
-      </header>
-
       {/* Breadcrumb */}
       <div className="bg-gray-50 py-4">
         <div className="container px-4 mx-auto">
           <div className="flex items-center text-sm text-gray-600">
             <Link href="/" className="hover:text-gray-700">Início</Link>
             <span className="mx-2">/</span>
-            <Link href="/treinamentos" className="hover:text-gray-700">Treinamentos</Link>
+            <Link href="/cursos-nr" className="hover:text-gray-700">Cursos</Link>
             <span className="mx-2">/</span>
             <span className="text-gray-900">{data.title}</span>
           </div>
@@ -110,7 +79,7 @@ export function TrainingPageTemplate({ data }: TrainingPageTemplateProps) {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="h-12 w-12 rounded-lg bg-gray-100 flex items-center justify-center [&>*]:!text-[#4D7298]">
+                <div className="h-12 w-12 rounded-lg bg-gray-100 flex items-center justify-center [&>*]:!text-gray-600">
                   {data.heroIcon}
                 </div>
                 <Badge className="bg-gray-100 text-gray-600">
@@ -339,7 +308,7 @@ export function TrainingPageTemplate({ data }: TrainingPageTemplateProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-16 text-white" style={{backgroundColor: '#4D7298'}}>
+      <section className="py-16 text-white bg-gray-700">
         <div className="container px-4 mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">{data.ctaTitle || "Capacite sua Equipe"}</h2>
           <p className="text-xl mb-8 opacity-90">
@@ -351,51 +320,7 @@ export function TrainingPageTemplate({ data }: TrainingPageTemplateProps) {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-background border-t py-12 mt-auto">
-        <div className="container px-4 mx-auto">
-          <div className="grid lg:grid-cols-5 gap-8">
-            <div className="lg:col-span-2">
-              <div className="flex items-center mb-4">
-                <SaoESalvoLogo size="md" />
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                Tecnologia a favor da vida
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">Produto</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/treinamentos" className="hover:text-primary">Treinamentos</Link></li>
-                <li><a href="#" className="hover:text-primary">Funcionalidades</a></li>
-                <li><a href="#" className="hover:text-primary">Planos</a></li>
-                <li><a href="#" className="hover:text-primary">Segurança</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">Empresa</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/sobre" className="hover:text-primary">Sobre</Link></li>
-                <li><Link href="/blog" className="hover:text-primary">Blog</Link></li>
-                <li><Link href="/carreiras" className="hover:text-primary">Carreiras</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">Suporte</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary">Central de Ajuda</a></li>
-                <li><a href="#" className="hover:text-primary">Contato</a></li>
-                <li><a href="#" className="hover:text-primary">Status</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="border-t mt-8">
-          <div className="container px-4 mx-auto py-4 text-center text-sm text-muted-foreground">
-            © 2025 São e Salvo. Todos os direitos reservados.
-          </div>
-        </div>
-      </footer>
+      <GlobalFooter />
     </div>
   )
 }

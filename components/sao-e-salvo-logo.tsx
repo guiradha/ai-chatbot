@@ -13,13 +13,13 @@ export function SaoESalvoLogo({
 }: SaoESalvoLogoProps) {
   const sizeClasses = {
     sm: {
-      text: "text-xl"
+      text: "text-2xl"
     },
     md: {
       text: "text-3xl"
     },
     lg: {
-      text: "text-4xl"
+      text: "text-5xl"
     }
   }
 
@@ -30,8 +30,12 @@ export function SaoESalvoLogo({
       {/* Logo Text - "são e salvo" with Work Sans bold and reduced letter spacing */}
       {showText && (
         <span 
-          className={`${currentSize.text} leading-none flex items-center font-bold`}
-          style={{ fontFamily: 'var(--font-work-sans)', letterSpacing: '-0.05em' }}
+          className={`${currentSize.text} leading-none flex items-center font-bold select-none text-white`}
+          style={{ 
+            fontFamily: 'var(--font-work-sans)', 
+            letterSpacing: '-0.03em',
+            textTransform: 'lowercase'
+          }}
         >
           são e salvo
         </span>

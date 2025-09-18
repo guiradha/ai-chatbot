@@ -398,6 +398,25 @@ export const MenuIcon = ({ size = 16 }: { size?: number }) => {
   );
 };
 
+export const PanelRightIcon = ({ size = 16 }: { size?: number }) => {
+  return (
+    <svg
+      height={size}
+      strokeLinejoin="round"
+      viewBox="0 0 16 16"
+      width={size}
+      style={{ color: 'currentcolor' }}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1 2.75C1 2.33579 1.33579 2 1.75 2H14.25C14.6642 2 15 2.33579 15 2.75V13.25C15 13.6642 14.6642 14 14.25 14H1.75C1.33579 14 1 13.6642 1 13.25V2.75ZM9.5 3.5H2.5V12.5H9.5V3.5ZM11 12.5V3.5H13.5V12.5H11Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
 export const PencilEditIcon = ({ size = 16 }: { size?: number }) => {
   return (
     <svg

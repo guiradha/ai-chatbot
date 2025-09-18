@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { SaoESalvoLogo } from '@/components/sao-e-salvo-logo'
+import { GlobalFooter } from '@/components/global-footer'
 import { 
   ArrowRight,
   Shield,
@@ -20,28 +21,24 @@ export default function SobrePage() {
       name: 'Alexandre Wawruk',
       role: 'Chief Sales Officer',
       image: '/team/alexandre.jpg',
-      bio: '+10 anos de experiência em educação corporativa e desenvolvimento de negócios enterprise.',
       linkedin: '#'
     },
     {
       name: 'Natascha Giora',
       role: 'Chief Expansion Officer',
       image: '/team/natasha.jpg',
-      bio: 'MBA em Gestão de Riscos pela Trevisan. Expertise em auditoria e controles internos.',
       linkedin: '#'
     },
     {
       name: 'Marina Proença',
       role: 'Chief Product Officer',
       image: '/team/marina.jpg',
-      bio: '3x Fundadora. +20 anos liderando produtos digitais e marketing.',
       linkedin: '#'
     },
     {
       name: 'Guilherme Monteiro',
       role: 'Chief Technology Officer',
       image: '/team/guilherme.jpg',
-      bio: '+20 anos em startups de alto crescimento. Especialista em IA e liderança de equipes.',
       linkedin: '#'
     }
   ]
@@ -67,7 +64,7 @@ export default function SobrePage() {
       </section>
 
       {/* Mission & Values - Minimalist Grid */}
-      <section className="py-16 bg-background">
+      <section className="pt-4 pb-12 bg-background">
         <div className="container px-4 mx-auto max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="text-center">
@@ -122,7 +119,7 @@ export default function SobrePage() {
       </section>
 
       {/* Founders Section - Minimalist Cards */}
-      <section className="py-20 bg-muted/50">
+      <section className="py-12 bg-muted/50">
         <div className="container px-4 mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -146,8 +143,7 @@ export default function SobrePage() {
                 </div>
                 <CardContent className="p-4">
                   <h3 className="font-bold text-lg">{founder.name}</h3>
-                  <p className="text-sm text-brand-blue-main font-medium mb-2">{founder.role}</p>
-                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{founder.bio}</p>
+                  <p className="text-sm text-brand-blue-main font-medium mb-3">{founder.role}</p>
                   <Button variant="outline" size="sm" className="w-full">
                     <Linkedin className="h-4 w-4 mr-2" />
                     LinkedIn
@@ -160,7 +156,7 @@ export default function SobrePage() {
       </section>
 
       {/* Why Choose Us - Minimalist */}
-      <section className="py-16">
+      <section className="py-12">
         <div className="container px-4 mx-auto max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -226,7 +222,7 @@ export default function SobrePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="container px-4 mx-auto">
           <Card className="p-8 md:p-12 text-center text-white bg-brand-blue-main">
             <h2 className="text-3xl font-bold mb-4">
@@ -250,50 +246,7 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t py-12">
-        <div className="container px-4 mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <div className="mb-4">
-                <SaoESalvoLogo size="md" />
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Tecnologia a favor da vida
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">Produto</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/treinamentos" className="hover:text-primary">Treinamentos</Link></li>
-                <li><a href="#" className="hover:text-primary">Funcionalidades</a></li>
-                <li><a href="#" className="hover:text-primary">Planos</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">Empresa</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/sobre" className="hover:text-primary">Sobre</Link></li>
-                <li><Link href="/blog" className="hover:text-primary">Blog</Link></li>
-                <li><Link href="/carreiras" className="hover:text-primary">Carreiras</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">Suporte</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/central-de-ajuda" className="hover:text-primary">Central de Ajuda</Link></li>
-                <li><Link href="/contato" className="hover:text-primary">Contato</Link></li>
-                <li><Link href="/status" className="hover:text-primary">Status</Link></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="border-t mt-8 pt-4">
-          <div className="container px-4 mx-auto text-center text-sm text-muted-foreground">
-            © 2025 São e Salvo. Todos os direitos reservados.
-          </div>
-        </div>
-      </footer>
+      <GlobalFooter />
     </div>
   )
 }

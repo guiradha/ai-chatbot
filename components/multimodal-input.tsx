@@ -42,7 +42,7 @@ import type { VisibilityType } from './visibility-selector';
 import type { Attachment, ChatMessage } from '@/lib/types';
 import type { AppUsage } from '@/lib/usage';
 import { chatModels } from '@/lib/ai/models';
-import { saveChatModelAsCookie } from '@/app/(assistente)/actions';
+import { saveChatModelAsCookie } from '@/app/(protected)/assistente/actions';
 import { startTransition } from 'react';
 import { Context } from './elements/context';
 import { myProvider } from '@/lib/ai/providers';
