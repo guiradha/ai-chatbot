@@ -6,7 +6,7 @@ import {
   Users, 
   Shield, 
   AlertTriangle, 
-  CheckCircle2,
+  Check,
   TrendingUp,
   Activity,
   BookOpen,
@@ -20,7 +20,7 @@ const stats = [
     title: 'Cursos Concluídos',
     value: '12',
     change: '+20%',
-    icon: CheckCircle2,
+    icon: Check,
     trend: 'up',
     color: 'text-green-600 dark:text-green-400',
     bgColor: 'bg-green-100 dark:bg-green-900/20'
@@ -59,7 +59,7 @@ const recentActivities = [
     title: 'Treinamento de Segurança no Trabalho',
     type: 'Concluído',
     date: '2 horas atrás',
-    icon: CheckCircle2,
+    icon: Check,
     color: 'text-green-600'
   },
   {

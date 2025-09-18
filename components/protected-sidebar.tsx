@@ -18,7 +18,8 @@ import {
   ChevronRight,
   Shield,
   Calendar,
-  Award
+  Award,
+  MessagesSquare
 } from 'lucide-react';
 import {
   Sidebar,
@@ -60,6 +61,11 @@ const menuItems = [
     title: 'Certificados',
     icon: Award,
     href: '/certificados',
+  },
+  {
+    title: 'Comunidade',
+    icon: MessagesSquare,
+    href: '/comunidade',
   },
 ];
 
@@ -150,21 +156,15 @@ export function ProtectedSidebar({ user }: { user: User | undefined }) {
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <SidebarMenuItem className="flex justify-center">
-                          {item.disabled ? (
-                            <div className="flex h-9 w-9 items-center justify-center rounded-lg opacity-40 cursor-not-allowed">
-                              <Icon className="h-6 w-6 text-muted-foreground" />
-                            </div>
-                          ) : (
-                            <SidebarMenuButton
-                              asChild
-                              isActive={isActive}
-                              className="h-9 w-9 justify-center"
-                            >
-                              <Link href={item.href}>
-                                <Icon className="h-6 w-6" />
-                              </Link>
-                            </SidebarMenuButton>
-                          )}
+                          <SidebarMenuButton
+                            asChild
+                            isActive={isActive}
+                            className="h-9 w-9 justify-center"
+                          >
+                            <Link href={item.href}>
+                              <Icon className="h-6 w-6" />
+                            </Link>
+                          </SidebarMenuButton>
                         </SidebarMenuItem>
                       </TooltipTrigger>
                       <TooltipContent side="right">
@@ -177,23 +177,16 @@ export function ProtectedSidebar({ user }: { user: User | undefined }) {
 
               return (
                 <SidebarMenuItem key={item.href}>
-                  {item.disabled ? (
-                    <div className="flex h-9 items-center gap-3 rounded-lg px-2 text-sm opacity-40 cursor-not-allowed">
-                      <Icon className="h-5 w-5 text-muted-foreground" />
-                      <span className="text-muted-foreground">{item.title}</span>
-                    </div>
-                  ) : (
-                    <SidebarMenuButton
-                      asChild
-                      isActive={isActive}
-                      className="h-9"
-                    >
-                      <Link href={item.href}>
-                        <Icon className="h-5 w-5" />
-                        <span>{item.title}</span>
-                      </Link>
-                    </SidebarMenuButton>
-                  )}
+                  <SidebarMenuButton
+                    asChild
+                    isActive={isActive}
+                    className="h-9"
+                  >
+                    <Link href={item.href}>
+                      <Icon className="h-5 w-5" />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
                 </SidebarMenuItem>
               );
             })}
@@ -218,21 +211,15 @@ export function ProtectedSidebar({ user }: { user: User | undefined }) {
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <SidebarMenuItem className="flex justify-center">
-                          {item.disabled ? (
-                            <div className="flex h-9 w-9 items-center justify-center rounded-lg opacity-40 cursor-not-allowed">
-                              <Icon className="h-6 w-6 text-muted-foreground" />
-                            </div>
-                          ) : (
-                            <SidebarMenuButton
-                              asChild
-                              isActive={isActive}
-                              className="h-9 w-9 justify-center"
-                            >
-                              <Link href={item.href}>
-                                <Icon className="h-6 w-6" />
-                              </Link>
-                            </SidebarMenuButton>
-                          )}
+                          <SidebarMenuButton
+                            asChild
+                            isActive={isActive}
+                            className="h-9 w-9 justify-center"
+                          >
+                            <Link href={item.href}>
+                              <Icon className="h-6 w-6" />
+                            </Link>
+                          </SidebarMenuButton>
                         </SidebarMenuItem>
                       </TooltipTrigger>
                       <TooltipContent side="right">
@@ -245,23 +232,16 @@ export function ProtectedSidebar({ user }: { user: User | undefined }) {
 
               return (
                 <SidebarMenuItem key={item.href}>
-                  {item.disabled ? (
-                    <div className="flex h-9 items-center gap-3 rounded-lg px-2 text-sm opacity-40 cursor-not-allowed">
-                      <Icon className="h-5 w-5 text-muted-foreground" />
-                      <span className="text-muted-foreground">{item.title}</span>
-                    </div>
-                  ) : (
-                    <SidebarMenuButton
-                      asChild
-                      isActive={isActive}
-                      className="h-9"
-                    >
-                      <Link href={item.href}>
-                        <Icon className="h-5 w-5" />
-                        <span>{item.title}</span>
-                      </Link>
-                    </SidebarMenuButton>
-                  )}
+                  <SidebarMenuButton
+                    asChild
+                    isActive={isActive}
+                    className="h-9"
+                  >
+                    <Link href={item.href}>
+                      <Icon className="h-5 w-5" />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
                 </SidebarMenuItem>
               );
             })}

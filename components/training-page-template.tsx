@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Clock, CheckCircle, Award, MapPin, BookOpen, Shield } from "lucide-react"
+import { Clock, Check, Award, MapPin, BookOpen, Shield } from "lucide-react"
 import { SaoESalvoLogo } from '@/components/sao-e-salvo-logo'
 import { GlobalFooter } from '@/components/global-footer'
 import { ReactNode } from 'react'
@@ -229,7 +229,7 @@ export function TrainingPageTemplate({ data }: TrainingPageTemplateProps) {
                   {competencia.skills.map((skill, skillIndex) => (
                     <div key={skillIndex} className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
-                        <CheckCircle className="h-5 w-5 text-green-600" />
+                        <Check className="h-5 w-5 text-green-600" />
                       </div>
                       <p className="text-gray-700 leading-relaxed">{skill}</p>
                     </div>
@@ -288,7 +288,7 @@ export function TrainingPageTemplate({ data }: TrainingPageTemplateProps) {
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-16 w-16 rounded-2xl bg-gray-100 flex items-center justify-center shadow-sm">
-                  <CheckCircle className="h-8 w-8 text-gray-600" />
+                  <Check className="h-8 w-8 text-gray-600" />
                 </div>
                 <h3 className="font-semibold text-2xl">Requisitos para Certificação</h3>
               </div>
@@ -296,7 +296,7 @@ export function TrainingPageTemplate({ data }: TrainingPageTemplateProps) {
                 {data.certificacao.requisitos.map((req, index) => (
                   <div key={index} className="flex items-start gap-4 p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-100">
                     <div className="flex-shrink-0 mt-1">
-                      <CheckCircle className="h-6 w-6 text-green-600" />
+                      <Check className="h-6 w-6 text-green-600" />
                     </div>
                     <span className="text-gray-800 font-medium leading-relaxed">{req}</span>
                   </div>

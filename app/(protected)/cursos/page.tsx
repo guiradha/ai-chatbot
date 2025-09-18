@@ -15,7 +15,7 @@ import {
   BookOpen,
   Calendar,
   Play,
-  CheckCircle,
+  Check,
   Lock,
   Star,
   Download,
@@ -76,10 +76,10 @@ export default function DashboardCursosPage() {
     type: getCourseType(course.title),
     // Add some mock status/progress data for demonstration
     progress: index % 5 === 0 ? 100 : index % 5 === 1 ? Math.floor(Math.random() * 100) : 0,
-    status: index % 5 === 0 ? 'completed' : 
+    status: (index % 5 === 0 ? 'completed' : 
            index % 5 === 1 ? 'in-progress' : 
            index % 5 === 2 ? 'available' : 
-           index % 5 === 3 ? 'available' : 'locked',
+           index % 5 === 3 ? 'available' : 'locked') as 'completed' | 'in-progress' | 'available' | 'locked',
     certificateAvailable: index % 5 === 0,
     score: index % 5 === 0 ? 80 + Math.floor(Math.random() * 20) : undefined,
     completedDate: index % 5 === 0 ? '2024-12-15' : undefined,
@@ -127,7 +127,7 @@ export default function DashboardCursosPage() {
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'completed': return CheckCircle
+      case 'completed': return Check
       case 'in-progress': return Play
       case 'available': return BookOpen
       case 'locked': return Lock
@@ -165,7 +165,7 @@ export default function DashboardCursosPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Concluídos</CardTitle>
-            <CheckCircle className="h-4 w-4 text-green-600" />
+            <Check className="h-4 w-4 text-green-600" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{userStats.completed}</div>

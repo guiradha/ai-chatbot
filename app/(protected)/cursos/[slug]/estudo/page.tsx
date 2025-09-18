@@ -20,7 +20,7 @@ import {
   ArrowRight,
   Book,
   BookOpen,
-  CheckCircle,
+  Check,
   ChevronDown,
   ChevronRight,
   Clock,
@@ -47,7 +47,6 @@ export default function CourseLearningPage() {
   const router = useRouter()
   const courseSlug = params.slug as string
   
-  const [sidebarOpen, setSidebarOpen] = useState(true)
   const [currentLesson, setCurrentLesson] = useState({ moduleId: 1, lessonId: 1 })
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(100)
@@ -184,172 +183,12 @@ export default function CourseLearningPage() {
   }
 
   return (
-    <div className="flex h-screen bg-background">
-      {/* Sidebar */}
-      <div className={`${
-        sidebarOpen ? 'w-96' : 'w-0'
-      } transition-all duration-300 border-r bg-card overflow-hidden`}>
-        <div className="h-full flex flex-col">
-          {/* Sidebar Header */}
-          <div className="p-4 border-b">
-            <div className="flex items-center justify-between mb-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => router.push(`/cursos/${courseSlug}`)}
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Voltar
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setSidebarOpen(false)}
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-            <h2 className="font-semibold text-lg mb-2">{courseData.title}</h2>
-            <div className="space-y-2">
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-muted-foreground">Progresso Geral</span>
-                <span className="font-medium">{overallProgress}%</span>
-              </div>
-              <Progress value={overallProgress} className="h-2" />
-            </div>
-          </div>
-
-          {/* Modules List */}
-          <ScrollArea className="flex-1">
-            <div className="p-4 space-y-4">
-              {courseData.modules.map((module: any) => (
-                <Collapsible
-                  key={module.id}
-                  defaultOpen={module.status === 'in-progress'}
-                >
-                  <CollapsibleTrigger className="w-full">
-                    <div className="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors">
-                      <div className="flex items-center gap-3">
-                        <div className={`h-8 w-8 rounded-full flex items-center justify-center ${
-                          module.status === 'completed' 
-                            ? 'bg-green-100 text-green-700'
-                            : module.status === 'in-progress'
-                            ? 'bg-blue-100 text-blue-700'
-                            : 'bg-gray-100 text-gray-500'
-                        }`}>
-                          {module.status === 'completed' ? (
-                            <CheckCircle className="h-5 w-5" />
-                          ) : module.status === 'locked' ? (
-                            <Lock className="h-4 w-4" />
-                          ) : (
-                            <span className="text-xs font-bold">{module.id}</span>
-                          )}
-                        </div>
-                        <div className="text-left">
-                          <p className="font-medium text-sm">{module.title}</p>
-                          <p className="text-xs text-muted-foreground">
-                            {module.duration} • {module.lessons.length} aulas
-                          </p>
-                        </div>
-                      </div>
-                      <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                    </div>
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="pl-11 pr-3 space-y-1 mt-1">
-                    {module.lessons.map((lesson: any) => {
-                      const LessonIcon = getLessonIcon(lesson.type)
-                      const isCurrentLesson = lesson.id === currentLesson.lessonId
-                      
-                      return (
-                        <button
-                          key={lesson.id}
-                          onClick={() => !lesson.locked && navigateToLesson(module.id, lesson.id)}
-                          disabled={lesson.locked}
-                          className={`w-full text-left p-2 rounded-lg transition-colors ${
-                            isCurrentLesson
-                              ? 'bg-primary/10 text-primary'
-                              : lesson.locked
-                              ? 'opacity-50 cursor-not-allowed'
-                              : 'hover:bg-muted'
-                          }`}
-                        >
-                          <div className="flex items-center gap-3">
-                            <div className={`h-6 w-6 rounded-full flex items-center justify-center ${
-                              lesson.completed
-                                ? 'bg-green-100 text-green-700'
-                                : isCurrentLesson
-                                ? 'bg-primary/20 text-primary'
-                                : 'bg-gray-100 text-gray-500'
-                            }`}>
-                              {lesson.completed ? (
-                                <CheckCircle className="h-4 w-4" />
-                              ) : lesson.locked ? (
-                                <Lock className="h-3 w-3" />
-                              ) : (
-                                <LessonIcon className="h-3 w-3" />
-                              )}
-                            </div>
-                            <div className="flex-1">
-                              <p className={`text-sm ${
-                                isCurrentLesson ? 'font-medium' : ''
-                              }`}>
-                                {lesson.title}
-                              </p>
-                              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                                <span>{lesson.duration}</span>
-                                {lesson.type === 'quiz' && (
-                                  <span>• {lesson.questions} questões</span>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        </button>
-                      )
-                    })}
-                  </CollapsibleContent>
-                </Collapsible>
-              ))}
-            </div>
-          </ScrollArea>
-        </div>
-      </div>
-
-      {/* Main Content Area */}
+    <div className="flex h-full bg-background">
+      {/* Left Column - Video + Footer */}
       <div className="flex-1 flex flex-col">
-        {/* Top Bar */}
-        <div className="h-14 border-b px-4 flex items-center justify-between bg-card">
-          <div className="flex items-center gap-4">
-            {!sidebarOpen && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setSidebarOpen(true)}
-              >
-                <Menu className="h-4 w-4" />
-              </Button>
-            )}
-            <div className="flex items-center gap-2">
-              <Badge variant="outline">{currentLessonData?.type}</Badge>
-              <h1 className="font-medium">{currentLessonData?.title}</h1>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon">
-              <Settings className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Fullscreen className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Video/Content Area */}
-        <div className="flex-1 flex">
-          {/* Main Content */}
-          <div className="flex-1 flex flex-col">
-            {/* Video Player or Content */}
-            {currentLessonData?.type === 'video' ? (
-              <div className="flex-1 bg-black relative">
+        {/* Video Player or Content */}
+        {currentLessonData?.type === 'video' ? (
+          <div className="flex-1 bg-black relative">
                 <video
                   ref={videoRef}
                   className="w-full h-full"
@@ -427,10 +266,11 @@ export default function CourseLearningPage() {
                     </div>
                   </div>
                 </div>
-              </div>
-            ) : currentLessonData?.type === 'quiz' ? (
-              <div className="flex-1 p-8 overflow-auto">
-                <Card className="max-w-4xl mx-auto">
+          </div>
+        ) : currentLessonData?.type === 'quiz' ? (
+          <div className="flex-1 overflow-auto">
+            <div className="p-8">
+                  <Card className="max-w-4xl mx-auto">
                   <CardHeader>
                     <CardTitle>Quiz - {currentLessonData.title}</CardTitle>
                     <CardDescription>
@@ -448,11 +288,13 @@ export default function CourseLearningPage() {
                       <Button>Iniciar Quiz</Button>
                     </div>
                   </CardContent>
-                </Card>
-              </div>
-            ) : currentLessonData?.type === 'document' ? (
-              <div className="flex-1 p-8 overflow-auto">
-                <Card className="max-w-4xl mx-auto">
+              </Card>
+            </div>
+          </div>
+        ) : currentLessonData?.type === 'document' ? (
+          <div className="flex-1 overflow-auto">
+            <div className="p-8">
+                  <Card className="max-w-4xl mx-auto">
                   <CardHeader>
                     <CardTitle>{currentLessonData.title}</CardTitle>
                     <CardDescription>
@@ -472,11 +314,13 @@ export default function CourseLearningPage() {
                       </Button>
                     </div>
                   </CardContent>
-                </Card>
-              </div>
-            ) : currentLessonData?.type === 'assignment' ? (
-              <div className="flex-1 p-8 overflow-auto">
-                <Card className="max-w-4xl mx-auto">
+              </Card>
+            </div>
+          </div>
+        ) : currentLessonData?.type === 'assignment' ? (
+          <div className="flex-1 overflow-auto">
+            <div className="p-8">
+                  <Card className="max-w-4xl mx-auto">
                   <CardHeader>
                     <CardTitle>{currentLessonData.title}</CardTitle>
                     <CardDescription>
@@ -493,24 +337,26 @@ export default function CourseLearningPage() {
                       <Button>Começar Atividade</Button>
                     </div>
                   </CardContent>
-                </Card>
-              </div>
-            ) : (
-              <div className="flex-1 flex items-center justify-center">
-                <div className="text-center">
-                  <BookOpen className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
-                  <h3 className="text-lg font-medium mb-2">Selecione uma aula</h3>
-                  <p className="text-muted-foreground">
-                    Escolha uma aula na lista ao lado para começar
-                  </p>
-                </div>
-              </div>
-            )}
+              </Card>
+            </div>
+          </div>
+        ) : (
+          <div className="flex-1 flex items-center justify-center">
+            <div className="text-center">
+              <BookOpen className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
+              <h3 className="text-lg font-medium mb-2">Selecione uma aula</h3>
+              <p className="text-muted-foreground">
+                Escolha uma aula na lista ao lado para começar
+              </p>
+            </div>
+          </div>
+        )}
 
-            {/* Bottom Navigation */}
-            <div className="h-20 border-t bg-card px-8 flex items-center justify-between">
+        {/* Footer Navigation - Only under video */}
+        <div className="h-14 border-t bg-card px-6 flex items-center justify-between flex-shrink-0">
               <Button
-                variant="outline"
+                variant="ghost"
+                size="sm"
                 onClick={goToPreviousLesson}
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
@@ -521,102 +367,151 @@ export default function CourseLearningPage() {
                 {currentLessonData && !currentLessonData.completed && (
                   <Button
                     variant="outline"
+                    size="sm"
                     onClick={markLessonComplete}
                   >
-                    <CheckCircle className="mr-2 h-4 w-4" />
+                    <Check className="mr-2 h-4 w-4" />
                     Marcar como Concluída
                   </Button>
                 )}
               </div>
 
               <Button
+                variant="ghost"
+                size="sm"
                 onClick={goToNextLesson}
               >
                 Próxima Aula
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-            </div>
-          </div>
+        </div>
+      </div>
 
-          {/* Right Panel - Tabs */}
-          <div className="w-96 border-l bg-card">
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="h-full flex flex-col">
-              <TabsList className="grid w-full grid-cols-4 rounded-none">
+      {/* Right Column - Tabs */}
+      <div className="w-96 border-l bg-card flex-shrink-0">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="h-full flex flex-col">
+              <TabsList className="grid w-full grid-cols-3 rounded-none">
                 <TabsTrigger value="overview">Visão Geral</TabsTrigger>
                 <TabsTrigger value="notes">Anotações</TabsTrigger>
                 <TabsTrigger value="discussion">Discussão</TabsTrigger>
-                <TabsTrigger value="modules">Módulos</TabsTrigger>
               </TabsList>
 
               <ScrollArea className="flex-1">
                 <TabsContent value="overview" className="p-4 space-y-4 m-0">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">Sobre esta aula</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div>
-                        <h4 className="font-medium mb-1">{currentLessonData?.title}</h4>
-                        <p className="text-sm text-muted-foreground">
-                          {currentLessonData?.type === 'video' && 'Videoaula com conteúdo teórico e demonstrações práticas.'}
-                          {currentLessonData?.type === 'quiz' && `Avaliação com ${currentLessonData?.questions} questões para testar seus conhecimentos.`}
-                          {currentLessonData?.type === 'document' && 'Material complementar para download e estudo.'}
-                          {currentLessonData?.type === 'assignment' && 'Atividade prática para aplicação dos conceitos aprendidos.'}
-                        </p>
-                      </div>
+                  {/* Modules List */}
+                  <div className="space-y-3">
+                    {courseData.modules.map((module: any) => (
+                      <Collapsible
+                        key={module.id}
+                        defaultOpen={module.status === 'in-progress'}
+                      >
+                        <CollapsibleTrigger className="w-full">
+                          <div className="flex items-center justify-between p-2 rounded-lg hover:bg-muted transition-colors">
+                            <div className="flex items-center gap-2">
+                              <div className={`h-6 w-6 rounded-full flex items-center justify-center ${
+                                module.status === 'completed' 
+                                  ? 'bg-green-100 text-green-700'
+                                  : module.status === 'in-progress'
+                                  ? 'bg-blue-100 text-blue-700'
+                                  : 'bg-gray-100 text-gray-500'
+                              }`}>
+                                {module.status === 'completed' ? (
+                                  <Check className="h-3 w-3" />
+                                ) : module.status === 'locked' ? (
+                                  <Lock className="h-3 w-3" />
+                                ) : (
+                                  <span className="text-xs font-bold">{module.id}</span>
+                                )}
+                              </div>
+                              <div className="text-left">
+                                <p className="font-medium text-sm">{module.title}</p>
+                                <p className="text-xs text-muted-foreground">
+                                  {module.duration} • {module.lessons.length} aulas
+                                </p>
+                              </div>
+                            </div>
+                            <ChevronDown className="h-3 w-3 text-muted-foreground" />
+                          </div>
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="pl-8 pr-2 space-y-1 mt-1">
+                          {module.lessons.map((lesson: any) => {
+                            const LessonIcon = getLessonIcon(lesson.type)
+                            const isCurrentLesson = lesson.id === currentLesson.lessonId
+                            
+                            return (
+                              <button
+                                key={lesson.id}
+                                onClick={() => !lesson.locked && navigateToLesson(module.id, lesson.id)}
+                                disabled={lesson.locked}
+                                className={`w-full text-left p-2 rounded-md transition-colors ${
+                                  isCurrentLesson
+                                    ? 'bg-primary/10 text-primary'
+                                    : lesson.locked
+                                    ? 'opacity-50 cursor-not-allowed'
+                                    : 'hover:bg-muted'
+                                }`}
+                              >
+                                <div className="flex items-center gap-2">
+                                  <div className={`h-5 w-5 rounded-full flex items-center justify-center ${
+                                    lesson.completed
+                                      ? 'bg-green-100 text-green-700'
+                                      : isCurrentLesson
+                                      ? 'bg-primary/20 text-primary'
+                                      : 'bg-gray-100 text-gray-500'
+                                  }`}>
+                                    {lesson.completed ? (
+                                      <Check className="h-3 w-3" />
+                                    ) : lesson.locked ? (
+                                      <Lock className="h-3 w-3" />
+                                    ) : (
+                                      <LessonIcon className="h-3 w-3" />
+                                    )}
+                                  </div>
+                                  <div className="flex-1">
+                                    <p className={`text-sm ${
+                                      isCurrentLesson ? 'font-medium' : ''
+                                    }`}>
+                                      {lesson.title}
+                                    </p>
+                                    <p className="text-xs text-muted-foreground">
+                                      {lesson.duration}
+                                    </p>
+                                  </div>
+                                </div>
+                              </button>
+                            )
+                          })}
+                        </CollapsibleContent>
+                      </Collapsible>
+                    ))}
+                  </div>
 
-                      <Separator />
+                  <Separator />
 
-                      <div>
-                        <h4 className="font-medium mb-2">Objetivos de Aprendizagem</h4>
-                        <ul className="space-y-1 text-sm text-muted-foreground">
-                          <li className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
-                            <span>Compreender os conceitos fundamentais</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
-                            <span>Aplicar as técnicas na prática</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
-                            <span>Identificar situações de risco</span>
-                          </li>
-                        </ul>
-                      </div>
 
-                      <Separator />
+                  {/* Current Lesson Info */}
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="font-medium text-sm mb-1">{currentLessonData?.title}</h4>
+                      <p className="text-xs text-muted-foreground">
+                        {currentLessonData?.type === 'video' && 'Videoaula'}
+                        {currentLessonData?.type === 'quiz' && `Quiz - ${currentLessonData?.questions} questões`}
+                        {currentLessonData?.type === 'document' && 'Material de apoio'}
+                        {currentLessonData?.type === 'assignment' && 'Atividade prática'}
+                      </p>
+                    </div>
 
-                      <div>
-                        <h4 className="font-medium mb-2">Recursos Adicionais</h4>
-                        <div className="space-y-2">
-                          <Button variant="outline" size="sm" className="w-full justify-start">
-                            <FileText className="mr-2 h-4 w-4" />
-                            Material de Apoio
-                          </Button>
-                          <Button variant="outline" size="sm" className="w-full justify-start">
-                            <Download className="mr-2 h-4 w-4" />
-                            Slides da Apresentação
-                          </Button>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">Progresso do Módulo</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">Aulas concluídas</span>
-                          <span className="font-medium">2 de 6</span>
-                        </div>
-                        <Progress value={33} className="h-2" />
-                      </div>
-                    </CardContent>
-                  </Card>
+                    <div className="space-y-2">
+                      <Button variant="outline" size="sm" className="w-full justify-start">
+                        <FileText className="mr-2 h-3 w-3" />
+                        Material de Apoio
+                      </Button>
+                      <Button variant="outline" size="sm" className="w-full justify-start">
+                        <Download className="mr-2 h-3 w-3" />
+                        Slides
+                      </Button>
+                    </div>
+                  </div>
                 </TabsContent>
 
                 <TabsContent value="notes" className="p-4 m-0">
@@ -704,118 +599,8 @@ export default function CourseLearningPage() {
                   </Card>
                 </TabsContent>
 
-                <TabsContent value="modules" className="p-4 m-0">
-                  <div className="space-y-4">
-                    {/* Course Info Header */}
-                    <div className="space-y-2">
-                      <h2 className="font-semibold text-lg">{courseData.title}</h2>
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-muted-foreground">Progresso Geral</span>
-                          <span className="font-medium">{overallProgress}%</span>
-                        </div>
-                        <Progress value={overallProgress} className="h-2" />
-                      </div>
-                    </div>
-
-                    <Separator />
-
-                    {/* Modules List */}
-                    <div className="space-y-4">
-                      {courseData.modules.map((module: any) => (
-                        <Collapsible
-                          key={module.id}
-                          defaultOpen={module.status === 'in-progress'}
-                        >
-                          <CollapsibleTrigger className="w-full">
-                            <div className="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors">
-                              <div className="flex items-center gap-3">
-                                <div className={`h-8 w-8 rounded-full flex items-center justify-center ${
-                                  module.status === 'completed' 
-                                    ? 'bg-green-100 text-green-700'
-                                    : module.status === 'in-progress'
-                                    ? 'bg-blue-100 text-blue-700'
-                                    : 'bg-gray-100 text-gray-500'
-                                }`}>
-                                  {module.status === 'completed' ? (
-                                    <CheckCircle className="h-5 w-5" />
-                                  ) : module.status === 'locked' ? (
-                                    <Lock className="h-4 w-4" />
-                                  ) : (
-                                    <span className="text-xs font-bold">{module.id}</span>
-                                  )}
-                                </div>
-                                <div className="text-left">
-                                  <p className="font-medium text-sm">{module.title}</p>
-                                  <p className="text-xs text-muted-foreground">
-                                    {module.duration} • {module.lessons.length} aulas
-                                  </p>
-                                </div>
-                              </div>
-                              <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                            </div>
-                          </CollapsibleTrigger>
-                          <CollapsibleContent className="pl-11 pr-3 space-y-1 mt-1">
-                            {module.lessons.map((lesson: any) => {
-                              const LessonIcon = getLessonIcon(lesson.type)
-                              const isCurrentLesson = lesson.id === currentLesson.lessonId
-                              
-                              return (
-                                <button
-                                  key={lesson.id}
-                                  onClick={() => !lesson.locked && navigateToLesson(module.id, lesson.id)}
-                                  disabled={lesson.locked}
-                                  className={`w-full text-left p-2 rounded-lg transition-colors ${
-                                    isCurrentLesson
-                                      ? 'bg-primary/10 text-primary'
-                                      : lesson.locked
-                                      ? 'opacity-50 cursor-not-allowed'
-                                      : 'hover:bg-muted'
-                                  }`}
-                                >
-                                  <div className="flex items-center gap-3">
-                                    <div className={`h-6 w-6 rounded-full flex items-center justify-center ${
-                                      lesson.completed
-                                        ? 'bg-green-100 text-green-700'
-                                        : isCurrentLesson
-                                        ? 'bg-primary/20 text-primary'
-                                        : 'bg-gray-100 text-gray-500'
-                                    }`}>
-                                      {lesson.completed ? (
-                                        <CheckCircle className="h-4 w-4" />
-                                      ) : lesson.locked ? (
-                                        <Lock className="h-3 w-3" />
-                                      ) : (
-                                        <LessonIcon className="h-3 w-3" />
-                                      )}
-                                    </div>
-                                    <div className="flex-1">
-                                      <p className={`text-sm ${
-                                        isCurrentLesson ? 'font-medium' : ''
-                                      }`}>
-                                        {lesson.title}
-                                      </p>
-                                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                                        <span>{lesson.duration}</span>
-                                        {lesson.type === 'quiz' && (
-                                          <span>• {lesson.questions} questões</span>
-                                        )}
-                                      </div>
-                                    </div>
-                                  </div>
-                                </button>
-                              )
-                            })}
-                          </CollapsibleContent>
-                        </Collapsible>
-                      ))}
-                    </div>
-                  </div>
-                </TabsContent>
-              </ScrollArea>
-            </Tabs>
-          </div>
-        </div>
+          </ScrollArea>
+        </Tabs>
       </div>
     </div>
   )

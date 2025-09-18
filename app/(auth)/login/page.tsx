@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useActionState, useEffect, useState } from 'react';
 import { toast } from '@/components/toast';
-import { Shield, Building2, Mail, Lock, ArrowRight, AlertCircle, CheckCircle, Loader2 } from 'lucide-react';
+import { Shield, Building2, Mail, Lock, ArrowRight, AlertCircle, Check, Loader2 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -24,6 +24,7 @@ export default function Page() {
   const [password, setPassword] = useState('');
   const [isSuccessful, setIsSuccessful] = useState(false);
   const [step, setStep] = useState<'email' | 'password'>('email');
+  const [emailError, setEmailError] = useState('');
 
   const [state, formAction] = useActionState<LoginActionState, FormData>(
     login,
@@ -35,17 +36,7 @@ export default function Page() {
   const { update: updateSession } = useSession();
 
   useEffect(() => {
-    if (state.status === 'failed') {
-      toast({
-        type: 'error',
-        description: 'Credenciais inválidas!',
-      });
-    } else if (state.status === 'invalid_data') {
-      toast({
-        type: 'error',
-        description: 'Falha ao validar o formulário!',
-      });
-    } else if (state.status === 'success') {
+    if (state.status === 'success') {
       setIsSuccessful(true);
       updateSession();
       router.refresh();
@@ -54,20 +45,15 @@ export default function Page() {
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setEmailError('');
     
     if (!email) {
-      toast({
-        type: 'error',
-        description: 'Por favor, insira seu email corporativo',
-      });
+      setEmailError('Por favor, insira seu email corporativo');
       return;
     }
     
     if (!email.includes('@')) {
-      toast({
-        type: 'error',
-        description: 'Por favor, insira um email válido',
-      });
+      setEmailError('Por favor, insira um email válido');
       return;
     }
     
@@ -113,11 +99,20 @@ export default function Page() {
                         type="email"
                         placeholder="email@empresa.com.br"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="pl-10 h-12"
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                          setEmailError('');
+                        }}
+                        className={`pl-10 h-12 ${emailError ? 'border-red-500 focus:ring-red-500' : ''}`}
                         autoFocus
                       />
                     </div>
+                    {emailError && (
+                      <div className="flex items-center gap-2 text-sm text-red-600">
+                        <AlertCircle className="h-3 w-3" />
+                        <span>{emailError}</span>
+                      </div>
+                    )}
                   </div>
 
                   <Button 
@@ -127,6 +122,32 @@ export default function Page() {
                     Continuar
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
+                  
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                      <span className="w-full border-t" />
+                    </div>
+                    <div className="relative flex justify-center text-xs uppercase">
+                      <span className="bg-background px-2 text-muted-foreground">ou acesse como</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-3">
+                    <Button 
+                      type="button"
+                      onClick={() => window.location.href = 'http://localhost:3005/inicio'}
+                      className="flex-1 h-12 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 font-medium"
+                    >
+                      User
+                    </Button>
+                    <Button 
+                      type="button"
+                      onClick={() => window.location.href = 'http://localhost:3005/admin'}
+                      className="flex-1 h-12 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 font-medium"
+                    >
+                      Admin
+                    </Button>
+                  </div>
                 </form>
               ) : (
                 <form action={handleLogin} className="space-y-4">
@@ -148,6 +169,7 @@ export default function Page() {
                         onClick={() => {
                           setStep('email');
                           setPassword('');
+                          setEmailError('');
                         }}
                       >
                         Trocar
@@ -173,11 +195,13 @@ export default function Page() {
                       </div>
                     </div>
 
-                    {state.status === 'failed' && (
-                      <Alert variant="destructive">
-                        <AlertCircle className="h-4 w-4" />
-                        <AlertDescription>Credenciais inválidas!</AlertDescription>
-                      </Alert>
+                    {(state.status === 'failed' || state.status === 'invalid_data') && (
+                      <div className="flex items-center gap-2 p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md">
+                        <AlertCircle className="h-4 w-4 flex-shrink-0" />
+                        <span>
+                          {state.status === 'failed' ? 'Credenciais inválidas!' : 'Falha ao validar o formulário!'}
+                        </span>
+                      </div>
                     )}
 
                     <Button 
@@ -250,7 +274,7 @@ export default function Page() {
           
           <div className="space-y-4">
             <div className="flex gap-3">
-              <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+              <Check className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="font-medium">Conteúdo personalizado</p>
                 <p className="text-sm text-muted-foreground">
@@ -259,7 +283,7 @@ export default function Page() {
               </div>
             </div>
             <div className="flex gap-3">
-              <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+              <Check className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="font-medium">Certificados válidos</p>
                 <p className="text-sm text-muted-foreground">
@@ -268,7 +292,7 @@ export default function Page() {
               </div>
             </div>
             <div className="flex gap-3">
-              <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+              <Check className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="font-medium">Acesso 24/7</p>
                 <p className="text-sm text-muted-foreground">

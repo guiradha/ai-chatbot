@@ -6,7 +6,7 @@ import {
   Users, 
   Shield, 
   AlertTriangle, 
-  CheckCircle2,
+  Check,
   TrendingUp,
   Activity,
   BookOpen,
@@ -16,7 +16,8 @@ import {
   UserPlus,
   FileText,
   BarChart,
-  Clock
+  Clock,
+  Settings
 } from 'lucide-react';
 import {
   Select,
@@ -47,7 +48,7 @@ const stats = [
     title: 'Taxa de Conclusão',
     value: '78.5%',
     change: '+3.2%',
-    icon: CheckCircle2,
+    icon: Check,
     trend: 'up',
     description: 'Média geral'
   },
@@ -85,16 +86,16 @@ const systemHealth = [
 
 export default function AdminDashboardPage() {
   return (
-    <div className="flex-1 space-y-6 p-8">
-      {/* Header */}
-      <div className="flex items-center justify-between">
+    <div className="flex-1 flex flex-col">
+      {/* Page Header */}
+      <div className="flex items-center justify-between space-y-2 p-8 pb-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Painel Administrativo</h1>
           <p className="text-muted-foreground">
             Gerencie usuários, cursos e monitore o sistema
           </p>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           <Select defaultValue="7d">
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Selecione o período" />
@@ -106,16 +107,19 @@ export default function AdminDashboardPage() {
               <SelectItem value="90d">Últimos 90 dias</SelectItem>
             </SelectContent>
           </Select>
-          <Button variant="outline">
+          <Button variant="outline" size="sm">
             <Download className="mr-2 h-4 w-4" />
-            Exportar Relatório
+            Exportar
           </Button>
-          <Button>
+          <Button size="sm">
             <RefreshCw className="mr-2 h-4 w-4" />
             Atualizar
           </Button>
         </div>
       </div>
+
+      {/* Main Content */}
+      <div className="flex-1 space-y-6 px-8 pb-8">
 
       {/* Stats Grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -294,6 +298,7 @@ export default function AdminDashboardPage() {
           <Settings className="h-6 w-6" />
           <span>Configurações</span>
         </Button>
+      </div>
       </div>
     </div>
   );

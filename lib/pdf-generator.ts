@@ -20,13 +20,22 @@ async function generatePDFWithDomToImage(
     orientation = 'landscape'
   } = options
 
+  console.log('Generating PDF with dom-to-image-more...');
+  console.log('Element dimensions:', {
+    width: certificateElement.offsetWidth,
+    height: certificateElement.offsetHeight,
+    innerHTML: certificateElement.innerHTML.substring(0, 200)
+  });
+
   // Generate image using dom-to-image-more
   const dataUrl = await domtoimage.toPng(certificateElement, {
     width: 1123,
     height: 794,
+    bgcolor: '#ffffff',
     style: {
       'font-family': 'Work Sans, Geist, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
-      'background-color': '#ffffff'
+      'background-color': '#ffffff',
+      'color': '#000000'
     },
     filter: (node: any) => {
       // Filter out problematic nodes
@@ -36,6 +45,8 @@ async function generatePDFWithDomToImage(
       return true
     }
   })
+
+  console.log('Generated dataUrl length:', dataUrl?.length);
 
   // Calculate dimensions for A4 landscape
   const imgWidth = 297 // A4 width in mm
@@ -66,10 +77,20 @@ export async function generateCertificatePDF(
     orientation = 'landscape'
   } = options
 
+  console.log('Starting PDF generation...');
+  console.log('Certificate element:', {
+    exists: !!certificateElement,
+    width: certificateElement?.offsetWidth,
+    height: certificateElement?.offsetHeight,
+    hasContent: certificateElement?.innerHTML?.length > 0
+  });
+
   // Try dom-to-image-more first as fallback for lab() color issues
   try {
     console.log('Attempting PDF generation with dom-to-image-more...')
-    return await generatePDFWithDomToImage(certificateElement, options)
+    const result = await generatePDFWithDomToImage(certificateElement, options)
+    console.log('PDF generated successfully with dom-to-image-more');
+    return result;
   } catch (domError) {
     console.warn('dom-to-image-more failed, falling back to html2canvas:', domError)
   }
@@ -221,15 +242,17 @@ export async function generateCertificatePDF(
     return pdf.output('blob')
   } catch (error) {
     console.error('Error generating PDF:', error)
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    const errorStack = error instanceof Error ? error.stack : undefined
     console.error('Error details:', {
-      message: error.message,
-      stack: error.stack,
+      message: errorMessage,
+      stack: errorStack,
       elementDimensions: {
         width: certificateElement?.offsetWidth,
         height: certificateElement?.offsetHeight
       }
     })
-    throw new Error(`Failed to generate certificate PDF: ${error.message}`)
+    throw new Error(`Failed to generate certificate PDF: ${errorMessage}`)
   }
 }
 

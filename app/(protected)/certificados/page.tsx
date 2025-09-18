@@ -1,9 +1,9 @@
 'use client'
 
-import { Award, Calendar, CheckCircle } from 'lucide-react';
+import { Award, Calendar, Check } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { coursesData } from '@/lib/courses-data';
-import { CertificateGenerator } from '@/components/certificate-generator';
+import { CertificateGeneratorV2 } from '@/components/certificate-generator-v2';
 import { createCertificateData } from '@/lib/pdf-generator';
 
 export default function CertificadosPage() {
@@ -65,7 +65,7 @@ export default function CertificadosPage() {
                       <span>Válido até: {validityDate.toLocaleDateString('pt-BR')}</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <Check className="h-4 w-4 text-green-500" />
                       <span>Status: Ativo</span>
                     </div>
                     {course.score && (
@@ -75,7 +75,7 @@ export default function CertificadosPage() {
                       </div>
                     )}
                     <div className="mt-4">
-                      <CertificateGenerator 
+                      <CertificateGeneratorV2 
                         certificateData={certificateData}
                         className="w-full"
                       />

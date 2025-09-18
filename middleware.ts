@@ -13,7 +13,18 @@ export async function middleware(request: NextRequest) {
     return new Response('pong', { status: 200 });
   }
 
+  // Allow auth API routes
   if (pathname.startsWith('/api/auth')) {
+    return NextResponse.next();
+  }
+
+  // Public routes (landing pages) - no auth required
+  const publicRoutes = ['/', '/sobre', '/cursos-nr'];
+  const isPublicRoute = publicRoutes.some(route => 
+    pathname === route || pathname.startsWith(route + '/')
+  );
+
+  if (isPublicRoute) {
     return NextResponse.next();
   }
 
@@ -23,16 +34,44 @@ export async function middleware(request: NextRequest) {
     secureCookie: !isDevelopmentEnvironment,
   });
 
-  if (!token) {
-    const redirectUrl = encodeURIComponent(request.url);
+  // Protected routes - require authentication
+  const protectedRoutes = [
+    '/inicio',
+    '/assistente',
+    '/cursos',
+    '/certificados',
+    '/relatorios',
+    '/equipe',
+    '/documentos',
+    '/ajuda',
+    '/configuracoes',
+    '/comunidade'
+  ];
 
+  const isProtectedRoute = protectedRoutes.some(route =>
+    pathname === route || pathname.startsWith(route + '/')
+  );
+
+  // Admin routes - require admin role
+  const isAdminRoute = pathname.startsWith('/admin');
+
+  // Check authentication for protected and admin routes
+  if ((isProtectedRoute || isAdminRoute) && !token) {
+    const redirectUrl = encodeURIComponent(request.url);
     return NextResponse.redirect(
       new URL(`/api/auth/guest?redirectUrl=${redirectUrl}`, request.url),
     );
   }
 
+  // Additional admin check (you can enhance this with role checking)
+  if (isAdminRoute && token) {
+    // Add your admin role check here
+    // Example: if (token.role !== 'admin') { redirect to /inicio }
+  }
+
   const isGuest = guestRegex.test(token?.email ?? '');
 
+  // Redirect authenticated users away from auth pages
   if (token && !isGuest && ['/login', '/register'].includes(pathname)) {
     return NextResponse.redirect(new URL('/inicio', request.url));
   }
@@ -42,23 +81,44 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    // Public routes (landing pages)
     '/',
+    '/sobre',
+    '/sobre/:path*',
+    '/cursos-nr',
+    '/cursos-nr/:path*',
+    
+    // Auth routes
+    '/login',
+    '/register',
+    
+    // Protected user routes
     '/inicio',
     '/assistente',
     '/assistente/:path*',
     '/cursos',
+    '/cursos/:path*',
     '/certificados',
+    '/certificados/:path*',
     '/relatorios',
+    '/relatorios/:path*',
     '/equipe',
+    '/equipe/:path*',
     '/documentos',
+    '/documentos/:path*',
     '/ajuda',
+    '/ajuda/:path*',
     '/configuracoes',
+    '/configuracoes/:path*',
+    '/comunidade',
+    '/comunidade/:path*',
+    
+    // Admin routes (protected)
     '/admin',
     '/admin/:path*',
+    
+    // API routes
     '/api/:path*',
-    '/login',
-    '/register',
-    '/cursos-nr',
 
     /*
      * Match all request paths except for the ones starting with:

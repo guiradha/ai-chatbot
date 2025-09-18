@@ -18,6 +18,7 @@ export function GlobalHeader() {
       pathname.startsWith('/documentos') ||
       pathname.startsWith('/ajuda') ||
       pathname.startsWith('/configuracoes') ||
+      pathname.startsWith('/comunidade') ||
       pathname.startsWith('/admin') ||
       pathname.startsWith('/login') ||
       pathname.startsWith('/register')) {

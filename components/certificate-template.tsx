@@ -1,5 +1,5 @@
 import React from 'react'
-import { Award, Calendar, CheckCircle } from 'lucide-react'
+import { Award, Calendar, Check } from 'lucide-react'
 
 export interface CertificateData {
   userName: string
@@ -88,7 +88,7 @@ export function CertificateTemplate({ data, showBorder = true }: CertificateTemp
         <div className="grid grid-cols-3 gap-8 text-center mb-8">
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-2">
-              <CheckCircle className="w-6 h-6 text-green-600" />
+              <Check className="w-6 h-6 text-green-600" />
             </div>
             <div className="text-sm text-gray-500">Carga Horária</div>
             <div className="font-semibold text-gray-900">{data.hours}</div>

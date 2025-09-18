@@ -24,6 +24,7 @@ const pathNames: Record<string, string> = {
   'assistente': 'Assistente IA',
   'cursos': 'Cursos',
   'certificados': 'Certificados',
+  'comunidade': 'Comunidade',
   'relatorios': 'Relatórios',
   'equipe': 'Equipe',
   'documentos': 'Documentos',

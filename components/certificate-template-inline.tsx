@@ -1,5 +1,5 @@
 import React from 'react'
-import { Award, Calendar, CheckCircle } from 'lucide-react'
+import { Award, Calendar, Check } from 'lucide-react'
 import { CertificateData } from './certificate-template'
 
 interface CertificateTemplateInlineProps {
@@ -103,7 +103,7 @@ export function CertificateTemplateInline({ data }: CertificateTemplateInlinePro
               justifyContent: 'center', 
               marginBottom: '8px' 
             }}>
-              <CheckCircle style={{ width: '24px', height: '24px', color: 'rgb(22, 163, 74)' }} />
+              <Check style={{ width: '24px', height: '24px', color: 'rgb(22, 163, 74)' }} />
             </div>
             <div style={{ fontSize: '14px', color: 'rgb(107, 114, 128)' }}>Carga Horária</div>
             <div style={{ fontWeight: 600, color: 'rgb(17, 24, 39)' }}>{data.hours}</div>

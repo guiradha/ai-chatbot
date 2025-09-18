@@ -10,7 +10,7 @@ import {
   Award, 
   BookOpen, 
   TrendingUp, 
-  CheckCircle,
+  Check,
   ArrowRight,
   Play,
   Star,
@@ -48,7 +48,7 @@ export default function LandingPage() {
     { id: 1, type: 'certificate', action: 'Certificado NR-35 emitido', icon: FileCheck, color: 'text-brand-success', bgColor: 'bg-brand-success/10', time: 'agora', location: 'São Paulo, SP' },
     { id: 2, type: 'training', action: 'Treinamento NR-10 iniciado', icon: GraduationCap, color: 'text-brand-info', bgColor: 'bg-brand-info/10', time: '1 min', location: 'Rio de Janeiro, RJ' },
     { id: 3, type: 'user', action: 'Novo usuário cadastrado', icon: UserCheck, color: 'text-brand-purple', bgColor: 'bg-brand-purple/10', time: '2 min', location: 'Belo Horizonte, MG' },
-    { id: 4, type: 'completion', action: 'Módulo SST concluído', icon: CheckCircle, color: 'text-brand-blue-main', bgColor: 'bg-brand-blue-main/10', time: '3 min', location: 'Curitiba, PR' },
+    { id: 4, type: 'completion', action: 'Módulo SST concluído', icon: Check, color: 'text-brand-blue-main', bgColor: 'bg-brand-blue-main/10', time: '3 min', location: 'Curitiba, PR' },
     { id: 5, type: 'certificate', action: 'Certificado NR-33 emitido', icon: Award, color: 'text-brand-warning', bgColor: 'bg-brand-warning/10', time: '5 min', location: 'Porto Alegre, RS' }
   ])
 
@@ -65,8 +65,8 @@ export default function LandingPage() {
           { type: 'training', action: 'Treinamento NR-6 iniciado', icon: GraduationCap, color: 'text-brand-info', bgColor: 'bg-brand-info/10' },
           { type: 'training', action: 'Treinamento CIPA iniciado', icon: GraduationCap, color: 'text-brand-info', bgColor: 'bg-brand-info/10' },
           { type: 'user', action: 'Novo usuário cadastrado', icon: UserCheck, color: 'text-brand-purple', bgColor: 'bg-brand-purple/10' },
-          { type: 'completion', action: 'Módulo SST concluído', icon: CheckCircle, color: 'text-brand-blue-main', bgColor: 'bg-brand-blue-main/10' },
-          { type: 'completion', action: 'Avaliação aprovada', icon: CheckCircle, color: 'text-brand-blue-main', bgColor: 'bg-brand-blue-main/10' },
+          { type: 'completion', action: 'Módulo SST concluído', icon: Check, color: 'text-brand-blue-main', bgColor: 'bg-brand-blue-main/10' },
+          { type: 'completion', action: 'Avaliação aprovada', icon: Check, color: 'text-brand-blue-main', bgColor: 'bg-brand-blue-main/10' },
           { type: 'training', action: 'Treinamento NR-12 iniciado', icon: GraduationCap, color: 'text-brand-info', bgColor: 'bg-brand-info/10' },
           { type: 'certificate', action: 'Certificado NR-18 emitido', icon: FileCheck, color: 'text-brand-success', bgColor: 'bg-brand-success/10' },
         ]
@@ -121,7 +121,7 @@ export default function LandingPage() {
                 Garanta 100% de conformidade com as NRs de forma simples, digital e personalizada para sua empresa.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/assistente">
+                <Link href="/login">
                   <Button size="lg" className="w-full sm:w-auto bg-brand-blue-main hover:bg-brand-blue-2 text-white">
                     Acessar Plataforma
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -599,7 +599,7 @@ export default function LandingPage() {
               </h2>
               <div className="space-y-4">
                 <div className="flex gap-4">
-                  <CheckCircle className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
+                  <Check className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-1">Redução de 60% nos custos</h3>
                     <p className="text-sm text-muted-foreground">
@@ -608,7 +608,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <CheckCircle className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
+                  <Check className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-1">45% menos acidentes</h3>
                     <p className="text-sm text-muted-foreground">
@@ -617,7 +617,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <CheckCircle className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
+                  <Check className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-1">100% de conformidade</h3>
                     <p className="text-sm text-muted-foreground">
@@ -626,7 +626,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <CheckCircle className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
+                  <Check className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-1">ROI em 3 meses</h3>
                     <p className="text-sm text-muted-foreground">
@@ -783,9 +783,9 @@ export default function LandingPage() {
               Solução completa para empresas. Faturamento via boleto ou nota fiscal.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/assistente">
+              <Link href="/login">
                 <Button size="lg" className="bg-white text-brand-grey-main hover:bg-white/90">
-                  Solicitar Demonstração
+                  Entrar
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>

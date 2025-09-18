@@ -1,9 +1,8 @@
 'use client';
 
-import { ChevronUp, LogOut, LogIn, Moon, Sun, Settings } from 'lucide-react';
+import { ChevronUp, LogOut, LogIn, Settings } from 'lucide-react';
 import type { User } from 'next-auth';
 import { signOut, useSession } from 'next-auth/react';
-import { useTheme } from 'next-themes';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -13,7 +12,6 @@ import { LoaderIcon } from './icons';
 export function AppUserNav({ user }: { user: User | undefined }) {
   const router = useRouter();
   const { data, status } = useSession();
-  const { setTheme, resolvedTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
   const isGuest = guestRegex.test(data?.user?.email ?? '');
@@ -56,21 +54,6 @@ export function AppUserNav({ user }: { user: User | undefined }) {
 
       {isOpen && (
         <div className="absolute bottom-full left-0 right-0 mb-1 rounded-md border bg-popover p-1 shadow-md">
-          <button
-            onClick={() => {
-              setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
-              setIsOpen(false);
-            }}
-            className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-accent"
-          >
-            {resolvedTheme === 'dark' ? (
-              <Sun className="h-4 w-4" />
-            ) : (
-              <Moon className="h-4 w-4" />
-            )}
-            <span>Modo {resolvedTheme === 'light' ? 'escuro' : 'claro'}</span>
-          </button>
-
           <button
             onClick={() => {
               setIsOpen(false);

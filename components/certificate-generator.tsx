@@ -30,6 +30,17 @@ export function CertificateGenerator({
     setIsGenerating(true)
 
     try {
+      // Wait a bit to ensure the element is fully rendered
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
+      console.log('Certificate element before PDF generation:', {
+        element: certificateRef.current,
+        width: certificateRef.current.offsetWidth,
+        height: certificateRef.current.offsetHeight,
+        hasChildren: certificateRef.current.children.length > 0,
+        innerHTML: certificateRef.current.innerHTML.substring(0, 200)
+      });
+
       // Generate PDF
       const pdfBlob = await generateCertificatePDF(certificateRef.current, {
         filename: `certificado-${certificateData.courseCode || 'curso'}-${certificateData.userName.replace(/\s+/g, '-').toLowerCase()}.pdf`,
@@ -95,14 +106,14 @@ export function CertificateGenerator({
       {!showPreview && (
         <div 
           ref={certificateRef}
-          className="fixed opacity-0 pointer-events-none"
           style={{ 
-            top: '-9999px',
-            left: '-9999px',
+            position: 'absolute',
+            top: '-10000px',
+            left: '0',
             width: '1123px', // 297mm converted to px at 96dpi
             height: '794px', // 210mm converted to px at 96dpi
-            position: 'fixed',
-            zIndex: -1
+            backgroundColor: '#ffffff',
+            overflow: 'hidden'
           }}
         >
           <CertificateTemplateInline data={certificateData} />
@@ -122,14 +133,13 @@ export function useCertificateGenerator() {
     try {
       // Create a temporary element for PDF generation
       const tempDiv = document.createElement('div')
-      tempDiv.style.position = 'fixed'
-      tempDiv.style.top = '-9999px'
-      tempDiv.style.left = '-9999px'
+      tempDiv.style.position = 'absolute'
+      tempDiv.style.top = '-10000px'
+      tempDiv.style.left = '0'
       tempDiv.style.width = '1123px' // 297mm at 96dpi
       tempDiv.style.height = '794px'  // 210mm at 96dpi
-      tempDiv.style.pointerEvents = 'none'
-      tempDiv.style.zIndex = '-1'
-      tempDiv.style.opacity = '0'
+      tempDiv.style.backgroundColor = '#ffffff'
+      tempDiv.style.overflow = 'hidden'
       
       document.body.appendChild(tempDiv)
 
@@ -142,8 +152,14 @@ export function useCertificateGenerator() {
         data: certificateData
       }))
 
-      // Wait for rendering
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // Wait for rendering and fonts to load
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      
+      console.log('Temp element before PDF generation:', {
+        width: tempDiv.offsetWidth,
+        height: tempDiv.offsetHeight,
+        hasContent: tempDiv.innerHTML.length > 0
+      })
 
       // Generate PDF
       const pdfBlob = await generateCertificatePDF(tempDiv, {

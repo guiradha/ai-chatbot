@@ -1,4 +1,6 @@
-import { Award, BookOpen, Shield, Heart, Users, Target, Trophy, CheckCircle, Clock, FileText, PlayCircle, Book } from 'lucide-react'
+import { Award, BookOpen, Shield, Heart, Users, Target, Trophy, Check, Clock, FileText, PlayCircle, Book } from 'lucide-react'
+import { additionalCoursesData } from './additional-courses-data'
+import { direcaoDefensivaCourse } from './direcao-defensiva-course'
 
 // Helper function to generate slug from title
 const generateSlug = (title: string): string => {
@@ -1821,6 +1823,12 @@ additionalCourses.forEach(course => {
     })
   }
 })
+
+// Add all additional courses from the extracted trainings
+coursesData.push(...additionalCoursesData)
+
+// Add direção defensiva course
+coursesData.push(direcaoDefensivaCourse)
 
 // Sort by ID
 coursesData.sort((a, b) => a.id - b.id)

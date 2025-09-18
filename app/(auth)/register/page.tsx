@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useActionState, useEffect, useState } from 'react';
 import { toast } from '@/components/toast';
-import { Building2, Mail, Lock, ArrowRight, AlertCircle, CheckCircle, Loader2, User } from 'lucide-react';
+import { Building2, Mail, Lock, ArrowRight, AlertCircle, Check, Loader2, User } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -289,7 +289,7 @@ export default function Page() {
           
           <div className="space-y-4">
             <div className="flex gap-3">
-              <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+              <Check className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="font-medium">Treinamentos certificados</p>
                 <p className="text-sm text-muted-foreground">
@@ -298,7 +298,7 @@ export default function Page() {
               </div>
             </div>
             <div className="flex gap-3">
-              <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+              <Check className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="font-medium">Acesso imediato</p>
                 <p className="text-sm text-muted-foreground">
@@ -307,7 +307,7 @@ export default function Page() {
               </div>
             </div>
             <div className="flex gap-3">
-              <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+              <Check className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="font-medium">Suporte especializado</p>
                 <p className="text-sm text-muted-foreground">

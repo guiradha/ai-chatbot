@@ -11,7 +11,7 @@ import {
   Shield,
   Heart,
   Users,
-  CheckCircle,
+  Check,
   Linkedin
 } from 'lucide-react'
 
@@ -46,7 +46,7 @@ export default function SobrePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section - Minimalist */}
-      <section className="py-20 lg:py-32">
+      <section className="pt-20 pb-8 lg:pt-32 lg:pb-12">
         <div className="container px-4 mx-auto max-w-6xl">
           <div className="text-center">
             <Badge className="mb-4 bg-brand-blue-main/10 text-brand-blue-main border-brand-blue-main">
@@ -64,7 +64,7 @@ export default function SobrePage() {
       </section>
 
       {/* Mission & Values - Minimalist Grid */}
-      <section className="pt-4 pb-12 bg-background">
+      <section className="pt-0 pb-12 bg-background">
         <div className="container px-4 mx-auto max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="text-center">
@@ -165,7 +165,7 @@ export default function SobrePage() {
               </h2>
               <div className="space-y-4">
                 <div className="flex gap-4">
-                  <CheckCircle className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
+                  <Check className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-1">Redução de 60% nos custos</h3>
                     <p className="text-sm text-muted-foreground">
@@ -174,7 +174,7 @@ export default function SobrePage() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <CheckCircle className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
+                  <Check className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-1">100% de conformidade</h3>
                     <p className="text-sm text-muted-foreground">
@@ -183,7 +183,7 @@ export default function SobrePage() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <CheckCircle className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
+                  <Check className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-1">Certificação válida</h3>
                     <p className="text-sm text-muted-foreground">
@@ -192,7 +192,7 @@ export default function SobrePage() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <CheckCircle className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
+                  <Check className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-1">Suporte especializado</h3>
                     <p className="text-sm text-muted-foreground">

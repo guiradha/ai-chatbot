@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { TrainingPageTemplate, TrainingData } from '@/components/training-page-template'
-import { Activity, AlertOctagon, AlertTriangle, Anchor, Award, BookOpen, Building, Calendar, Car, ChartBar, CheckCircle, ClipboardCheck, Cog, Construction, Cpu, Droplets, Dumbbell, Ear, Eye, Factory, FileSearch, FileText, Flame, FlaskConical, Forklift, Gauge, GraduationCap, Hand, HardHat, Headphones, Heart, Home, Leaf, Link2, Lock, MessageSquare, Monitor, Mountain, Move3D, Package, Presentation, Recycle, RefreshCw, Search, Settings, Shield, ShoppingCart, Shovel, Siren, Skull, Sparkles, Syringe, Target, Tractor, Trash2, TreePine, TrendingUp, Trophy, Truck, UserCheck, Users, Wheat, Wind, Wrench, Zap } from "lucide-react"
+import { Activity, AlertOctagon, AlertTriangle, Anchor, Award, BookOpen, Building, Calendar, Car, ChartBar, Check, ClipboardCheck, Cog, Construction, Cpu, Droplets, Dumbbell, Ear, Eye, Factory, FileSearch, FileText, Flame, FlaskConical, Forklift, Gauge, GraduationCap, Hand, HardHat, Headphones, Heart, Home, Leaf, Link2, Lock, MessageSquare, Monitor, Mountain, Move3D, Package, Presentation, Recycle, RefreshCw, Search, Settings, Shield, ShoppingCart, Shovel, Siren, Skull, Sparkles, Syringe, Target, Tractor, Trash2, TreePine, TrendingUp, Trophy, Truck, UserCheck, Users, Wheat, Wind, Wrench, Zap } from "lucide-react"
 
 // Training data for each course
 const trainingData: Record<string, TrainingData> = {
@@ -4059,7 +4059,7 @@ title: 'NR-11 Empilhadeira - Reciclagem',
       },
       {
         title: 'Segurança Aprimorada',
-        icon: <CheckCircle className="h-5 w-5 text-orange-600" />,
+        icon: <Check className="h-5 w-5 text-orange-600" />,
         skills: [
           'Procedimentos emergência',
           'Primeiros socorros',
@@ -4181,7 +4181,7 @@ title: 'NR-11 Empilhadeira - Reciclagem',
       },
       {
         title: 'Competência Prática',
-        icon: <CheckCircle className="h-5 w-5 text-orange-600" />,
+        icon: <Check className="h-5 w-5 text-orange-600" />,
         skills: [
           'Manuseio seguro',
           'Situações de emergência',
@@ -5281,7 +5281,7 @@ title: 'NR-13 Caldeiras - Reciclagem',
       },
       {
         title: 'Gestão de Segurança',
-        icon: <CheckCircle className="h-5 w-5 text-red-600" />,
+        icon: <Check className="h-5 w-5 text-red-600" />,
         skills: [
           'Procedimentos emergência',
           'Sistemas de segurança',
@@ -9377,7 +9377,7 @@ title: 'NR-33 Espaços Confinados - Reciclagem',
       },
       {
         title: 'Competências Práticas',
-        icon: <CheckCircle className="h-5 w-5 text-blue-600" />,
+        icon: <Check className="h-5 w-5 text-blue-600" />,
         skills: [
           'Resgate atualizado',
           'Comunicação eficaz',
@@ -9487,7 +9487,7 @@ title: 'Reciclagem NR-35 - Trabalho em Altura',
       },
       {
         title: 'Procedimentos Atualizados',
-        icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+        icon: <Check className="h-5 w-5 text-green-600" />,
         skills: [
           'APR revisada',
           'PTA atualizada',

@@ -9,7 +9,7 @@ export async function GET(request: Request) {
 
   const authorizationUrl = workos.userManagement.getAuthorizationUrl({
     clientId: process.env.WORKOS_CLIENT_ID!,
-    redirectUri: `${process.env.NEXTAUTH_URL || 'http://localhost:3006'}/api/auth/workos/callback`,
+    redirectUri: `${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/auth/workos/callback`,
     provider: 'authkit',
     state: returnTo,
   });

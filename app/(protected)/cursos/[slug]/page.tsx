@@ -14,7 +14,7 @@ import {
   Award, 
   BookOpen, 
   Calendar,
-  CheckCircle,
+  Check,
   Clock, 
   Download,
   FileText,
@@ -161,9 +161,9 @@ export default function CourseSummaryPage() {
                 <span className="font-medium">{course.progress}%</span>
               </div>
               <Progress value={course.progress} className="h-2" />
-              {course.status === 'completed' && (
+              {course.status === 'completed' && course.completedDate && (
                 <div className="flex items-center gap-2 mt-2 text-green-600">
-                  <CheckCircle className="h-4 w-4" />
+                  <Check className="h-4 w-4" />
                   <span className="text-sm font-medium">
                     Concluído em {new Date(course.completedDate).toLocaleDateString('pt-BR')}
                   </span>
@@ -200,7 +200,7 @@ export default function CourseSummaryPage() {
                     <ul className="space-y-2">
                       {course.objetivos.map((objetivo: string, index: number) => (
                         <li key={index} className="flex items-start gap-2">
-                          <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                          <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
                           <span>{objetivo}</span>
                         </li>
                       ))}
@@ -269,7 +269,7 @@ export default function CourseSummaryPage() {
                               modulo.concluido ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'
                             }`}>
                               {modulo.concluido ? (
-                                <CheckCircle className="h-5 w-5" />
+                                <Check className="h-5 w-5" />
                               ) : (
                                 <span className="text-sm font-semibold">{modulo.modulo}</span>
                               )}
@@ -312,7 +312,7 @@ export default function CourseSummaryPage() {
                     <ul className="space-y-2">
                       {course.requisitos.map((req: string, index: number) => (
                         <li key={index} className="flex items-start gap-2">
-                          <CheckCircle className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                          <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
                           <span>{req}</span>
                         </li>
                       ))}
