@@ -38,13 +38,13 @@ export default function IncidentsPage() {
   };
 
   return (
-    <div className="flex-1">
-      {/* Header */}
-      <div className="flex items-center justify-between px-6 py-4 border-b">
+    <div className="flex-1 flex flex-col">
+      {/* Page Header */}
+      <div className="flex items-center justify-between space-y-2 p-8 pb-6">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Incidentes</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Incidentes</h1>
           <p className="text-muted-foreground">
-            Registros de incidentes e ocorrências de segurança
+            Registre e acompanhe incidentes de segurança
           </p>
         </div>
         <Button onClick={handleAddIncident}>
@@ -54,7 +54,7 @@ export default function IncidentsPage() {
       </div>
 
       {/* Main Content */}
-      <div className="p-6 space-y-6">
+      <div className="flex-1 space-y-6 px-8 pb-8">
         {/* Stats */}
         <div className="grid gap-4 md:grid-cols-4">
           <Card>

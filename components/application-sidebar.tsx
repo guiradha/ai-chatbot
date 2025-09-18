@@ -30,24 +30,6 @@ const menuItems = [
     icon: GraduationCap,
     href: '/inicio/cursos',
   },
-  {
-    title: 'Relatórios',
-    icon: FileText,
-    href: '/inicio/relatorios',
-    disabled: true,
-  },
-  {
-    title: 'Equipe',
-    icon: Users,
-    href: '/inicio/equipe',
-    disabled: true,
-  },
-  {
-    title: 'Documentos',
-    icon: FileText,
-    href: '/inicio/documentos',
-    disabled: true,
-  },
 ];
 
 const bottomMenuItems = [

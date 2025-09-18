@@ -30,11 +30,14 @@ export default function DocumentsPage() {
   };
 
   return (
-    <div className="flex-1">
-      <div className="flex items-center justify-between px-6 py-4 border-b">
+    <div className="flex-1 flex flex-col">
+      {/* Page Header */}
+      <div className="flex items-center justify-between space-y-2 p-8 pb-6">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Documentos</h1>
-          <p className="text-muted-foreground">Gestão de documentos e arquivos</p>
+          <h1 className="text-3xl font-bold tracking-tight">Documentos</h1>
+          <p className="text-muted-foreground">
+            Gerencie documentos e arquivos do sistema
+          </p>
         </div>
         <Button onClick={handleAddDocument}>
           <Upload className="mr-2 h-4 w-4" />
@@ -42,7 +45,8 @@ export default function DocumentsPage() {
         </Button>
       </div>
 
-      <div className="p-6 space-y-6">
+      {/* Main Content */}
+      <div className="flex-1 space-y-6 px-8 pb-8">
         <div className="grid gap-4 md:grid-cols-4">
           <Card>
             <CardHeader className="pb-2">

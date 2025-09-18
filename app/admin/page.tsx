@@ -38,15 +38,15 @@ import {
 } from "@/components/ui/select";
 import { useState, useEffect } from 'react';
 
-// Construtora ABC company data
+// Generic company data - would come from auth context
 const company = {
-  name: 'Construtora ABC',
+  name: 'Sua Empresa',
   cnpj: '12.345.678/0001-90',
-  sector: 'Construção Civil',
+  sector: 'Industrial',
   employees: 1247,
-  activeSites: 8,
+  activeTeams: 8,
   complianceRate: 87.2,
-  logo: '/company-logos/abc.png'
+  logo: '/company-logos/default.png'
 };
 
 // Company-specific stats
@@ -76,12 +76,12 @@ const companyStats = [
     description: 'Novos certificados este mês'
   },
   {
-    title: 'Obras Ativas',
-    value: company.activeSites.toString(),
+    title: 'Equipes Ativas',
+    value: company.activeTeams.toString(),
     change: '+2',
-    icon: HardHat,
+    icon: Users,
     trend: 'up',
-    description: 'Novas obras iniciadas'
+    description: 'Novas equipes criadas'
   }
 ];
 
@@ -93,7 +93,7 @@ const departmentCompliance = [
     compliant: 512, 
     percentage: 91,
     manager: 'Carlos Santos',
-    criticalNRs: ['NR-18', 'NR-35']
+    criticalNRs: ['NR-6', 'NR-35']
   },
   { 
     name: 'Manutenção', 
@@ -109,7 +109,7 @@ const departmentCompliance = [
     compliant: 96, 
     percentage: 80,
     manager: 'João Silva',
-    criticalNRs: ['NR-11', 'NR-26']
+    criticalNRs: ['NR-11', 'NR-17']
   },
   { 
     name: 'Administração', 
@@ -126,7 +126,7 @@ const criticalAlerts = [
   {
     type: 'expired',
     department: 'Operações',
-    message: '23 certificados NR-35 vencidos',
+    message: '23 certificados NR-6 vencidos',
     employees: ['João Silva', 'Carlos Santos', 'Maria Costa'],
     priority: 'high',
     action: 'Renovação urgente necessária'
@@ -145,19 +145,19 @@ const criticalAlerts = [
     message: '12 funcionários sem treinamento NR-11',
     employees: ['Roberto Dias', 'Lucia Ferreira'],
     priority: 'high',
-    action: 'Matricular em treinamento'
+    action: 'Agendar treinamento obrigatório'
   }
 ];
 
 // Recent company activity
 const recentActivity = [
   {
-    title: 'Nova obra iniciada - Edifício Solar',
-    type: 'project',
+    title: 'Nova equipe criada - Equipe Solar',
+    type: 'team',
     date: '2 horas atrás',
-    icon: Building2,
+    icon: Users,
     color: 'text-blue-600',
-    details: '87 novos funcionários precisam de treinamento NR-18'
+    details: '87 funcionários precisam de treinamento obrigatório'
   },
   {
     title: '156 certificados NR-35 emitidos',
@@ -173,7 +173,7 @@ const recentActivity = [
     date: '1 dia atrás',
     icon: FileCheck,
     color: 'text-orange-600',
-    details: 'Obra Residencial Park - 15/01/2025'
+    details: 'Equipe Residencial Park - 15/01/2025'
   },
   {
     title: '12 funcionários contratados',
@@ -188,9 +188,9 @@ const recentActivity = [
 // Upcoming training sessions for the company
 const upcomingTrainings = [
   {
-    title: 'NR-18 Construção Civil',
+    title: 'NR-6 Equipamentos de Proteção Individual',
     date: '20 Jan, 08:00',
-    instructor: 'Eng. Carlos Mendes',
+    instructor: 'Téc. Carlos Mendes',
     participants: 25,
     location: 'Auditório Sede',
     department: 'Operações'
@@ -213,31 +213,31 @@ const upcomingTrainings = [
   }
 ];
 
-// Company active projects
-const activeProjects = [
+// Company active teams/projects
+const activeTeams = [
   {
-    name: 'Edifício Solar',
+    name: 'Equipe Solar',
     employees: 87,
     compliance: 92,
     startDate: '2024-12-01',
-    expectedEnd: '2026-08-30',
-    criticalNRs: ['NR-18', 'NR-35', 'NR-6']
+    type: 'Projeto',
+    criticalNRs: ['NR-6', 'NR-35', 'NR-23']
   },
   {
-    name: 'Residencial Park',
+    name: 'Equipe Residencial Park',
     employees: 156,
     compliance: 88,
     startDate: '2024-08-15',
-    expectedEnd: '2025-12-15',
-    criticalNRs: ['NR-18', 'NR-23', 'NR-6']
+    type: 'Operacional',
+    criticalNRs: ['NR-17', 'NR-23', 'NR-6']
   },
   {
-    name: 'Shopping Center Norte',
+    name: 'Equipe Norte',
     employees: 234,
     compliance: 85,
     startDate: '2024-06-01',
-    expectedEnd: '2026-03-30',
-    criticalNRs: ['NR-18', 'NR-35', 'NR-12']
+    type: 'Manutenção',
+    criticalNRs: ['NR-10', 'NR-35', 'NR-12']
   }
 ];
 
@@ -276,10 +276,10 @@ export default function AdminDashboardPage() {
             <div>
               <h1 className="text-3xl font-bold">{company.name} - Admin</h1>
               <p className="text-blue-200 mt-1">
-                Painel de Gestão de Segurança do Trabalho
+                Painel de Gestão de Segurança e Saúde no Trabalho
               </p>
               <p className="text-sm text-blue-300 mt-2">
-                {currentTime} • CNPJ: {company.cnpj} • {company.employees} colaboradores • {company.activeSites} obras ativas
+                {currentTime} • CNPJ: {company.cnpj} • {company.employees} colaboradores • {company.activeTeams} equipes ativas
               </p>
             </div>
           </div>
@@ -462,49 +462,48 @@ export default function AdminDashboardPage() {
           </Card>
         </div>
 
-        {/* Active Projects */}
+        {/* Active Teams */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
             <div>
-              <CardTitle>Obras Ativas</CardTitle>
+              <CardTitle>Equipes Ativas</CardTitle>
               <CardDescription>
-                Projetos em andamento e status de conformidade
+                Equipes e projetos em andamento com status de conformidade
               </CardDescription>
             </div>
             <Button size="sm">
-              <HardHat className="mr-2 h-4 w-4" />
-              Nova Obra
+              <Users className="mr-2 h-4 w-4" />
+              Nova Equipe
             </Button>
           </CardHeader>
           <CardContent>
             <div className="grid gap-4 md:grid-cols-3">
-              {activeProjects.map((project, index) => (
+              {activeTeams.map((team, index) => (
                 <div key={index} className="p-4 rounded-lg border">
                   <div className="flex items-center justify-between mb-3">
                     <div>
-                      <p className="font-medium">{project.name}</p>
+                      <p className="font-medium">{team.name}</p>
                       <p className="text-sm text-muted-foreground">
-                        {project.employees} colaboradores
+                        {team.employees} colaboradores • {team.type}
                       </p>
                     </div>
                     <div className={`text-lg font-bold ${
-                      project.compliance >= 90 ? 'text-green-600' : 
-                      project.compliance >= 80 ? 'text-yellow-600' : 'text-red-600'
+                      team.compliance >= 90 ? 'text-green-600' : 
+                      team.compliance >= 80 ? 'text-yellow-600' : 'text-red-600'
                     }`}>
-                      {project.compliance}%
+                      {team.compliance}%
                     </div>
                   </div>
-                  <Progress value={project.compliance} className="h-2 mb-3" />
+                  <Progress value={team.compliance} className="h-2 mb-3" />
                   <div className="flex gap-1 mb-3">
-                    {project.criticalNRs.map(nr => (
+                    {team.criticalNRs.map(nr => (
                       <Badge key={nr} variant="outline" className="text-xs">
                         {nr}
                       </Badge>
                     ))}
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    Início: {new Date(project.startDate).toLocaleDateString('pt-BR')} • 
-                    Previsão: {new Date(project.expectedEnd).toLocaleDateString('pt-BR')}
+                    Criada em: {new Date(team.startDate).toLocaleDateString('pt-BR')}
                   </p>
                 </div>
               ))}
@@ -515,7 +514,7 @@ export default function AdminDashboardPage() {
         {/* Recent Activity */}
         <Card>
           <CardHeader>
-            <CardTitle>Atividades Recentes da Empresa</CardTitle>
+            <CardTitle>Atividades Recentes</CardTitle>
             <CardDescription>
               Últimas movimentações e eventos importantes
             </CardDescription>

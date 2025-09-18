@@ -13,9 +13,6 @@ export function GlobalHeader() {
       pathname.startsWith('/inicio') || 
       (pathname.startsWith('/cursos') && !pathname.startsWith('/cursos-nr')) ||
       pathname.startsWith('/certificados') ||
-      pathname.startsWith('/relatorios') ||
-      pathname.startsWith('/equipe') ||
-      pathname.startsWith('/documentos') ||
       pathname.startsWith('/ajuda') ||
       pathname.startsWith('/configuracoes') ||
       pathname.startsWith('/comunidade') ||

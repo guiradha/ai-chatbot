@@ -163,7 +163,7 @@ export default function PricingPage() {
       {/* Pricing Cards */}
       <section className="pb-16">
         <div className="container px-4 mx-auto">
-          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto pt-6">
             {plans.map((plan, index) => (
               <Card 
                 key={plan.name} 
@@ -174,8 +174,8 @@ export default function PricingPage() {
                 }`}
               >
                 {plan.badge && (
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <Badge className="bg-brand-blue-main text-white px-4 py-1">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                    <Badge className="bg-brand-blue-main text-white px-4 py-1 whitespace-nowrap">
                       {plan.badge}
                     </Badge>
                   </div>

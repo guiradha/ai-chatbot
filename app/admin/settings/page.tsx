@@ -9,11 +9,14 @@ import { Switch } from '@/components/ui/switch';
 
 export default function SettingsPage() {
   return (
-    <div className="flex-1">
-      <div className="flex items-center justify-between px-6 py-4 border-b">
+    <div className="flex-1 flex flex-col">
+      {/* Page Header */}
+      <div className="flex items-center justify-between space-y-2 p-8 pb-6">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Configurações</h1>
-          <p className="text-muted-foreground">Configurações gerais do sistema</p>
+          <h1 className="text-3xl font-bold tracking-tight">Configurações</h1>
+          <p className="text-muted-foreground">
+            Configure as preferências e ajustes do sistema
+          </p>
         </div>
         <Button>
           <Save className="mr-2 h-4 w-4" />
@@ -21,7 +24,8 @@ export default function SettingsPage() {
         </Button>
       </div>
 
-      <div className="p-6 space-y-6">
+      {/* Main Content */}
+      <div className="flex-1 space-y-6 px-8 pb-8">
         <Card>
           <CardHeader>
             <CardTitle>Configurações Gerais</CardTitle>

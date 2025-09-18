@@ -71,19 +71,9 @@ const menuItems = [
 
 const adminItems = [
   {
-    title: 'Relatórios',
-    icon: BarChart3,
-    href: '/relatorios',
-  },
-  {
-    title: 'Equipe',
-    icon: Users,
-    href: '/equipe',
-  },
-  {
-    title: 'Documentos',
-    icon: FileText,
-    href: '/documentos',
+    title: 'Configurações',
+    icon: Settings,
+    href: '/configuracoes',
   },
 ];
 
