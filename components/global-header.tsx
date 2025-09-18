@@ -44,15 +44,15 @@ export function GlobalHeader() {
           <a href="/#benefits" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
             Benefícios
           </a>
-          <a href="/#pricing" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
+          <Link href="/planos" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
             Planos
-          </a>
+          </Link>
           <a href="/#testimonials" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
             Depoimentos
           </a>
         </nav>
         <div className="flex items-center gap-4">
-          <Link href="/assistente">
+          <Link href="/login">
             <Button variant="ghost" className="text-white hover:text-white hover:bg-white/20">Entrar</Button>
           </Link>
           <Button className="bg-white text-[#0063F3] hover:bg-white/90 font-bold">Contato Comercial</Button>

@@ -138,7 +138,7 @@ export default function Page() {
                       onClick={() => window.location.href = 'http://localhost:3005/inicio'}
                       className="flex-1 h-12 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 font-medium"
                     >
-                      User
+                      Usuário
                     </Button>
                     <Button 
                       type="button"

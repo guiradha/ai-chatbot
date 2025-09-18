@@ -2,6 +2,8 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Progress } from '@/components/ui/progress';
 import { 
   Users, 
   Shield, 
@@ -17,7 +19,15 @@ import {
   FileText,
   BarChart,
   Clock,
-  Settings
+  Settings,
+  Building2,
+  Award,
+  AlertCircle,
+  Target,
+  Zap,
+  FileCheck,
+  TrendingDown,
+  HardHat
 } from 'lucide-react';
 import {
   Select,
@@ -26,279 +36,538 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useState, useEffect } from 'react';
 
-const stats = [
+// Construtora ABC company data
+const company = {
+  name: 'Construtora ABC',
+  cnpj: '12.345.678/0001-90',
+  sector: 'Construção Civil',
+  employees: 1247,
+  activeSites: 8,
+  complianceRate: 87.2,
+  logo: '/company-logos/abc.png'
+};
+
+// Company-specific stats
+const companyStats = [
   {
-    title: 'Total de Usuários',
-    value: '2,847',
-    change: '+12.5%',
+    title: 'Total de Colaboradores',
+    value: company.employees.toLocaleString('pt-BR'),
+    change: '+12.3%',
     icon: Users,
     trend: 'up',
-    description: '240 novos este mês'
+    description: '87 contratados este mês'
   },
   {
-    title: 'Cursos Ativos',
-    value: '48',
-    change: '+8%',
-    icon: BookOpen,
+    title: 'Taxa de Conformidade',
+    value: `${company.complianceRate}%`,
+    change: '+5.8%',
+    icon: Target,
     trend: 'up',
-    description: '12 novos publicados'
+    description: 'Acima da meta (85%)'
   },
   {
-    title: 'Taxa de Conclusão',
-    value: '78.5%',
-    change: '+3.2%',
-    icon: Check,
+    title: 'Certificados Ativos',
+    value: '1.087',
+    change: '+156',
+    icon: Award,
     trend: 'up',
-    description: 'Média geral'
+    description: 'Novos certificados este mês'
   },
   {
-    title: 'Incidentes Reportados',
-    value: '23',
-    change: '-15%',
-    icon: AlertTriangle,
-    trend: 'down',
-    description: 'Este mês'
+    title: 'Obras Ativas',
+    value: company.activeSites.toString(),
+    change: '+2',
+    icon: HardHat,
+    trend: 'up',
+    description: 'Novas obras iniciadas'
   }
 ];
 
-const recentUsers = [
-  { name: 'Ana Silva', email: 'ana.silva@empresa.com', role: 'Operador', status: 'Ativo', joined: '2h atrás' },
-  { name: 'Carlos Santos', email: 'carlos.santos@empresa.com', role: 'Supervisor', status: 'Ativo', joined: '5h atrás' },
-  { name: 'Maria Costa', email: 'maria.costa@empresa.com', role: 'Técnico', status: 'Pendente', joined: '1d atrás' },
-  { name: 'João Oliveira', email: 'joao.oliveira@empresa.com', role: 'Operador', status: 'Ativo', joined: '2d atrás' },
-  { name: 'Paula Ferreira', email: 'paula.ferreira@empresa.com', role: 'Admin', status: 'Ativo', joined: '3d atrás' },
+// Compliance by department
+const departmentCompliance = [
+  { 
+    name: 'Operações', 
+    employees: 560, 
+    compliant: 512, 
+    percentage: 91,
+    manager: 'Carlos Santos',
+    criticalNRs: ['NR-18', 'NR-35']
+  },
+  { 
+    name: 'Manutenção', 
+    employees: 180, 
+    compliant: 162, 
+    percentage: 90,
+    manager: 'Maria Oliveira', 
+    criticalNRs: ['NR-10', 'NR-12']
+  },
+  { 
+    name: 'Logística', 
+    employees: 120, 
+    compliant: 96, 
+    percentage: 80,
+    manager: 'João Silva',
+    criticalNRs: ['NR-11', 'NR-26']
+  },
+  { 
+    name: 'Administração', 
+    employees: 387, 
+    compliant: 348, 
+    percentage: 88,
+    manager: 'Ana Costa',
+    criticalNRs: ['NR-5', 'NR-23']
+  }
 ];
 
-const topCourses = [
-  { name: 'Segurança no Trabalho NR-35', completions: 456, rating: 4.8, completion: 85 },
-  { name: 'Primeiros Socorros', completions: 342, rating: 4.7, completion: 78 },
-  { name: 'Uso de EPIs', completions: 298, rating: 4.6, completion: 92 },
-  { name: 'Prevenção de Acidentes', completions: 267, rating: 4.9, completion: 73 },
+// Critical alerts for the company
+const criticalAlerts = [
+  {
+    type: 'expired',
+    department: 'Operações',
+    message: '23 certificados NR-35 vencidos',
+    employees: ['João Silva', 'Carlos Santos', 'Maria Costa'],
+    priority: 'high',
+    action: 'Renovação urgente necessária'
+  },
+  {
+    type: 'expiring',
+    department: 'Manutenção',
+    message: '45 certificados NR-10 vencendo em 15 dias',
+    employees: ['Pedro Lima', 'Ana Souza'],
+    priority: 'medium',
+    action: 'Agendar renovação'
+  },
+  {
+    type: 'incomplete',
+    department: 'Logística',
+    message: '12 funcionários sem treinamento NR-11',
+    employees: ['Roberto Dias', 'Lucia Ferreira'],
+    priority: 'high',
+    action: 'Matricular em treinamento'
+  }
 ];
 
-const systemHealth = [
-  { name: 'API', status: 'operational', latency: '45ms' },
-  { name: 'Database', status: 'operational', latency: '12ms' },
-  { name: 'Storage', status: 'operational', latency: '89ms' },
-  { name: 'Email Service', status: 'degraded', latency: '234ms' },
+// Recent company activity
+const recentActivity = [
+  {
+    title: 'Nova obra iniciada - Edifício Solar',
+    type: 'project',
+    date: '2 horas atrás',
+    icon: Building2,
+    color: 'text-blue-600',
+    details: '87 novos funcionários precisam de treinamento NR-18'
+  },
+  {
+    title: '156 certificados NR-35 emitidos',
+    type: 'certificate',
+    date: '5 horas atrás',
+    icon: Award,
+    color: 'text-green-600',
+    details: 'Turma de trabalho em altura concluída'
+  },
+  {
+    title: 'Auditoria MTE programada',
+    type: 'audit',
+    date: '1 dia atrás',
+    icon: FileCheck,
+    color: 'text-orange-600',
+    details: 'Obra Residencial Park - 15/01/2025'
+  },
+  {
+    title: '12 funcionários contratados',
+    type: 'hiring',
+    date: '2 dias atrás',
+    icon: UserPlus,
+    color: 'text-purple-600',
+    details: 'Departamento de Operações'
+  }
+];
+
+// Upcoming training sessions for the company
+const upcomingTrainings = [
+  {
+    title: 'NR-18 Construção Civil',
+    date: '20 Jan, 08:00',
+    instructor: 'Eng. Carlos Mendes',
+    participants: 25,
+    location: 'Auditório Sede',
+    department: 'Operações'
+  },
+  {
+    title: 'NR-35 Trabalho em Altura',
+    date: '22 Jan, 14:00',
+    instructor: 'Téc. Ana Silva',
+    participants: 18,
+    location: 'Campo de Treinamento',
+    department: 'Operações'
+  },
+  {
+    title: 'NR-10 Segurança Elétrica',
+    date: '25 Jan, 09:00',
+    instructor: 'Eng. João Santos',
+    participants: 12,
+    location: 'Sala de Treinamento 2',
+    department: 'Manutenção'
+  }
+];
+
+// Company active projects
+const activeProjects = [
+  {
+    name: 'Edifício Solar',
+    employees: 87,
+    compliance: 92,
+    startDate: '2024-12-01',
+    expectedEnd: '2026-08-30',
+    criticalNRs: ['NR-18', 'NR-35', 'NR-6']
+  },
+  {
+    name: 'Residencial Park',
+    employees: 156,
+    compliance: 88,
+    startDate: '2024-08-15',
+    expectedEnd: '2025-12-15',
+    criticalNRs: ['NR-18', 'NR-23', 'NR-6']
+  },
+  {
+    name: 'Shopping Center Norte',
+    employees: 234,
+    compliance: 85,
+    startDate: '2024-06-01',
+    expectedEnd: '2026-03-30',
+    criticalNRs: ['NR-18', 'NR-35', 'NR-12']
+  }
 ];
 
 export default function AdminDashboardPage() {
+  const [selectedPeriod, setSelectedPeriod] = useState('30d');
+  const [currentTime, setCurrentTime] = useState('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setCurrentTime(now.toLocaleString('pt-BR'));
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const getPriorityColor = (priority: string) => {
+    switch(priority) {
+      case 'high': return 'text-red-600 bg-red-100 dark:bg-red-900/20';
+      case 'medium': return 'text-yellow-600 bg-yellow-100 dark:bg-yellow-900/20';
+      case 'low': return 'text-green-600 bg-green-100 dark:bg-green-900/20';
+      default: return 'text-gray-600 bg-gray-100';
+    }
+  };
+
   return (
     <div className="flex-1 flex flex-col">
-      {/* Page Header */}
-      <div className="flex items-center justify-between space-y-2 p-8 pb-6">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Painel Administrativo</h1>
-          <p className="text-muted-foreground">
-            Gerencie usuários, cursos e monitore o sistema
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <Select defaultValue="7d">
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Selecione o período" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="24h">Últimas 24 horas</SelectItem>
-              <SelectItem value="7d">Últimos 7 dias</SelectItem>
-              <SelectItem value="30d">Últimos 30 dias</SelectItem>
-              <SelectItem value="90d">Últimos 90 dias</SelectItem>
-            </SelectContent>
-          </Select>
-          <Button variant="outline" size="sm">
-            <Download className="mr-2 h-4 w-4" />
-            Exportar
-          </Button>
-          <Button size="sm">
-            <RefreshCw className="mr-2 h-4 w-4" />
-            Atualizar
-          </Button>
+      {/* Company Admin Header */}
+      <div className="bg-gradient-to-r from-blue-900 to-blue-800 text-white p-8">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <div className="h-16 w-16 rounded-lg bg-white/10 flex items-center justify-center">
+              <Building2 className="h-8 w-8 text-white" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold">{company.name} - Admin</h1>
+              <p className="text-blue-200 mt-1">
+                Painel de Gestão de Segurança do Trabalho
+              </p>
+              <p className="text-sm text-blue-300 mt-2">
+                {currentTime} • CNPJ: {company.cnpj} • {company.employees} colaboradores • {company.activeSites} obras ativas
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <Badge className="bg-green-600 text-white px-3 py-1">
+              <Target className="mr-1 h-3 w-3" />
+              {company.complianceRate}% Conforme
+            </Badge>
+            <Select value={selectedPeriod} onValueChange={setSelectedPeriod}>
+              <SelectTrigger className="w-[180px] bg-blue-800 border-blue-700 text-white">
+                <SelectValue placeholder="Selecione o período" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="7d">Últimos 7 dias</SelectItem>
+                <SelectItem value="30d">Últimos 30 dias</SelectItem>
+                <SelectItem value="90d">Últimos 90 dias</SelectItem>
+                <SelectItem value="year">Este ano</SelectItem>
+              </SelectContent>
+            </Select>
+            <Button variant="secondary" size="sm">
+              <Download className="mr-2 h-4 w-4" />
+              Relatório Mensal
+            </Button>
+          </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 space-y-6 px-8 pb-8">
-
-      {/* Stats Grid */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat, index) => {
-          const Icon = stat.icon;
-          const isPositive = stat.trend === 'up';
-          return (
-            <Card key={index}>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  {stat.title}
+      <div className="flex-1 space-y-6 p-8">
+        
+        {/* Critical Alerts */}
+        {criticalAlerts.length > 0 && (
+          <Card className="border-red-200 bg-red-50 dark:bg-red-900/10">
+            <CardHeader className="pb-3">
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-red-700 dark:text-red-400">
+                  <AlertCircle className="inline mr-2 h-5 w-5" />
+                  Alertas Críticos de Conformidade
                 </CardTitle>
-                <Icon className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">{stat.value}</div>
-                <div className="flex items-center text-xs">
-                  <span className={isPositive ? 'text-green-600' : 'text-red-600'}>
-                    {stat.change}
-                  </span>
-                  <span className="text-muted-foreground ml-2">
-                    {stat.description}
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
-      </div>
-
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {/* Recent Users */}
-        <Card className="lg:col-span-2">
-          <CardHeader className="flex flex-row items-center justify-between">
-            <div>
-              <CardTitle>Usuários Recentes</CardTitle>
-              <CardDescription>
-                Últimos usuários cadastrados no sistema
-              </CardDescription>
-            </div>
-            <Button size="sm" variant="outline">
-              <UserPlus className="mr-2 h-4 w-4" />
-              Adicionar
-            </Button>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {recentUsers.map((user, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
-                    <div className="h-9 w-9 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-sm font-medium text-primary">
-                        {user.name.split(' ').map(n => n[0]).join('')}
-                      </span>
+                <Button size="sm" variant="destructive">
+                  Resolver Todos ({criticalAlerts.length})
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {criticalAlerts.map((alert, index) => (
+                  <div key={index} className="flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <AlertTriangle className={`h-5 w-5 ${
+                        alert.priority === 'high' ? 'text-red-600' : 'text-yellow-600'
+                      }`} />
+                      <div>
+                        <p className="font-medium">{alert.department}</p>
+                        <p className="text-sm text-muted-foreground">{alert.message}</p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          Ação: {alert.action}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm font-medium">{user.name}</p>
-                      <p className="text-xs text-muted-foreground">{user.email}</p>
-                    </div>
+                    <Button size="sm" variant="outline">
+                      Resolver
+                    </Button>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-xs text-muted-foreground">{user.role}</span>
-                    <span className={cn(
-                      "text-xs px-2 py-1 rounded-full",
-                      user.status === 'Ativo' 
-                        ? 'bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400' 
-                        : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/20 dark:text-yellow-400'
-                    )}>
-                      {user.status}
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Company Metrics */}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {companyStats.map((stat, index) => {
+            const Icon = stat.icon;
+            const isPositive = stat.trend === 'up';
+            return (
+              <Card key={index}>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                  <CardTitle className="text-sm font-medium">
+                    {stat.title}
+                  </CardTitle>
+                  <Icon className="h-4 w-4 text-muted-foreground" />
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">{stat.value}</div>
+                  <div className="flex items-center text-xs">
+                    <span className={isPositive ? 'text-green-600' : 'text-red-600'}>
+                      {isPositive ? <TrendingUp className="inline h-3 w-3 mr-1" /> : 
+                                   <TrendingDown className="inline h-3 w-3 mr-1" />}
+                      {stat.change}
+                    </span>
+                    <span className="text-muted-foreground ml-2">
+                      {stat.description}
                     </span>
                   </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* Main Dashboard Grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          
+          {/* Department Compliance */}
+          <Card className="md:col-span-2">
+            <CardHeader>
+              <CardTitle>Conformidade por Departamento</CardTitle>
+              <CardDescription>
+                Status de treinamentos por área da empresa
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {departmentCompliance.map((dept, index) => (
+                  <div key={index} className="space-y-3 p-4 rounded-lg border">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-medium">{dept.name}</p>
+                        <p className="text-sm text-muted-foreground">
+                          Gestor: {dept.manager} • {dept.compliant} de {dept.employees} em conformidade
+                        </p>
+                      </div>
+                      <div className={`text-xl font-bold ${
+                        dept.percentage >= 90 ? 'text-green-600' : 
+                        dept.percentage >= 80 ? 'text-yellow-600' : 'text-red-600'
+                      }`}>
+                        {dept.percentage}%
+                      </div>
+                    </div>
+                    <Progress value={dept.percentage} className="h-2" />
+                    <div className="flex gap-2">
+                      {dept.criticalNRs.map(nr => (
+                        <Badge key={nr} variant="outline" className="text-xs">
+                          {nr}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Upcoming Company Trainings */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Próximos Treinamentos</CardTitle>
+              <CardDescription>
+                Agenda de capacitações da empresa
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {upcomingTrainings.map((training, index) => (
+                  <div key={index} className="space-y-2 border-b pb-3 last:border-0">
+                    <div>
+                      <p className="text-sm font-medium">{training.title}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {training.instructor} • {training.participants} participantes
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between text-xs text-muted-foreground">
+                      <span>{training.date}</span>
+                      <Badge variant="outline" className="text-xs">
+                        {training.department}
+                      </Badge>
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      Local: {training.location}
+                    </p>
+                  </div>
+                ))}
+                <Button className="w-full" size="sm">
+                  <Calendar className="mr-2 h-4 w-4" />
+                  Gerenciar Agenda
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Active Projects */}
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <div>
+              <CardTitle>Obras Ativas</CardTitle>
+              <CardDescription>
+                Projetos em andamento e status de conformidade
+              </CardDescription>
+            </div>
+            <Button size="sm">
+              <HardHat className="mr-2 h-4 w-4" />
+              Nova Obra
+            </Button>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4 md:grid-cols-3">
+              {activeProjects.map((project, index) => (
+                <div key={index} className="p-4 rounded-lg border">
+                  <div className="flex items-center justify-between mb-3">
+                    <div>
+                      <p className="font-medium">{project.name}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {project.employees} colaboradores
+                      </p>
+                    </div>
+                    <div className={`text-lg font-bold ${
+                      project.compliance >= 90 ? 'text-green-600' : 
+                      project.compliance >= 80 ? 'text-yellow-600' : 'text-red-600'
+                    }`}>
+                      {project.compliance}%
+                    </div>
+                  </div>
+                  <Progress value={project.compliance} className="h-2 mb-3" />
+                  <div className="flex gap-1 mb-3">
+                    {project.criticalNRs.map(nr => (
+                      <Badge key={nr} variant="outline" className="text-xs">
+                        {nr}
+                      </Badge>
+                    ))}
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Início: {new Date(project.startDate).toLocaleDateString('pt-BR')} • 
+                    Previsão: {new Date(project.expectedEnd).toLocaleDateString('pt-BR')}
+                  </p>
                 </div>
               ))}
             </div>
-            <Button className="w-full mt-4" variant="outline" size="sm">
-              Ver todos os usuários
-            </Button>
           </CardContent>
         </Card>
 
-        {/* System Health */}
+        {/* Recent Activity */}
         <Card>
           <CardHeader>
-            <CardTitle>Status do Sistema</CardTitle>
+            <CardTitle>Atividades Recentes da Empresa</CardTitle>
             <CardDescription>
-              Monitoramento em tempo real
+              Últimas movimentações e eventos importantes
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {systemHealth.map((service, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className={cn(
-                      "h-2 w-2 rounded-full",
-                      service.status === 'operational' 
-                        ? 'bg-green-500' 
-                        : 'bg-yellow-500'
-                    )} />
-                    <span className="text-sm">{service.name}</span>
+              {recentActivity.map((activity, index) => (
+                <div key={index} className="flex items-start space-x-4">
+                  <div className={`${activity.color} bg-opacity-10 p-2 rounded-lg mt-1`}>
+                    <activity.icon className={`h-5 w-5 ${activity.color}`} />
                   </div>
-                  <span className="text-xs text-muted-foreground">
-                    {service.latency}
-                  </span>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium">{activity.title}</p>
+                    <p className="text-xs text-muted-foreground mb-1">
+                      {activity.type} • {activity.date}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {activity.details}
+                    </p>
+                  </div>
+                  <Button variant="ghost" size="sm">
+                    Detalhes
+                  </Button>
                 </div>
               ))}
-              <div className="pt-4 border-t">
-                <div className="flex items-center justify-between text-sm">
-                  <span>Uptime</span>
-                  <span className="font-medium">99.98%</span>
-                </div>
-                <div className="flex items-center justify-between text-sm mt-2">
-                  <span>Última checagem</span>
-                  <span className="text-muted-foreground">30s atrás</span>
-                </div>
-              </div>
             </div>
           </CardContent>
         </Card>
-      </div>
 
-      {/* Top Trainings */}
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between">
-          <div>
-            <CardTitle>Cursos Populares</CardTitle>
-            <CardDescription>
-              Cursos com maior engajamento este mês
-            </CardDescription>
-          </div>
-          <Button size="sm" variant="outline">
-            <FileText className="mr-2 h-4 w-4" />
-            Ver Relatório
+        {/* Quick Actions for Company Admin */}
+        <div className="grid gap-4 md:grid-cols-5">
+          <Button className="h-auto flex-col gap-2 p-4 bg-brand-blue-main hover:bg-brand-blue-2">
+            <UserPlus className="h-6 w-6" />
+            <span>Cadastrar Funcionário</span>
           </Button>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            {topCourses.map((curso, index) => (
-              <div key={index} className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-medium">{curso.name}</p>
-                    <p className="text-xs text-muted-foreground">
-                      {curso.completions} conclusões • {curso.rating} ★
-                    </p>
-                  </div>
-                  <span className="text-sm font-medium">{curso.completion}%</span>
-                </div>
-                <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                  <div 
-                    className="h-full bg-primary transition-all"
-                    style={{ width: `${curso.completion}%` }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Quick Actions */}
-      <div className="grid gap-4 md:grid-cols-4">
-        <Button className="h-auto flex-col gap-2 p-4">
-          <Users className="h-6 w-6" />
-          <span>Gerenciar Usuários</span>
-        </Button>
-        <Button className="h-auto flex-col gap-2 p-4" variant="outline">
-          <BookOpen className="h-6 w-6" />
-          <span>Criar Curso</span>
-        </Button>
-        <Button className="h-auto flex-col gap-2 p-4" variant="outline">
-          <BarChart className="h-6 w-6" />
-          <span>Gerar Relatório</span>
-        </Button>
-        <Button className="h-auto flex-col gap-2 p-4" variant="outline">
-          <Settings className="h-6 w-6" />
-          <span>Configurações</span>
-        </Button>
-      </div>
+          <Button className="h-auto flex-col gap-2 p-4" variant="outline">
+            <Calendar className="h-6 w-6" />
+            <span>Agendar Treinamento</span>
+          </Button>
+          <Button className="h-auto flex-col gap-2 p-4" variant="outline">
+            <FileCheck className="h-6 w-6" />
+            <span>Relatório Conformidade</span>
+          </Button>
+          <Button className="h-auto flex-col gap-2 p-4" variant="outline">
+            <HardHat className="h-6 w-6" />
+            <span>Gerenciar Obras</span>
+          </Button>
+          <Button className="h-auto flex-col gap-2 p-4" variant="outline">
+            <Settings className="h-6 w-6" />
+            <span>Configurações</span>
+          </Button>
+        </div>
       </div>
     </div>
   );

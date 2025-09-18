@@ -34,7 +34,7 @@ export function AppUserNav({ user }: { user: User | undefined }) {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors hover:border hover:border-gray-300"
+        className="flex w-full items-center gap-2 rounded-md border border-transparent px-2 py-1.5 text-sm transition-colors hover:border-gray-300"
       >
         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted">
           <span className="text-sm font-semibold">

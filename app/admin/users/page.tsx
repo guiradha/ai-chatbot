@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,6 +28,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { UserDialog } from '@/components/dialogs/user-dialog';
 
 const mockUsers = [
   { id: 1, name: 'Ana Silva', email: 'ana.silva@empresa.com', role: 'Admin', department: 'TI', status: 'Ativo', lastLogin: '2h atrás' },
@@ -37,6 +39,28 @@ const mockUsers = [
 ];
 
 export default function UsersPage() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogMode, setDialogMode] = useState<'add' | 'edit'>('add');
+  const [selectedUser, setSelectedUser] = useState<any>(null);
+
+  const handleAddUser = () => {
+    setSelectedUser(null);
+    setDialogMode('add');
+    setDialogOpen(true);
+  };
+
+  const handleEditUser = (user: any) => {
+    setSelectedUser(user);
+    setDialogMode('edit');
+    setDialogOpen(true);
+  };
+
+  const handleSubmitUser = async (data: any) => {
+    console.log('User data:', data);
+    // Here you would typically call an API to save the user
+    // For now, we'll just log the data
+  };
+
   return (
     <div className="flex-1 flex flex-col">
       {/* Page Header */}
@@ -47,7 +71,7 @@ export default function UsersPage() {
             Gerencie usuários e permissões do sistema
           </p>
         </div>
-        <Button>
+        <Button onClick={handleAddUser}>
           <UserPlus className="mr-2 h-4 w-4" />
           Adicionar Usuário
         </Button>
@@ -154,7 +178,7 @@ export default function UsersPage() {
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
                             <DropdownMenuItem>Ver Detalhes</DropdownMenuItem>
-                            <DropdownMenuItem>Editar</DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => handleEditUser(user)}>Editar</DropdownMenuItem>
                             <DropdownMenuItem>Resetar Senha</DropdownMenuItem>
                             <DropdownMenuItem className="text-red-600">Desativar</DropdownMenuItem>
                           </DropdownMenuContent>
@@ -208,6 +232,14 @@ export default function UsersPage() {
           </Card>
         </div>
       </div>
+
+      <UserDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        mode={dialogMode}
+        user={selectedUser}
+        onSubmit={handleSubmitUser}
+      />
     </div>
   );
 }

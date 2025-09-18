@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -30,6 +31,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { CourseDialog } from '@/components/dialogs/course-dialog';
 
 const mockCourses = [
   { 
@@ -79,6 +81,28 @@ const mockCourses = [
 ];
 
 export default function CoursesPage() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogMode, setDialogMode] = useState<'add' | 'edit'>('add');
+  const [selectedCourse, setSelectedCourse] = useState<any>(null);
+
+  const handleAddCourse = () => {
+    setSelectedCourse(null);
+    setDialogMode('add');
+    setDialogOpen(true);
+  };
+
+  const handleEditCourse = (course: any) => {
+    setSelectedCourse(course);
+    setDialogMode('edit');
+    setDialogOpen(true);
+  };
+
+  const handleSubmitCourse = async (data: any) => {
+    console.log('Course data:', data);
+    // Here you would typically call an API to save the course
+    // For now, we'll just log the data
+  };
+
   return (
     <div className="flex-1 flex flex-col">
       {/* Page Header */}
@@ -89,7 +113,7 @@ export default function CoursesPage() {
             Gerencie cursos e treinamentos disponíveis
           </p>
         </div>
-        <Button>
+        <Button onClick={handleAddCourse}>
           <Plus className="mr-2 h-4 w-4" />
           Novo Curso
         </Button>
@@ -206,7 +230,7 @@ export default function CoursesPage() {
                         <Eye className="mr-2 h-4 w-4" />
                         Visualizar
                       </DropdownMenuItem>
-                      <DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleEditCourse(course)}>
                         <Edit className="mr-2 h-4 w-4" />
                         Editar
                       </DropdownMenuItem>
@@ -251,6 +275,14 @@ export default function CoursesPage() {
           ))}
         </div>
       </div>
+
+      <CourseDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        mode={dialogMode}
+        course={selectedCourse}
+        onSubmit={handleSubmitCourse}
+      />
     </div>
   );
 }

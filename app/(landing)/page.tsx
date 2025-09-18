@@ -34,6 +34,7 @@ import { GlobalFooter } from '@/components/global-footer'
 
 export default function LandingPage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [selectedNR, setSelectedNR] = useState('all')
   
   const locations = [
     'São Paulo, SP', 'Rio de Janeiro, RJ', 'Belo Horizonte, MG', 'Porto Alegre, RS', 
@@ -114,11 +115,10 @@ export default function LandingPage() {
                 Novo: Riscos Psicossociais NR-1 2025
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-6">
-                Transforme <span className="text-brand-blue-main font-bold">Segurança</span> em vantagem competitiva
+                Transforme Segurança em <span className="text-brand-blue-main font-bold">vantagem competitiva</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Plataforma completa de treinamentos em Segurança e Saúde no Trabalho. 
-                Garanta 100% de conformidade com as NRs de forma simples, digital e personalizada para sua empresa.
+                Plataforma de treinamentos em segurança do trabalho com inteligência artificial para estudos e dúvidas em campo, certificação válida pelo MTE e suporte inteligente para suas equipes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link href="/login">
@@ -213,10 +213,10 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              80 <span className="text-brand-blue-main">Treinamentos</span>
+              Treinamentos <span className="text-brand-blue-main">Obrigatórios NR</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Capacite sua equipe com nossos cursos especializados em segurança do trabalho e saúde ocupacional
+              Todos os treinamentos exigidos pelo Ministério do Trabalho com certificação válida e reconhecida
             </p>
           </div>
           
@@ -251,7 +251,7 @@ export default function LandingPage() {
                 
                 <CardContent className="flex-1 pb-3">
                   <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3 mb-4">
-                    Capacitação completa para trabalhos em altura com foco em segurança, EPIs e prevenção de acidentes.
+                    Treinamento obrigatório para trabalhos acima de 2m. Análise de risco, EPIs, procedimentos de emergência.
                   </p>
                   
                   {/* Simplified Badges - minimal style */}
@@ -578,7 +578,7 @@ export default function LandingPage() {
               Mais de <strong>50.000 profissionais</strong> já se capacitaram com nossos treinamentos
             </p>
             <div className="flex justify-center gap-4">
-              <Link href="/treinamentos">
+              <Link href="/cursos-nr">
                 <Button size="lg" className="bg-brand-blue-main hover:bg-brand-blue-2 text-white">
                   Ver Todos os Treinamentos
                   <ArrowRight className="ml-2 h-4 w-4" />

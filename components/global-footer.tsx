@@ -19,7 +19,7 @@ export function GlobalFooter() {
             <ul className="space-y-2 text-sm text-white/80">
               <li><Link href="/cursos-nr" className="hover:text-white transition-colors">Cursos</Link></li>
               <li><a href="/#features" className="hover:text-white transition-colors">Funcionalidades</a></li>
-              <li><a href="/#pricing" className="hover:text-white transition-colors">Planos</a></li>
+              <li><Link href="/planos" className="hover:text-white transition-colors">Planos</Link></li>
               <li><a href="/#" className="hover:text-white transition-colors">Segurança</a></li>
             </ul>
           </div>

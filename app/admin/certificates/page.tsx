@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -21,8 +22,31 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { CertificateDialog } from '@/components/dialogs/certificate-dialog';
 
 export default function CertificatesPage() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogMode, setDialogMode] = useState<'add' | 'edit'>('add');
+  const [selectedCertificate, setSelectedCertificate] = useState<any>(null);
+
+  const handleAddCertificate = () => {
+    setSelectedCertificate(null);
+    setDialogMode('add');
+    setDialogOpen(true);
+  };
+
+  const handleEditCertificate = (certificate: any) => {
+    setSelectedCertificate(certificate);
+    setDialogMode('edit');
+    setDialogOpen(true);
+  };
+
+  const handleSubmitCertificate = async (data: any) => {
+    console.log('Certificate data:', data);
+    // Here you would typically call an API to save the certificate
+    // For now, we'll just log the data
+  };
+
   return (
     <div className="flex-1 flex flex-col">
       {/* Page Header */}
@@ -33,7 +57,7 @@ export default function CertificatesPage() {
             Gerencie certificados emitidos e validações
           </p>
         </div>
-        <Button>
+        <Button onClick={handleAddCertificate}>
           <FileCheck className="mr-2 h-4 w-4" />
           Emitir Certificado
         </Button>
@@ -192,7 +216,15 @@ export default function CertificatesPage() {
                       </td>
                       <td className="p-4">
                         <div className="flex items-center gap-2">
-                          <Button variant="ghost" size="sm">
+                          <Button variant="ghost" size="sm" onClick={() => handleEditCertificate({
+                            id: cert.code,
+                            studentName: cert.student,
+                            courseName: cert.course,
+                            completionDate: cert.issued,
+                            expiryDate: cert.expiry,
+                            hours: '40 horas',
+                            instructorName: 'João Silva'
+                          })}>
                             Ver
                           </Button>
                           <Button variant="ghost" size="sm">
@@ -208,6 +240,14 @@ export default function CertificatesPage() {
           </CardContent>
         </Card>
       </div>
+
+      <CertificateDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        mode={dialogMode}
+        certificate={selectedCertificate}
+        onSubmit={handleSubmitCertificate}
+      />
     </div>
   );
 }

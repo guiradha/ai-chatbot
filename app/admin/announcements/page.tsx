@@ -1,10 +1,34 @@
 'use client';
 
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Megaphone, Plus, Send } from 'lucide-react';
+import { AnnouncementDialog } from '@/components/dialogs/announcement-dialog';
 
 export default function AnnouncementsPage() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogMode, setDialogMode] = useState<'add' | 'edit'>('add');
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState<any>(null);
+
+  const handleAddAnnouncement = () => {
+    setSelectedAnnouncement(null);
+    setDialogMode('add');
+    setDialogOpen(true);
+  };
+
+  const handleEditAnnouncement = (announcement: any) => {
+    setSelectedAnnouncement(announcement);
+    setDialogMode('edit');
+    setDialogOpen(true);
+  };
+
+  const handleSubmitAnnouncement = async (data: any) => {
+    console.log('Announcement data:', data);
+    // Here you would typically call an API to save the announcement
+    // For now, we'll just log the data
+  };
+
   return (
     <div className="flex-1">
       <div className="flex items-center justify-between px-6 py-4 border-b">
@@ -12,7 +36,7 @@ export default function AnnouncementsPage() {
           <h1 className="text-2xl font-bold tracking-tight">Comunicados</h1>
           <p className="text-muted-foreground">Envie comunicados e avisos</p>
         </div>
-        <Button>
+        <Button onClick={handleAddAnnouncement}>
           <Plus className="mr-2 h-4 w-4" />
           Novo Comunicado
         </Button>
@@ -60,6 +84,14 @@ export default function AnnouncementsPage() {
           </CardContent>
         </Card>
       </div>
+
+      <AnnouncementDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        mode={dialogMode}
+        announcement={selectedAnnouncement}
+        onSubmit={handleSubmitAnnouncement}
+      />
     </div>
   );
 }

@@ -1,10 +1,34 @@
 'use client';
 
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { FileText, Upload, Download, Folder } from 'lucide-react';
+import { DocumentDialog } from '@/components/dialogs/document-dialog';
 
 export default function DocumentsPage() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogMode, setDialogMode] = useState<'add' | 'edit'>('add');
+  const [selectedDocument, setSelectedDocument] = useState<any>(null);
+
+  const handleAddDocument = () => {
+    setSelectedDocument(null);
+    setDialogMode('add');
+    setDialogOpen(true);
+  };
+
+  const handleEditDocument = (document: any) => {
+    setSelectedDocument(document);
+    setDialogMode('edit');
+    setDialogOpen(true);
+  };
+
+  const handleSubmitDocument = async (data: any) => {
+    console.log('Document data:', data);
+    // Here you would typically call an API to save the document
+    // For now, we'll just log the data
+  };
+
   return (
     <div className="flex-1">
       <div className="flex items-center justify-between px-6 py-4 border-b">
@@ -12,7 +36,7 @@ export default function DocumentsPage() {
           <h1 className="text-2xl font-bold tracking-tight">Documentos</h1>
           <p className="text-muted-foreground">Gestão de documentos e arquivos</p>
         </div>
-        <Button>
+        <Button onClick={handleAddDocument}>
           <Upload className="mr-2 h-4 w-4" />
           Upload Documento
         </Button>
@@ -43,6 +67,14 @@ export default function DocumentsPage() {
           </CardContent>
         </Card>
       </div>
+
+      <DocumentDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        mode={dialogMode}
+        document={selectedDocument}
+        onSubmit={handleSubmitDocument}
+      />
     </div>
   );
 }

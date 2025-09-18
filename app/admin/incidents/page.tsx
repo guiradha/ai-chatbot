@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -11,8 +12,31 @@ import {
   CheckCircle,
   XCircle
 } from 'lucide-react';
+import { IncidentDialog } from '@/components/dialogs/incident-dialog';
 
 export default function IncidentsPage() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogMode, setDialogMode] = useState<'add' | 'edit'>('add');
+  const [selectedIncident, setSelectedIncident] = useState<any>(null);
+
+  const handleAddIncident = () => {
+    setSelectedIncident(null);
+    setDialogMode('add');
+    setDialogOpen(true);
+  };
+
+  const handleEditIncident = (incident: any) => {
+    setSelectedIncident(incident);
+    setDialogMode('edit');
+    setDialogOpen(true);
+  };
+
+  const handleSubmitIncident = async (data: any) => {
+    console.log('Incident data:', data);
+    // Here you would typically call an API to save the incident
+    // For now, we'll just log the data
+  };
+
   return (
     <div className="flex-1">
       {/* Header */}
@@ -23,7 +47,7 @@ export default function IncidentsPage() {
             Registros de incidentes e ocorrências de segurança
           </p>
         </div>
-        <Button>
+        <Button onClick={handleAddIncident}>
           <Plus className="mr-2 h-4 w-4" />
           Reportar Incidente
         </Button>
@@ -132,7 +156,18 @@ export default function IncidentsPage() {
                        incident.status === 'in_progress' ? 'Em Progresso' :
                        'Resolvido'}
                     </Badge>
-                    <Button variant="ghost" size="sm">
+                    <Button variant="ghost" size="sm" onClick={() => handleEditIncident({
+                      id: incident.id,
+                      title: incident.title,
+                      description: incident.title,
+                      severity: incident.severity,
+                      location: 'Local não especificado',
+                      reportedBy: 'Sistema',
+                      category: 'Geral',
+                      dateOccurred: '2024-01-15',
+                      timeOccurred: '14:30',
+                      status: incident.status
+                    })}>
                       Ver Detalhes
                     </Button>
                   </div>
@@ -142,6 +177,14 @@ export default function IncidentsPage() {
           </CardContent>
         </Card>
       </div>
+
+      <IncidentDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        mode={dialogMode}
+        incident={selectedIncident}
+        onSubmit={handleSubmitIncident}
+      />
     </div>
   );
 }
