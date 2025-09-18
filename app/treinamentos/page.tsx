@@ -49,7 +49,7 @@ export default function TreinamentosPage() {
       id: 2,
       title: 'Direção Defensiva',
       description: 'Aprenda os princípios da direção defensiva e como prevenir acidentes com atitudes seguras ao volante.',
-      duration: '08 horas',
+      duration: '8 horas',
       category: 'Segurança',
       slug: 'direcao-defensiva',
       nr: null,
@@ -1132,11 +1132,11 @@ export default function TreinamentosPage() {
                   Mostrando {filteredTreinamentos.length} de {treinamentos.length} treinamentos
                 </p>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredTreinamentos.map((treinamento) => {
                   const CategoryIcon = getCategoryIcon(treinamento.category)
                   return (
-                    <Card key={treinamento.id} className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group">
+                    <Card key={treinamento.id} className="hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group h-full">
                       {/* Image Header */}
                       <Link href={`/treinamentos/${treinamento.slug}`}>
                         <div className="relative h-48 cursor-pointer overflow-hidden">
@@ -1180,35 +1180,37 @@ export default function TreinamentosPage() {
                         </div>
                       </Link>
 
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-lg leading-tight line-clamp-2">{treinamento.title}</CardTitle>
-                      </CardHeader>
-                      
-                      <CardContent className="flex-1 pb-3">
-                        <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3 mb-4">
-                          {treinamento.description}
-                        </p>
+                      <div className="flex flex-col flex-1">
+                        <CardHeader className="pb-3">
+                          <CardTitle className="text-lg leading-tight line-clamp-2">{treinamento.title}</CardTitle>
+                        </CardHeader>
                         
-                        {/* Badges */}
-                        <div className="flex flex-wrap gap-2">
-                          <Badge className={`text-xs ${getLevelColor(treinamento.level)}`}>
-                            {treinamento.level}
-                          </Badge>
-                          <Badge className={`text-xs ${getTypeColor(treinamento.type)}`}>
-                            {treinamento.type}
-                          </Badge>
-                        </div>
-                      </CardContent>
+                        <CardContent className="flex-1 pb-3">
+                          <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3 mb-4">
+                            {treinamento.description}
+                          </p>
+                          
+                          {/* Badges */}
+                          <div className="flex flex-wrap gap-2">
+                            <Badge className={`text-xs ${getLevelColor(treinamento.level)}`}>
+                              {treinamento.level}
+                            </Badge>
+                            <Badge className={`text-xs ${getTypeColor(treinamento.type)}`}>
+                              {treinamento.type}
+                            </Badge>
+                          </div>
+                        </CardContent>
 
-                      {/* Footer with button */}
-                      <CardFooter className="pt-0">
-                        <Link href={`/treinamentos/${treinamento.slug}`} className="w-full">
-                          <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
-                            Ver detalhes
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </Link>
-                      </CardFooter>
+                        {/* Footer with button - now always at bottom */}
+                        <CardFooter className="pt-0 mt-auto">
+                          <Link href={`/treinamentos/${treinamento.slug}`} className="w-full">
+                            <Button className="w-full bg-brand-blue-main hover:bg-brand-blue-2 text-white">
+                              Ver detalhes
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </Link>
+                        </CardFooter>
+                      </div>
                     </Card>
                   )
                 })}
