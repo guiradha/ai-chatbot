@@ -29,20 +29,25 @@ export function useChatVisibility({
   );
 
   const visibilityType = useMemo(() => {
-    if (!history) return localVisibility;
-    const chat = history.chats.find((chat) => chat.id === chatId);
-    if (!chat) return 'private';
-    return chat.visibility;
+    // Temporarily force all chats to be private
+    return 'private';
+    // Original logic (disabled):
+    // if (!history) return localVisibility;
+    // const chat = history.chats.find((chat) => chat.id === chatId);
+    // if (!chat) return 'private';
+    // return chat.visibility;
   }, [history, chatId, localVisibility]);
 
   const setVisibilityType = (updatedVisibilityType: VisibilityType) => {
-    setLocalVisibility(updatedVisibilityType);
+    // Temporarily disabled - always keep as private
+    setLocalVisibility('private');
     mutate(unstable_serialize(getChatHistoryPaginationKey));
 
-    updateChatVisibility({
-      chatId: chatId,
-      visibility: updatedVisibilityType,
-    });
+    // Don't update visibility in database
+    // updateChatVisibility({
+    //   chatId: chatId,
+    //   visibility: updatedVisibilityType,
+    // });
   };
 
   return { visibilityType, setVisibilityType };

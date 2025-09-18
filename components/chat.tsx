@@ -62,7 +62,9 @@ export function Chat({
   const { setDataStream } = useDataStream();
 
   const [input, setInput] = useState<string>('');
-  const [usage, setUsage] = useState<AppUsage | undefined>(initialLastContext);
+  // Token usage tracking temporarily disabled
+  const [usage, setUsage] = useState<AppUsage | undefined>(undefined);
+  // Original: const [usage, setUsage] = useState<AppUsage | undefined>(initialLastContext);
   const [showCreditCardAlert, setShowCreditCardAlert] = useState(false);
   const [currentModelId, setCurrentModelId] = useState(initialChatModel);
   const currentModelIdRef = useRef(currentModelId);
@@ -101,7 +103,8 @@ export function Chat({
     }),
     onData: (dataPart) => {
       setDataStream((ds) => (ds ? [...ds, dataPart] : []));
-      if (dataPart.type === 'data-usage') setUsage(dataPart.data);
+      // Token usage tracking temporarily disabled
+      // if (dataPart.type === 'data-usage') setUsage(dataPart.data);
     },
     onFinish: () => {
       mutate(unstable_serialize(getChatHistoryPaginationKey));

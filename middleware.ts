@@ -47,13 +47,18 @@ export const config = {
     '/api/:path*',
     '/login',
     '/register',
+    '/assistente',
+    '/treinamentos',
 
     /*
      * Match all request paths except for the ones starting with:
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico, sitemap.xml, robots.txt (metadata files)
+     * - training-covers (training images)
+     * - images (other public images)
+     * - .png, .jpg, .jpeg, .gif, .svg, .ico (image files)
      */
-    '/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
+    '/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|training-covers|images|.*\\.(?:png|jpg|jpeg|gif|svg|ico)).*)',
   ],
 };

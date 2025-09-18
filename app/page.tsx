@@ -1,0 +1,664 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { 
+  Users, 
+  Award, 
+  BookOpen, 
+  TrendingUp, 
+  CheckCircle,
+  ArrowRight,
+  Play,
+  Star,
+  Building2,
+  Clock,
+  BarChart3,
+  GraduationCap,
+  FileCheck,
+  UserCheck,
+  Activity,
+  Shield,
+  MessageSquare,
+  Mic,
+  Camera,
+  Heart,
+  MapPin
+} from 'lucide-react'
+import { SaoESalvoLogo } from '@/components/sao-e-salvo-logo'
+import FeaturesSection from '@/components/features-section'
+
+export default function LandingPage() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  
+  const locations = [
+    'São Paulo, SP', 'Rio de Janeiro, RJ', 'Belo Horizonte, MG', 'Porto Alegre, RS', 
+    'Curitiba, PR', 'Salvador, BA', 'Fortaleza, CE', 'Brasília, DF', 
+    'Manaus, AM', 'Recife, PE', 'Belém, PA', 'Goiânia, GO',
+    'Campinas, SP', 'Santos, SP', 'Vitória, ES', 'Florianópolis, SC',
+    'Campo Grande, MS', 'Natal, RN', 'João Pessoa, PB', 'Maceió, AL',
+    'São José dos Campos, SP', 'Ribeirão Preto, SP', 'Uberlândia, MG', 'Sorocaba, SP'
+  ]
+
+  const [activities, setActivities] = useState([
+    { id: 1, type: 'certificate', action: 'Certificado NR-35 emitido', icon: FileCheck, color: 'text-brand-success', bgColor: 'bg-brand-success/10', time: 'agora', location: 'São Paulo, SP' },
+    { id: 2, type: 'training', action: 'Treinamento NR-10 iniciado', icon: GraduationCap, color: 'text-brand-info', bgColor: 'bg-brand-info/10', time: '1 min', location: 'Rio de Janeiro, RJ' },
+    { id: 3, type: 'user', action: 'Novo usuário cadastrado', icon: UserCheck, color: 'text-brand-purple', bgColor: 'bg-brand-purple/10', time: '2 min', location: 'Belo Horizonte, MG' },
+    { id: 4, type: 'completion', action: 'Módulo SST concluído', icon: CheckCircle, color: 'text-brand-blue-main', bgColor: 'bg-brand-blue-main/10', time: '3 min', location: 'Curitiba, PR' },
+    { id: 5, type: 'certificate', action: 'Certificado NR-33 emitido', icon: Award, color: 'text-brand-warning', bgColor: 'bg-brand-warning/10', time: '5 min', location: 'Porto Alegre, RS' }
+  ])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActivities(prev => {
+        const newActivities = [...prev]
+        const removedActivity = newActivities.pop()
+        
+        const activityTypes = [
+          { type: 'certificate', action: 'Certificado NR-35 emitido', icon: FileCheck, color: 'text-brand-success', bgColor: 'bg-brand-success/10' },
+          { type: 'certificate', action: 'Certificado NR-10 emitido', icon: FileCheck, color: 'text-brand-success', bgColor: 'bg-brand-success/10' },
+          { type: 'certificate', action: 'Certificado NR-33 emitido', icon: Award, color: 'text-brand-warning', bgColor: 'bg-brand-warning/10' },
+          { type: 'training', action: 'Treinamento NR-6 iniciado', icon: GraduationCap, color: 'text-brand-info', bgColor: 'bg-brand-info/10' },
+          { type: 'training', action: 'Treinamento CIPA iniciado', icon: GraduationCap, color: 'text-brand-info', bgColor: 'bg-brand-info/10' },
+          { type: 'user', action: 'Novo usuário cadastrado', icon: UserCheck, color: 'text-brand-purple', bgColor: 'bg-brand-purple/10' },
+          { type: 'completion', action: 'Módulo SST concluído', icon: CheckCircle, color: 'text-brand-blue-main', bgColor: 'bg-brand-blue-main/10' },
+          { type: 'completion', action: 'Avaliação aprovada', icon: CheckCircle, color: 'text-brand-blue-main', bgColor: 'bg-brand-blue-main/10' },
+          { type: 'training', action: 'Treinamento NR-12 iniciado', icon: GraduationCap, color: 'text-brand-info', bgColor: 'bg-brand-info/10' },
+          { type: 'certificate', action: 'Certificado NR-18 emitido', icon: FileCheck, color: 'text-brand-success', bgColor: 'bg-brand-success/10' },
+        ]
+        
+        const randomActivity = activityTypes[Math.floor(Math.random() * activityTypes.length)]
+        const randomLocation = locations[Math.floor(Math.random() * locations.length)]
+        
+        const newActivity = {
+          ...randomActivity,
+          id: Date.now(),
+          time: 'agora',
+          location: randomLocation
+        }
+        
+        const updatedActivities = [newActivity, ...newActivities].map((activity, index) => ({
+          ...activity,
+          time: index === 0 ? 'agora' : index === 1 ? '1 min' : index === 2 ? '2 min' : index === 3 ? '3 min' : '5 min'
+        }))
+        
+        return updatedActivities
+      })
+    }, 3000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  // Auto-rotate testimonials
+  useEffect(() => {
+    const testimonialInterval = setInterval(() => {
+      setCurrentTestimonial(prev => (prev + 1) % 4)
+    }, 5000) // Change every 5 seconds
+
+    return () => clearInterval(testimonialInterval)
+  }, [])
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      {/* Navigation */}
+      <header className="sticky top-0 z-50 w-full bg-[#0063F3]">
+        <div className="container px-4 mx-auto flex h-16 items-center justify-between">
+          <button 
+            onClick={scrollToTop}
+            className="cursor-pointer"
+          >
+            <SaoESalvoLogo size="md" className="text-white" />
+          </button>
+          <nav className="hidden md:flex items-center gap-6">
+            <Link href="/treinamentos" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
+              Treinamentos
+            </Link>
+            <a href="#features" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
+              Funcionalidades
+            </a>
+            <a href="#benefits" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
+              Benefícios
+            </a>
+            <a href="#pricing" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
+              Planos
+            </a>
+            <a href="#testimonials" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
+              Depoimentos
+            </a>
+          </nav>
+          <div className="flex items-center gap-4">
+            <Link href="/assistente">
+              <Button variant="ghost" className="text-white hover:text-white hover:bg-white/20">Entrar</Button>
+            </Link>
+            <Button className="bg-white text-[#0063F3] hover:bg-white/90 font-bold">Contato Comercial</Button>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative py-20 lg:py-32">
+        <div className="container px-4 mx-auto">
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            <div className="lg:max-w-3xl flex-shrink-0">
+              <Badge className="mb-4 bg-brand-blue-main/10 text-brand-blue-main border-brand-blue-main hover:bg-brand-grey-main hover:text-white hover:border-brand-grey-main transition-all cursor-pointer">
+                <TrendingUp className="h-3 w-3 mr-1" />
+                Novo: Riscos Psicossociais NR-1 2025
+              </Badge>
+              <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-6">
+                Transforme <span className="text-brand-blue-main font-bold">Segurança</span> em vantagem competitiva
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8">
+                Plataforma completa de treinamentos em Segurança e Saúde no Trabalho. 
+                Garanta 100% de conformidade com as NRs de forma simples, digital e personalizada para sua empresa.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <Link href="/assistente">
+                  <Button size="lg" className="w-full sm:w-auto bg-brand-blue-main hover:bg-brand-blue-2 text-white">
+                    Acessar Plataforma
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                  <Play className="mr-2 h-4 w-4" />
+                  Ver Demonstração
+                </Button>
+              </div>
+            </div>
+            <div className="relative flex-1 w-full lg:max-w-[550px] ml-auto">
+              <div className="relative z-10 bg-card rounded-lg shadow-2xl p-6">
+                <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center gap-2">
+                    <div className="h-2 w-2 bg-red-500 rounded-full animate-pulse" />
+                    <Badge variant="default" className="animate-pulse">AO VIVO</Badge>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Activity className="h-4 w-4 text-muted-foreground" />
+                    <span className="text-sm text-muted-foreground">Atividade em tempo real</span>
+                  </div>
+                </div>
+                <div className="space-y-3 overflow-hidden relative" style={{minHeight: '240px'}}>
+                  {activities.map((activity, index) => {
+                    const Icon = activity.icon
+                    return (
+                      <div
+                        key={activity.id}
+                        className="flex items-center justify-between p-3 bg-brand-grey-7/30 rounded-lg"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`h-10 w-10 rounded-full ${activity.bgColor} flex items-center justify-center flex-shrink-0`}>
+                            <Icon className={`h-5 w-5 ${activity.color}`} />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <p className="font-medium text-sm">{activity.action}</p>
+                            <p className="text-xs text-muted-foreground flex items-center gap-1">
+                              <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                              </svg>
+                              {activity.location}
+                            </p>
+                          </div>
+                        </div>
+                        <span className="text-xs text-muted-foreground font-medium ml-2">{activity.time}</span>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+              <div className="absolute top-8 -right-8 h-72 w-72 bg-primary/5 rounded-full blur-3xl" />
+              <div className="absolute -bottom-8 -left-8 h-72 w-72 bg-primary/5 rounded-full blur-3xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Indicators */}
+      <section className="py-12 border-y">
+        <div className="container px-4 mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-brand-grey-main">50K+</div>
+              <p className="text-sm text-muted-foreground">Profissionais Treinados</p>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-brand-grey-main">1.2K+</div>
+              <p className="text-sm text-muted-foreground">Empresas Atendidas</p>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-brand-grey-main">97%</div>
+              <p className="text-sm text-muted-foreground">Taxa de Aprovação</p>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-brand-grey-main">4.93/5</div>
+              <p className="text-sm text-muted-foreground">Avaliação Média</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <FeaturesSection />
+
+      {/* Treinamentos Section */}
+      <section id="treinamentos" className="py-20 bg-background">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              80 <span className="text-brand-blue-main">Treinamentos</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Capacite sua equipe com nossos cursos especializados em segurança do trabalho e saúde ocupacional
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {/* NR-35 - Trabalho em Altura */}
+            <Card className="hover:shadow-md transition-shadow overflow-hidden flex flex-col group">
+              <div className="relative h-48 bg-gradient-to-r from-gray-400 to-gray-600">
+                <img 
+                  src="/training-covers/nr-35-trabalho-em-altura.png" 
+                  alt="NR-35 Trabalho em Altura"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+                <div className="absolute inset-0 bg-brand-grey-main bg-opacity-20"></div>
+                <div className="absolute bottom-2 left-2">
+                  <Badge className="bg-white/90 text-brand-grey-main border-0">NR-35</Badge>
+                </div>
+              </div>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg">NR-35 Trabalho em Altura</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <p className="text-gray-600 leading-relaxed text-sm mb-4">
+                  Curso completo sobre segurança em trabalho em altura, incluindo uso de EPIs e análise de riscos.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* NR-33 - Espaço Confinado */}
+            <Card className="hover:shadow-md transition-shadow overflow-hidden flex flex-col group">
+              <div className="relative h-48 bg-gradient-to-r from-gray-400 to-gray-600">
+                <img 
+                  src="/training-covers/nr-33-espaco-confinado.png" 
+                  alt="NR-33 Espaço Confinado"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+                <div className="absolute inset-0 bg-brand-grey-main bg-opacity-20"></div>
+                <div className="absolute bottom-2 left-2">
+                  <Badge className="bg-white/90 text-brand-grey-main border-0">NR-33</Badge>
+                </div>
+              </div>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg">NR-33 Espaço Confinado</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <p className="text-gray-600 leading-relaxed text-sm mb-4">
+                  Capacita profissionais para atuar com segurança em espaços confinados, abordando identificação de riscos.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* NR-10 - Segurança em Eletricidade */}
+            <Card className="hover:shadow-md transition-shadow overflow-hidden flex flex-col group">
+              <div className="relative h-48 bg-gradient-to-r from-gray-400 to-gray-600">
+                <img 
+                  src="/training-covers/nr-10-basico.png" 
+                  alt="NR-10 Segurança em Eletricidade"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+                <div className="absolute inset-0 bg-brand-grey-main bg-opacity-20"></div>
+                <div className="absolute bottom-2 left-2">
+                  <Badge className="bg-white/90 text-brand-grey-main border-0">NR-10</Badge>
+                </div>
+              </div>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg">NR-10 Segurança em Eletricidade</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <p className="text-gray-600 leading-relaxed text-sm mb-4">
+                  Capacita profissionais para atuar com segurança em instalações e serviços elétricos.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Combate a Incêndios */}
+            <Card className="hover:shadow-md transition-shadow overflow-hidden flex flex-col group">
+              <div className="relative h-48 bg-gradient-to-r from-gray-400 to-gray-600">
+                <img 
+                  src="/training-covers/nocoes-combate-incendios.png" 
+                  alt="Combate a Incêndios"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+                <div className="absolute inset-0 bg-brand-grey-main bg-opacity-20"></div>
+                <div className="absolute bottom-2 left-2">
+                  <Badge className="bg-white/90 text-brand-grey-main border-0">NR-23</Badge>
+                </div>
+              </div>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg">Combate a Incêndios</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <p className="text-gray-600 leading-relaxed text-sm mb-4">
+                  Capacita profissionais para compreender o fogo, identificar classes de incêndio e operar extintores.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* NR-05 - CIPA */}
+            <Card className="hover:shadow-md transition-shadow overflow-hidden flex flex-col group">
+              <div className="relative h-48 bg-gradient-to-r from-gray-400 to-gray-600">
+                <img 
+                  src="/training-covers/cipa.png" 
+                  alt="NR-05 CIPA Grau de Risco 2"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+                <div className="absolute inset-0 bg-brand-grey-main bg-opacity-20"></div>
+                <div className="absolute bottom-2 left-2">
+                  <Badge className="bg-white/90 text-brand-grey-main border-0">NR-05</Badge>
+                </div>
+              </div>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg">NR-05 CIPA Grau de Risco 2</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <p className="text-gray-600 leading-relaxed text-sm mb-4">
+                  Capacita integrantes da CIPA grau de risco 2 para identificar riscos e promover segurança.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Primeiros Socorros */}
+            <Card className="hover:shadow-md transition-shadow overflow-hidden flex flex-col group">
+              <div className="relative h-48 bg-gradient-to-r from-gray-400 to-gray-600">
+                <img 
+                  src="/training-covers/nocoes-primeiros-socorros.png" 
+                  alt="Primeiros Socorros"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+                <div className="absolute inset-0 bg-brand-grey-main bg-opacity-20"></div>
+              </div>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg">Primeiros Socorros</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <p className="text-gray-600 leading-relaxed text-sm mb-4">
+                  Noções básicas para agir corretamente em emergências com técnicas de atendimento imediato.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <p className="text-muted-foreground mb-6">
+              Mais de <strong>50.000 profissionais</strong> já se capacitaram com nossos treinamentos
+            </p>
+            <div className="flex justify-center gap-4">
+              <Link href="/treinamentos">
+                <Button size="lg" className="bg-brand-blue-main hover:bg-brand-blue-2 text-white">
+                  Ver Todos os Treinamentos
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section id="benefits" className="py-20 bg-muted/50">
+        <div className="container px-4 mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight mb-6">
+                Por que empresas líderes escolhem São e Salvo?
+              </h2>
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <CheckCircle className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Redução de 60% nos custos</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Economia comparada a treinamentos presenciais, sem perder qualidade
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <CheckCircle className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold mb-1">45% menos acidentes</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Redução média em acidentes de trabalho após implementação
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <CheckCircle className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold mb-1">100% de conformidade</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Garanta aprovação em todas as fiscalizações do MTE
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <CheckCircle className="h-5 w-5 text-brand-grey-main mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold mb-1">ROI em 3 meses</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Retorno sobre investimento comprovado no primeiro trimestre
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              {/* Testimonials Carousel */}
+              <div className="overflow-hidden">
+                <div 
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+                >
+                  {/* Testimonial 1 */}
+                  <Card className="p-8 flex-shrink-0 w-full">
+                    <div className="flex items-center gap-2 mb-6">
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                    </div>
+                    <blockquote className="text-lg mb-4">
+                      "A São e Salvo revolucionou nosso programa de SST. Conseguimos treinar 
+                      15.000 colaboradores em todas as unidades, garantindo conformidade em todas as 
+                      operações industriais. A personalização com as cores e identidade da 
+                      nossa empresa foi fundamental para o engajamento."
+                    </blockquote>
+                    <div className="flex items-center gap-4">
+                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-brand-blue-main to-brand-blue-2 flex items-center justify-center text-white font-bold">
+                        CM
+                      </div>
+                      <div>
+                        <p className="font-semibold">Carlos Mendes</p>
+                        <p className="text-sm text-muted-foreground">Diretor de SST - Vale</p>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Testimonial 2 */}
+                  <Card className="p-8 flex-shrink-0 w-full">
+                    <div className="flex items-center gap-2 mb-6">
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                    </div>
+                    <blockquote className="text-lg mb-4">
+                      "Implementamos a São e Salvo em todas nossas plataformas marítimas. 
+                      A praticidade de treinar equipes offshore com certificação válida reduziu 
+                      nossos custos em 40% e aumentou significativamente o engajamento dos colaboradores."
+                    </blockquote>
+                    <div className="flex items-center gap-4">
+                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-brand-blue-main to-brand-blue-2 flex items-center justify-center text-white font-bold">
+                        MS
+                      </div>
+                      <div>
+                        <p className="font-semibold">Marina Santos</p>
+                        <p className="text-sm text-muted-foreground">Gerente de SSO - Petrobras</p>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Testimonial 3 */}
+                  <Card className="p-8 flex-shrink-0 w-full">
+                    <div className="flex items-center gap-2 mb-6">
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                    </div>
+                    <blockquote className="text-lg mb-4">
+                      "A plataforma superou nossas expectativas. Interface intuitiva, conteúdo 
+                      técnico de excelência e suporte excepcional. Conseguimos certificar 3.000 
+                      colaboradores em construção civil em apenas 4 meses."
+                    </blockquote>
+                    <div className="flex items-center gap-4">
+                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-brand-blue-main to-brand-blue-2 flex items-center justify-center text-white font-bold">
+                        RS
+                      </div>
+                      <div>
+                        <p className="font-semibold">Roberto Silva</p>
+                        <p className="text-sm text-muted-foreground">Diretor Técnico - MRV Engenharia</p>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Testimonial 4 */}
+                  <Card className="p-8 flex-shrink-0 w-full">
+                    <div className="flex items-center gap-2 mb-6">
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                      <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                    </div>
+                    <blockquote className="text-lg mb-4">
+                      "Solução completa e profissional. A gamificação mantém nossos colaboradores 
+                      engajados e os relatórios gerenciais nos dão visibilidade total do progresso. 
+                      Recomendo para qualquer empresa que busca excelência em SST."
+                    </blockquote>
+                    <div className="flex items-center gap-4">
+                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-brand-blue-main to-brand-blue-2 flex items-center justify-center text-white font-bold">
+                        AC
+                      </div>
+                      <div>
+                        <p className="font-semibold">Ana Costa</p>
+                        <p className="text-sm text-muted-foreground">Coordenadora SST - JBS</p>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+              </div>
+              
+              {/* Dots Navigation */}
+              <div className="flex justify-center gap-2 mt-6">
+                {[0, 1, 2, 3].map((index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+                      currentTestimonial === index ? 'bg-brand-blue-main' : 'bg-brand-grey-6 hover:bg-brand-grey-5'
+                    }`}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="container px-4 mx-auto">
+          <Card className="p-8 md:p-12 text-center text-white bg-brand-blue-main">
+            <h2 className="text-3xl font-bold mb-4">
+              Proteja sua equipe com a plataforma líder em SST
+            </h2>
+            <p className="text-xl mb-8 opacity-90">
+              Solução completa para empresas. Faturamento via boleto ou nota fiscal.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/assistente">
+                <Button size="lg" className="bg-white text-brand-grey-main hover:bg-white/90">
+                  Solicitar Demonstração
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Button size="lg" variant="outline" className="bg-transparent text-white hover:bg-white/10">
+                Falar com Consultor
+              </Button>
+            </div>
+            <p className="text-sm mt-6 opacity-75">
+              Junte-se a mais de 1.200 empresas que já garantem conformidade com São e Salvo
+            </p>
+          </Card>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t py-12">
+        <div className="container px-4 mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+              <div className="mb-4">
+                <SaoESalvoLogo size="md" />
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Tecnologia a favor da vida
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3">Produto</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><Link href="/treinamentos" className="hover:text-primary">Treinamentos</Link></li>
+                <li><a href="#" className="hover:text-primary">Funcionalidades</a></li>
+                <li><a href="#" className="hover:text-primary">Planos</a></li>
+                <li><a href="#" className="hover:text-primary">Segurança</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3">Empresa</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><Link href="/sobre" className="hover:text-primary">Sobre</Link></li>
+                <li><Link href="/blog" className="hover:text-primary">Blog</Link></li>
+                <li><Link href="/carreiras" className="hover:text-primary">Carreiras</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3">Suporte</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><Link href="/central-de-ajuda" className="hover:text-primary">Central de Ajuda</Link></li>
+                <li><Link href="/contato" className="hover:text-primary">Contato</Link></li>
+                <li><Link href="/status" className="hover:text-primary">Status</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="border-t mt-8">
+          <div className="container px-4 mx-auto py-4 text-center text-sm text-muted-foreground">
+            © 2025 São e Salvo. Todos os direitos reservados.
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}

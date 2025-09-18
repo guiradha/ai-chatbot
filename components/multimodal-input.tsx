@@ -310,8 +310,9 @@ function PureMultimodalInput({
             className="grow resize-none border-0! p-2 border-none! bg-transparent text-sm outline-none ring-0 [-ms-overflow-style:none] [scrollbar-width:none] placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 [&::-webkit-scrollbar]:hidden"
             rows={1}
             autoFocus
-          />{' '}
-          <Context {...contextProps} />
+          />
+          {/* Token usage display temporarily disabled
+          <Context {...contextProps} /> */}
         </div>
         <PromptInputToolbar className="!border-top-0 border-t-0! p-0 shadow-none dark:border-0 dark:border-transparent!">
           <PromptInputTools className="gap-0 sm:gap-0.5">
@@ -320,7 +321,8 @@ function PureMultimodalInput({
               status={status}
               selectedModelId={selectedModelId}
             />
-            <ModelSelectorCompact selectedModelId={selectedModelId} onModelChange={onModelChange} />
+            {/* Model selector temporarily disabled - using default model
+            <ModelSelectorCompact selectedModelId={selectedModelId} onModelChange={onModelChange} /> */}
           </PromptInputTools>
 
           {status === 'submitted' ? (

@@ -14,24 +14,24 @@
 /* define design tokens (light mode) */
 :root {
   --background: hsl(0 0% 100%);
-  --foreground: hsl(240 10% 3.9%);
+  --foreground: #26262A;
   --card: hsl(0 0% 100%);
   --card-foreground: hsl(240 10% 3.9%);
   --popover: hsl(0 0% 100%);
   --popover-foreground: hsl(240 10% 3.9%);
-  --primary: hsl(240 5.9% 10%);
-  --primary-foreground: hsl(0 0% 98%);
-  --secondary: hsl(240 4.8% 95.9%);
-  --secondary-foreground: hsl(240 5.9% 10%);
-  --muted: hsl(240 4.8% 95.9%);
-  --muted-foreground: hsl(240 3.8% 46.1%);
-  --accent: hsl(240 4.8% 95.9%);
-  --accent-foreground: hsl(240 5.9% 10%);
+  --primary: #0063F3;
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: #D8E3F5;
+  --secondary-foreground: #26262A;
+  --muted: #DBDDE1;
+  --muted-foreground: #78777C;
+  --accent: #588DCF;
+  --accent-foreground: hsl(0 0% 100%);
   --destructive: hsl(0 84.2% 60.2%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(240 5.9% 90%);
-  --input: hsl(240 5.9% 90%);
-  --ring: hsl(240 10% 3.9%);
+  --border: #C9C9CD;
+  --input: #C9C9CD;
+  --ring: #307FF4;
   --chart-1: hsl(12 76% 61%);
   --chart-2: hsl(173 58% 39%);
   --chart-3: hsl(197 37% 24%);
@@ -39,50 +39,50 @@
   --chart-5: hsl(27 87% 67%);
   --sidebar-background: hsl(0 0% 98%);
   --sidebar-foreground: hsl(240 5.3% 26.1%);
-  --sidebar-primary: hsl(240 5.9% 10%);
+  --sidebar-primary: #0063F3;
   --sidebar-primary-foreground: hsl(0 0% 98%);
   --sidebar-accent: hsl(240 4.8% 95.9%);
-  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-accent-foreground: #26262A;
   --sidebar-border: hsl(220 13% 91%);
-  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  --sidebar-ring: #307FF4;
   /* border radius unit */
   --radius: 0.5rem;
 }
 
 /* define design tokens (dark mode) */
 .dark {
-  --background: hsl(240 10% 3.9%);
+  --background: #26262A;
   --foreground: hsl(0 0% 98%);
-  --card: hsl(240 10% 3.9%);
+  --card: #26262A;
   --card-foreground: hsl(0 0% 98%);
-  --popover: hsl(240 10% 3.9%);
+  --popover: #26262A;
   --popover-foreground: hsl(0 0% 98%);
-  --primary: hsl(0 0% 98%);
-  --primary-foreground: hsl(240 5.9% 10%);
-  --secondary: hsl(240 3.7% 15.9%);
+  --primary: #307FF4;
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: #505054;
   --secondary-foreground: hsl(0 0% 98%);
-  --muted: hsl(240 3.7% 15.9%);
-  --muted-foreground: hsl(240 5% 64.9%);
-  --accent: hsl(240 3.7% 15.9%);
+  --muted: #505054;
+  --muted-foreground: #A1A0A5;
+  --accent: #588DCF;
   --accent-foreground: hsl(0 0% 98%);
   --destructive: hsl(0 62.8% 30.6%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(240 3.7% 15.9%);
-  --input: hsl(240 3.7% 15.9%);
-  --ring: hsl(240 4.9% 83.9%);
+  --border: #505054;
+  --input: #505054;
+  --ring: #588DCF;
   --chart-1: hsl(220 70% 50%);
   --chart-2: hsl(160 60% 45%);
   --chart-3: hsl(30 80% 55%);
   --chart-4: hsl(280 65% 60%);
   --chart-5: hsl(340 75% 55%);
-  --sidebar-background: hsl(240 5.9% 10%);
+  --sidebar-background: #26262A;
   --sidebar-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-primary: hsl(224.3 76.3% 48%);
+  --sidebar-primary: #307FF4;
   --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent: #505054;
   --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-border: hsl(240 3.7% 15.9%);
-  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  --sidebar-border: #505054;
+  --sidebar-ring: #588DCF;
 }
 
 /* define theme */
@@ -138,6 +138,99 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom colors from Viver Seguro */
+  --color-brand-blue-main: #0063F3;
+  --color-brand-blue-2: #307FF4;
+  --color-brand-blue-3: #588DCF;
+  --color-brand-blue-4: #90B8F6;
+  --color-brand-blue-5: #A8C8F6;
+  --color-brand-blue-6: #C1D5F5;
+  --color-brand-blue-7: #D8E3F5;
+  
+  --color-brand-grey-main: #26262A;
+  --color-brand-grey-2: #505054;
+  --color-brand-grey-3: #78777C;
+  --color-brand-grey-4: #A1A0A5;
+  --color-brand-grey-5: #B4B4B9;
+  --color-brand-grey-6: #C9C9CD;
+  --color-brand-grey-7: #DBDDE1;
+  
+  /* Secondary brand palette - UI colors */
+  --color-brand-success: #10B981;
+  --color-brand-success-light: #6EE7B7;
+  --color-brand-success-dark: #047857;
+  
+  --color-brand-danger: #EF4444;
+  --color-brand-danger-light: #FCA5A5;
+  --color-brand-danger-dark: #B91C1C;
+  
+  --color-brand-warning: #F59E0B;
+  --color-brand-warning-light: #FCD34D;
+  --color-brand-warning-dark: #D97706;
+  
+  --color-brand-purple: #8B5CF6;
+  --color-brand-purple-light: #C4B5FD;
+  --color-brand-purple-dark: #6D28D9;
+  
+  --color-brand-info: #06B6D4;
+  --color-brand-info-light: #67E8F9;
+  --color-brand-info-dark: #0891B2;
+  
+  --color-tea-green: #d0efb1;
+  --color-tea-green-100: #2a450e;
+  --color-tea-green-200: #548b1c;
+  --color-tea-green-300: #7dd02b;
+  --color-tea-green-400: #a7e16d;
+  --color-tea-green-500: #d0efb1;
+  --color-tea-green-600: #daf3c2;
+  --color-tea-green-700: #e3f6d1;
+  --color-tea-green-800: #edf9e1;
+  --color-tea-green-900: #f6fcf0;
+
+  --color-celadon: #b3d89c;
+  --color-celadon-100: #213515;
+  --color-celadon-200: #436a2a;
+  --color-celadon-300: #64a040;
+  --color-celadon-400: #8ac367;
+  --color-celadon-500: #b3d89c;
+  --color-celadon-600: #c2e0b0;
+  --color-celadon-700: #d2e7c4;
+  --color-celadon-800: #e1efd8;
+  --color-celadon-900: #f0f7eb;
+
+  --color-light-blue: #9dc3c2;
+  --color-light-blue-100: #1b2c2b;
+  --color-light-blue-200: #355756;
+  --color-light-blue-300: #508381;
+  --color-light-blue-400: #71a8a6;
+  --color-light-blue-500: #9dc3c2;
+  --color-light-blue-600: #b1cfce;
+  --color-light-blue-700: #c4dbda;
+  --color-light-blue-800: #d8e7e6;
+  --color-light-blue-900: #ebf3f3;
+
+  --color-air-blue: #77a6b6;
+  --color-air-blue-100: #152327;
+  --color-air-blue-200: #2a454e;
+  --color-air-blue-300: #3f6875;
+  --color-air-blue-400: #548a9c;
+  --color-air-blue-500: #77a6b6;
+  --color-air-blue-600: #92b8c4;
+  --color-air-blue-700: #adcad3;
+  --color-air-blue-800: #c9dbe2;
+  --color-air-blue-900: #e4edf0;
+
+  --color-ucla-blue: #4d7298;
+  --color-ucla-blue-100: #0f171f;
+  --color-ucla-blue-200: #1f2e3d;
+  --color-ucla-blue-300: #2e455c;
+  --color-ucla-blue-400: #3e5c7a;
+  --color-ucla-blue-500: #4d7298;
+  --color-ucla-blue-600: #6a8fb4;
+  --color-ucla-blue-700: #8fabc7;
+  --color-ucla-blue-800: #b4c7d9;
+  --color-ucla-blue-900: #dae3ec;
 }
 
 /*
@@ -176,7 +269,7 @@
 
 @layer utilities {
   :root {
-    --foreground-rgb: 0, 0, 0;
+    --foreground-rgb: 38, 38, 42;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
   }
@@ -184,8 +277,8 @@
   @media (prefers-color-scheme: dark) {
     :root {
       --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 0, 0, 0;
-      --background-end-rgb: 0, 0, 0;
+      --background-start-rgb: 38, 38, 42;
+      --background-end-rgb: 38, 38, 42;
     }
   }
 }
