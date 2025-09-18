@@ -41,8 +41,8 @@ const announcementSchema = z.object({
   }),
   targetAudience: z.string().min(1, 'Público-alvo é obrigatório'),
   scheduledDate: z.string().optional(),
-  sendEmail: z.boolean().default(false),
-  sendSMS: z.boolean().default(false),
+  sendEmail: z.boolean(),
+  sendSMS: z.boolean(),
 });
 
 type AnnouncementFormData = z.infer<typeof announcementSchema>;

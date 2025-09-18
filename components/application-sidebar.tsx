@@ -19,16 +19,19 @@ const menuItems = [
     title: 'Início',
     icon: BarChart3,
     href: '/inicio',
+    disabled: false,
   },
   {
     title: 'Assistente',
     icon: MessageSquare,
     href: '/assistente',
+    disabled: false,
   },
   {
     title: 'Cursos',
     icon: GraduationCap,
     href: '/inicio/cursos',
+    disabled: false,
   },
 ];
 

@@ -24,6 +24,7 @@ export function AdminHeader({ title, description, children }: AdminHeaderProps) 
       label: 'Início',
       href: '/',
       icon: Home,
+      isActive: false,
     });
     
     // Build breadcrumb path

@@ -12,7 +12,7 @@ export function AdminLayoutHeader() {
   // Generate breadcrumb items from pathname
   const generateBreadcrumbs = () => {
     const segments = pathname.split('/').filter(Boolean);
-    const breadcrumbs = [];
+    const breadcrumbs: Array<{ label: string; href: string; isActive: boolean }> = [];
     
     // Build breadcrumb path
     let currentPath = '';
