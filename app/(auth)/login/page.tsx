@@ -135,14 +135,14 @@ export default function Page() {
                   <div className="flex gap-3">
                     <Button 
                       type="button"
-                      onClick={() => window.location.href = 'http://localhost:3005/inicio'}
+                      onClick={() => window.location.href = '/inicio'}
                       className="flex-1 h-12 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 font-medium"
                     >
                       Usuário
                     </Button>
                     <Button 
                       type="button"
-                      onClick={() => window.location.href = 'http://localhost:3005/admin'}
+                      onClick={() => window.location.href = '/admin'}
                       className="flex-1 h-12 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 font-medium"
                     >
                       Admin

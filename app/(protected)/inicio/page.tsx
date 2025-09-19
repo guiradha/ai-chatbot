@@ -235,14 +235,8 @@ export default function InicioPage() {
             </div>
             <div>
               <h1 className="text-2xl font-bold">Olá, {currentUser.name}!</h1>
-              <p className="text-sm text-muted-foreground">
-                {currentTime} • {currentUser.department} • {currentUser.role}
-              </p>
             </div>
           </div>
-          <p className="text-muted-foreground">
-            {currentUser.company} • Matrícula: {currentUser.employeeId}
-          </p>
         </div>
         <div className="flex items-center gap-3">
           <Button variant="outline" size="sm">
