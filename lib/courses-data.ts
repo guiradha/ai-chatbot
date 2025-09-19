@@ -1,6 +1,7 @@
 import { Award, BookOpen, Shield, Heart, Users, Target, Trophy, Check, Clock, FileText, PlayCircle, Book } from 'lucide-react'
 import { additionalCoursesData } from './additional-courses-data'
 import { direcaoDefensivaCourse } from './direcao-defensiva-course'
+import { esgCoursesData } from './esg-courses-data'
 
 // Helper function to generate slug from title
 const generateSlug = (title: string): string => {
@@ -1829,6 +1830,9 @@ coursesData.push(...additionalCoursesData)
 
 // Add direção defensiva course
 coursesData.push(direcaoDefensivaCourse)
+
+// Add ESG courses
+coursesData.push(...esgCoursesData)
 
 // Sort by ID
 coursesData.sort((a, b) => a.id - b.id)

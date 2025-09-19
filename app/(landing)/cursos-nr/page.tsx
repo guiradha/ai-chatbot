@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Clock, Shield, Users, Heart, ArrowRight, BookOpen, Search, ChevronUp } from "lucide-react"
 import { SaoESalvoLogo } from '@/components/sao-e-salvo-logo'
 import { GlobalFooter } from '@/components/global-footer'
+import { getAllCourses } from '@/lib/courses-data'
 
 export default function CursosNRPage() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -33,7 +34,44 @@ export default function CursosNRPage() {
     setSearchQuery(tagValue)
   }
 
-  const cursos = [
+  // Helper function to extract NR from title
+  const extractNR = (title: string): string | null => {
+    const nrMatch = title.match(/NR[-\s]?(\d+)/i)
+    if (nrMatch) return `NR-${nrMatch[1]}`
+    if (title.includes('Lei Lucas')) return 'Lei Lucas'
+    if (title.includes('Lei 14.540')) return 'Lei 14.540'
+    if (title.includes('LGPD')) return 'Lei 13.709'
+    if (title.includes('NBR')) return title.match(/NBR[-\s]?(\d+)/i)?.[0] || null
+    return null
+  }
+
+  // Helper function to determine course type
+  const getCourseType = (title: string): string => {
+    const lowerTitle = title.toLowerCase()
+    if (lowerTitle.includes('reciclagem') || lowerTitle.includes('periódico')) return 'Periódico'
+    if (lowerTitle.includes('complementar') || lowerTitle.includes('sep')) return 'Complementar'
+    if (lowerTitle.includes('supervisor') || lowerTitle.includes('avançado')) return 'Específico'
+    if (lowerTitle.includes('obrigatório') || title.includes('Lei Lucas') || title.includes('Lei 14.540') || title.includes('LGPD')) return 'Obrigatório'
+    if (lowerTitle.includes('esg') || lowerTitle.includes('sustentab')) return 'ESG'
+    return 'Iniciação'
+  }
+
+  // Get all courses from the data file and transform them for the landing page
+  const allCoursesData = getAllCourses()
+  const cursos = allCoursesData.map(course => ({
+    id: course.id,
+    title: course.title,
+    description: course.description,
+    duration: course.duration,
+    category: course.category,
+    slug: course.slug,
+    nr: extractNR(course.title),
+    level: course.nivel || 'Intermediário',
+    type: getCourseType(course.title),
+    image: course.image
+  }))
+
+  /* Old hardcoded courses - removed in favor of dynamic import
     {
       id: 1,
       title: 'NR-35 Trabalho em Altura',
@@ -994,7 +1032,7 @@ export default function CursosNRPage() {
       type: 'Iniciação',
       image: '/training-covers/prevencao-combate-assedio-violencia-trabalho.png'
     }
-  ]
+  ] */
 
   // Filter courses based on search query and category
   const filteredCursos = cursos.filter(curso => {
@@ -1034,6 +1072,7 @@ export default function CursosNRPage() {
       case 'Complementar': return 'bg-orange-100 text-orange-800 dark:bg-orange-900/20 dark:text-orange-400'
       case 'Específico': return 'bg-pink-100 text-pink-800 dark:bg-pink-900/20 dark:text-pink-400'
       case 'Obrigatório': return 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400'
+      case 'ESG': return 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'
       default: return 'bg-brand-grey-7 text-brand-grey-main dark:bg-brand-grey-2 dark:text-brand-grey-6'
     }
   }
@@ -1047,10 +1086,10 @@ export default function CursosNRPage() {
       <section className="py-20">
         <div className="container px-4 mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            80 Cursos em Segurança do Trabalho
+            {cursos.length} Cursos em Segurança do Trabalho e ESG
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Capacite sua equipe com nossos cursos especializados em conformidade com as Normas Regulamentadoras
+            Capacite sua equipe com nossos cursos especializados em conformidade com as Normas Regulamentadoras e práticas ESG
           </p>
           
           {/* Search Bar */}
